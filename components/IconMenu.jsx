@@ -1,6 +1,6 @@
 import React from 'react';
 import social from '../static/config/social.json';
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import SocialIcon from './SocialIcon';
 
 export default class IconMenu extends React.Component {
 
@@ -9,21 +9,14 @@ export default class IconMenu extends React.Component {
       <div className="social-icons">
         {
           social.map((item, index) => (
-            <a href={item.url} target="_blank" key={index} ><FA icon={['fab', item.name]} /></a>
+            <SocialIcon url={item.url} icon={item.name} color={item.color} key={index}/>
+            // <a href={item.url} target="_blank" key={index} ><FA icon={['fab', item.name]} /></a>
           ))
         }
 
         <style jsx>{`
           .social-icons {
             z-index: 1;
-
-            a {
-              color:  var(--black);
-              font-size: 25pt;
-              cursor: pointer;
-              z-index: 1;
-              padding: 5px;
-            }
           }
         `}</style>
       </div>
