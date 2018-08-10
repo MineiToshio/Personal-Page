@@ -4,10 +4,10 @@ import NProgress from 'nprogress';
 import Header from './Header';
 import Footer from './Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import smoothScrool from '../helpers/smoothScroll';
 
-library.add(faGithub, faTwitter, faInstagram);
+library.add(faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
