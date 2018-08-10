@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -5,9 +6,11 @@ import Header from './Header';
 import Footer from './Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import smoothScrool from '../helpers/smoothScroll';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import smoothScroll from '../helpers/smoothScroll';
+import ScrollUp from '../components/ScrollUp';
 
-library.add(faGithub, faTwitter, faInstagram, faLinkedin);
+library.add(faAngleUp, faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -18,7 +21,7 @@ Router.onRouteChangeError = () => NProgress.done()
 export default class Layout extends React.Component {
   
   componentDidMount() {
-    smoothScrool();
+    smoothScroll();
   }
 
   render() {
@@ -39,9 +42,9 @@ export default class Layout extends React.Component {
         { children }
 
         <Footer />
+        <ScrollUp />
 
         <style jsx global>{`
-
           :root {
             //--green: #0C7C59;
             --green: #1abc9c;
