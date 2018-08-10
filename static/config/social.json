@@ -1,14 +1,22 @@
 [
   {
     "name": "twitter",
-    "url": "https://twitter.com/MineiToshio"
+    "url": "https://twitter.com/MineiToshio",
+    "color": "#1da1f2"
   },
   {
     "name": "instagram",
-    "url": "https://instagram.com/mineitoshio"
+    "url": "https://instagram.com/mineitoshio",
+    "color": "#e1306c"
   },
   {
     "name": "github",
-    "url": "https://github.com/MineiToshio"
+    "url": "https://github.com/MineiToshio",
+    "color": "#333"
+  },
+  {
+    "name": "linkedin",
+    "url": "https://www.linkedin.com/in/mineitoshio/",
+    "color": "#0077b5"
   }
 ]
