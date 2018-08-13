@@ -49,6 +49,7 @@ export default class Layout extends React.Component {
           :root {
             --green: #1abc9c;
             --black: #272727;
+            --blue: #26408B;
           }
 
           @font-face {
@@ -65,6 +66,7 @@ export default class Layout extends React.Component {
           body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
+            color: var(--black);
 
             &::-webkit-scrollbar-track
             {
