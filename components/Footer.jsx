@@ -5,21 +5,22 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <IconMenu />
+        <IconMenu color="#fff" />
         <div>Toshio Minei ©2018</div>
 
         <style jsx>{`
           footer {
-            padding: 20px;
+            padding: 15px;
             display: flex;
             flex-direction: columns;
             align-items: center;
             justify-content: center;
-            background: var(--green);
+            background: var(--black);
             flex-direction: column;
+            color: #fff;
 
             div {
-              margin-top: 20px;
+              margin-top: 15px;
             }
           }
         `}</style>
