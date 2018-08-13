@@ -7,10 +7,11 @@ import Footer from './Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../helpers/smoothScroll';
 import ScrollUp from '../components/ScrollUp';
 
-library.add(faAngleUp, faGithub, faTwitter, faInstagram, faLinkedin);
+library.add(faAngleUp, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -46,7 +47,6 @@ export default class Layout extends React.Component {
 
         <style jsx global>{`
           :root {
-            //--green: #0C7C59;
             --green: #1abc9c;
             --black: #272727;
           }
@@ -65,7 +65,6 @@ export default class Layout extends React.Component {
           body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
-            background: white;
 
             &::-webkit-scrollbar-track
             {
