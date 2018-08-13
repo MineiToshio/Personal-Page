@@ -5,18 +5,23 @@ import SocialIcon from './SocialIcon';
 export default class IconMenu extends React.Component {
 
   render() {
+    const { color } = this.props;
+
     return (
       <div className="social-icons">
         {
           social.map((item, index) => (
             <SocialIcon url={item.url} icon={item.name} color={item.color} key={index}/>
-            // <a href={item.url} target="_blank" key={index} ><FA icon={['fab', item.name]} /></a>
           ))
         }
 
         <style jsx>{`
           .social-icons {
             z-index: 1;
+
+            :global(a) {
+              color: ${ color };
+            }
           }
         `}</style>
       </div>

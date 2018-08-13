@@ -11,7 +11,6 @@ export default class SocialIcon extends React.Component {
 
         <style jsx>{`
           a {
-            color: var(--black);
             font-size: 25pt;
             cursor: pointer;
             z-index: 1;
