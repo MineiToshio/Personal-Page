@@ -9,7 +9,7 @@ export default class Portada extends React.Component {
     return (
       <div className="portada">
         <ParticleJs/>
-        <IconMenu />
+        <IconMenu color="#272727" />
         <div className="content">
           <div className="title">¡Bienvenido! Soy <span className="highlight">Toshio Minei</span></div>
           <div className="sub-title">tech geek, emprendedor, lifelong learner</div>
