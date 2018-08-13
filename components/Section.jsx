@@ -3,16 +3,14 @@ import React from 'react';
 export default class Section extends React.Component {
   render() {
 
-    const { children, title, subtitle } = this.props;
+    const { children, title, subtitle, id } = this.props;
 
     return (
-      <div>
-        <section id="sobre-mi">
-          <h1>{ title }</h1>
-          <span>{ subtitle }</span>
-          <div className="underline"></div>
-          { children }
-        </section>
+      <section id={ id }>
+        <h1>{ title }</h1>
+        <span>{ subtitle }</span>
+        <div className="underline"></div>
+        { children }
 
         <style jsx>{`
 
@@ -21,6 +19,7 @@ export default class Section extends React.Component {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
 
             h1 {
               color: var(--green);
@@ -47,7 +46,7 @@ export default class Section extends React.Component {
             }
           }
         `}</style>
-      </div>
+      </section>
     )
   }
 }
