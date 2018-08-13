@@ -1,17 +1,34 @@
 import React from 'react';
+import EventListener, { withOptions } from "react-event-listener";
 
 export default class Header extends React.Component {
+
+  handleScroll = () => {
+    if (window.scrollY > window.innerHeight) {
+      document.querySelector('.menu').classList.add('sticky');
+      document.querySelector('#sobre-mi').style.paddingTop = "100px";
+    }
+    else {
+      document.querySelector('.menu').classList.remove('sticky');
+      document.querySelector('#sobre-mi').style.paddingTop = "";
+    }
+  }
+
   render () {
     return (
       <header className="menu">
-          <a href="#" className="logo">Toshio Minei</a>
-          <ul>
-            <li><a href="#">inicio</a></li>
-            <li><a href="#">sobre mi</a></li>
-            <li><a href="#">portafolio</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">contacto</a></li>
-          </ul>
+
+        <EventListener target="window" 
+          onScroll={withOptions(this.handleScroll, {passive: true, capture: false})} />
+
+        <a href="#" className="logo">Toshio Minei</a>
+        <ul>
+          <li><a href="#">inicio</a></li>
+          <li><a href="#">sobre mi</a></li>
+          <li><a href="#">portafolio</a></li>
+          <li><a href="#">blog</a></li>
+          <li><a href="#">contacto</a></li>
+        </ul>
         
         <style jsx>{`
           .menu {

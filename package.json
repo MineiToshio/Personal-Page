@@ -22,6 +22,7 @@
     "particles.js": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-event-listener": "^0.5.10",
     "react-scroll-up": "^1.3.3",
     "slugify": "^1.3.1"
   },
