@@ -18,6 +18,7 @@ export default class SocialIcon extends React.Component {
             padding: 0 8px;
             border-radius: 5px;
             transition: all .3s ease;
+            will-change: background-color, color;
             margin: 0 8px;
 
             &:hover {
