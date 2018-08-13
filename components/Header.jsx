@@ -78,7 +78,7 @@ export default class Header extends React.Component {
 
               a {
                 text-decoration: none;
-                color: rgb(0, 34, 85);
+                color: var(--blue);
                 font-size: 22px;
               }
 
