@@ -2,16 +2,16 @@ import React from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../widgets/Header';
+import Footer from '../widgets/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import smoothScroll from '../helpers/smoothScroll';
-import ScrollUp from '../components/ScrollUp';
+import smoothScroll from '../../helpers/smoothScroll';
+import ScrollUp from '../widgets/ScrollUp';
 
-library.add(faAngleUp, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
+library.add(faAngleUp, faTimes, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -48,8 +48,10 @@ export default class Layout extends React.Component {
         <style jsx global>{`
           :root {
             --green: #1abc9c;
+            --green-alpha: rgba(26,188,156,.8);
             --black: #272727;
             --blue: #26408B;
+            --blue-alpha: rgba(38, 64, 139, .8);
           }
 
           @font-face {

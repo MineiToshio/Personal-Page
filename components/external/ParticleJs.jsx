@@ -4,7 +4,7 @@ export default class ParticleJs extends React.Component {
 
   componentDidMount() {
     require('particles.js');
-    particlesJS.load('particles-js', "../static/config/particles.json");
+    particlesJS.load('particles-js', "../../static/data/particles.json");
   }
 
   render() {

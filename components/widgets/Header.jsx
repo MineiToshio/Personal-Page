@@ -44,7 +44,6 @@ export default class Header extends React.Component {
             transition: all 0.5s;
             padding: 10px 30px;
             
-
             &.sticky {
               position: fixed;
               top: 0;

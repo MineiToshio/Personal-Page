@@ -1,23 +1,9 @@
 import React from 'react';
-import inViewport from '../helpers/inViewport';
-import slug from '../helpers/slug';
+import inViewport from '../../helpers/inViewport';
+import slug from '../../helpers/slug';
 import EventListener, { withOptions } from "react-event-listener";
 
 export default class SkillBar extends React.Component {
-
-  // componentDidMount() {
-  //   const { percent, skill } = this.props;
-  //   const id = slug(skill);
-
-  //   window.addEventListener('scroll', () => {
-  //     if(inViewport(document.querySelector(`#${ id }`)))
-  //       document.querySelector(`#${ id } .skillbar-bar`).style.width = `${ percent }%`;
-  //     else {
-        
-  //     }
-  //   })
-  // }
-
   handleScroll = () => {
     const { percent, skill } = this.props;
     const id = slug(skill);

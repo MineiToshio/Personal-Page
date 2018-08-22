@@ -14,15 +14,15 @@ export default class SocialIcon extends React.Component {
             font-size: 25pt;
             cursor: pointer;
             z-index: 1;
-            padding: 0 8px;
             border-radius: 5px;
             transition: all .3s ease;
             will-change: background-color, color;
             margin: 0 8px;
+            padding: 0 8px;
 
             &:hover {
               background-color: ${ color };
-              color: #fff;
+              color: #fff !important;
               
               :global(svg) {
                 animation: topToBottom .3s forwards;

@@ -1,12 +1,10 @@
 import React from 'react';
-import social from '../static/config/social.json';
+import social from '../../static/data/social.json';
 import SocialIcon from './SocialIcon';
 
 export default class IconMenu extends React.Component {
 
   render() {
-    const { color } = this.props;
-
     return (
       <div className="social-icons">
         {
@@ -14,14 +12,9 @@ export default class IconMenu extends React.Component {
             <SocialIcon url={item.url} icon={item.name} color={item.color} key={index}/>
           ))
         }
-
         <style jsx>{`
           .social-icons {
             z-index: 1;
-
-            :global(a) {
-              color: ${ color };
-            }
           }
         `}</style>
       </div>

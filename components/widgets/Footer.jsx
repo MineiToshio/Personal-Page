@@ -1,14 +1,16 @@
 import React from 'react';
-import IconMenu from './IconMenu';
+import IconMenu from '../social-icons/IconMenu';
 
 export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <IconMenu color="#fff" />
+        <IconMenu />
         <div>Toshio Minei ©2018</div>
 
         <style jsx>{`
+          $color: #949494;
+
           footer {
             padding: 15px;
             display: flex;
@@ -17,10 +19,14 @@ export default class Footer extends React.Component {
             justify-content: center;
             background: var(--black);
             flex-direction: column;
-            color: #fff;
+            color: $color;
 
             div {
               margin-top: 15px;
+            }
+
+            :global(a) {
+              color: $color;
             }
           }
         `}</style>
