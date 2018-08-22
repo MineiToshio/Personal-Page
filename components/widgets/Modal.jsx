@@ -43,7 +43,7 @@ export default class Modal extends React.Component {
             align-items: center;
             opacity: 0;
             visibility: hidden;
-            transition: 1.5s ease-in;
+            transition: 1.3s ease-in;
             
             will-change: opacity;
             z-index: 11;
@@ -90,7 +90,7 @@ export default class Modal extends React.Component {
               transform: translateY(5px);
             }
           }
-          
+
           @keyframes modalOut {
             0% {
               transform: translateY(5px);
