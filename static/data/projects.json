@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "web design",
+    "tech": "HTML",
+    "description": "Work description here",
+    "images": ["compu.jpg"]
+  },
+  {
+    "id": "2",
+    "name": "web",
+    "tech": "HTML",
+    "description": "Work here",
+    "images": ["compu2.jpg"]
+  }
+]
