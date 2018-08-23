@@ -44,7 +44,6 @@ export default class Modal extends React.Component {
             opacity: 0;
             visibility: hidden;
             transition: 1.3s ease-in;
-            
             will-change: opacity;
             z-index: 11;
 

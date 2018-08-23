@@ -1,6 +1,7 @@
 import React from 'react';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
+import Shuffle from 'shufflejs';
 
 export default class Portfolio extends React.Component {
 
@@ -21,28 +22,95 @@ export default class Portfolio extends React.Component {
     })
   }
 
+  deactivateFilters = () => {
+    const filters = document.querySelector('.filters')
+    Array.from(filters.children).map((element) => {
+      return element.classList.remove("active")
+    })
+  }
+
+  handleShuffle = (e) => {
+    this.deactivateFilters();
+    e.target.classList.add("active");
+
+    const filter = e.target.dataset.filter;
+    this.shuffle.filter(filter);
+  }
+
+  componentDidMount() {
+    this.shuffle = new Shuffle(this.element, {
+      itemSelector: '.project',
+      sizer: '.my-sizer-element',
+    });
+  }
+
+  componentWillUnmount() {
+    this.shuffle.destroy();
+    this.shuffle = null;
+  }
+
+  componentDidUpdate() {
+    this.shuffle.resetItems();
+  }
+
   render() {
 
     const { projects } = this.props;
     const { modalVisible, modalProject } = this.state;
 
     return (
-      <div className="portafolio">
-
-        {
-          projects.map(project => (
-            <Project {...project} key={project.id} handleClick={() => this.handleModalClick(project)}/>
-          ))
-        }
-
-        <ProjectModal modalVisible={modalVisible} handleModalClose={this.handleModalClose} {...modalProject}/>
-
+      <div className="container">
+        <div className="filters">
+          <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
+          <a href="javascript:void(0)" data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
+        </div>
+        <div className="portafolio" ref={element => this.element = element}>
+          
+          {
+            projects.map(project => (
+              <Project {...project} key={project.id} handleClick={() => this.handleModalClick(project)} tech={project.tech}/>
+            ))
+          }
+          <div className="column my-sizer-element"></div>
+          <ProjectModal modalVisible={modalVisible} handleModalClose={this.handleModalClose} {...modalProject}/>
+        </div>
         <style jsx>{`
-          .portafolio {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(100px, 293px));
+          .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            grid-gap: 28px;
+            flex-direction: column;
+          }
+
+          .filters {
+            margin-bottom: 20px;
+
+            a {
+              text-decoration: none;
+              padding: 10px;
+              color: var(--blue);
+              font-weight: bold;
+              margin: 5px;
+              border: 2px solid var(--green);
+              text-transform: uppercase;
+              
+              &.active, &:hover {
+                background-color: var(--green);
+                color: white;
+              }
+            }
+          }
+
+          .portafolio {
+            position: relative;
+            overflow: hidden;
+            width: 85%;
+            margin: auto;
+          }
+
+          .my-sizer-element {
+            width: 8.33333%;
           }
         `}</style>
       </div>

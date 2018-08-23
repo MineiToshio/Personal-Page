@@ -1,15 +1,18 @@
 import React from 'react';
 
-
 export default class Project extends React.Component {
   render() {
 
     const { name, tech, images, handleClick } = this.props;
 
     return (
-      <a href="javascript:void(0)" className="project" onClick={handleClick}>
-        <figure className="project-image">
-          <img src={`../../static/img/portafolio/${images[0]}`} alt={name} />
+      <a href="javascript:void(0)" className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
+        <figure>
+          <div className="aspect">
+            <div className="inner">
+              <img src={`../../static/img/portafolio/${images[0]}`} alt={name}/>
+            </div>
+          </div>
         </figure>
         <div className="project-overlay">
           <div className="overlay-container">
@@ -19,29 +22,57 @@ export default class Project extends React.Component {
         </div>
 
         <style jsx>{`
-          .project {
-            cursor: pointer;
+          .aspect {
             position: relative;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            padding-bottom: 75%;
+          }
+
+          .inner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          }
+
+          img {
             display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+          }
 
-            .project-image {
-              margin: 0;
+          * {
+            box-sizing: border-box;
+          }
 
-              img {
-                width: 100%;
-                vertical-align: top;
-              }
-            }
+          figure {
+            margin: 0;
+            padding: 0;
+          }
+
+          .project {
+            position: relative;
+            float: left;
+            min-height: 1px;
+            width: 25%;
+            padding-left: 4px;
+            padding-right: 4px;
+            margin-top: 8px;
 
             &:hover .project-overlay {
               opacity: 1;
 
               &::before {
-                transform: scale(1, 1);
+                transform: scale(1.001, 1.001);
               }
 
               &::after {
-                transform: scale(1, 1);
+                transform: scale(1.001, 1.001);
               }
 
               h3 {
@@ -60,8 +91,8 @@ export default class Project extends React.Component {
           .project-overlay {
             background: var(--green-alpha);
             position: absolute;
-            left: 0;
-            right: 0;
+            left: 4px;
+            right: 4px;
             bottom: 0;
             top: 0;
             opacity: 0;
@@ -73,6 +104,7 @@ export default class Project extends React.Component {
             transition: opacity .4s ease-in-out;
             will-change: opacity;
             padding: 20px;
+            border-radius: 5px;
 
             &:before {
               border-bottom: 1px dashed #fff;
