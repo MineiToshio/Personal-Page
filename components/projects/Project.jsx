@@ -1,4 +1,5 @@
 import React from 'react';
+import arrayToString from '../../helpers/arrayToString';
 
 export default class Project extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class Project extends React.Component {
         <div className="project-overlay">
           <div className="overlay-container">
             <h3>{name}</h3>
-            <p>{tech}</p>
+            <p>{arrayToString(tech)}</p>
           </div>
         </div>
 

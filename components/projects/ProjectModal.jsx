@@ -1,18 +1,20 @@
 import React from 'react';
 import Modal from '../widgets/Modal';
+import arrayToString from '../../helpers/arrayToString';
 
 export default class ProjectModal extends React.Component {
 
   render() {
 
-    const { modalVisible, handleModalClose, name, tech, images } = this.props;
+    const { modalVisible, handleModalClose, name, tech, images, description } = this.props;
 
     return (
       <Modal visible={modalVisible} handleModalClose={handleModalClose}>
         <img src={`../../static/img/portafolio/${images}`} />
         <div className="modal-info">
           <h3>{name}</h3>
-          <h4>{tech}</h4>
+          <h4>{arrayToString(tech)}</h4>
+          <p>{description}</p>
         </div>
 
         <style jsx>{`
