@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillBar from '../components/skills/SkillBar';
+import SkillBar from '../skills/SkillBar';
 
 export default class SobreMi extends React.Component {
   render() {

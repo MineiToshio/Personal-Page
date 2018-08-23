@@ -1,7 +1,7 @@
 import React from 'react';
-import VerMas from './VerMas';
-import IconMenu from './social-icons/IconMenu';
-import ParticleJs from './external/ParticleJs';
+import VerMas from '../widgets/VerMas';
+import IconMenu from '../social-icons/IconMenu';
+import ParticleJs from '../external/ParticleJs';
 
 export default class Portada extends React.Component {
 
