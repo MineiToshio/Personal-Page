@@ -54,7 +54,7 @@ export default class Modal extends React.Component {
             }
           }
           .modal {
-            width: 700px;
+            width: 600px;
             background: white;
             border-radius: 5px;
             position: relative;
@@ -72,7 +72,18 @@ export default class Modal extends React.Component {
             position: absolute;
             right: 15px;
             top: 10px;
-            color: #696969;
+            color: #fff;
+            background-color: rgba(154, 154, 154, .8);
+            border-radius: 50%;
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+              filter: brightness(85%);
+            }
           }
 
           @keyframes modalIn {
