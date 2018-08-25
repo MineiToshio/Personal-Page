@@ -15,11 +15,13 @@ export default class SobreMi extends React.Component {
           <SkillBar skill="HTML" percent="90" />
           <SkillBar skill="CSS" percent="80" />
           <SkillBar skill="JavaScript" percent="90" />
+          <SkillBar skill="jQuery" percent="80" />
           <SkillBar skill="React" percent="70" />
           <SkillBar skill="AngularJS" percent="60" />
           <SkillBar skill="C#" percent="80" />
-          <SkillBar skill="Mongo DB" percent="60" />
+          <SkillBar skill="SQL Server" percent="80" />
           <SkillBar skill="MySQL" percent="80" />
+          <SkillBar skill="Mongo DB" percent="60" />
         </div>
         <style jsx>{`
           .info {
