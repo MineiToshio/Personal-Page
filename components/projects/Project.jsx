@@ -4,14 +4,14 @@ import arrayToString from '../../helpers/arrayToString';
 export default class Project extends React.Component {
   render() {
 
-    const { name, tech, images, handleClick } = this.props;
+    const { name, tech, images, id, handleClick } = this.props;
 
     return (
       <a href="javascript:void(0)" className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
         <figure>
           <div className="aspect">
             <div className="inner">
-              <img src={`../../static/img/portafolio/${images[0]}`} alt={name}/>
+              <img src={`../../static/img/portafolio/${id}/${images[0]}`} alt={name}/>
             </div>
           </div>
         </figure>
@@ -61,9 +61,9 @@ export default class Project extends React.Component {
             float: left;
             min-height: 1px;
             width: 25%;
-            padding-left: 4px;
-            padding-right: 4px;
-            margin-top: 8px;
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-top: 12px;
 
             &:hover .project-overlay {
               opacity: 1;
@@ -133,6 +133,7 @@ export default class Project extends React.Component {
 
             .overlay-container {
               width: 100%;
+              padding: 10px;
             }
 
             h3 {
