@@ -4,14 +4,21 @@ import slug from '../../helpers/slug';
 import EventListener, { withOptions } from "react-event-listener";
 
 export default class SkillBar extends React.Component {
-  handleScroll = () => {
-    const { percent, skill } = this.props;
-    const id = slug(skill);
+  state = {
+    handleScroll: true
+  }
 
-    if(inViewport(document.querySelector(`#${ id }`)))
-      document.querySelector(`#${ id } .skillbar-bar`).style.width = `${ percent }%`;
-    else {
-      document.querySelector(`#${id} .skillbar-bar`).style.width = "";
+  handleScroll = () => {
+    if(this.state.handleScroll) {
+      const { percent, skill } = this.props;
+      const id = slug(skill);
+
+      if(inViewport(document.querySelector(`#${ id }`))) {
+        document.querySelector(`#${ id } .skillbar-bar`).style.width = `${ percent }%`;
+        this.setState({
+          handleScroll: false
+        })
+      }
     }
   }
 
