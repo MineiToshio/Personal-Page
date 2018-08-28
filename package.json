@@ -17,6 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.2.0",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/react-fontawesome": "^0.1.1",
+    "jssor-slider": "^27.3.0",
     "next": "^6.1.1",
     "nprogress": "^0.2.0",
     "particles.js": "^2.0.0",
