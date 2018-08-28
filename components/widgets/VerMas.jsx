@@ -8,7 +8,7 @@ export default class VerMas extends React.Component {
 
     return (
       <div className="ver-mas">
-        <div className="text"><a href="#sobre-mi">{ title }</a></div>
+        <div className="text"><a href="#sobre-mi" className="scroll">{ title }</a></div>
         <div className="icon">↓</div>
 
         <style jsx>{`
