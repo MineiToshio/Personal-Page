@@ -1,15 +1,29 @@
 import React from 'react';
 import Modal from '../widgets/Modal';
 import arrayToString from '../../helpers/arrayToString';
+import Slider from '../widgets/Slider';
 
 export default class ProjectModal extends React.Component {
 
+  fullUrlImages = () => {
+    const { images, id } = this.props;
+    let urls = [];
+
+    if (images)
+      images.forEach(element => {
+        urls.push(`../../static/img/portafolio/${id}/${element}`)
+      });
+
+    return urls;
+  }
+
   render() {
-    const { modalVisible, handleModalClose, name, tech, images, description, id } = this.props;
+    const { modalVisible, handleModalClose, name, tech, description } = this.props;
 
     return (
       <Modal visible={modalVisible} handleModalClose={handleModalClose}>
-        <img src={`../../static/img/portafolio/${id}/${images[0]}`} />
+        <Slider images={this.fullUrlImages()}></Slider>
+        {/* <img src={`../../static/img/portafolio/${id}/${images[0]}`} /> */}
         <div className="modal-info">
           <h3>{name}</h3>
           <h4>{arrayToString(tech)}</h4>
