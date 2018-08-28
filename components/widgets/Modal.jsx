@@ -14,7 +14,9 @@ export default class Modal extends React.Component {
       $modal.classList.add("in");
     }
     else {
-      $overlay.classList.remove("active");
+      setTimeout(() => {
+        $overlay.classList.remove("active");
+      }, 700);
       $modal.classList.remove("in");
       $modal.classList.add("out");
     }
@@ -38,18 +40,17 @@ export default class Modal extends React.Component {
             right: 0;
             top: 0;
             bottom: 0;
-            display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
-            visibility: hidden;
+            display: none;
             transition: 1.3s ease-in;
             will-change: opacity;
             z-index: 11;
 
             &.active {
               opacity: 1;
-              visibility: visible;
+              display: flex;
               transition: .4s;
             }
           }
@@ -70,16 +71,17 @@ export default class Modal extends React.Component {
 
           a {
             position: absolute;
-            right: 15px;
-            top: 10px;
+            right: -15px;
+            top: -15px;
             color: #fff;
             background-color: rgba(154, 154, 154, .8);
             border-radius: 50%;
-            height: 25px;
-            width: 25px;
+            height: 34px;
+            width: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
 
             &:hover {
               filter: brightness(85%);
