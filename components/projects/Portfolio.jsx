@@ -6,7 +6,10 @@ import Shuffle from 'shufflejs';
 export default class Portfolio extends React.Component {
 
   state = {
-    modalVisible: false
+    modalVisible: false,
+    modalProject: {
+      "images": null
+    }
   }
 
   handleModalClick = (modalProject) => {
@@ -41,6 +44,7 @@ export default class Portfolio extends React.Component {
     this.shuffle = new Shuffle(this.element, {
       itemSelector: '.project',
       sizer: '.my-sizer-element',
+      speed: 800
     });
   }
 
@@ -61,8 +65,13 @@ export default class Portfolio extends React.Component {
     return (
       <div className="container">
         <div className="filters">
-          <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
+          <a href="javascript:void(0)" data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
           <a href="javascript:void(0)" data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
+          <a href="javascript:void(0)" data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
+          <a href="javascript:void(0)" data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
+          <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
+          <a href="javascript:void(0)" data-filter="C#" onClick={this.handleShuffle}>C#</a>
+          <a href="javascript:void(0)" data-filter="SQL Server" onClick={this.handleShuffle}>SQL Server</a>
         </div>
         <div className="portafolio" ref={element => this.element = element}>
           
@@ -88,8 +97,8 @@ export default class Portfolio extends React.Component {
 
             a {
               text-decoration: none;
-              padding: 10px;
-              color: var(--blue);
+              padding: 5px 10px;
+              color: var(--green);
               font-weight: bold;
               margin: 5px;
               border: 2px solid var(--green);
