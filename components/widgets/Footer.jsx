@@ -12,6 +12,7 @@ export default class Footer extends React.Component {
           $color: #949494;
 
           footer {
+            margin-top: 50px;
             padding: 15px;
             display: flex;
             flex-direction: columns;
