@@ -6,7 +6,7 @@ export default class Header extends React.Component {
   handleScroll = () => {
     if (window.scrollY > window.innerHeight) {
       document.querySelector('.menu').classList.add('sticky');
-      document.querySelector('#sobre-mi').style.paddingTop = "100px";
+      document.querySelector('#sobre-mi').style.paddingTop = "95px";
     }
     else {
       document.querySelector('.menu').classList.remove('sticky');
@@ -36,21 +36,18 @@ export default class Header extends React.Component {
             left: 0;
             right: 0;
             background: rgba(186, 193, 184, .8);
-            font-family: 'BebasNeueRegular', sans-serif;
+            font-family: 'BebasNeue', sans-serif;
             display: flex;
             background: #ffffff;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.07);
             border-bottom: 1px solid #f0f0f0;
             transition: all 0.5s;
             padding: 10px 30px;
-            
+            font-weight: bold;
+
             &.sticky {
               position: fixed;
               top: 0;
-            }
-
-            nav {
-              
             }
 
             .logo {
