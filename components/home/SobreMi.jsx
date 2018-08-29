@@ -1,15 +1,28 @@
 import React from 'react';
 import SkillBar from '../skills/SkillBar';
 import SectionFooter from '../widgets/SectionFooter';
+import TrackVisibility from 'react-on-screen';
 
 export default () => {
   return (
     <div className="sobre-mi">
       <div className="info">
         <div className="datos">
-          <img src="../static/img/me.jpg" width="250" id="photo-me" alt="Toshio Minei" />
-          <h2>¿Quién soy?</h2>
-          <p>Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas. </p>
+          <TrackVisibility once>
+            {
+              ({ isVisible }) => <img src="../static/img/me.jpg" className={isVisible ? "flip-in-x" : "invisible"} width="250" id="photo-me" alt="Toshio Minei" />
+            }
+          </TrackVisibility>
+          <TrackVisibility once>
+            {
+              ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>¿Quién soy?</h2>
+            }
+          </TrackVisibility>
+          <TrackVisibility once>
+            {
+              ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas. </p>
+            }
+          </TrackVisibility>
         </div>
         <div className="skills">
           <SkillBar skill="HTML" percent="90" />
