@@ -6,12 +6,12 @@ import Header from '../widgets/Header';
 import Footer from '../widgets/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 
-library.add(faAngleUp, faTimes, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
+library.add(faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -55,12 +55,24 @@ export default class Layout extends React.Component {
           }
 
           @font-face {
-            font-family: 'BebasNeueRegular';
-            src: url('../static/fonts/BebasNeue-webfont.eot');
-            src: url('../static/fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), 
-              url('../static/fonts/BebasNeue-webfont.woff') format('woff'), 
-              url('../static/fonts/BebasNeue-webfont.ttf') format('truetype'), 
-              url('../static/fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+            font-family: 'BebasNeue';
+            src: url('../../static/fonts/BebasNeue-Regular.otf') format('opentype'),
+              url('../../static/fonts/BebasNeue-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+
+          @font-face {
+            font-family: 'BebasNeue';
+            src: url('../../static/fonts/BebasNeue-Bold.otf') format('opentype'),
+              url('../../static/fonts/BebasNeue-Bold.ttf') format('truetype');
+            font-weight: bold;
+          }
+
+          @font-face {
+            font-family: 'playlist script';
+            src: url('../../static/fonts/playlist-script.otf') format('opentype'),
+              url('../../static/fonts/playlist-script.woff') format('woff');
             font-weight: normal;
             font-style: normal;
           }
@@ -106,6 +118,11 @@ export default class Layout extends React.Component {
 
             width: 100%;
             height: 2px;
+          }
+
+          ::selection {
+              background: var(--green);
+              color: #fff;
           }
 
           /* Fancy blur effect */
