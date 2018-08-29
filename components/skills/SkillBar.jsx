@@ -1,7 +1,5 @@
 import React from 'react';
-import inViewport from '../../helpers/inViewport';
 import slug from '../../helpers/slug';
-import EventListener, { withOptions } from "react-event-listener";
 import TrackVisibility from 'react-on-screen';
 
 export default class SkillBar extends React.Component {
