@@ -54,6 +54,7 @@ export default class Parallax extends React.Component {
               color: #fff;
               font-size: 35pt;
               font-family: 'BebasNeue',sans-serif;
+              font-weight:bold;
             }
 
             .author {
