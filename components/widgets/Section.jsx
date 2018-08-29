@@ -7,17 +7,17 @@ export default class Section extends React.Component {
 
     return (
       <section id={ id }>
-        <TrackVisibility once offset={-200}>
+        <TrackVisibility once>
           {
             ({ isVisible }) => <h1 className={isVisible ? "slide-down" : "invisible"}>{title}</h1>
           } 
         </TrackVisibility>
-        <TrackVisibility once offset={-200}>
+        <TrackVisibility once>
           {
             ({ isVisible }) => <div className={`description ${isVisible ? "slide-in-left" : "invisible"}`}>{ subtitle }</div>
           }
         </TrackVisibility>
-        <TrackVisibility once offset={-200}>
+        <TrackVisibility once>
           {
             ({ isVisible }) => <div className={`underline ${isVisible ? "slide-in-right" : "invisible"}`}></div>
           }
