@@ -1,0 +1,73 @@
+import React from 'react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+
+export default class Parallax extends React.Component {
+  render () {
+    const { quote, author, image } = this.props;
+    return (
+      <div className="parallax">
+        <div className="overlay"></div>
+        <div className="caption">
+          <FA icon={['fas', 'quote-left']} />
+          <span className="quote">{quote}</span>
+          <FA icon={['fas', 'quote-right']} />
+          <span className="author">{author}</span>
+        </div>
+
+        <style jsx>{`
+          .parallax {
+            background-image: url("${image}");
+            height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .overlay {
+            background: url("../../static/img/pattern.png");
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+          }
+
+          .caption {
+            position: absolute;
+            max-width: 1200px;
+            text-align: center;
+            color: #000;
+
+            :global(svg) {
+              font-size: 15pt;
+              vertical-align: top;
+              margin: 5px 10px;
+              color: var(--green);
+            }
+
+            .quote {
+              text-transform: uppercase;
+              color: #fff;
+              font-size: 35pt;
+              font-family: 'BebasNeue',sans-serif;
+            }
+
+            .author {
+              font-size: 17px;
+              font-weight: 600;
+              color: #fff;
+              margin-top: 25px;
+              font-style: italic;
+              text-align: center;
+              display: block;
+            }
+          }
+        `}</style>
+      </div>
+    )
+  }
+}
