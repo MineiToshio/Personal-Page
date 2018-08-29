@@ -2,36 +2,21 @@ import React from 'react';
 import inViewport from '../../helpers/inViewport';
 import slug from '../../helpers/slug';
 import EventListener, { withOptions } from "react-event-listener";
+import TrackVisibility from 'react-on-screen';
 
 export default class SkillBar extends React.Component {
-  state = {
-    handleScroll: true
-  }
-
-  handleScroll = () => {
-    if(this.state.handleScroll) {
-      const { percent, skill } = this.props;
-      const id = slug(skill);
-
-      if(inViewport(document.querySelector(`#${ id }`))) {
-        document.querySelector(`#${ id } .skillbar-bar`).style.width = `${ percent }%`;
-        this.setState({
-          handleScroll: false
-        })
-      }
-    }
-  }
-
   render() {
 
     const { percent, skill } = this.props;
 
     return (
       <div className="skillbar" id={ slug(skill) }>
-        <EventListener target="window" 
-          onScroll={withOptions(this.handleScroll, {passive: true, capture: false})} />
         <span className="skillbar-title">{ skill }</span>
-        <p className="skillbar-bar"></p>
+        <TrackVisibility once>
+          {
+            ({ isVisible }) => <p className="skillbar-bar" style={{ width: `${isVisible ? percent : 0}%`}}></p>
+          }
+        </TrackVisibility>
         <span className="skill-bar-percent">{ percent }%</span>
 
         <style jsx>{`
