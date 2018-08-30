@@ -1,19 +1,32 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import TrackVisibility from 'react-on-screen';
 
 export default class ContactForm extends React.Component {
   render() {
     return (
       <form className="contacto">
-        <div>
-          <input type="text" placeholder="Nombre" />
-          <input type="text" placeholder="Email" />
-          <input type="text" placeholder="Asunto" />
-        </div>
-        <div>
-          <textarea name="" id="" cols="30" rows="5" placeholder="Mensaje"></textarea>
-          <button><FA icon={['far', "envelope"]} /></button>
-        </div>
+        <TrackVisibility>
+        {
+          ({isVisible}) => (
+            <div className= { isVisible ? "slide-in-left" : "invisible"}>
+              <input type="text" placeholder="Email" />
+              <input type="text" placeholder="Asunto" />
+              <input type="text" placeholder="Nombre" />
+            </div>
+          )
+        }
+        </TrackVisibility>
+        <TrackVisibility>
+        {
+          ({ isVisible }) => (
+            <div className={isVisible ? "slide-in-right" : "invisible"}>
+              <textarea name="" id="" cols="30" rows="5" placeholder="Mensaje"></textarea>
+              <button><FA icon={['far', "envelope"]} /></button>
+            </div>
+          )
+        }
+        </TrackVisibility>
 
         <style jsx>{`
           .contacto {
@@ -46,6 +59,7 @@ export default class ContactForm extends React.Component {
           }
 
           input, textarea {
+            cursor: auto;
             width: 90%;
             margin: 5px;
             padding: 20px 8px;
