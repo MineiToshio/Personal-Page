@@ -2,6 +2,7 @@ import React from 'react';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
 import Shuffle from 'shufflejs';
+import TrackVisibility from 'react-on-screen';
 
 export default class Portfolio extends React.Component {
 
@@ -64,25 +65,30 @@ export default class Portfolio extends React.Component {
 
     return (
       <div className="container">
-        <div className="filters">
-          <a href="javascript:void(0)" data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
-          <a href="javascript:void(0)" data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
-          <a href="javascript:void(0)" data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
-          <a href="javascript:void(0)" data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
-          <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
-          <a href="javascript:void(0)" data-filter="C#" onClick={this.handleShuffle}>C#</a>
-          <a href="javascript:void(0)" data-filter="SQL Server" onClick={this.handleShuffle}>SQL Server</a>
-        </div>
+        <TrackVisibility once>
+        {
+          ({isVisible}) => (
+            <div className={`filters ${isVisible ? "pop-in" : "invisible"}`}>
+              <a href="javascript:void(0)" data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
+              <a href="javascript:void(0)" data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
+              <a href="javascript:void(0)" data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
+              <a href="javascript:void(0)" data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
+              <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
+              <a href="javascript:void(0)" data-filter="C#" onClick={this.handleShuffle}>C#</a>
+              <a href="javascript:void(0)" data-filter="SQL Server" onClick={this.handleShuffle}>SQL Server</a>
+            </div>
+          )
+        }
+        </TrackVisibility>
         <div className="portafolio" ref={element => this.element = element}>
-          
           {
             projects.map(project => (
               <Project {...project} key={project.id} handleClick={() => this.handleModalClick(project)} tech={project.tech}/>
             ))
           }
           <div className="column my-sizer-element"></div>
-          <ProjectModal modalVisible={modalVisible} handleModalClose={this.handleModalClose} {...modalProject}/>
         </div>
+        <ProjectModal modalVisible={modalVisible} handleModalClose={this.handleModalClose} {...modalProject}/>
         <style jsx>{`
           .container {
             width: 100%;
