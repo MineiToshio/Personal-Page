@@ -4,7 +4,7 @@ import arrayToString from '../../helpers/arrayToString';
 export default class Project extends React.Component {
   render() {
 
-    const { name, tech, images, id, handleClick } = this.props;
+    const { name, tech, id, handleClick } = this.props;
 
     return (
       <a href="javascript:void(0)" className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
