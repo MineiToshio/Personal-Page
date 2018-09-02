@@ -11,7 +11,7 @@ export default class Project extends React.Component {
         <figure>
           <div className="aspect">
             <div className="inner">
-              <img src={`../../static/img/portafolio/${id}/${images[0]}`} alt={name}/>
+              <img src={`../../static/img/portafolio/thumbnails/${id}.png`} alt={name}/>
             </div>
           </div>
         </figure>
