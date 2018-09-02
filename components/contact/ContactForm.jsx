@@ -6,7 +6,7 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <form className="contacto">
-        <TrackVisibility>
+        <TrackVisibility once>
         {
           ({isVisible}) => (
             <div className= { isVisible ? "slide-in-left" : "invisible"}>
@@ -17,7 +17,7 @@ export default class ContactForm extends React.Component {
           )
         }
         </TrackVisibility>
-        <TrackVisibility>
+        <TrackVisibility once>
         {
           ({ isVisible }) => (
             <div className={isVisible ? "slide-in-right" : "invisible"}>
