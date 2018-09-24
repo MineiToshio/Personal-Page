@@ -67,6 +67,26 @@ export default () => {
             grid-area: skills;
           }
         }
+
+        @media only screen and (max-width: 1024px) {
+          .info {
+            .datos {
+              padding: 20px;
+            }
+
+            .skills {
+              padding: 20px;
+            }
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+          .info {
+            grid-template-columns: 1fr;
+            grid-template-areas: "datos"
+                                "skills";
+          }
+        }
       `}</style>
     </div>
   )

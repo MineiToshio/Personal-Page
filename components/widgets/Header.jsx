@@ -1,38 +1,35 @@
 import React from 'react';
-import EventListener, { withOptions } from "react-event-listener";
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 export default class Header extends React.Component {
+  state = {
+    active: false
+  };
 
-  handleScroll = () => {
-    if (window.scrollY > window.innerHeight) {
-      document.querySelector('.menu').classList.add('sticky');
-      document.querySelector('#sobre-mi').style.paddingTop = "95px";
-    }
-    else {
-      document.querySelector('.menu').classList.remove('sticky');
-      document.querySelector('#sobre-mi').style.paddingTop = "";
-    }
+  handleBurger = () => {
+    this.setState({ active: !this.state.active });
   }
 
   render () {
     return (
-      <header className="menu">
-
-        <EventListener target="window" 
-          onScroll={withOptions(this.handleScroll, {passive: true, capture: false})} />
-
-        <a href="#" className="logo">Toshio Minei</a>
-        <ul>
-          <li><a href="#">inicio</a></li>
-          <li><a href="#">sobre mi</a></li>
-          <li><a href="#">portafolio</a></li>
-          <li><a href="#">blog</a></li>
-          <li><a href="#">contacto</a></li>
-        </ul>
+      <header className="header">
+        <a href="/" className="logo">Toshio Minei</a>
+        <a className="burger" onClick={this.handleBurger}><FA icon={['fas', "bars"]} /></a>
+        <div className={`menu ${this.state.active && 'active'}`}>
+          <ul>
+            <li><a href="/">inicio</a></li>
+            <li><a href="#">sobre mi</a></li>
+            <li><a href="#">portafolio</a></li>
+            <li><a href="/blog">blog</a></li>
+            <li><a href="#">contacto</a></li>
+          </ul>
+        </div>
         
         <style jsx>{`
-          .menu {
+          .header {
             z-index: 10;
+            position: sticky;
+            top: 0;
             left: 0;
             right: 0;
             background: rgba(186, 193, 184, .8);
@@ -41,46 +38,101 @@ export default class Header extends React.Component {
             background: #ffffff;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.07);
             border-bottom: 1px solid #f0f0f0;
-            transition: all 0.5s;
             padding: 10px 30px;
             font-weight: bold;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            height: 51px; //tamaño del haader sin padding
+          }
 
-            &.sticky {
-              position: fixed;
-              top: 0;
+          .logo {
+            font-size: 25pt;
+            font-family: "playlist script", sans-serif;
+            text-transform: capitalize;
+            color: var(--green);
+            text-decoration: none;
+            margin-right: auto;
+          }
+
+          .burger {
+            display: none;
+            position: absolute;
+            right: 30px;
+            cursor: pointer;
+          }
+
+          .menu {
+            display: flex;
+            transition: all 0.5s;
+          }
+
+
+          ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            
+            li {
+              margin: 0 30px;
+              text-transform: uppercase;
+              text-align: center;
             }
 
-            .logo {
-              font-size: 25pt;
-              font-family: "playlist script", sans-serif;
-              text-transform: capitalize;
-              color: var(--green);
+            a {
               text-decoration: none;
-              margin-right: auto;
+              color: var(--blue);
+              font-size: 22px;
             }
 
+            a:hover {
+              color: var(--green);
+            }
+          }
+
+          @media only screen and (max-width: 800px) {
             ul {
-              list-style: none;
-              display: flex;
-              justify-content: flex-end;
-              align-items: center;
-              padding: 0;
-              margin: 0;
+              flex-direction: column;
               li {
-                margin: 0 30px;
-                text-transform: uppercase;
-                text-align: center;
+                padding: 4px;
               }
+            }
+            .burger {
+              display: initial;
+              top: 16px;
+              font-size: 25pt;
+            }
+            .menu {
+              position: absolute;
+              top: 72px; //tamaño del header
+              height: 0;
+              background: #e6e6e6;
+              overflow: hidden;
+              width: 100%;
+              left: 0;
+              display: block;
 
-              a {
-                text-decoration: none;
-                color: var(--blue);
-                font-size: 22px;
+              &.active {
+                height: 175px; //tamaño del ul
+                border-top: 2px solid var(--green);
               }
+            }
+          }
 
-              a:hover {
-                color: var(--green);
-              }
+          @media only screen and (max-width: 425px) {
+            .header {
+              height: 41px;
+            }
+            .logo {
+              font-size: 20pt;
+            }
+            .burger {
+              font-size: 20pt;
+            }
+            .menu {
+              top: 62px;
             }
           }
         `}</style>

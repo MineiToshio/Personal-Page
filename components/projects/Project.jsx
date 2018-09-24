@@ -165,6 +165,24 @@ export default class Project extends React.Component {
               transition: all 0.5s ease 0s;
             }
           }
+
+          @media only screen and (max-width: 1200px) {
+            .project {
+              width: 33.3%;
+            }
+          }
+
+          @media only screen and (max-width: 800px) {
+            .project {
+              width: 50%;
+            }
+          }
+
+          @media only screen and (max-width: 500px) {
+            .project {
+              width: 100%;
+            }
+          }
         `}</style>
       </a>
     )

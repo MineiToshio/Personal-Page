@@ -75,7 +75,6 @@ export default class Portfolio extends React.Component {
               <a href="javascript:void(0)" data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
               <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
               <a href="javascript:void(0)" data-filter="C#" onClick={this.handleShuffle}>C#</a>
-              <a href="javascript:void(0)" data-filter="SQL Server" onClick={this.handleShuffle}>SQL Server</a>
             </div>
           )
         }
@@ -100,6 +99,9 @@ export default class Portfolio extends React.Component {
 
           .filters {
             margin-bottom: 20px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
 
             a {
               text-decoration: none;
@@ -126,6 +128,24 @@ export default class Portfolio extends React.Component {
 
           .my-sizer-element {
             width: 8.33333%;
+          }
+
+          @media only screen and (max-width: 1200px) {
+            .portafolio {
+              width: 90%;
+            }
+          }
+
+          @media only screen and (max-width: 750px) {
+            .filters {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
+
+          @media only screen and (max-width: 400px) {
+            .filters {
+              grid-template-columns: repeat(2, 1fr);
+            }
           }
         `}</style>
       </div>

@@ -73,6 +73,24 @@ export default class ContactForm extends React.Component {
           textarea {
             height: 87px;
           }
+
+          @media only screen and (max-width: 1024px) {
+
+          }
+
+          @media only screen and (max-width: 600px) {
+            .contacto {
+              grid-template-columns: 1fr;
+            }
+
+            button {
+              width: calc(90% + 19px);
+            }
+
+            input, textarea {
+              width: 90%;
+            }
+          }
         `}</style>
       </form>
     )

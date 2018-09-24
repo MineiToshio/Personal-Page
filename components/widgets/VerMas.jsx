@@ -25,21 +25,27 @@ export default class VerMas extends React.Component {
             left: 0;
             text-align: center;
             font-weight: bold;
+          }
 
-            a {
-              text-decoration: none;
-              color: #fff;
-            }
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
 
+          .text {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+          }
+
+          .icon {
+            font-size: 20px;
+          }
+
+          @media only screen and (max-width:470px) {
             .text {
-              font-size: 16px;
-              text-transform: uppercase;
-              letter-spacing: 2px;
-              font-weight: 700;
-            }
-
-            .icon {
-              font-size: 20px;
+              font-size: 14px;
             }
           }
 
@@ -48,7 +54,7 @@ export default class VerMas extends React.Component {
                 transform: translatey(0);
             }
             50% {
-                transform: translatey(-7px);
+                transform: translatey(-10px);
             }
           }
         `}</style>

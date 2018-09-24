@@ -4,14 +4,17 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Header from '../widgets/Header';
 import Footer from '../widgets/Footer';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { library, config } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 
-library.add(faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
+import FAStyles from '@fortawesome/fontawesome-svg-core/styles.css';
+
+config.autoAddCss = false;
+library.add(faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -29,7 +32,7 @@ export default class Layout extends React.Component {
     const { children, title } = this.props;
 
     return (
-      <div>
+      <div id="app">
         <Head>
           <title>{ title }</title>
           <meta name="viewport" content="width=device-width" />
@@ -40,12 +43,16 @@ export default class Layout extends React.Component {
 
         <Header />
 
-        { children }
+        <div id="content">
+          { children }
 
-        <Footer />
-        <ScrollUp />
+          <Footer />
+          <ScrollUp />
+        </div>
 
+        <style jsx global>{FAStyles}</style>
         <style jsx global>{`
+
           :root {
             --green: #1abc9c;
             --green-alpha: rgba(26,188,156,.8);

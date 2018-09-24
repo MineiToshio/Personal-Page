@@ -55,6 +55,7 @@ export default class Section extends React.Component {
               margin-bottom: 50px;
               color: #777;
               text-transform: uppercase;
+              text-align: center;
             }
           }
         `}</style>

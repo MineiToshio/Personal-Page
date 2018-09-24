@@ -67,6 +67,42 @@ export default class Parallax extends React.Component {
               display: block;
             }
           }
+
+          @media only screen and (max-width: 1024px) {
+            .parallax {
+              height: 350px;
+            }
+
+            .caption {
+              :global(svg) {
+                font-size: 13pt;
+              }
+
+              .quote {
+                font-size: 30pt;
+              }
+            }
+          }
+
+          @media only screen and (max-width: 600px) {
+            .parallax {
+              height: 250px;
+            }
+
+            .caption {
+              :global(svg) {
+                font-size: 10pt;
+              }
+
+              .quote {
+                font-size: 18pt;
+              }
+
+              .author {
+                font-size: 13px;
+              }
+            }
+          }
         `}</style>
       </div>
     )
