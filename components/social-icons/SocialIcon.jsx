@@ -6,7 +6,7 @@ export default class SocialIcon extends React.Component {
     const { color, url, icon } = this.props;
 
     return (
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" rel="noopener" aria-label={icon}>
         <FA icon={['fab', icon]} />
 
         <style jsx>{`

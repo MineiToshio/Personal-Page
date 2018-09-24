@@ -10,8 +10,9 @@ import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars } from '@fortawes
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
-
+import 'default-passive-events';
 import FAStyles from '@fortawesome/fontawesome-svg-core/styles.css';
+import NProgressStyles from 'nprogress/nprogress.css';
 
 config.autoAddCss = false;
 library.add(faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
@@ -37,6 +38,8 @@ export default class Layout extends React.Component {
           <title>{ title }</title>
           <meta name="viewport" content="width=device-width" />
           <meta name="author" content="Toshio Minei" />
+          <meta name="description" content="Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas." />
+          <meta name="theme-color" content="#1abc9c" />
           <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon"/>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
         </Head>
@@ -51,6 +54,7 @@ export default class Layout extends React.Component {
         </div>
 
         <style jsx global>{FAStyles}</style>
+        <style jsx global>{NProgressStyles}</style>
         <style jsx global>{`
 
           :root {
@@ -67,6 +71,7 @@ export default class Layout extends React.Component {
               url('../../static/fonts/BebasNeue-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
+            font-display: swap;
           }
 
           @font-face {
@@ -74,6 +79,7 @@ export default class Layout extends React.Component {
             src: url('../../static/fonts/BebasNeue-Bold.otf') format('opentype'),
               url('../../static/fonts/BebasNeue-Bold.ttf') format('truetype');
             font-weight: bold;
+            font-display: swap;
           }
 
           @font-face {
@@ -82,6 +88,7 @@ export default class Layout extends React.Component {
               url('../../static/fonts/playlist-script.woff') format('woff');
             font-weight: normal;
             font-style: normal;
+            font-display: block;
           }
 
           body {
@@ -108,85 +115,6 @@ export default class Layout extends React.Component {
               -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
               background-color: #555;
             }
-          }
-
-          /* Make clicks pass-through */
-          #nprogress {
-            pointer-events: none;
-          }
-
-          #nprogress .bar {
-            background: #29d;
-
-            position: fixed;
-            z-index: 1031;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 2px;
-          }
-
-          ::selection {
-              background: var(--green);
-              color: #fff;
-          }
-
-          /* Fancy blur effect */
-          #nprogress .peg {
-            display: block;
-            position: absolute;
-            right: 0px;
-            width: 100px;
-            height: 100%;
-            box-shadow: 0 0 10px #29d, 0 0 5px #29d;
-            opacity: 1.0;
-
-            -webkit-transform: rotate(3deg) translate(0px, -4px);
-                -ms-transform: rotate(3deg) translate(0px, -4px);
-                    transform: rotate(3deg) translate(0px, -4px);
-          }
-
-          /* Remove these to get rid of the spinner */
-          #nprogress .spinner {
-            display: block;
-            position: fixed;
-            z-index: 1031;
-            top: 15px;
-            right: 15px;
-          }
-
-          #nprogress .spinner-icon {
-            width: 18px;
-            height: 18px;
-            box-sizing: border-box;
-
-            border: solid 2px transparent;
-            border-top-color: #29d;
-            border-left-color: #29d;
-            border-radius: 50%;
-
-            -webkit-animation: nprogress-spinner 400ms linear infinite;
-                    animation: nprogress-spinner 400ms linear infinite;
-          }
-
-          .nprogress-custom-parent {
-            overflow: hidden;
-            position: relative;
-          }
-
-          .nprogress-custom-parent #nprogress .spinner,
-          .nprogress-custom-parent #nprogress .bar {
-            position: absolute;
-          }
-
-          @-webkit-keyframes nprogress-spinner {
-            0%   { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-          }
-          @keyframes nprogress-spinner {
-            0%   { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
           }
         `}</style>
       </div>

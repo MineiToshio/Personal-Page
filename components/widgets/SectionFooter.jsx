@@ -6,7 +6,7 @@ export default class SectionFooter extends React.Component {
     return (
       <div className="ver-mas">
         <p>{title}</p>
-        <a href={url} target="_blank">{button}</a>
+        <a href={url} target="_blank" rel="noopener" aria-label={title}>{button}</a>
 
         <style jsx>{`
           .ver-mas {

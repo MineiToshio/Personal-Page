@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 export default class Header extends React.Component {
   state = {
@@ -13,15 +14,15 @@ export default class Header extends React.Component {
   render () {
     return (
       <header className="header">
-        <a href="/" className="logo">Toshio Minei</a>
+        <Link href="/"><a className="logo">Toshio Minei</a></Link>
         <a className="burger" onClick={this.handleBurger}><FA icon={['fas', "bars"]} /></a>
         <div className={`menu ${this.state.active && 'active'}`}>
           <ul>
-            <li><a href="/">inicio</a></li>
-            <li><a href="#">sobre mi</a></li>
-            <li><a href="#">portafolio</a></li>
-            <li><a href="/blog">blog</a></li>
-            <li><a href="#">contacto</a></li>
+            <li><Link href="/"><a>inicio</a></Link></li>
+            <li><Link href="#"><a>sobre mi</a></Link></li>
+            <li><Link href="#"><a>portafolio</a></Link></li>
+            <li><Link href="/blog"><a>blog</a></Link></li>
+            <li><Link href="#"><a>contacto</a></Link></li>
           </ul>
         </div>
         
