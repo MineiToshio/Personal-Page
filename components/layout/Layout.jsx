@@ -40,8 +40,8 @@ export default class Layout extends React.Component {
           <meta name="author" content="Toshio Minei" />
           <meta name="description" content="Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas." />
           <meta name="theme-color" content="#1abc9c" />
-          <link rel="manifest" href="static/manifest.json"></link>
-          <link rel="shortcut icon" href="static/img/favicon/favicon52.png" type="image/x-icon"/>
+          <link rel="manifest" href="/static/manifest/manifest.json"></link>
+          <link rel="shortcut icon" href="/static/img/favicon/favicon52.png" type="image/x-icon"/>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
         </Head>
 
