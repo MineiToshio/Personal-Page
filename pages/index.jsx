@@ -109,7 +109,7 @@ export default class extends React.Component {
           @keyframes slideInLeft {
             0% {
               opacity: 0;
-              transform: translateX(-300px); 
+              transform: translateX(-100%); 
             }
             100% {
               opacity: 1;
@@ -119,7 +119,7 @@ export default class extends React.Component {
           @keyframes slideInRight {
             0% {
               opacity: 0;
-              transform: translateX(300px); 
+              transform: translateX(-100%); 
             }
             100% {
               opacity: 1;
