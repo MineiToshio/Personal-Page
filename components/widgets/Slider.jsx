@@ -13,6 +13,29 @@ export default class Sliders extends React.Component {
 
     const jssor = new $JssorSlider$("jssor", options)
 
+    const MAX_WIDTH = 600;
+
+    function ScaleSlider() {
+      const containerElement = jssor.$Elmt.parentNode;
+      const containerWidth = containerElement.clientWidth;
+
+      if (containerWidth) {
+
+        const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+        jssor.$ScaleWidth(expectedWidth);
+      }
+      else {
+        window.setTimeout(ScaleSlider, 30);
+      }
+    }
+
+    ScaleSlider();
+
+    $Jssor$.$AddEvent(window, "load", ScaleSlider);
+    $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+    $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+
     this.setState({
       jssor
     })
@@ -38,6 +61,8 @@ export default class Sliders extends React.Component {
     this.setState({
       jssor: null
     })
+
+    $Jssor$.$RemoveEvent()
   }
 
   render () {

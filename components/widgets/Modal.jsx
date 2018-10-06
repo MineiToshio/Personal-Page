@@ -55,7 +55,8 @@ export default class Modal extends React.Component {
             }
           }
           .modal {
-            width: 600px;
+            max-width: 600px;
+            width: 100%;
             background: white;
             border-radius: 5px;
             position: relative;
@@ -85,6 +86,21 @@ export default class Modal extends React.Component {
 
             &:hover {
               filter: brightness(85%);
+            }
+          }
+
+          @media only screen and (max-width:650px) {
+            .modal {
+              width: 90%;
+            }
+          }
+
+          @media only screen and (max-width:600px) {
+            a {
+              height: 25px;
+              width: 25px;
+              right: -10px;
+              top: -13px;
             }
           }
 

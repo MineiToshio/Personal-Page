@@ -57,7 +57,7 @@ app.prepare().then(() => {
 
   server.listen(PORT, err => {
     if (err) throw err;
-    console.log(`> Live @ https://localhost:${PORT}`);
+    console.log(`> Live @ http://localhost:${PORT}`);
   });
 });
 

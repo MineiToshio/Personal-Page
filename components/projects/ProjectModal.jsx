@@ -50,6 +50,18 @@ export default class ProjectModal extends React.Component {
               text-transform: uppercase;
             }
           }
+
+          @media only screen and (max-width:600px) {
+            h3 {
+              font-size: 16pt;
+            }
+            h4 {
+              font-size: 11pt;
+            }
+            p {
+              font-size: 10pt;
+            }
+          }
         `}</style>
       </Modal>
     )
