@@ -32,30 +32,58 @@ export default class Section extends React.Component {
             justify-content: center;
             align-items: center;
             padding-top: 20px;
+          }
 
+          h1 {
+            color: var(--green);
+            text-transform: uppercase;
+            text-align: center;
+            font-family: 'BebasNeue', sans-serif;
+            font-weight: normal;
+            font-size: 40pt;
+            margin: 60px 0 10px;
+          }
+
+          .underline {
+            width: 70px;
+            height: 4px;
+            background: #444649;
+            margin-bottom: 45px;
+          }
+
+          .description {
+            font-size: 16pt;
+            margin-bottom: 50px;
+            color: #777;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          @media only screen and (max-width: 768px) {
             h1 {
-              color: var(--green);
-              text-transform: uppercase;
-              text-align: center;
-              font-family: 'BebasNeue', sans-serif;
-              font-weight: normal;
-              font-size: 40pt;
-              margin: 60px 0 10px;
+              font-size: 35pt;
             }
-
-            .underline {
-              width: 70px;
-              height: 4px;
-              background: #444649;
-              margin-bottom: 45px;
-            }
-
             .description {
-              font-size: 16pt;
-              margin-bottom: 50px;
-              color: #777;
-              text-transform: uppercase;
-              text-align: center;
+              font-size: 14pt;
+              margin-bottom: 30px;
+              padding: 0 5px;
+            }
+            .underline {
+              margin-bottom: 35px;
+            }
+          }
+
+          @media only screen and (max-width: 425px) {
+            h1 {
+              font-size: 30pt;
+              margin: 50px 0 10px;
+            }
+            .description {
+              font-size: 13pt;
+              margin-bottom: 25px;
+            }
+            .underline {
+              margin-bottom: 20px;
             }
           }
         `}</style>
