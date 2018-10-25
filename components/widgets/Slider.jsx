@@ -1,6 +1,27 @@
 import React from 'react';
 
 export default class Sliders extends React.Component {
+  state = {};
+
+  ScaleSlider = () => {
+    const MAX_WIDTH = 600;
+    const jssor = this.state.jssor;
+    if(jssor) {
+      const containerElement = jssor.$Elmt.parentNode;
+      const containerWidth = containerElement.clientWidth;
+
+      if (containerWidth) {
+
+        const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+        jssor.$ScaleWidth(expectedWidth);
+      }
+      else {
+        window.setTimeout(this.ScaleSlider, 30);
+      }
+    }
+  }
+
   componentDidMount() {
     require('jssor-slider');
     
@@ -13,28 +34,28 @@ export default class Sliders extends React.Component {
 
     const jssor = new $JssorSlider$("jssor", options)
 
-    const MAX_WIDTH = 600;
+    // const MAX_WIDTH = 600;
 
-    function ScaleSlider() {
-      const containerElement = jssor.$Elmt.parentNode;
-      const containerWidth = containerElement.clientWidth;
+    // ScaleSlider = () => {
+    //   const containerElement = jssor.$Elmt.parentNode;
+    //   const containerWidth = containerElement.clientWidth;
 
-      if (containerWidth) {
+    //   if (containerWidth) {
 
-        const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+    //     const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
 
-        jssor.$ScaleWidth(expectedWidth);
-      }
-      else {
-        window.setTimeout(ScaleSlider, 30);
-      }
-    }
+    //     jssor.$ScaleWidth(expectedWidth);
+    //   }
+    //   else {
+    //     window.setTimeout(ScaleSlider, 30);
+    //   }
+    // }
 
-    ScaleSlider();
+    this.ScaleSlider();
 
-    $Jssor$.$AddEvent(window, "load", ScaleSlider);
-    $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-    $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+    $Jssor$.$AddEvent(window, "load", this.ScaleSlider);
+    $Jssor$.$AddEvent(window, "resize", this.ScaleSlider);
+    $Jssor$.$AddEvent(window, "orientationchange", this.ScaleSlider);
 
     this.setState({
       jssor
@@ -56,13 +77,16 @@ export default class Sliders extends React.Component {
   }
 
   componentWillUnmount() {
+    $Jssor$.$RemoveEvent(window, "load", this.ScaleSlider)
+    $Jssor$.$RemoveEvent(window, "resize", this.ScaleSlider);
+    $Jssor$.$RemoveEvent(window, "orientationchange", this.ScaleSlider);
+
     this.state.jssor.$Destroy();
 
     this.setState({
       jssor: null
     })
 
-    $Jssor$.$RemoveEvent()
   }
 
   render () {

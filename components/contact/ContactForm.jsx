@@ -67,15 +67,11 @@ export default class ContactForm extends React.Component {
             font-family: 'Open Sans', sans-serif;
             font-size: 13px;
             color: var(--black);
-            box-shadow: #ececec 0 1px 4px inset, #f8f8f8 -5px -5px 0 0, #f8f8f8 5px 5px 0 0, #f8f8f8 5px 0 0 0, #f8f8f8 0 5px 0 0, #f8f8f8 5px -5px 0 0, #f8f8f8 -5px 5px 0 0;
+            //box-shadow: #ececec 0 1px 4px inset, #f8f8f8 -5px -5px 0 0, #f8f8f8 5px 5px 0 0, #f8f8f8 5px 0 0 0, #f8f8f8 0 5px 0 0, #f8f8f8 5px -5px 0 0, #f8f8f8 -5px 5px 0 0;
           }
 
           textarea {
             height: 87px;
-          }
-
-          @media only screen and (max-width: 1024px) {
-
           }
 
           @media only screen and (max-width: 600px) {
@@ -84,11 +80,11 @@ export default class ContactForm extends React.Component {
             }
 
             button {
-              width: calc(90% + 19px);
+              width: 100%;
             }
 
             input, textarea {
-              width: 90%;
+              width: 100%;
             }
           }
         `}</style>
