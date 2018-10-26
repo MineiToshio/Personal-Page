@@ -6,8 +6,8 @@ import Header from '../widgets/Header';
 import Footer from '../widgets/Footer';
 import { library, config } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faClock, faCommentDots, faBookmark } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
@@ -15,7 +15,22 @@ import FAStyles from '@fortawesome/fontawesome-svg-core/styles.css';
 import NProgressStyles from 'nprogress/nprogress.css';
 
 config.autoAddCss = false;
-library.add(faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faEnvelope, faGithub, faTwitter, faInstagram, faLinkedin);
+library.add(
+  faAngleUp, 
+  faTimes, 
+  faQuoteRight, 
+  faQuoteLeft, 
+  faBars, 
+  faThumbsUp, 
+  faEnvelope, 
+  faClock, 
+  faCommentDots, 
+  faBookmark, 
+  faGithub, 
+  faTwitter, 
+  faInstagram, 
+  faLinkedin
+);
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -90,6 +105,14 @@ export default class Layout extends React.Component {
             font-weight: normal;
             font-style: normal;
             font-display: block;
+          }
+
+          @font-face {
+            font-family: 'KievitOT';
+            src: url('../../static/fonts/KievitOT.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
           }
 
           body {
