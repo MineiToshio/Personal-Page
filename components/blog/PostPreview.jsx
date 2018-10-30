@@ -2,31 +2,32 @@ import React from 'react'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import Like from '../widgets/Like';
 
-export default class extends React.Component { 
-  render () {
-    const { title, photo, summary, createdAt, commentQty, readingTime, likedQty } = this.props;
+export default class extends React.Component {
+  render() {
+    const { title, photo, summary, createdAt, commentQty, readingTime, likedQty, url } = this.props;
+    const postUrl = `/blog/${url}`;
 
     return (
       <article>
-        <a href="#">
-          <img src={ photo } className="post-img"/>
+        <a href={postUrl}>
+          <img src={photo} className="post-img" />
         </a>
         <div className="blog-data">
           <Like likedQty={likedQty} />
           <a href="#">
-            <h2>{ title }</h2>
+            <h2>{title}</h2>
           </a>
           <div className="blog-meta">
-            <span><FA icon={['far', "clock"]} /> { createdAt }</span>
-            <span><FA icon={['far', "comment-dots"]} /> { commentQty } comentarios</span>
-            <span><FA icon={['far', "bookmark"]} /> { readingTime } min de lectura</span>
+            <span><FA icon={['far', "clock"]} /> {createdAt}</span>
+            <span><FA icon={['far', "comment-dots"]} /> {commentQty} comentarios</span>
+            <span><FA icon={['far', "bookmark"]} /> {readingTime} min de lectura</span>
           </div>
         </div>
         <p>
-          { summary }
-          <a href="#" className="more-dots">…</a>
+          {summary}
+          <a href={postUrl} className="more-dots">…</a>
         </p>
-        <a className="view-more">Seguir Leyendo</a>
+        <a href={postUrl} className="view-more">Seguir Leyendo</a>
 
         <style jsx>{`
           article {

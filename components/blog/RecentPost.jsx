@@ -2,12 +2,13 @@ import React from 'react';
 
 export default class extends React.Component {
   render () {
-    const { title, thumbnail, createdAt } = this.props;
+    const { title, thumbnail, createdAt, url } = this.props;
+    const postUrl = `/blog/${url}`;
 
     return (
       <div className="recent-post">
-        <a href="#" className="photo"><img src={ thumbnail } /></a>
-        <a href="#">{ title }</a>
+        <a href={ postUrl } className="photo"><img src={ thumbnail } /></a>
+        <a href={ postUrl }>{ title }</a>
         <span>{ createdAt }</span>
 
          <style jsx>{`
@@ -39,7 +40,7 @@ export default class extends React.Component {
             color: var(--green);
             filter: brightness(85%);
           }
-          .recent-post span { 
+          .recent-post span {
             grid-area: date;
             color: #8f8f8f;
             font-size: 13px;
@@ -51,7 +52,6 @@ export default class extends React.Component {
             font-size: 15px;
           }
           @media screen and (max-width:790px) {
-
             .recent-post {
               grid-template-columns: minmax(auto, 50px) 1fr;
             }
