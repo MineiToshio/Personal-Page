@@ -14,18 +14,18 @@ export default class Header extends React.Component {
   render () {
     return (
       <header className="header">
-        <Link href="/"><a className="logo">Toshio Minei</a></Link>
+        <Link href="/" prefetch><a className="logo">Toshio Minei</a></Link>
         <a className="burger" onClick={this.handleBurger}><FA icon={['fas', "bars"]} /></a>
         <div className={`menu ${this.state.active && 'active'}`}>
           <ul>
-            <li><Link href="/"><a>inicio</a></Link></li>
+            <li><Link href="/" prefetch><a>inicio</a></Link></li>
             <li><Link href="#"><a>sobre mi</a></Link></li>
             <li><Link href="#"><a>portafolio</a></Link></li>
-            <li><Link href="/blog"><a>blog</a></Link></li>
+            <li><Link href="/blog" prefetch><a>blog</a></Link></li>
             <li><Link href="#"><a>contacto</a></Link></li>
           </ul>
         </div>
-        
+
         <style jsx>{`
           .header {
             z-index: 10;
@@ -45,7 +45,6 @@ export default class Header extends React.Component {
             justify-content: space-between;
             height: 51px; //tamaño del haader sin padding
           }
-
           .logo {
             font-size: 25pt;
             font-family: "playlist script", sans-serif;
@@ -54,20 +53,16 @@ export default class Header extends React.Component {
             text-decoration: none;
             margin-right: auto;
           }
-
           .burger {
             display: none;
             position: absolute;
             right: 30px;
             cursor: pointer;
           }
-
           .menu {
             display: flex;
             transition: all 0.5s;
           }
-
-
           ul {
             list-style: none;
             display: flex;
@@ -75,24 +70,21 @@ export default class Header extends React.Component {
             align-items: center;
             padding: 0;
             margin: 0;
-            
+
             li {
               margin: 0 30px;
               text-transform: uppercase;
               text-align: center;
             }
-
             a {
               text-decoration: none;
               color: var(--blue);
               font-size: 22px;
             }
-
             a:hover {
               color: var(--green);
             }
           }
-
           @media only screen and (max-width: 800px) {
             ul {
               flex-direction: column;
@@ -114,14 +106,12 @@ export default class Header extends React.Component {
               width: 100%;
               left: 0;
               display: block;
-
               &.active {
                 height: 175px; //tamaño del ul
                 border-top: 2px solid var(--green);
               }
             }
           }
-
           @media only screen and (max-width: 425px) {
             .header {
               height: 41px;
