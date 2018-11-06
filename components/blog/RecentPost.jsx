@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '../../routes';
 
 export default class extends React.Component {
   render () {
@@ -7,8 +8,12 @@ export default class extends React.Component {
 
     return (
       <div className="recent-post">
-        <a href={ postUrl } className="photo"><img src={ thumbnail } /></a>
-        <a href={ postUrl }>{ title }</a>
+        <Link route="post" params={{ post: url }} prefetch>
+          <a className="photo"><img src={ thumbnail } alt={title} /></a>
+        </Link>
+        <Link route="post" params={{ post: url }} prefetch>
+          <a href={ postUrl }>{ title }</a>
+        </Link>
         <span>{ createdAt }</span>
 
          <style jsx>{`
@@ -40,7 +45,7 @@ export default class extends React.Component {
             color: var(--green);
             filter: brightness(85%);
           }
-          .recent-post span {
+          .recent-post span { 
             grid-area: date;
             color: #8f8f8f;
             font-size: 13px;
@@ -52,6 +57,7 @@ export default class extends React.Component {
             font-size: 15px;
           }
           @media screen and (max-width:790px) {
+
             .recent-post {
               grid-template-columns: minmax(auto, 50px) 1fr;
             }
