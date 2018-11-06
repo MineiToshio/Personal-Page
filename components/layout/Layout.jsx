@@ -5,9 +5,9 @@ import NProgress from 'nprogress';
 import Header from '../widgets/Header';
 import Footer from '../widgets/Footer';
 import { library, config } from '@fortawesome/fontawesome-svg-core';
-import { faGithub, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faTwitter, faInstagram, faLinkedin, faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope, faClock, faCommentDots, faBookmark } from '@fortawesome/free-regular-svg-icons'
+import { faEnvelope, faClock, faCommentDots, faBookmark, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
@@ -16,21 +16,24 @@ import NProgressStyles from 'nprogress/nprogress.css';
 
 config.autoAddCss = false;
 library.add(
-  faAngleUp, 
-  faTimes, 
-  faQuoteRight, 
-  faQuoteLeft, 
-  faBars, 
-  faThumbsUp, 
-  faEnvelope, 
-  faClock, 
-  faCommentDots, 
-  faBookmark, 
-  faGithub, 
-  faTwitter, 
-  faInstagram, 
-  faLinkedin
+  faAngleUp,
+  faTimes,
+  faQuoteRight,
+  faQuoteLeft,
+  faBars,
+  faThumbsUp,
+  faEnvelope,
+  faClock,
+  faCommentDots,
+  faBookmark,
+  faCalendar,
+  faGithub,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faFacebookSquare
 );
+
 
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
@@ -79,6 +82,7 @@ export default class Layout extends React.Component {
             --black: #272727;
             --blue: #26408B;
             --blue-alpha: rgba(38, 64, 139, .8);
+            --muted: #828282;
           }
 
           @font-face {
@@ -113,6 +117,50 @@ export default class Layout extends React.Component {
             font-weight: normal;
             font-style: normal;
             font-display: swap;
+          }
+
+          @font-face {
+            font-family: 'Heldane';
+            src: url('../../static/fonts/Heldane-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+              font-family: 'Charter';
+              src: url('../../static/fonts/Charter-Bold-Italic.eot');
+              src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
+                  url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
+              font-weight: bold;
+              font-style: italic;
+          }
+
+          @font-face {
+              font-family: 'Charter';
+              src: url('../../static/fonts/Charter-Bold.eot');
+              src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+                  url('../../static/fonts/Charter-Bold.woff') format('woff');
+              font-weight: bold;
+              font-style: normal;
+          }
+
+          @font-face {
+              font-family: 'Charter';
+              src: url('../../static/fonts/Charter-Italic.eot');
+              src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
+                  url('../../static/fonts/Charter-Italic.woff') format('woff');
+              font-weight: normal;
+              font-style: italic;
+          }
+
+          @font-face {
+              font-family: 'Charter';
+              src: url('../../static/fonts/Charter.eot');
+              src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
+                  url('../../static/fonts/Charter.woff') format('woff');
+              font-weight: normal;
+              font-style: normal;
           }
 
           body {
