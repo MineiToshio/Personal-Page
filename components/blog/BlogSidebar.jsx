@@ -9,7 +9,7 @@ export default class extends React.Component {
     return (
       <div className="sidebar">
         <div className="recent">
-          <h3>Recent Posts</h3>
+          <h3>Pubicaciones Recientes</h3>
           {
             recentPosts.map((post) => (
               <RecentPost key={post.id} {...post}/>
@@ -17,7 +17,7 @@ export default class extends React.Component {
           }
         </div>
         <div className="categories">
-          <h3>Categories</h3>
+          <h3>Categorías</h3>
           <ul>
             <li><a href="#">C#</a></li>
             <li><a href="#">javascript</a></li>
@@ -25,7 +25,7 @@ export default class extends React.Component {
           </ul>
         </div>
         <div className="tags">
-          <h3>Tags</h3>
+          <h3>Etiquetas</h3>
           <TagLink tag="work" />
           <TagLink tag="vs code" />
           <TagLink tag="startup" />
