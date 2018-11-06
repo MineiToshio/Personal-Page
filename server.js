@@ -1,12 +1,13 @@
 const { join } = require('path');
 const express = require('express');
 const next = require('next');
+const routes = require('./routes');
 const cache = require('lru-cache'); // for using least-recently-used based caching
 
 const PORT = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const handle = app.getRequestHandler();
+const handle = routes.getRequestHandler(app);
 
 const ssrCache = new cache({
   max: 20, // not more than 20 results will be cached
