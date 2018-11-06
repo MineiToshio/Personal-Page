@@ -1,33 +1,33 @@
 import React from 'react'
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import { Link } from '../../routes';
 import Like from '../widgets/Like';
+import BlogMeta from './BlogMeta';
 
-export default class extends React.Component {
-  render() {
+export default class extends React.Component { 
+  render () {
     const { title, photo, summary, createdAt, commentQty, readingTime, likedQty, url } = this.props;
-    const postUrl = `/blog/${url}`;
 
     return (
       <article>
-        <a href={postUrl}>
-          <img src={photo} className="post-img" />
-        </a>
+        <Link route="post" params={{ post: url }} prefetch>
+          <a><img src={ photo } className="post-img" alt={title}/></a>
+        </Link>
         <div className="blog-data">
           <Like likedQty={likedQty} />
-          <a href="#">
-            <h2>{title}</h2>
-          </a>
-          <div className="blog-meta">
-            <span><FA icon={['far', "clock"]} /> {createdAt}</span>
-            <span><FA icon={['far', "comment-dots"]} /> {commentQty} comentarios</span>
-            <span><FA icon={['far', "bookmark"]} /> {readingTime} min de lectura</span>
-          </div>
+          <Link route="post" params={{ post: url }} prefetch>
+            <a><h2>{ title }</h2></a>
+          </Link>
+          <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime}/>
         </div>
         <p>
-          {summary}
-          <a href={postUrl} className="more-dots">…</a>
+          { summary }
+          <Link route="post" params={{ post: url }} prefetch>
+            <a className="more-dots">…</a>
+          </Link>
         </p>
-        <a href={postUrl} className="view-more">Seguir Leyendo</a>
+        <Link route="post" params={{ post: url }} prefetch>
+          <a className="view-more">Seguir Leyendo</a>
+        </Link>
 
         <style jsx>{`
           article {
@@ -50,14 +50,6 @@ export default class extends React.Component {
           .view-more:hover {
             background: var(--green);
             color: #fff;
-          }
-          .blog-meta {
-            grid-area: meta;
-            font-size: 14px;
-            color: #8f8f8f;
-          }
-          .blog-meta > * {
-            margin-right: 15px;
           }
           .post-img {
             border-radius: 20px;
