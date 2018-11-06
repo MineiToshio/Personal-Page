@@ -1,5 +1,10 @@
 [
   {
+    "name": "facebook-square",
+    "url": "https://facebook.com/mineitoshio/",
+    "color": "#3b5998"
+  },
+  {
     "name": "twitter",
     "url": "https://twitter.com/MineiToshio",
     "color": "#1da1f2"
@@ -16,7 +21,7 @@
   },
   {
     "name": "linkedin",
-    "url": "https://www.linkedin.com/in/mineitoshio/",
+    "url": "https://linkedin.com/in/mineitoshio/",
     "color": "#0077b5"
   }
 ]
