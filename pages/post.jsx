@@ -1,7 +1,9 @@
 import React from 'react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import Layout from '../components/layout/Layout';
 import BlogMeta from '../components/blog/BlogMeta';
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import NavArrows from '../components/widgets/NavArrows';
+import BlogSocial from '../components/blog/BlogSocial';
 
 export default class extends React.Component {
   render() {
@@ -15,17 +17,12 @@ export default class extends React.Component {
               <BlogMeta createdAt='10/10/2018' commentQty='50' readingTime='30' />
             </div>
             <div className="banner" style={{backgroundImage: "url(https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/loft-office-with-vintage-decor-PFD2JSL-1-880x400.jpg)"}}>
-              {/* <img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/loft-office-with-vintage-decor-PFD2JSL-1-880x400.jpg"/> */}
             </div>
           </div>
           <div className="body">
-            <div className="social">
-              <a href="#" title="Me Gusta"><FA icon={['fas', "thumbs-up"]} /> <span className="like-count">5.2k</span></a>
-              <a href="#" title="Compartir en Twitter"><FA icon={['fab', "twitter"]} /></a>
-              <a href="#" title="Compartir en Facebook"><FA icon={['fab', "facebook-square"]} /></a>
-            </div>
+            <BlogSocial/>
             <div className="article">
-              <p>Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
+              <p><span className="capital">B</span>ack in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
               <p>“Almost without exception… the medical press agreed with the contention that the noises of our modern cities are not only a source of great discomfort, but are largely life-shortening and health-wrecking in their effects,” the author of an article on the phenomenon wrote the following year.</p>
               <p>Fast-forward to 2011, and a report from the World Health Organization (WHO) came to similar conclusions. The authors concluded that in western Europe alone, roughly 1 million healthy life years are lost each year as a result of traffic-related noise. Noise is inherently arousing, and the long-term effects of “chronic noise stress” on the human hormone and nervous systems are a growing concern, the report states.</p>
               <p>Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
@@ -37,7 +34,7 @@ export default class extends React.Component {
             </div>
           </div>
         </article>
-
+        <NavArrows urlPrev="#" urlNext="#" />
         <style jsx>{`
           .header {
             display: grid;
@@ -71,7 +68,7 @@ export default class extends React.Component {
             font-size: 40px;
             line-height: 50px;
             font-family: Heldane;
-            margin: 10px 0;
+            margin: 10px 0; 
           }
           .article {
             max-width: 700px;
@@ -113,6 +110,16 @@ export default class extends React.Component {
             position: relative;
             left: -55px;
           }
+          .capital {
+            font-size: 69px;
+            display: block;
+            position: relative;
+            float: left;
+            top: 16px;
+            font-weight: bold;
+            padding: 5px;
+            font-family: Heldane;
+          }
           @media screen and (max-width: 1280px) {
             .header {
               grid-template-areas: "banner"
@@ -148,6 +155,30 @@ export default class extends React.Component {
             .article {
               font-size: 18px;
               line-height: 28px;
+            }
+            .banner {
+              min-height: initial;
+            }
+          }
+          @media screen and (max-width: 425px) {
+            h1 {
+              font-size: 30px;
+              line-height: 40px;
+            }
+            .body {
+              margin: 30px 0;
+            }
+            .title {
+              padding-top: 35px;
+            }
+            .banner {
+              height: 30vh;
+            }
+          }
+          @media screen and (max-width: 375px) {
+            h1 {
+              font-size: 25px;
+              line-height: 35px;
             }
           }
         `}</style>
