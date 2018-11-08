@@ -56,7 +56,7 @@ export default class extends React.Component {
             width: 100%;
           }
           p {
-            font-family: 'KievitOT';
+            font-family: 'Charter';
             line-height: 24px;
             font-size: 17px;
             text-align: justify;
