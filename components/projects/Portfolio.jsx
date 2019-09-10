@@ -69,12 +69,12 @@ export default class Portfolio extends React.Component {
         {
           ({isVisible}) => (
             <div className={`filters ${isVisible ? "pop-in" : "invisible"}`}>
-              <a href="javascript:void(0)" data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
-              <a href="javascript:void(0)" data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
-              <a href="javascript:void(0)" data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
-              <a href="javascript:void(0)" data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
-              <a href="javascript:void(0)" data-filter="React" onClick={this.handleShuffle}>React</a>
-              <a href="javascript:void(0)" data-filter="C#" onClick={this.handleShuffle}>C#</a>
+              <a data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
+              <a data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
+              <a data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
+              <a data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
+              <a data-filter="React" onClick={this.handleShuffle}>React</a>
+              <a data-filter="C#" onClick={this.handleShuffle}>C#</a>
             </div>
           )
         }

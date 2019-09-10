@@ -28,7 +28,7 @@ export default class Modal extends React.Component {
     return (
       <div id="overlay" className="overlay">
         <div className="modal" id="modal">
-          <a href="javascript:void(0)" onClick={handleModalClose}><FA icon={['fas', 'times']} /></a>
+          <a onClick={handleModalClose}><FA icon={['fas', 'times']} /></a>
           {children}
         </div>
 

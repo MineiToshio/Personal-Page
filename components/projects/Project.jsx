@@ -7,7 +7,7 @@ export default class Project extends React.Component {
     const { name, tech, id, handleClick } = this.props;
 
     return (
-      <a href="javascript:void(0)" className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
+      <a className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
         <figure>
           <div className="aspect">
             <div className="inner">
