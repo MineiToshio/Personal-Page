@@ -8,10 +8,10 @@ export default class extends React.Component {
 
     return (
       <div className="recent-post">
-        <Link route="post" params={{ post: url }} prefetch>
+        <Link route="post" params={{ post: url }}>
           <a className="photo"><img src={ thumbnail } alt={title} /></a>
         </Link>
-        <Link route="post" params={{ post: url }} prefetch>
+        <Link route="post" params={{ post: url }}>
           <a href={ postUrl }>{ title }</a>
         </Link>
         <span>{ createdAt }</span>

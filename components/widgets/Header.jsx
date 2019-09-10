@@ -14,14 +14,14 @@ export default class Header extends React.Component {
   render () {
     return (
       <header className="header">
-        <Link href="/" prefetch><a className="logo">Toshio Minei</a></Link>
+        <Link href="/"><a className="logo">Toshio Minei</a></Link>
         <a className="burger" onClick={this.handleBurger}><FA icon={['fas', "bars"]} /></a>
         <div className={`menu ${this.state.active && 'active'}`}>
           <ul>
-            <li><Link href="/" prefetch><a>inicio</a></Link></li>
+            <li><Link href="/"><a>inicio</a></Link></li>
             <li><Link href="#"><a>sobre mi</a></Link></li>
             <li><Link href="#"><a>portafolio</a></Link></li>
-            <li><Link href="/blog" prefetch><a>blog</a></Link></li>
+            <li><Link href="/blog"><a>blog</a></Link></li>
             <li><Link href="#"><a>contacto</a></Link></li>
           </ul>
         </div>

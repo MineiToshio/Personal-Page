@@ -8,10 +8,10 @@ export default class extends React.Component {
 
     return (
       <nav className="arrows">
-        <Link route="post" params={{ post: urlPrev }} prefetch>
+        <Link route="post" params={{ post: urlPrev }}>
           <a className="left"><FA icon={['fas', "chevron-left"]} /></a>
         </Link>
-        <Link route="post" params={{ post: urlNext }} prefetch>
+        <Link route="post" params={{ post: urlNext }}>
           <a className="right"><FA icon={['fas', "chevron-right"]} /></a>
         </Link>
 
