@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class VerMas extends React.Component {
+export default class ViewMore extends React.Component {
 
   render() {
 

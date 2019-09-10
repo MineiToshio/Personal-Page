@@ -1,5 +1,5 @@
 import React from 'react';
-import VerMas from '../widgets/VerMas';
+import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
 
@@ -12,7 +12,7 @@ export default () => {
         <div className="title">¡Bienvenido! <div className="name">Soy <span className="highlight">Toshio Minei</span></div></div>
         <div className="sub-title">tech geek, emprendedor, lifelong learner</div>
       </div>
-      <VerMas title="conoce mi trabajo" />
+      <ViewMore title="conoce mi trabajo" />
 
       <style jsx>{`
         .portada {

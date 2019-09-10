@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
-import Portada from '../components/home/Portada';
+import Hero from '../components/home/Hero';
 import Section from '../components/widgets/Section';
 import ContactForm from '../components/contact/ContactForm';
-import SobreMi from '../components/home/SobreMi';
+import AboutMe from '../components/home/AboutMe';
 import projectsData from '../static/data/projects.json';
 import Parallax from '../components/widgets/Parallax';
 import Projects from '../components/home/Proyects';
@@ -12,10 +12,10 @@ export default class extends React.Component {
   render () {
     return (
       <div>
-        <Portada />
+        <Hero />
         <Layout title='Toshio Minei'>
           <Section id="sobre-mi" title="Sobre Mi" subtitle="Soy un fullstack web developer">
-            <SobreMi />
+            <AboutMe />
           </Section>
 
           <Parallax 
