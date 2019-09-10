@@ -1,5 +1,23 @@
 {
+  "version": 2,
   "name": "toshi-persona-page",
-  "alias": "toshiominei.now.sh",
-  "type": "npm"
+  "alias": [
+    "toshiominei.com",
+    "www.toshiominei.com",
+    "toshiominei.now.sh"
+  ],
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
+      "headers": {
+        "cache-control": "immutable"
+      }
+    }
+  ]
 }
