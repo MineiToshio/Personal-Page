@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "start-win": "set NODE_ENV=production & node server.js",
-    "prod": "npm run build && npm run start-win",
-    "now-build": "npm run build && npm run start"
+    "prod": "npm run build && npm run start-win"
   },
   "keywords": [],
   "author": "",
@@ -22,12 +21,9 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "default-passive-events": "^1.0.10",
     "express": "^4.17.1",
-    "fs-extra": "^8.1.0",
     "jssor-slider": "^27.5.0",
-    "lru-cache": "^5.1.1",
     "next": "^9.0.5",
-    "next-compose-plugins": "^2.2.0",
-    "next-manifest": "^1.6.0",
+    "next-offline": "^4.0.5",
     "next-routes": "^1.4.2",
     "nprogress": "^0.2.0",
     "particles.js": "^2.0.0",

@@ -1,46 +1,31 @@
-const withPlugins = require('next-compose-plugins')
-const withManifest = require('next-manifest')
-const NextWorkboxPlugin = require('next-workbox-webpack-plugin');
+const withOffline = require('next-offline')
 
 const nextConfig = {
-  webpack: (config, { defaultLoaders, isServer, buildId, dev }) => {
-    const workboxOptions = {
-      clientsClaim: true,
-      skipWaiting: true,
-      globPatterns: ['.next/static/*', '.next/static/commons/*'],
-      modifyUrlPrefix: {
-        '.next': '/_next',
+  target: 'serverless',
+  transformManifest: manifest => ['/'].concat(manifest),
+  workboxOpts: {
+    swDest: 'static/service-worker.js',
+    runtimeCaching: [
+      {
+        urlPattern: '/',
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'html-cache',
+        },
       },
-      runtimeCaching: [
-        {
-          urlPattern: '/',
-          handler: 'networkFirst',
-          options: {
-            cacheName: 'html-cache',
+      {
+        urlPattern: /.*\.(?:png|jpg|svg|otf|ttf|woff)/,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'static-cache',
+          cacheableResponse: {
+            statuses: [0, 200],
           },
         },
-        {
-          urlPattern: /.*\.(?:png|jpg|svg|otf|ttf|woff)/,
-          handler: 'cacheFirst',
-          options: {
-            cacheName: 'static-cache',
-            cacheableResponse: {
-              statuses: [0, 200],
-            },
-          },
-        },
-      ],
-    };
-
-    if (!isServer && !dev) {
-      config.plugins.push(
-        new NextWorkboxPlugin({
-          buildId,
-          ...workboxOptions,
-        }),
-      );
-    }
-
+      }
+    ]
+  },
+  webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
       test: /\.css$/,
       use: [
@@ -57,24 +42,4 @@ const nextConfig = {
   }
 }
 
-const manifestConfig = {
-  manifest: {
-    short_name: "Toshi",
-    name: "Toshio Minei",
-    icons: {
-      src: "./static/img/favicon/favicon512.png",
-      cache: true
-    },
-    start_url: "/",
-    scope: "/",
-    display: "standalone",
-    theme_color: "#1abc9c",
-    background_color: "#ffffff",
-    related_applications: [],
-    prefer_related_applications: false
-  }
-}
-
-module.exports = withPlugins([
-  [withManifest, manifestConfig]
-], nextConfig)
+module.exports = withOffline(nextConfig)
