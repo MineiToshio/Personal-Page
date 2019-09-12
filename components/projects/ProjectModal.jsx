@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from '../widgets/Modal';
 import arrayToString from '../../helpers/arrayToString';
 import Slider from '../widgets/Slider';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 export default class ProjectModal extends React.Component {
 
@@ -18,7 +19,7 @@ export default class ProjectModal extends React.Component {
   }
 
   render() {
-    const { modalVisible, handleModalClose, name, tech, description } = this.props;
+    const { modalVisible, handleModalClose, name, tech, description, live, github } = this.props;
 
     return (
       <Modal visible={modalVisible} handleModalClose={handleModalClose}>
@@ -28,6 +29,20 @@ export default class ProjectModal extends React.Component {
           <h3>{name}</h3>
           <h4>{arrayToString(tech)}</h4>
           <p>{description}</p>
+          <div className="buttons" href={live}>
+            {
+              live &&
+              <a target="_blank" href={live}>
+                <FA icon={['fas', 'globe-americas']} /> Go to Website
+              </a>
+            }
+            {
+              github &&
+              <a target="_blank" href={github}> 
+                <FA icon={['fab', 'github']} /> Github
+              </a>
+            }
+          </div>
         </div>
 
         <style jsx>{`
@@ -49,6 +64,27 @@ export default class ProjectModal extends React.Component {
               color: #7d7d7d;
               text-transform: uppercase;
             }
+
+            .buttons {
+              display: flex;
+              font-size: 15px;
+
+              a {
+                border-radius: 5px;
+                padding: 8px 10px;
+                background: #fff;
+                border: var(--green) solid 2px;
+                cursor: pointer;
+                margin-right: 10px;
+                color: var(--green);
+                text-decoration: none;
+
+                &:hover {
+                  color: #fff;
+                  background: var(--green);
+                }
+              }
+            }
           }
 
           @media only screen and (max-width:600px) {
@@ -60,6 +96,16 @@ export default class ProjectModal extends React.Component {
             }
             p {
               font-size: 10pt;
+            }
+
+            .modal-info {
+              .buttons {
+                a {
+                  border: var(--green) solid 1px;
+                  padding: 6px 8px;
+                  font-size: 14px;
+                }
+              }
             }
           }
         `}</style>
