@@ -90,7 +90,7 @@
     "name": "Platzi Overflow",
     "tech": ["Angular", "Mongo", "NodeJS"],
     "description": "Landing page de Wozzii. ",
-    "images": ["1.png", "2.png"],
+    "images": ["1.png", "2.png", "3.png"],
     "github": "https://github.com/MineiToshio/Platzi-Overflow"
   }
 ]
