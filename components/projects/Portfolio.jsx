@@ -37,8 +37,9 @@ export default class Portfolio extends React.Component {
     this.deactivateFilters();
     e.target.classList.add("active");
 
-    const filter = e.target.dataset.filter;
-    this.shuffle.filter(filter);
+    const filter = e.target.dataset.filter.split(' ');
+
+    filter[0] !== '' ? this.shuffle.filter(filter) : this.shuffle.filter('');
   }
 
   componentDidMount() {
@@ -72,7 +73,7 @@ export default class Portfolio extends React.Component {
               <a data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
               <a data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
               <a data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
-              <a data-filter="AngularJS" onClick={this.handleShuffle}>AngularJS</a>
+              <a data-filter="AngularJS Angular" onClick={this.handleShuffle}>Angular</a>
               <a data-filter="React" onClick={this.handleShuffle}>React</a>
               <a data-filter="C#" onClick={this.handleShuffle}>C#</a>
             </div>
@@ -111,6 +112,7 @@ export default class Portfolio extends React.Component {
               margin: 5px;
               border: 2px solid var(--green);
               text-transform: uppercase;
+              cursor: pointer;
               
               &.active, &:hover {
                 background-color: var(--green);
