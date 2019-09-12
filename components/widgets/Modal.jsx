@@ -83,6 +83,7 @@ export default class Modal extends React.Component {
             align-items: center;
             justify-content: center;
             z-index: 1;
+            cursor: pointer;
 
             &:hover {
               filter: brightness(85%);

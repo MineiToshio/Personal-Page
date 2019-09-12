@@ -64,6 +64,7 @@ export default class Project extends React.Component {
             padding-left: 6px;
             padding-right: 6px;
             margin-top: 12px;
+            cursor: pointer;
 
             &:hover .project-overlay {
               opacity: 1;
