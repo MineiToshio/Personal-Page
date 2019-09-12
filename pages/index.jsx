@@ -12,7 +12,7 @@ export default class extends React.Component {
   render () {
     return (
       <div>
-        <Hero />
+        <Hero id="portada"/>
         <Layout title='Toshio Minei'>
           <Section id="sobre-mi" title="Sobre Mi" subtitle="Soy un fullstack web developer">
             <AboutMe />
