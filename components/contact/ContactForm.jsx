@@ -5,14 +5,14 @@ import TrackVisibility from 'react-on-screen';
 export default class ContactForm extends React.Component {
   render() {
     return (
-      <form className="contacto">
+      <form className="contacto" action="https://formsubmit.co/21b37449ee460882bde6e52feb240178 " method="POST">
         <TrackVisibility once>
           {
             ({ isVisible }) => (
               <div className={isVisible ? "slide-in-left" : "invisible"}>
-                <input type="text" placeholder="Email" />
-                <input type="text" placeholder="Asunto" />
-                <input type="text" placeholder="Nombre" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="text" placeholder="Asunto" name="subject" />
+                <input type="text" placeholder="Nombre" name="name" />
               </div>
             )
           }
@@ -22,8 +22,8 @@ export default class ContactForm extends React.Component {
           {
             ({ isVisible }) => (
               <div className={isVisible ? "slide-in-right" : "invisible"}>
-                <textarea name="" id="" cols="30" rows="5" placeholder="Mensaje"></textarea>
-                <button><FA icon={['far', "envelope"]} /></button>
+                <textarea name="message" id="" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                <button type="submit"><FA icon={['far', "envelope"]} /></button>
               </div>
             )
           }
