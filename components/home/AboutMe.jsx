@@ -34,7 +34,7 @@ export default () => {
           <SkillBar skill="C#" percent="80" />
           <SkillBar skill="SQL Server" percent="80" />
           <SkillBar skill="MySQL" percent="80" />
-          <SkillBar skill="Mongo DB" percent="60" />
+          <SkillBar skill="Firebase" percent="60" />
         </div>
       </div>
       <SectionFooter 

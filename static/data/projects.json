@@ -1,17 +1,36 @@
 [
   {
+    "id": "12",
+    "name": "Página Personal",
+    "tech": ["React"],
+    "description": "Mi pagina personal. Si, esta en la que te encuentras.",
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Personal-Page"
+  },
+  {
+    "id": "10",
+    "name": "Wozzii",
+    "tech": ["React"],
+    "description": "Landing page de Wozzii. Página que muestra las característica de Wozzii, la plataforma que convierte a YouTube en una aula virtual colaborativa",
+    "images": ["1.png", "2.png"],
+    "live": "https://wozzii.com"
+  },
+  {
     "id": "1",
     "name": "Bildin",
     "tech": ["AngularJS", "C#", "SQL Server"],
     "description": "Portal inmobiliario que busca ayudar a los agentes a compartir sus inmuebles y así puedan concretar ventas de una manera más rápida.",
-    "images": ["1.png", "2.png", "3.png"]
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "https://bildin.pe/"
   },
   {
     "id": "2",
     "name": "Podcast Next",
     "tech": ["React"],
     "description": "Reproductor de podcasts que usa la api de audioboom para mostrar el contenido. Usa el NextJs como framework para hacer server side rendering.",
-    "images": ["1.png", "2.png", "3.png"]
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "https://podcast.mineitoshio.now.sh/",
+    "github": "https://github.com/MineiToshio/Podcast-Next"
   },
   {
     "id": "3",
@@ -32,14 +51,16 @@
     "name": "Linnso Website",
     "tech": ["HTML"],
     "description": "Página web de la empresa Linnso. Es una single page application que divide sus secciones usando parallax.",
-    "images": ["1.png", "2.png", "3.png"]
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/LinnsoWeb"
   },
   {
     "id": "6",
     "name": "Noobout",
     "tech": ["jQuery", "C#", "SQL Server"],
     "description": "Portal E-Commerse de venta de productos electrónicos. Permite subir productos, crear categorías, ver reportes de ventas y hacer compras por medio de una pararela de pagos.",
-    "images": ["1.png", "2.png", "3.png"]
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Noobout"
   },
   {
     "id": "7",
@@ -53,6 +74,23 @@
     "name": "Dendro Website",
     "tech": ["HTML"],
     "description": "Página web de Dendro. Muestra la información principal de la empresa, un catálogo de productos y servicios y un formulario de contacto.",
-    "images": ["1.png", "2.png", "3.png"]
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "http://dendro.us",
+    "github": "https://github.com/MineiToshio/DendroWeb"
+  },
+  {
+    "id": "9",
+    "name": "Scoti Chatbot",
+    "tech": ["AngularJS", "C#"],
+    "description": "Chatbot para los procesos internos del banco Scotiabank Perú: información de los clientes, afiliación a cargos recurrentes, etc.",
+    "images": ["1.png", "2.png"]
+  },
+  {
+    "id": "11",
+    "name": "Platzi Overflow",
+    "tech": ["Angular", "Mongo", "NodeJS"],
+    "description": "Landing page de Wozzii. ",
+    "images": ["1.png", "2.png"],
+    "github": "https://github.com/MineiToshio/Platzi-Overflow"
   }
 ]
