@@ -3,9 +3,11 @@ import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
 
-export default () => {
+export default (props) => {
+  const { id } = props
+
   return (
-    <div className="portada">
+    <div className="portada" id={id}>
       <ParticleJs/>
       <IconMenu />
       <div className="content">
