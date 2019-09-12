@@ -18,11 +18,11 @@ export default class Header extends React.Component {
         <a className="burger" onClick={this.handleBurger}><FA icon={['fas', "bars"]} /></a>
         <div className={`menu ${this.state.active && 'active'}`}>
           <ul>
-            <li><Link href="/"><a>inicio</a></Link></li>
-            <li><Link href="#"><a>sobre mi</a></Link></li>
-            <li><Link href="#"><a>portafolio</a></Link></li>
-            <li><Link href="/blog"><a>blog</a></Link></li>
-            <li><Link href="#"><a>contacto</a></Link></li>
+            <li><a href="#portada" className="scroll">inicio</a></li>
+            <li><a href="#sobre-mi" className="scroll">sobre mi</a></li>
+            <li><a href="#portafolio" className="scroll">portafolio</a></li>
+            {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
+            <li><a href="#contacto" className="scroll">contacto</a></li>
           </ul>
         </div>
 
