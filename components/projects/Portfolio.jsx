@@ -70,7 +70,7 @@ export default class Portfolio extends React.Component {
         {
           ({isVisible}) => (
             <div className={`filters ${isVisible ? "pop-in" : "invisible"}`}>
-              <a data-filter="" onClick={this.handleShuffle} className="active">Todos</a>
+              <a data-filter="" onClick={this.handleShuffle} className="active">All</a>
               <a data-filter="HTML" onClick={this.handleShuffle}>HTML</a>
               <a data-filter="jQuery" onClick={this.handleShuffle}>jQuery</a>
               <a data-filter="AngularJS Angular" onClick={this.handleShuffle}>Angular</a>

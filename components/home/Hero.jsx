@@ -11,10 +11,10 @@ export default (props) => {
       <ParticleJs/>
       <IconMenu />
       <div className="content">
-        <div className="title">¡Bienvenido! <div className="name">Soy <span className="highlight">Toshio Minei</span></div></div>
-        <div className="sub-title">tech geek, emprendedor, lifelong learner</div>
+        <div className="title">Hello! <div className="name">I'm <span className="highlight">Toshio Minei</span></div></div>
+        <div className="sub-title">tech geek, entrepreneur, lifelong learner</div>
       </div>
-      <ViewMore title="conoce mi trabajo" />
+      <ViewMore title="view my work" />
 
       <style jsx>{`
         .portada {

@@ -59,7 +59,7 @@ export default class Layout extends React.Component {
           <title>{ title }</title>
           <meta name="viewport" content="width=device-width" />
           <meta name="author" content="Toshio Minei" />
-          <meta name="description" content="Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas." />
+          <meta name="description" content="I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things." />
           <meta name="theme-color" content="#1abc9c" />
           <link rel="manifest" href="/static/manifest.json"></link>
           <link rel="shortcut icon" href="/static/img/favicon/favicon52.png" type="image/x-icon"/>

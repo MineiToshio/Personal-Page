@@ -15,12 +15,12 @@ export default () => {
           </TrackVisibility>
           <TrackVisibility once>
           {
-            ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>¿Quién soy?</h2>
+            ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>Who am I?</h2>
           }
           </TrackVisibility>
           <TrackVisibility once>
           {
-            ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas. </p>
+              ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things. </p>
           }
           </TrackVisibility>
         </div>
@@ -38,9 +38,9 @@ export default () => {
         </div>
       </div>
       <SectionFooter 
-        title="¿quieres conocer más de mi?" 
+        title="Do you want to know more about me?" 
         url="https://www.linkedin.com/in/mineitoshio/" 
-        button="Visita mi LinkedIn" />
+        button="Visit my LinkedIn" />
 
       <style jsx>{`
         .sobre-mi {

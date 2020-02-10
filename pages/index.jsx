@@ -14,25 +14,25 @@ export default class extends React.Component {
       <div>
         <Hero id="portada"/>
         <Layout title='Toshio Minei'>
-          <Section id="sobre-mi" title="Sobre Mi" subtitle="Soy un fullstack web developer">
+          <Section id="sobre-mi" title="About Me" subtitle="I'm a frontend developer">
             <AboutMe />
           </Section>
 
           <Parallax 
-            quote="la mejor forma de predecir el futuro es implementarlo" 
-            author="David Heinemeier - Creador de Ruby on Rails"
+            quote="The best way to predict the future is to implement it" 
+            author="David Heinemeier - Creator of Ruby on Rails"
             image="../static/img/parallax/parallax1.jpg"/>
 
-          <Section id="portafolio" title="Portafolio" subtitle="Conoce alguno de los proyectos en los que he trabajado">
+          <Section id="portafolio" title="Portfolio" subtitle="View some of the projects I've worked on">
             <Projects projects={projectsData} />
           </Section>
 
           <Parallax 
-            quote="Una máquina puede hacer el trabajo de cincuenta hombres ordinarios. Ninguna máquina puede hacer el trabajo de un hombre extraordinario."
-            author="Elbert Hubbard - Escritor"
+            quote="One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man."
+            author="Elbert Hubbard - Writer"
             image="../static/img/parallax/parallax2.jpg" />
 
-          <Section id="contacto" title="Contacto" subtitle="¿Tienes una idea de proyecto? ¡Trabajemos juntos!">
+          <Section id="contacto" title="Contact" subtitle="Do you have a project idea? Let's work together!">
             <ContactForm />
           </Section>
         </Layout>

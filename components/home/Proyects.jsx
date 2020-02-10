@@ -9,9 +9,9 @@ export default (props) => {
     <div className="projects">
       <Portfolio projects={projects} />
       <SectionFooter 
-        title="¿quieres ver más proyectos?"
+        title="Do you want to see more projects?"
         url="https://github.com/MineiToshio"
-        button="Visita mi Github" />
+        button="Visit my Github" />
 
       <style jsx>{`
         .projects {

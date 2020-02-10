@@ -11,8 +11,8 @@ export default class ContactForm extends React.Component {
             ({ isVisible }) => (
               <div className={isVisible ? "slide-in-left" : "invisible"}>
                 <input type="email" placeholder="Email" name="email" />
-                <input type="text" placeholder="Asunto" name="subject" />
-                <input type="text" placeholder="Nombre" name="name" />
+                <input type="text" placeholder="Subject" name="subject" />
+                <input type="text" placeholder="Name" name="name" />
               </div>
             )
           }
@@ -22,7 +22,7 @@ export default class ContactForm extends React.Component {
           {
             ({ isVisible }) => (
               <div className={isVisible ? "slide-in-right" : "invisible"}>
-                <textarea name="message" id="" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                <textarea name="message" id="" cols="30" rows="5" placeholder="Message"></textarea>
                 <button type="submit"><FA icon={['far', "envelope"]} /></button>
               </div>
             )
