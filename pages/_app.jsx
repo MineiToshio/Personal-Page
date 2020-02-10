@@ -7,10 +7,7 @@ class CustomApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <div>
-        <OfflineSupport />
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     );
   }
 }
