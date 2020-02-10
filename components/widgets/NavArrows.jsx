@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../routes';
+import Link from 'next/link';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 export default class extends React.Component {
@@ -8,10 +8,10 @@ export default class extends React.Component {
 
     return (
       <nav className="arrows">
-        <Link route="post" params={{ post: urlPrev }}>
+        <Link href={urlPrev}>
           <a className="left"><FA icon={['fas', "chevron-left"]} /></a>
         </Link>
-        <Link route="post" params={{ post: urlNext }}>
+        <Link href={urlNext}>
           <a className="right"><FA icon={['fas', "chevron-right"]} /></a>
         </Link>
 

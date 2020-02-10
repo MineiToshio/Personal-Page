@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
-import Layout from '../components/layout/Layout';
-import BlogMeta from '../components/blog/BlogMeta';
-import NavArrows from '../components/widgets/NavArrows';
-import BlogSocial from '../components/blog/BlogSocial';
+import Layout from '../../components/layout/Layout';
+import BlogMeta from '../../components/blog/BlogMeta';
+import NavArrows from '../../components/widgets/NavArrows';
+import BlogSocial from '../../components/blog/BlogSocial';
 
 export default class extends React.Component {
   render() {

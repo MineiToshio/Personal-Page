@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../routes';
+import Link from 'next/link';
 
 export default class extends React.Component {
   render () {
@@ -8,11 +8,11 @@ export default class extends React.Component {
 
     return (
       <div className="recent-post">
-        <Link route="post" params={{ post: url }}>
+        <Link href={postUrl}>
           <a className="photo"><img src={ thumbnail } alt={title} /></a>
         </Link>
-        <Link route="post" params={{ post: url }}>
-          <a href={ postUrl }>{ title }</a>
+        <Link href={postUrl}>
+          <a>{ title }</a>
         </Link>
         <span>{ createdAt }</span>
 

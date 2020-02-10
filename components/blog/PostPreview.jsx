@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from '../../routes';
+import React from 'react';
+import Link from 'next/link';
 import Like from '../widgets/Like';
 import BlogMeta from './BlogMeta';
 
@@ -9,23 +9,23 @@ export default class extends React.Component {
 
     return (
       <article>
-        <Link route="post" params={{ post: url }}>
+        <Link href={`/blog/${url}`}>
           <a><img src={ photo } className="post-img" alt={title}/></a>
         </Link>
         <div className="blog-data">
           <Like likedQty={likedQty} />
-          <Link route="post" params={{ post: url }}>
+          <Link href={`/blog/${url}`}>
             <a><h2>{ title }</h2></a>
           </Link>
           <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime}/>
         </div>
         <p>
           { summary }
-          <Link route="post" params={{ post: url }}>
+          <Link href={`/blog/${url}`}>
             <a className="more-dots">…</a>
           </Link>
         </p>
-        <Link route="post" params={{ post: url }}>
+        <Link href={`/blog/${url}`}>
           <a className="view-more">Seguir Leyendo</a>
         </Link>
 
