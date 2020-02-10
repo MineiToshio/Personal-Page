@@ -113,3 +113,5 @@ static/manifest
 static/workbox
 
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
+
+.now
