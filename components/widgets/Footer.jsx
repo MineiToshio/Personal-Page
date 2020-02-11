@@ -1,7 +1,7 @@
 import React from 'react';
 import IconMenu from '../social-icons/IconMenu';
 
-export default () => {
+const Footer = () => {
   const color = '#949494';
 
   return (
@@ -33,3 +33,5 @@ export default () => {
     </footer>
   )
 }
+
+export default Footer

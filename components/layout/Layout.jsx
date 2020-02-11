@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -35,159 +35,155 @@ library.add(
   faFacebookSquare
 );
 
-
 Router.onRouteChangeStart = (url) => {
   NProgress.start()
 }
 Router.onRouteChangeComplete = () => NProgress.done()
 Router.onRouteChangeError = () => NProgress.done()
 
-export default class Layout extends React.Component {
-  
-  componentDidMount() {
+const Layout = ({ children, title }) => {
+  useEffect(() => {
     smoothScroll();
-  }
+  }, [])
 
-  render() {
-    const { children, title } = this.props;
+  return (
+    <div id="app">
+      <Head>
+        <title>{ title }</title>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="author" content="Toshio Minei" />
+        <meta name="description" content="I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things." />
+        <meta name="theme-color" content="#1abc9c" />
+        <link rel="manifest" href="/static/manifest.json"></link>
+        <link rel="shortcut icon" href="/static/img/favicon/favicon52.png" type="image/x-icon"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+      </Head>
 
-    return (
-      <div id="app">
-        <Head>
-          <title>{ title }</title>
-          <meta name="viewport" content="width=device-width" />
-          <meta name="author" content="Toshio Minei" />
-          <meta name="description" content="I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things." />
-          <meta name="theme-color" content="#1abc9c" />
-          <link rel="manifest" href="/static/manifest.json"></link>
-          <link rel="shortcut icon" href="/static/img/favicon/favicon52.png" type="image/x-icon"/>
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-        </Head>
+      <Header />
 
-        <Header />
+      <div id="content">
+        { children }
 
-        <div id="content">
-          { children }
-
-          <Footer />
-          <ScrollUp />
-        </div>
-
-        <style jsx global>{`
-          :root {
-            --green: #1abc9c;
-            --green-alpha: rgba(26,188,156,.8);
-            --black: #272727;
-            --blue: #26408B;
-            --blue-alpha: rgba(38, 64, 139, .8);
-            --muted: #828282;
-          }
-
-          @font-face {
-            font-family: 'BebasNeue';
-            src: url('../../static/fonts/BebasNeue-Regular.otf') format('opentype'),
-              url('../../static/fonts/BebasNeue-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-
-          @font-face {
-            font-family: 'BebasNeue';
-            src: url('../../static/fonts/BebasNeue-Bold.otf') format('opentype'),
-              url('../../static/fonts/BebasNeue-Bold.ttf') format('truetype');
-            font-weight: bold;
-            font-display: swap;
-          }
-
-          @font-face {
-            font-family: 'playlist script';
-            src: url('../../static/fonts/playlist-script.otf') format('opentype'),
-              url('../../static/fonts/playlist-script.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: block;
-          }
-
-          @font-face {
-            font-family: 'KievitOT';
-            src: url('../../static/fonts/KievitOT.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-
-          @font-face {
-            font-family: 'Heldane';
-            src: url('../../static/fonts/Heldane-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-
-          @font-face {
-            font-family: 'Charter';
-            src: url('../../static/fonts/Charter-Bold-Italic.eot');
-            src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
-                url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
-            font-weight: bold;
-            font-style: italic;
-          }
-
-          @font-face {
-            font-family: 'Charter';
-            src: url('../../static/fonts/Charter-Bold.eot');
-            src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
-                url('../../static/fonts/Charter-Bold.woff') format('woff');
-            font-weight: bold;
-            font-style: normal;
-          }
-
-          @font-face {
-            font-family: 'Charter';
-            src: url('../../static/fonts/Charter-Italic.eot');
-            src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
-                url('../../static/fonts/Charter-Italic.woff') format('woff');
-            font-weight: normal;
-            font-style: italic;
-          }
-
-          @font-face {
-            font-family: 'Charter';
-            src: url('../../static/fonts/Charter.eot');
-            src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
-                url('../../static/fonts/Charter.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-          }
-
-          body {
-            margin: 0;
-            font-family: 'Open Sans', sans-serif;
-            color: var(--black);
-          }
-
-          body::-webkit-scrollbar-track
-          {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            background-color: #BAC1B8;
-          }
-
-          body::-webkit-scrollbar
-          {
-            width: 8px;
-            background-color: #BAC1B8;
-          }
-
-          body::-webkit-scrollbar-thumb
-          {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: #555;
-          }
-        `}</style>
+        <Footer />
+        <ScrollUp />
       </div>
-    )
-  }
+
+      <style jsx global>{`
+        :root {
+          --green: #1abc9c;
+          --green-alpha: rgba(26,188,156,.8);
+          --black: #272727;
+          --blue: #26408B;
+          --blue-alpha: rgba(38, 64, 139, .8);
+          --muted: #828282;
+        }
+
+        @font-face {
+          font-family: 'BebasNeue';
+          src: url('../../static/fonts/BebasNeue-Regular.otf') format('opentype'),
+            url('../../static/fonts/BebasNeue-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'BebasNeue';
+          src: url('../../static/fonts/BebasNeue-Bold.otf') format('opentype'),
+            url('../../static/fonts/BebasNeue-Bold.ttf') format('truetype');
+          font-weight: bold;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'playlist script';
+          src: url('../../static/fonts/playlist-script.otf') format('opentype'),
+            url('../../static/fonts/playlist-script.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: 'KievitOT';
+          src: url('../../static/fonts/KievitOT.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'Heldane';
+          src: url('../../static/fonts/Heldane-Regular.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'Charter';
+          src: url('../../static/fonts/Charter-Bold-Italic.eot');
+          src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
+              url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
+          font-weight: bold;
+          font-style: italic;
+        }
+
+        @font-face {
+          font-family: 'Charter';
+          src: url('../../static/fonts/Charter-Bold.eot');
+          src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+              url('../../static/fonts/Charter-Bold.woff') format('woff');
+          font-weight: bold;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Charter';
+          src: url('../../static/fonts/Charter-Italic.eot');
+          src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
+              url('../../static/fonts/Charter-Italic.woff') format('woff');
+          font-weight: normal;
+          font-style: italic;
+        }
+
+        @font-face {
+          font-family: 'Charter';
+          src: url('../../static/fonts/Charter.eot');
+          src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
+              url('../../static/fonts/Charter.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Open Sans', sans-serif;
+          color: var(--black);
+        }
+
+        body::-webkit-scrollbar-track
+        {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          border-radius: 10px;
+          background-color: #BAC1B8;
+        }
+
+        body::-webkit-scrollbar
+        {
+          width: 8px;
+          background-color: #BAC1B8;
+        }
+
+        body::-webkit-scrollbar-thumb
+        {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #555;
+        }
+      `}</style>
+    </div>
+  )
 }
+
+export default Layout

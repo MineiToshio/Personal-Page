@@ -3,7 +3,7 @@ import SkillBar from '../skills/SkillBar';
 import SectionFooter from '../widgets/SectionFooter';
 import TrackVisibility from 'react-on-screen';
 
-export default () => {
+const AboutMe = () => {
   return (
     <div className="sobre-mi">
       <div className="info">
@@ -89,3 +89,5 @@ export default () => {
     </div>
   )
 }
+
+export default AboutMe

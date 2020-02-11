@@ -1,29 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default class ParticleJs extends React.Component {
-
-  componentDidMount() {
+const ParticleJs = () => {
+  useEffect(() => {
     require('particles.js');
     particlesJS.load('particles-js', "../../static/data/particles.json");
-  }
+  }, [])
 
-  render() {
-    return (
-      <div id="particles-js">
+  return (
+    <div id="particles-js">
+      <style jsx>{`
+        canvas {
+          display: block;
+        }
 
-        <style jsx>{`
-          canvas {
-            display: block;
-          }
-
-          #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: auto;
-          }
-        `}</style>
-      </div>
-    )
-  }
+        #particles-js {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: auto;
+        }
+      `}</style>
+    </div>
+  )
 }
+
+export default ParticleJs

@@ -2,9 +2,7 @@ import React from 'react';
 import Portfolio from '../projects/Portfolio';
 import SectionFooter from '../widgets/SectionFooter';
 
-export default (props) => {
-  const { projects } = props;
-
+const Proyects = ({ projects }) => {
   return (
     <div className="projects">
       <Portfolio projects={projects} />
@@ -21,3 +19,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default Proyects

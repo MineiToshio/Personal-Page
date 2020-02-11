@@ -1,193 +1,190 @@
 import React from 'react';
 import arrayToString from '../../helpers/arrayToString';
 
-export default class Project extends React.Component {
-  render() {
-
-    const { name, tech, id, handleClick } = this.props;
-
-    return (
-      <a className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
-        <figure>
-          <div className="aspect">
-            <div className="inner">
-              <img src={`../../static/img/portafolio/thumbnails/${id}.png`} alt={name}/>
-            </div>
-          </div>
-        </figure>
-        <div className="project-overlay">
-          <div className="overlay-container">
-            <h3>{name}</h3>
-            <p>{arrayToString(tech)}</p>
+const Project = ({ name, tech, id, handleClick }) => {
+  return (
+    <a className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
+      <figure>
+        <div className="aspect">
+          <div className="inner">
+            <img src={`../../static/img/portafolio/thumbnails/${id}.png`} alt={name}/>
           </div>
         </div>
+      </figure>
+      <div className="project-overlay">
+        <div className="overlay-container">
+          <h3>{name}</h3>
+          <p>{arrayToString(tech)}</p>
+        </div>
+      </div>
 
-        <style jsx>{`
-          .aspect {
-            position: relative;
-            width: 100%;
-            height: 0;
-            overflow: hidden;
-            padding-bottom: 75%;
-          }
+      <style jsx>{`
+        .aspect {
+          position: relative;
+          width: 100%;
+          height: 0;
+          overflow: hidden;
+          padding-bottom: 75%;
+        }
 
-          .inner {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-          }
+        .inner {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
 
-          img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-          }
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+        }
 
-          * {
-            box-sizing: border-box;
-          }
+        * {
+          box-sizing: border-box;
+        }
 
-          figure {
-            margin: 0;
-            padding: 0;
-          }
+        figure {
+          margin: 0;
+          padding: 0;
+        }
 
-          .project {
-            position: relative;
-            float: left;
-            min-height: 1px;
-            width: 25%;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 12px;
-            cursor: pointer;
-          }
+        .project {
+          position: relative;
+          float: left;
+          min-height: 1px;
+          width: 25%;
+          padding-left: 6px;
+          padding-right: 6px;
+          margin-top: 12px;
+          cursor: pointer;
+        }
 
-          .project:hover .project-overlay {
-            opacity: 1;
-          }
+        .project:hover .project-overlay {
+          opacity: 1;
+        }
 
-          .project:hover .project-overlay::before {
-              transform: scale(1.001, 1.001);
-            }
-
-          .project:hover .project-overlay::after {
+        .project:hover .project-overlay::before {
             transform: scale(1.001, 1.001);
           }
 
-          .project:hover h3 {
-            margin-bottom: 15px;
-            
-          }
+        .project:hover .project-overlay::after {
+          transform: scale(1.001, 1.001);
+        }
 
-          .project:hover h3:before {
-            width: 50px;
-          }
+        .project:hover h3 {
+          margin-bottom: 15px;
+          
+        }
 
-          .project:hover p {
-            padding-top: 0;
-          }
+        .project:hover h3:before {
+          width: 50px;
+        }
 
-          .project-overlay {
-            background: var(--green-alpha);
-            position: absolute;
-            left: 4px;
-            right: 4px;
-            bottom: 0;
-            top: 0;
-            opacity: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            color: white;
-            text-align: center;
-            transition: opacity .4s ease-in-out;
-            will-change: opacity;
-            padding: 20px;
-            border-radius: 5px;
-          }
+        .project:hover p {
+          padding-top: 0;
+        }
 
-          .project-overlay:before {
-            border-bottom: 1px dashed #fff;
-            border-top: 1px dashed #fff;
-            transform: scale(0, 1);
-          }
+        .project-overlay {
+          background: var(--green-alpha);
+          position: absolute;
+          left: 4px;
+          right: 4px;
+          bottom: 0;
+          top: 0;
+          opacity: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center; 
+          color: white;
+          text-align: center;
+          transition: opacity .4s ease-in-out;
+          will-change: opacity;
+          padding: 20px;
+          border-radius: 5px;
+        }
 
-          .project-overlay:after {
-            border-left: 1px dashed #fff;
-            border-right: 1px dashed #fff;
-            transform: scale(1, 0);
-          }
+        .project-overlay:before {
+          border-bottom: 1px dashed #fff;
+          border-top: 1px dashed #fff;
+          transform: scale(0, 1);
+        }
 
-          .project-overlay:before, .project-overlay:after {
-            content: "";
-            height: calc(100% - 40px);
-            left: 20px;
-            position: absolute;
-            top: 20px;
-            transition: transform 0.5s ease 0s;
-            will-change: transform;
-            width: calc(100% - 40px);
-            z-index: 1;
-          }
+        .project-overlay:after {
+          border-left: 1px dashed #fff;
+          border-right: 1px dashed #fff;
+          transform: scale(1, 0);
+        }
 
-          .overlay-container {
+        .project-overlay:before, .project-overlay:after {
+          content: "";
+          height: calc(100% - 40px);
+          left: 20px;
+          position: absolute;
+          top: 20px;
+          transition: transform 0.5s ease 0s;
+          will-change: transform;
+          width: calc(100% - 40px);
+          z-index: 1;
+        }
+
+        .overlay-container {
+          width: 100%;
+          padding: 10px;
+        }
+
+        h3 {
+          color: #fff;
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 50px;
+          padding-bottom: 5px;
+          position: relative;
+          text-transform: uppercase;
+          transition: all 0.5s ease 0s;
+        }
+
+        h3:before {
+          background-color: #fff;
+          bottom: -8px;
+          content: "";
+          height: 1px;
+          left: 50%;
+          position: absolute;
+          transform: translateX(-50%);
+          width: 0px;
+          transition: all 0.5s ease 0s;
+        }
+
+        p {
+          color: #fff;
+          padding-top: 30px;
+          transition: all 0.5s ease 0s;
+        }
+
+        @media only screen and (max-width: 1200px) {
+          .project {
+            width: 33.3%;
+          }
+        }
+
+        @media only screen and (max-width: 800px) {
+          .project {
+            width: 50%;
+          }
+        }
+
+        @media only screen and (max-width: 500px) {
+          .project {
             width: 100%;
-            padding: 10px;
           }
-
-          h3 {
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 50px;
-            padding-bottom: 5px;
-            position: relative;
-            text-transform: uppercase;
-            transition: all 0.5s ease 0s;
-          }
-
-          h3:before {
-            background-color: #fff;
-            bottom: -8px;
-            content: "";
-            height: 1px;
-            left: 50%;
-            position: absolute;
-            transform: translateX(-50%);
-            width: 0px;
-            transition: all 0.5s ease 0s;
-          }
-
-          p {
-            color: #fff;
-            padding-top: 30px;
-            transition: all 0.5s ease 0s;
-          }
-
-          @media only screen and (max-width: 1200px) {
-            .project {
-              width: 33.3%;
-            }
-          }
-
-          @media only screen and (max-width: 800px) {
-            .project {
-              width: 50%;
-            }
-          }
-
-          @media only screen and (max-width: 500px) {
-            .project {
-              width: 100%;
-            }
-          }
-        `}</style>
-      </a>
-    )
-  }
+        }
+      `}</style>
+    </a>
+  )
 }
+
+export default Project

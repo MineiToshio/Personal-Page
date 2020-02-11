@@ -3,9 +3,7 @@ import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
 
-export default (props) => {
-  const { id } = props
-
+const Hero = ({ id }) => {
   return (
     <div className="portada" id={id}>
       <ParticleJs/>
@@ -98,3 +96,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default Hero
