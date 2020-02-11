@@ -28,10 +28,10 @@ export default class ScrollUp extends React.Component {
             color: #fff;
             font-size: 30px;
             transition: all .3s ease;
-            
-            &:hover {
-              opacity: 0.8;
-            }
+          }
+
+          .top:hover {
+            opacity: 0.8;
           }
         `}</style>
       </ScrollToTop>

@@ -45,6 +45,7 @@ export default class Header extends React.Component {
             justify-content: space-between;
             height: 51px; //tamaño del haader sin padding
           }
+
           .logo {
             font-size: 25pt;
             font-family: "playlist script", sans-serif;
@@ -53,16 +54,19 @@ export default class Header extends React.Component {
             text-decoration: none;
             margin-right: auto;
           }
+
           .burger {
             display: none;
             position: absolute;
             right: 30px;
             cursor: pointer;
           }
+
           .menu {
             display: flex;
             transition: all 0.5s;
           }
+
           ul {
             list-style: none;
             display: flex;
@@ -70,33 +74,39 @@ export default class Header extends React.Component {
             align-items: center;
             padding: 0;
             margin: 0;
-
-            li {
-              margin: 0 30px;
-              text-transform: uppercase;
-              text-align: center;
-            }
-            a {
-              text-decoration: none;
-              color: var(--blue);
-              font-size: 22px;
-            }
-            a:hover {
-              color: var(--green);
-            }
           }
+
+          li {
+            margin: 0 30px;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          a {
+            text-decoration: none;
+            color: var(--blue);
+            font-size: 22px;
+          }
+
+          a:hover {
+            color: var(--green);
+          }
+
           @media only screen and (max-width: 800px) {
             ul {
               flex-direction: column;
-              li {
-                padding: 4px;
-              }
             }
+
+            li {
+              padding: 4px;
+            }
+
             .burger {
               display: initial;
               top: 16px;
               font-size: 25pt;
             }
+
             .menu {
               position: absolute;
               top: 72px; //tamaño del header
@@ -106,10 +116,11 @@ export default class Header extends React.Component {
               width: 100%;
               left: 0;
               display: block;
-              &.active {
-                height: 175px; //tamaño del ul
-                border-top: 2px solid var(--green);
-              }
+            }
+
+            .active {
+              height: 145px; //tamaño del ul
+              border-top: 2px solid var(--green);
             }
           }
           @media only screen and (max-width: 425px) {

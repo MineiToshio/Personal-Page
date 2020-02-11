@@ -41,31 +41,31 @@ export default class Parallax extends React.Component {
             max-width: 1200px;
             text-align: center;
             color: #000;
+          }
 
-            :global(svg) {
-              font-size: 15pt;
-              vertical-align: top;
-              margin: 5px 10px;
-              color: var(--green);
-            }
+          .caption :global(svg) {
+            font-size: 15pt;
+            vertical-align: top;
+            margin: 5px 10px;
+            color: var(--green);
+          }
 
-            .quote {
-              text-transform: uppercase;
-              color: #fff;
-              font-size: 35pt;
-              font-family: 'BebasNeue',sans-serif;
-              font-weight:bold;
-            }
+          .quote {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 35pt;
+            font-family: 'BebasNeue',sans-serif;
+            font-weight:bold;
+          }
 
-            .author {
-              font-size: 17px;
-              font-weight: 600;
-              color: #fff;
-              margin-top: 25px;
-              font-style: italic;
-              text-align: center;
-              display: block;
-            }
+          .author {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 25px;
+            font-style: italic;
+            text-align: center;
+            display: block;
           }
 
           @media only screen and (max-width: 1024px) {
@@ -73,14 +73,12 @@ export default class Parallax extends React.Component {
               height: 350px;
             }
 
-            .caption {
-              :global(svg) {
-                font-size: 13pt;
-              }
+            .caption :global(svg) {
+              font-size: 13pt;
+            }
 
-              .quote {
-                font-size: 30pt;
-              }
+            .quote {
+              font-size: 30pt;
             }
           }
 
@@ -89,18 +87,16 @@ export default class Parallax extends React.Component {
               height: 250px;
             }
 
-            .caption {
-              :global(svg) {
-                font-size: 10pt;
-              }
+            .caption :global(svg) {
+              font-size: 10pt;
+            }
 
-              .quote {
-                font-size: 18pt;
-              }
+            .quote {
+              font-size: 18pt;
+            }
 
-              .author {
-                font-size: 13px;
-              }
+            .author {
+              font-size: 13px;
             }
           }
         `}</style>

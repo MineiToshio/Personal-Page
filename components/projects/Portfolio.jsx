@@ -103,22 +103,22 @@ export default class Portfolio extends React.Component {
             text-align: center;
             display: grid;
             grid-template-columns: repeat(6, 1fr);
+          }
 
-            a {
-              text-decoration: none;
-              padding: 5px 10px;
-              color: var(--green);
-              font-weight: bold;
-              margin: 5px;
-              border: 2px solid var(--green);
-              text-transform: uppercase;
-              cursor: pointer;
-              
-              &.active, &:hover {
-                background-color: var(--green);
-                color: white;
-              }
-            }
+          .filters a {
+            text-decoration: none;
+            padding: 5px 10px;
+            color: var(--green);
+            font-weight: bold;
+            margin: 5px;
+            border: 2px solid var(--green);
+            text-transform: uppercase;
+            cursor: pointer;
+          }
+
+          .filters a.active, .filters a:hover {
+            background-color: var(--green);
+            color: white;
           }
 
           .portafolio {

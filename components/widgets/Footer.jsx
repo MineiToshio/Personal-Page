@@ -2,14 +2,14 @@ import React from 'react';
 import IconMenu from '../social-icons/IconMenu';
 
 export default () => {
+  const color = '#949494';
+
   return (
     <footer>
       <IconMenu />
       <div>Toshio Minei ©{ new Date().getFullYear() }</div>
 
       <style jsx>{`
-        $color: #949494;
-
         footer {
           margin-top: 50px;
           padding: 15px;
@@ -19,15 +19,15 @@ export default () => {
           justify-content: center;
           background: var(--black);
           flex-direction: column;
-          color: $color;
+          color: ${color};
+        }
 
-          div {
-            margin-top: 15px;
-          }
+        div {
+          margin-top: 15px;
+        }
 
-          :global(a) {
-            color: $color;
-          }
+        footer :global(a) {
+          color: ${color};
         }
       `}</style>
     </footer>

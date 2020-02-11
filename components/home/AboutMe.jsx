@@ -58,25 +58,23 @@ export default () => {
           max-width: 1200px;
           grid-gap: 5px;
           grid-template-areas: "datos skills";
+        }
 
-          .datos {
-            grid-area: datos;
-          }
+        .datos {
+          grid-area: datos;
+        }
 
-          .skills {
-            grid-area: skills;
-          }
+        .skills {
+          grid-area: skills;
         }
 
         @media only screen and (max-width: 1024px) {
-          .info {
-            .datos {
-              padding: 20px;
-            }
+          .datos {
+            padding: 20px;
+          }
 
-            .skills {
-              padding: 20px;
-            }
+          .skills {
+            padding: 20px;
           }
         }
 

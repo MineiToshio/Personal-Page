@@ -11,8 +11,6 @@ import { faEnvelope, faClock, faCommentDots, faBookmark, faCalendar } from '@for
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
-import FAStyles from '@fortawesome/fontawesome-svg-core/styles.css';
-import NProgressStyles from 'nprogress/nprogress.css';
 
 config.autoAddCss = false;
 library.add(
@@ -75,10 +73,7 @@ export default class Layout extends React.Component {
           <ScrollUp />
         </div>
 
-        <style jsx global>{FAStyles}</style>
-        <style jsx global>{NProgressStyles}</style>
         <style jsx global>{`
-
           :root {
             --green: #1abc9c;
             --green-alpha: rgba(26,188,156,.8);
@@ -131,65 +126,65 @@ export default class Layout extends React.Component {
           }
 
           @font-face {
-              font-family: 'Charter';
-              src: url('../../static/fonts/Charter-Bold-Italic.eot');
-              src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
-                  url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
-              font-weight: bold;
-              font-style: italic;
+            font-family: 'Charter';
+            src: url('../../static/fonts/Charter-Bold-Italic.eot');
+            src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
+                url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
+            font-weight: bold;
+            font-style: italic;
           }
 
           @font-face {
-              font-family: 'Charter';
-              src: url('../../static/fonts/Charter-Bold.eot');
-              src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
-                  url('../../static/fonts/Charter-Bold.woff') format('woff');
-              font-weight: bold;
-              font-style: normal;
+            font-family: 'Charter';
+            src: url('../../static/fonts/Charter-Bold.eot');
+            src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+                url('../../static/fonts/Charter-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
           }
 
           @font-face {
-              font-family: 'Charter';
-              src: url('../../static/fonts/Charter-Italic.eot');
-              src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
-                  url('../../static/fonts/Charter-Italic.woff') format('woff');
-              font-weight: normal;
-              font-style: italic;
+            font-family: 'Charter';
+            src: url('../../static/fonts/Charter-Italic.eot');
+            src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
+                url('../../static/fonts/Charter-Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
           }
 
           @font-face {
-              font-family: 'Charter';
-              src: url('../../static/fonts/Charter.eot');
-              src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
-                  url('../../static/fonts/Charter.woff') format('woff');
-              font-weight: normal;
-              font-style: normal;
+            font-family: 'Charter';
+            src: url('../../static/fonts/Charter.eot');
+            src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
+                url('../../static/fonts/Charter.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
           }
 
           body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             color: var(--black);
+          }
 
-            &::-webkit-scrollbar-track
-            {
-              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-              border-radius: 10px;
-              background-color: #BAC1B8;
-            }
+          body::-webkit-scrollbar-track
+          {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #BAC1B8;
+          }
 
-            &::-webkit-scrollbar
-            {
-              width: 8px;
-              background-color: #BAC1B8;
-            }
+          body::-webkit-scrollbar
+          {
+            width: 8px;
+            background-color: #BAC1B8;
+          }
 
-            &::-webkit-scrollbar-thumb
-            {
-              border-radius: 10px;
-              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-              background-color: #555;
-            }
+          body::-webkit-scrollbar-thumb
+          {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
           }
         `}</style>
       </div>

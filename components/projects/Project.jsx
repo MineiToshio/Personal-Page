@@ -65,29 +65,31 @@ export default class Project extends React.Component {
             padding-right: 6px;
             margin-top: 12px;
             cursor: pointer;
+          }
 
-            &:hover .project-overlay {
-              opacity: 1;
+          .project:hover .project-overlay {
+            opacity: 1;
+          }
 
-              &::before {
-                transform: scale(1.001, 1.001);
-              }
-
-              &::after {
-                transform: scale(1.001, 1.001);
-              }
-
-              h3 {
-                margin-bottom: 15px;
-                &:before {
-                  width: 50px;
-                }
-              }
-
-              p {
-                padding-top: 0;
-              }
+          .project:hover .project-overlay::before {
+              transform: scale(1.001, 1.001);
             }
+
+          .project:hover .project-overlay::after {
+            transform: scale(1.001, 1.001);
+          }
+
+          .project:hover h3 {
+            margin-bottom: 15px;
+            
+          }
+
+          .project:hover h3:before {
+            width: 50px;
+          }
+
+          .project:hover p {
+            padding-top: 0;
           }
 
           .project-overlay {
@@ -107,64 +109,64 @@ export default class Project extends React.Component {
             will-change: opacity;
             padding: 20px;
             border-radius: 5px;
+          }
 
-            &:before {
-              border-bottom: 1px dashed #fff;
-              border-top: 1px dashed #fff;
-              transform: scale(0, 1);
-            }
+          .project-overlay:before {
+            border-bottom: 1px dashed #fff;
+            border-top: 1px dashed #fff;
+            transform: scale(0, 1);
+          }
 
-            &:after {
-              border-left: 1px dashed #fff;
-              border-right: 1px dashed #fff;
-              transform: scale(1, 0);
-            }
+          .project-overlay:after {
+            border-left: 1px dashed #fff;
+            border-right: 1px dashed #fff;
+            transform: scale(1, 0);
+          }
 
-            &:before, &:after {
-              content: "";
-              height: calc(100% - 40px);
-              left: 20px;
-              position: absolute;
-              top: 20px;
-              transition: transform 0.5s ease 0s;
-              will-change: transform;
-              width: calc(100% - 40px);
-              z-index: 1;
-            }
+          .project-overlay:before, .project-overlay:after {
+            content: "";
+            height: calc(100% - 40px);
+            left: 20px;
+            position: absolute;
+            top: 20px;
+            transition: transform 0.5s ease 0s;
+            will-change: transform;
+            width: calc(100% - 40px);
+            z-index: 1;
+          }
 
-            .overlay-container {
-              width: 100%;
-              padding: 10px;
-            }
+          .overlay-container {
+            width: 100%;
+            padding: 10px;
+          }
 
-            h3 {
-              color: #fff;
-              font-size: 20px;
-              font-weight: bold;
-              margin-bottom: 50px;
-              padding-bottom: 5px;
-              position: relative;
-              text-transform: uppercase;
-              transition: all 0.5s ease 0s;
+          h3 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 50px;
+            padding-bottom: 5px;
+            position: relative;
+            text-transform: uppercase;
+            transition: all 0.5s ease 0s;
+          }
 
-              &:before {
-                background-color: #fff;
-                bottom: -8px;
-                content: "";
-                height: 1px;
-                left: 50%;
-                position: absolute;
-                transform: translateX(-50%);
-                width: 0px;
-                transition: all 0.5s ease 0s;
-              }
-            }
+          h3:before {
+            background-color: #fff;
+            bottom: -8px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 0px;
+            transition: all 0.5s ease 0s;
+          }
 
-            p {
-              color: #fff;
-              padding-top: 30px;
-              transition: all 0.5s ease 0s;
-            }
+          p {
+            color: #fff;
+            padding-top: 30px;
+            transition: all 0.5s ease 0s;
           }
 
           @media only screen and (max-width: 1200px) {

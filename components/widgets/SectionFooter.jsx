@@ -18,25 +18,25 @@ export default class SectionFooter extends React.Component {
             background-color: #f5f5f5;
             padding: 40px 0;
             margin-top: 40px;
+          }
 
-            p {
-              margin: 0 0 10px 0;
-            }
+          p {
+            margin: 0 0 10px 0;
+          }
 
-            a {
-              color: var(--green);
-              margin: 5px;
-              border: 2px solid var(--green);
-              text-decoration: none;
-              padding: 10px;
-              border-radius: 5px;
-              font-size: 15pt;
+          a {
+            color: var(--green);
+            margin: 5px;
+            border: 2px solid var(--green);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 15pt;
+          }
 
-              &:hover {
-                background-color: var(--green);
-                color: white;
-              }
-            }
+          a:hover {
+            background-color: var(--green);
+            color: white;
           }
         `}</style>
       </div>

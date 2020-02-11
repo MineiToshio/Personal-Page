@@ -1,7 +1,7 @@
 import React from 'react';
 import App from 'next/app';
-
-import OfflineSupport from '../components/widgets/OfflineSupport';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import 'nprogress/nprogress.css';
 
 class CustomApp extends App {
   render() {

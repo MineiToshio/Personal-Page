@@ -24,7 +24,6 @@ export default class ProjectModal extends React.Component {
     return (
       <Modal visible={modalVisible} handleModalClose={handleModalClose}>
         <Slider images={this.fullUrlImages()}></Slider>
-        {/* <img src={`../../static/img/portafolio/${id}/${images[0]}`} /> */}
         <div className="modal-info">
           <h3>{name}</h3>
           <h4>{arrayToString(tech)}</h4>
@@ -53,59 +52,57 @@ export default class ProjectModal extends React.Component {
 
           .modal-info {
             padding: 10px;
+          }
 
-            h3 {
-              margin: 0;
-              font-size: 19pt;
-            }
+          h3 {
+            margin: 0;
+            font-size: 19pt;
+          }
 
-            h4 {
-              margin: 0;
-              color: #7d7d7d;
-              text-transform: uppercase;
-            }
+          h4 {
+            margin: 0;
+            color: #7d7d7d;
+            text-transform: uppercase;
+          }
 
-            .buttons {
-              display: flex;
-              font-size: 15px;
+          .buttons {
+            display: flex;
+            font-size: 15px;
+          }
 
-              a {
-                border-radius: 5px;
-                padding: 8px 10px;
-                background: #fff;
-                border: var(--green) solid 2px;
-                cursor: pointer;
-                margin-right: 10px;
-                color: var(--green);
-                text-decoration: none;
+          a {
+            border-radius: 5px;
+            padding: 8px 10px;
+            background: #fff;
+            border: var(--green) solid 2px;
+            cursor: pointer;
+            margin-right: 10px;
+            color: var(--green);
+            text-decoration: none; 
+          }
 
-                &:hover {
-                  color: #fff;
-                  background: var(--green);
-                }
-              }
-            }
+          a:hover {
+            color: #fff;
+            background: var(--green);
           }
 
           @media only screen and (max-width:600px) {
             h3 {
               font-size: 16pt;
             }
+            
             h4 {
               font-size: 11pt;
             }
+
             p {
               font-size: 10pt;
             }
 
-            .modal-info {
-              .buttons {
-                a {
-                  border: var(--green) solid 1px;
-                  padding: 6px 8px;
-                  font-size: 14px;
-                }
-              }
+            .buttons a {
+              border: var(--green) solid 1px;
+              padding: 6px 8px;
+              font-size: 14px;
             }
           }
         `}</style>

@@ -24,17 +24,17 @@ export default (props) => {
           justify-content: center;
           align-items: center;
           background: var(--green);
+        }
 
-          :global(.social-icons) {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 20px;
+        .portada :global(.social-icons) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 20px;
+        }
 
-            :global(a) {
-              color: var(--black);
-            }
-          }
+        .portada :global(.social-icons a) {
+          color: var(--black);
         }
 
         .content {
@@ -48,15 +48,15 @@ export default (props) => {
           display: flex;
           flex-direction: row;
           justify-content: center;
+        }
 
-          .highlight {
-            color: var(--black);
-            font-weight: bold;
-          }
+        .highlight {
+          color: var(--black);
+          font-weight: bold;
+        }
 
-          .name {
-            margin-left: 10px;
-          }
+        .name {
+          margin-left: 10px;
         }
 
         .sub-title {
@@ -78,10 +78,10 @@ export default (props) => {
           .title {
             flex-direction: column;
             font-size: 23pt;
+          }
 
-            .name {
-              margin-left: 0;
-            }
+          .name {
+            margin-left: 0;
           }
 
           .sub-title {
@@ -89,11 +89,9 @@ export default (props) => {
             padding-top: 25px;
           }
 
-          .portada {
-            :global(.social-icons) {
-              right: auto;
-              margin: 20px auto;
-            }
+          .portada :global(.social-icons) {
+            right: auto;
+            margin: 20px auto;
           }
         }
       `}</style>

@@ -47,27 +47,28 @@ export default class Modal extends React.Component {
             transition: 1.3s ease-in;
             will-change: opacity;
             z-index: 11;
-
-            &.active {
-              opacity: 1;
-              display: flex;
-              transition: .4s;
-            }
           }
+
+          .overlay.active {
+            opacity: 1;
+            display: flex;
+            transition: .4s;
+          }
+
           .modal {
             max-width: 600px;
             width: 100%;
             background: white;
             border-radius: 5px;
             position: relative;
+          }
 
-            &.in {
-              animation: modalIn .8s forwards;
-            }
+          .modal.in {
+            animation: modalIn .8s forwards;
+          }
 
-            &.out {
-              animation: modalOut .8s forwards;
-            }
+          .modal.out {
+            animation: modalOut .8s forwards;
           }
 
           a {
@@ -84,10 +85,10 @@ export default class Modal extends React.Component {
             justify-content: center;
             z-index: 1;
             cursor: pointer;
+          }
 
-            &:hover {
-              filter: brightness(85%);
-            }
+          a:hover {
+            filter: brightness(85%);
           }
 
           @media only screen and (max-width:650px) {

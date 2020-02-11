@@ -53,11 +53,11 @@ export default class ContactForm extends React.Component {
             font-weight: bold;
             margin: 2px 5px;
             width: calc(100% - 10px);
- 
-            &:hover {
+          }
+
+          button:hover {
               filter: brightness(85%);
             }
-          }
 
           input, textarea {
             cursor: auto;

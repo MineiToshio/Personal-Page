@@ -34,23 +34,6 @@ export default class Sliders extends React.Component {
 
     const jssor = new $JssorSlider$("jssor", options)
 
-    // const MAX_WIDTH = 600;
-
-    // ScaleSlider = () => {
-    //   const containerElement = jssor.$Elmt.parentNode;
-    //   const containerWidth = containerElement.clientWidth;
-
-    //   if (containerWidth) {
-
-    //     const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-    //     jssor.$ScaleWidth(expectedWidth);
-    //   }
-    //   else {
-    //     window.setTimeout(ScaleSlider, 30);
-    //   }
-    // }
-
     this.ScaleSlider();
 
     $Jssor$.$AddEvent(window, "load", this.ScaleSlider);
@@ -90,7 +73,6 @@ export default class Sliders extends React.Component {
   }
 
   render () {
-    const { images } = this.props;
     return (
       <div id="jssor" className="slider">
         <div data-u="loading" className="spinner">
@@ -120,16 +102,16 @@ export default class Sliders extends React.Component {
             overflow:hidden;
             visibility:hidden;
             border-radius: 5px 5px 0 0;
+          }
 
-            .slides {
-              cursor:default;
-              position:relative;
-              top:0px;
-              left:0px;
-              width:600px;
-              height:400px;
-              overflow:hidden;
-            }
+          .slides {
+            cursor:default;
+            position:relative;
+            top:0px;
+            left:0px;
+            width:600px;
+            height:400px;
+            overflow:hidden;
           }
 
           .spinner {
@@ -140,19 +122,18 @@ export default class Sliders extends React.Component {
             height:100%;
             text-align:center;
             background-color:rgba(0,0,0,0.7);
+          }
 
-            img {
-              margin-top:-19px;
-              position:relative;
-              top:50%;
-              width:38px;
-              height:38px;
-
-              animation-name: spin;
-              animation-duration: 1.6s;
-              animation-iteration-count: infinite;
-              animation-timing-function: linear;
-            }
+          .spinner img {
+            margin-top:-19px;
+            position:relative;
+            top:50%;
+            width:38px;
+            height:38px;
+            animation-name: spin;
+            animation-duration: 1.6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
           }
 
           @keyframes spin {
@@ -173,33 +154,33 @@ export default class Sliders extends React.Component {
             height: 30px;
             top: 0;
             background-color: #fff;
+          }
 
-            &.right {
-              right: 0;
-            }
+          .arrow:hover {
+            opacity: .8;
+          }
 
-            &.left {
-              left: 0;
-            }
+          .arrow.right {
+            right: 0;
+          }
 
-            svg {
-              position:absolute;
-              top:0;
-              left:0;
-              width: 100%;
-              height:100%;
-            }
+          .arrow.left {
+            left: 0;
+          }
 
-            polyline {
-              fill: none;
-              stroke: var(--green);
-              stroke-width: 640;
-              stroke-miterlimit: 10;
-            }
+          svg {
+            position:absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height:100%;
+          }
 
-            &:hover {
-              opacity: .8;
-            }
+          polyline {
+            fill: none;
+            stroke: var(--green);
+            stroke-width: 640;
+            stroke-miterlimit: 10;
           }
         `}</style>
       </div>
