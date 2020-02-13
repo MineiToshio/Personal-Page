@@ -55,8 +55,8 @@ const Layout = ({ children, title }) => {
         <meta name="author" content="Toshio Minei" />
         <meta name="description" content="I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things." />
         <meta name="theme-color" content="#1abc9c" />
-        <link rel="manifest" href="/static/manifest.json"></link>
-        <link rel="shortcut icon" href="/static/img/favicon/favicon52.png" type="image/x-icon"/>
+        <link rel="manifest" href="/manifest.json"></link>
+        <link rel="shortcut icon" href="/img/favicon/favicon52.png" type="image/x-icon"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
       </Head>
 
@@ -81,8 +81,8 @@ const Layout = ({ children, title }) => {
 
         @font-face {
           font-family: 'BebasNeue';
-          src: url('../../static/fonts/BebasNeue-Regular.otf') format('opentype'),
-            url('../../static/fonts/BebasNeue-Regular.ttf') format('truetype');
+          src: url('../../fonts/BebasNeue-Regular.otf') format('opentype'),
+            url('../../fonts/BebasNeue-Regular.ttf') format('truetype');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -90,16 +90,16 @@ const Layout = ({ children, title }) => {
 
         @font-face {
           font-family: 'BebasNeue';
-          src: url('../../static/fonts/BebasNeue-Bold.otf') format('opentype'),
-            url('../../static/fonts/BebasNeue-Bold.ttf') format('truetype');
+          src: url('../../fonts/BebasNeue-Bold.otf') format('opentype'),
+            url('../../fonts/BebasNeue-Bold.ttf') format('truetype');
           font-weight: bold;
           font-display: swap;
         }
 
         @font-face {
           font-family: 'playlist script';
-          src: url('../../static/fonts/playlist-script.otf') format('opentype'),
-            url('../../static/fonts/playlist-script.woff') format('woff');
+          src: url('../../fonts/playlist-script.otf') format('opentype'),
+            url('../../fonts/playlist-script.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: block;
@@ -107,7 +107,7 @@ const Layout = ({ children, title }) => {
 
         @font-face {
           font-family: 'KievitOT';
-          src: url('../../static/fonts/KievitOT.otf') format('opentype');
+          src: url('../../fonts/KievitOT.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -115,7 +115,7 @@ const Layout = ({ children, title }) => {
 
         @font-face {
           font-family: 'Heldane';
-          src: url('../../static/fonts/Heldane-Regular.woff') format('woff');
+          src: url('../../fonts/Heldane-Regular.woff') format('woff');
           font-weight: normal;
           font-style: normal;
           font-display: swap;
@@ -123,36 +123,36 @@ const Layout = ({ children, title }) => {
 
         @font-face {
           font-family: 'Charter';
-          src: url('../../static/fonts/Charter-Bold-Italic.eot');
-          src: url('../../static/fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
-              url('../../static/fonts/Charter-Bold-Italic.woff') format('woff');
+          src: url('../../fonts/Charter-Bold-Italic.eot');
+          src: url('../../fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
+              url('../../fonts/Charter-Bold-Italic.woff') format('woff');
           font-weight: bold;
           font-style: italic;
         }
 
         @font-face {
           font-family: 'Charter';
-          src: url('../../static/fonts/Charter-Bold.eot');
-          src: url('../../static/fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
-              url('../../static/fonts/Charter-Bold.woff') format('woff');
+          src: url('../../fonts/Charter-Bold.eot');
+          src: url('../../fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
+              url('../../fonts/Charter-Bold.woff') format('woff');
           font-weight: bold;
           font-style: normal;
         }
 
         @font-face {
           font-family: 'Charter';
-          src: url('../../static/fonts/Charter-Italic.eot');
-          src: url('../../static/fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
-              url('../../static/fonts/Charter-Italic.woff') format('woff');
+          src: url('../../fonts/Charter-Italic.eot');
+          src: url('../../fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
+              url('../../fonts/Charter-Italic.woff') format('woff');
           font-weight: normal;
           font-style: italic;
         }
 
         @font-face {
           font-family: 'Charter';
-          src: url('../../static/fonts/Charter.eot');
-          src: url('../../static/fonts/Charter.eot?#iefix') format('embedded-opentype'),
-              url('../../static/fonts/Charter.woff') format('woff');
+          src: url('../../fonts/Charter.eot');
+          src: url('../../fonts/Charter.eot?#iefix') format('embedded-opentype'),
+              url('../../fonts/Charter.woff') format('woff');
           font-weight: normal;
           font-style: normal;
         }

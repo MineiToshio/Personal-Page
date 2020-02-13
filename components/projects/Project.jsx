@@ -8,7 +8,7 @@ const Project = ({ name, tech, id, handleClick }) => {
       <figure>
         <div className="aspect">
           <div className="inner">
-            <img src={`../../static/img/portafolio/thumbnails/${id}.png`} alt={name}/>
+            <img src={`/img/portafolio/thumbnails/${id}.png`} alt={name}/>
           </div>
         </div>
       </figure>

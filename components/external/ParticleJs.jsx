@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const ParticleJs = () => {
   useEffect(() => {
     require('particles.js');
-    particlesJS.load('particles-js', "../../static/data/particles.json");
+    particlesJS.load('particles-js', "/data/particles.json");
   }, [])
 
   return (

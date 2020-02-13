@@ -10,7 +10,7 @@ const AboutMe = () => {
         <div className="datos">
           <TrackVisibility once>
           {
-            ({ isVisible }) => <img src="../static/img/me.jpg" className={isVisible ? "flip-in-x" : "invisible"} width="250" id="photo-me" alt="Toshio Minei" />
+            ({ isVisible }) => <img src="/img/me.jpg" className={isVisible ? "flip-in-x" : "invisible"} width="250" id="photo-me" alt="Toshio Minei" />
           }
           </TrackVisibility>
           <TrackVisibility once>

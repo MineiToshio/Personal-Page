@@ -28,7 +28,7 @@ const Parallax = ({ quote, author, image }) => {
         }
 
         .overlay {
-          background: url("../../static/img/pattern.png");
+          background: url("../../img/pattern.png");
           width: 100%;
           height: 100%;
           position: absolute;

@@ -1,5 +1,5 @@
 import React from 'react';
-import social from '../../static/data/social.json';
+import social from '../../public/data/social.json';
 import SocialIcon from './SocialIcon';
 
 const IconMenu = () => {

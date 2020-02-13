@@ -4,7 +4,7 @@ import Hero from '../components/home/Hero';
 import Section from '../components/widgets/Section';
 import ContactForm from '../components/contact/ContactForm';
 import AboutMe from '../components/home/AboutMe';
-import projectsData from '../static/data/projects.json';
+import projectsData from '../public/data/projects.json';
 import Parallax from '../components/widgets/Parallax';
 import Projects from '../components/home/Proyects';
 
@@ -20,7 +20,7 @@ const Index = () => {
         <Parallax 
           quote="The best way to predict the future is to implement it" 
           author="David Heinemeier - Creator of Ruby on Rails"
-          image="../static/img/parallax/parallax1.jpg"/>
+          image="/img/parallax/parallax1.jpg"/>
 
         <Section id="portafolio" title="Portfolio" subtitle="View some of the projects I've worked on">
           <Projects projects={projectsData} />
@@ -29,7 +29,7 @@ const Index = () => {
         <Parallax 
           quote="One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man."
           author="Elbert Hubbard - Writer"
-          image="../static/img/parallax/parallax2.jpg" />
+          image="/img/parallax/parallax2.jpg" />
 
         <Section id="contacto" title="Contact" subtitle="Do you have a project idea? Let's work together!">
           <ContactForm />

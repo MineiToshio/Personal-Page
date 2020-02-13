@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/Layout';
 import Section from '../components/widgets/Section';
 import BlogPreview from '../components/blog/PostPreview';
-import posts from '../static/data/posts.json';
+import posts from '../public/data/posts.json';
 import BlogSidebar from '../components/blog/BlogSidebar';
 
 const Blog = () => {

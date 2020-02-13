@@ -109,8 +109,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # Auto generated
-static/manifest
-static/workbox
+public/manifest
+public/workbox
 
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
 

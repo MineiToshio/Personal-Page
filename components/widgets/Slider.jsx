@@ -68,7 +68,7 @@ const Sliders = ({ images }) => {
   return (
     <div id="jssor" className="slider">
       <div data-u="loading" className="spinner">
-        <img src="../../static/svg/spin.svg" />
+        <img src="../../svg/spin.svg" />
       </div>
       <div data-u="slides" className="slides">
       </div>

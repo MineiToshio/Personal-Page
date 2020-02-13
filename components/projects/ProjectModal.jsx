@@ -12,7 +12,7 @@ const ProjectModal = ({ images, id, modalVisible, handleModalClose, name, tech, 
 
     if (images)
       images.forEach(element => {
-        urls.push(`../../static/img/portafolio/${id}/${element}`)
+        urls.push(`/img/portafolio/${id}/${element}`)
       });
 
     return urls;
