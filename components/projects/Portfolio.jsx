@@ -3,6 +3,7 @@ import Project from './Project';
 import ProjectModal from './ProjectModal';
 import Shuffle from 'shufflejs';
 import TrackVisibility from 'react-on-screen';
+import PropTypes from 'prop-types'
 
 const Portfolio = ({ projects }) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -141,6 +142,14 @@ const Portfolio = ({ projects }) => {
       `}</style>
     </div>
   )
+}
+
+Portfolio.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+    id: PropTypes.string.isRequired
+  })).isRequired,
 }
 
 export default Portfolio

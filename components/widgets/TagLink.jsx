@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const TagLink = ({ tag }) => {
   return (
@@ -26,6 +27,10 @@ const TagLink = ({ tag }) => {
       `}</style>
     </a>
   )
+}
+
+TagLink.propTypes = {
+  tag: PropTypes.string.isRequired
 }
 
 export default TagLink

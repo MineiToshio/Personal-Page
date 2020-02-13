@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const Like = ({ likedQty }) => {
   return (
@@ -41,6 +42,10 @@ const Like = ({ likedQty }) => {
       `}</style>
     </a>
   )
+}
+
+Like.propTypes = {
+  likedQty: PropTypes.number.isRequired
 }
 
 export default Like

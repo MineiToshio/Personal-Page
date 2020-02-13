@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const BlogMeta = ({ createdAt, commentQty, readingTime }) => { 
   return (
@@ -20,6 +21,12 @@ const BlogMeta = ({ createdAt, commentQty, readingTime }) => {
       `}</style>
     </div>
   )
+}
+
+BlogMeta.propTypes = {
+  createdAt: PropTypes.string.isRequired,
+  commentQty: PropTypes.number.isRequired,
+  readingTime: PropTypes.number.isRequired,
 }
 
 export default BlogMeta

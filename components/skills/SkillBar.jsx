@@ -1,6 +1,7 @@
 import React from 'react';
 import slug from '../../helpers/slug';
 import TrackVisibility from 'react-on-screen';
+import PropTypes from 'prop-types'
 
 const SkillBar = ({ percent, skill }) => {
   const height = '30px';
@@ -69,6 +70,11 @@ const SkillBar = ({ percent, skill }) => {
       `}</style>
     </div>
   )
+}
+
+SkillBar.propTypes = {
+  percent: PropTypes.string.isRequired,
+  skill: PropTypes.string.isRequired,
 }
 
 export default SkillBar

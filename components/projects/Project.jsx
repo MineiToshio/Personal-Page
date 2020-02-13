@@ -1,5 +1,6 @@
 import React from 'react';
 import arrayToString from '../../helpers/arrayToString';
+import PropTypes from 'prop-types'
 
 const Project = ({ name, tech, id, handleClick }) => {
   return (
@@ -185,6 +186,13 @@ const Project = ({ name, tech, id, handleClick }) => {
       `}</style>
     </a>
   )
+}
+
+Project.propTypes = {
+  name: PropTypes.string.isRequired,
+  tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+  id: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 }
 
 export default Project

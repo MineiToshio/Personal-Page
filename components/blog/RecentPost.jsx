@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types'
 
 const RecentPost = ({ title, thumbnail, createdAt, url }) => {
   const postUrl = `/blog/${url}`;
@@ -63,6 +64,13 @@ const RecentPost = ({ title, thumbnail, createdAt, url }) => {
       `}</style>
     </div>
   )
+}
+
+RecentPost.propTypes = {
+  title: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 }
 
 export default RecentPost

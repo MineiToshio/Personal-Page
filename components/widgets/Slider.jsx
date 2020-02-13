@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
 
 const Sliders = ({ images }) => {
   const [jssor, setJssor] = useState(null)
@@ -176,6 +177,10 @@ const Sliders = ({ images }) => {
       `}</style>
     </div>
   )
+}
+
+Sliders.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
 export default Sliders

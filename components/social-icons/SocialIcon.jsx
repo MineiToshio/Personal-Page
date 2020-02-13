@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const SocialIcon = ({ color, url, icon }) => {
   return (
@@ -42,6 +43,12 @@ const SocialIcon = ({ color, url, icon }) => {
       `}</style>
     </a>
   )
+}
+
+SocialIcon.propTypes = {
+  color: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
 }
 
 export default SocialIcon

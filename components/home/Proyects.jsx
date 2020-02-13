@@ -1,6 +1,7 @@
 import React from 'react';
 import Portfolio from '../projects/Portfolio';
 import SectionFooter from '../widgets/SectionFooter';
+import PropTypes from 'prop-types'
 
 const Proyects = ({ projects }) => {
   return (
@@ -18,6 +19,14 @@ const Proyects = ({ projects }) => {
       `}</style>
     </div>
   )
+}
+
+Proyects.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired, 
+    tech: PropTypes.arrayOf(PropTypes.string).isRequired, 
+    id: PropTypes.string.isRequired
+  })).isRequired,
 }
 
 export default Proyects

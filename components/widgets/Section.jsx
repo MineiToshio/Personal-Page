@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackVisibility from 'react-on-screen';
+import PropTypes from 'prop-types'
 
 const Section = ({ children, title, subtitle, id }) => {
   return (
@@ -86,6 +87,13 @@ const Section = ({ children, title, subtitle, id }) => {
       `}</style>
     </section>
   )
+}
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 }
 
 export default Section

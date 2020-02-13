@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const ViewMore = ({ title }) => {
   return (
@@ -55,6 +56,10 @@ const ViewMore = ({ title }) => {
       `}</style>
     </div>
   )
+}
+
+ViewMore.propTypes = {
+  title: PropTypes.string.isRequired
 }
 
 export default ViewMore

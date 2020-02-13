@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const NavArrows = ({ urlPrev, urlNext }) => {
   return (
@@ -43,6 +44,11 @@ const NavArrows = ({ urlPrev, urlNext }) => {
       `}</style>
     </nav>
   )
+}
+
+NavArrows.propTypes = {
+  urlPrev: PropTypes.string.isRequired,
+  urlNext: PropTypes.string.isRequired,
 }
 
 export default NavArrows

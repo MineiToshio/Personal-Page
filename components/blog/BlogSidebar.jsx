@@ -1,6 +1,7 @@
 import React from 'react';
 import RecentPost from './RecentPost';
 import TagLink from '../widgets/TagLink';
+import PropTypes from 'prop-types'
 
 const BlogSidebar = ({ recentPosts }) => {
   return (
@@ -91,6 +92,15 @@ const BlogSidebar = ({ recentPosts }) => {
       `}</style>
     </div>
   )
+}
+
+BlogSidebar.propTypes = {
+  recentPosts: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired, 
+    thumbnail: PropTypes.string.isRequired, 
+    createdAt: PropTypes.string.isRequired, 
+    url: PropTypes.string.isRequired,
+  })).isRequired
 }
 
 export default BlogSidebar

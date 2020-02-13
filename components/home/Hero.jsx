@@ -2,6 +2,7 @@ import React from 'react';
 import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
+import PropTypes from 'prop-types'
 
 const Hero = ({ id }) => {
   return (
@@ -95,6 +96,10 @@ const Hero = ({ id }) => {
       `}</style>
     </div>
   )
+}
+
+Hero.propTypes = {
+  id: PropTypes.string.isRequired,
 }
 
 export default Hero

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Like from '../widgets/Like';
 import BlogMeta from './BlogMeta';
+import PropTypes from 'prop-types'
 
 const PostPreview = ({ title, photo, summary, createdAt, commentQty, readingTime, likedQty, url }) => { 
   return (
@@ -96,6 +97,17 @@ const PostPreview = ({ title, photo, summary, createdAt, commentQty, readingTime
       `}</style>
     </article>
   )
+}
+
+PostPreview.propTypes = {
+  title: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  commentQty: PropTypes.number.isRequired,
+  readingTime: PropTypes.number.isRequired,
+  likedQty: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default PostPreview

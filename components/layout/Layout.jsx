@@ -11,6 +11,7 @@ import { faEnvelope, faClock, faCommentDots, faBookmark, faCalendar } from '@for
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
+import PropTypes from 'prop-types'
 
 config.autoAddCss = false;
 library.add(
@@ -184,6 +185,11 @@ const Layout = ({ children, title }) => {
       `}</style>
     </div>
   )
+}
+
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

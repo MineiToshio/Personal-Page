@@ -3,6 +3,7 @@ import Modal from '../widgets/Modal';
 import arrayToString from '../../helpers/arrayToString';
 import Slider from '../widgets/Slider';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const ProjectModal = ({ images, id, modalVisible, handleModalClose, name, tech, description, live, github}) => {
   
@@ -104,6 +105,18 @@ const ProjectModal = ({ images, id, modalVisible, handleModalClose, name, tech, 
       `}</style>
     </Modal>
   )
+}
+
+ProjectModal.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string),
+  modalVisible: PropTypes.bool.isRequired,
+  handleModalClose: PropTypes.func.isRequired,
+  description: PropTypes.string,
+  live: PropTypes.string,
+  github: PropTypes.string,
+  name: PropTypes.string,
+  tech: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.string
 }
 
 export default ProjectModal

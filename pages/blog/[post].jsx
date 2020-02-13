@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/layout/Layout';
 import BlogMeta from '../../components/blog/BlogMeta';
 import NavArrows from '../../components/widgets/NavArrows';
@@ -13,7 +12,7 @@ const Post = () => {
           <div className="title">
             <p className="category">Tecnología</p>
             <h1>Loft Office With Vintage Decor For Creative Working</h1>
-            <BlogMeta createdAt='10/10/2018' commentQty='50' readingTime='30' />
+            <BlogMeta createdAt='10/10/2018' commentQty={50} readingTime={30} />
           </div>
           <div className="banner" style={{backgroundImage: "url(https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/loft-office-with-vintage-decor-PFD2JSL-1-880x400.jpg)"}}>
           </div>

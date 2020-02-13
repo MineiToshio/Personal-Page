@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const SectionFooter = ({ title, url, button }) => {
   return (
@@ -39,6 +40,12 @@ const SectionFooter = ({ title, url, button }) => {
       `}</style>
     </div>
   )
+}
+
+SectionFooter.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired
 }
 
 export default SectionFooter

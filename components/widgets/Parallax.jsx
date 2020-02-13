@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const Parallax = ({ quote, author, image }) => {
   return (
@@ -100,6 +101,12 @@ const Parallax = ({ quote, author, image }) => {
       `}</style>
     </div>
   )
+}
+
+Parallax.propTypes = {
+  quote: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 }
 
 export default Parallax

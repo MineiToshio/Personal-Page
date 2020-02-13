@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types'
 
 const Modal = ({ children, handleModalClose, visible }) => {
   const refOverlay = useRef(null)
@@ -128,6 +129,12 @@ const Modal = ({ children, handleModalClose, visible }) => {
       `}</style>
     </div>
   )
+}
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  handleModalClose: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired
 }
 
 export default Modal
