@@ -1,38 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 
+const options = {
+  $Idle: 2000,
+  $ArrowNavigatorOptions: {
+    $Class: $JssorArrowNavigator$
+  }
+};
+
 const Sliders = ({ images }) => {
   const [jssor, setJssor] = useState(null)
-
-  const ScaleSlider = () => {
-    const MAX_WIDTH = 600;
-    if(jssor) {
-      const containerElement = jssor.$Elmt.parentNode;
-      const containerWidth = containerElement.clientWidth;
-
-      if (containerWidth) {
-
-        const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-        jssor.$ScaleWidth(expectedWidth);
-      }
-      else {
-        window.setTimeout(ScaleSlider, 30);
-      }
-    }
-  }
 
   useEffect(() => {
     require('jssor-slider');
     
-    const options = {
-      $Idle: 2000,
-      $ArrowNavigatorOptions: {
-        $Class: $JssorArrowNavigator$
-      }
-    };
+    const slider = new $JssorSlider$("jssor", options)
+    setJssor(slider)
 
-    setJssor(new $JssorSlider$("jssor", options))
+    const ScaleSlider = () => {
+      const MAX_WIDTH = 600;
+      if (slider) {
+        const containerElement = slider.$Elmt.parentNode;
+        const containerWidth = containerElement.clientWidth;
+
+        if (containerWidth) {
+
+          const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+          slider.$ScaleWidth(expectedWidth);
+        }
+        else {
+          window.setTimeout(ScaleSlider, 30);
+        }
+      }
+    }
 
     ScaleSlider();
 
