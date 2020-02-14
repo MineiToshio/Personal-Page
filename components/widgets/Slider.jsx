@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 
-const options = {
-  $Idle: 2000,
-  $ArrowNavigatorOptions: {
-    $Class: $JssorArrowNavigator$
-  }
-};
-
 const Sliders = ({ images }) => {
   const [jssor, setJssor] = useState(null)
 
   useEffect(() => {
     require('jssor-slider');
     
+    const options = {
+      $Idle: 2000,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      }
+    };
+
     const slider = new $JssorSlider$("jssor", options)
     setJssor(slider)
 
