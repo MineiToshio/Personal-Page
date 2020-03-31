@@ -22,7 +22,7 @@
     "default-passive-events": "^1.0.10",
     "express": "^4.17.1",
     "jssor-slider": "^27.5.0",
-    "next": "^9.0.5",
+    "next": "^9.3.2",
     "next-offline": "^4.0.5",
     "next-routes": "^1.4.2",
     "nprogress": "^0.2.0",
