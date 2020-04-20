@@ -1,27 +1,32 @@
 [
   {
-    "name": "facebook-square",
+    "name": "facebook",
     "url": "https://facebook.com/mineitoshio/",
-    "color": "#3b5998"
+    "color": "#3b5998",
+    "icon": "facebook-square"
   },
   {
     "name": "twitter",
     "url": "https://twitter.com/MineiToshio",
-    "color": "#1da1f2"
+    "color": "#1da1f2",
+    "icon": "twitter"
   },
   {
     "name": "instagram",
     "url": "https://instagram.com/mineitoshio",
-    "color": "#e1306c"
+    "color": "#e1306c",
+    "icon": "instagram"
   },
   {
     "name": "github",
     "url": "https://github.com/MineiToshio",
-    "color": "#333"
+    "color": "#333",
+    "icon": "github"
   },
   {
     "name": "linkedin",
     "url": "https://linkedin.com/in/mineitoshio/",
-    "color": "#0077b5"
+    "color": "#0077b5",
+    "icon": "linkedin"
   }
 ]
