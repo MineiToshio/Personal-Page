@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import TrackVisibility from 'react-on-screen';
+import useTranslation from '../../hooks/useTranslation'
 
 const ContactForm: FC = () => {
+  const { t } = useTranslation('ContactForm')
   return (
-    <form className="contacto" action="https://formsubmit.co/21b37449ee460882bde6e52feb240178 " method="POST">
+    <form className="contact" action="https://formsubmit.co/21b37449ee460882bde6e52feb240178 " method="POST">
       <TrackVisibility once>
         {
           ({ isVisible }) => (
             <div className={isVisible ? "slide-in-left" : "invisible"}>
-              <input type="email" placeholder="Email" name="email" />
-              <input type="text" placeholder="Subject" name="subject" />
-              <input type="text" placeholder="Name" name="name" />
+              <input type="email" placeholder={t('email')} name="email" />
+              <input type="text" placeholder={t('subject')} name="subject" />
+              <input type="text" placeholder={t('name')} name="name" />
             </div>
           )
         }
@@ -30,7 +32,7 @@ const ContactForm: FC = () => {
       </TrackVisibility>
 
       <style jsx>{`
-        .contacto {
+        .contact {
           display: grid;
           grid-template-columns: 1fr 1fr;
         }
@@ -74,7 +76,7 @@ const ContactForm: FC = () => {
         }
 
         @media only screen and (max-width: 600px) {
-          .contacto {
+          .contact {
             grid-template-columns: 1fr;
           }
         }

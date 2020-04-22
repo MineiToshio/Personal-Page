@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
+import Link from '../widgets/Link';
 import Like from '../widgets/Like';
 import BlogMeta from './BlogMeta';
 import { BlogPost } from '../../types/types';
+import useTranslation from '../../hooks/useTranslation'
 
 type Props = Pick<BlogPost, 'title' | 'photo' | 'summary' | 'createdAt' | 'commentQty' | 'readingTime' | 'likedQty' | 'url'>
 
 const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, readingTime, likedQty, url }) => { 
+  const { t } = useTranslation('PostPreview')
   return (
     <article>
       <Link href={`/blog/${url}`}>
@@ -26,7 +28,7 @@ const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, 
         </Link>
       </p>
       <Link href={`/blog/${url}`}>
-        <a className="view-more">Seguir Leyendo</a>
+        <a className="view-more">{t('keepReading')}</a>
       </Link>
 
       <style jsx>{`

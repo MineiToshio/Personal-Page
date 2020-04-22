@@ -4,6 +4,7 @@ import arrayToString from '../../helpers/arrayToString';
 import Slider from '../widgets/Slider';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { Project } from '../../types/types';
+import useTranslation from '../../hooks/useTranslation'
 
 type Props = Project & {
   modalVisible: boolean,
@@ -11,7 +12,8 @@ type Props = Project & {
 }
 
 const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, name, tech, description, live, github}) => {
-  
+  const { t } = useTranslation('ProjectModal')
+
   const fullUrlImages: Array<string> = useMemo(() => (
     images.map(image => `/img/portafolio/${id}/${image}`)
   ), [images, id])
@@ -27,7 +29,7 @@ const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, n
           {
             live &&
             <a target="_blank" href={live}>
-              <FA icon={['fas', 'globe-americas']} /> Go to Website
+              <FA icon={['fas', 'globe-americas']} /> {t('goToWeb')}
             </a>
           }
           {

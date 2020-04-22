@@ -2,8 +2,10 @@ import React, { FC } from 'react';
 import SkillBar from '../skills/SkillBar';
 import SectionFooter from '../widgets/SectionFooter';
 import TrackVisibility from 'react-on-screen';
+import useTranslation from '../../hooks/useTranslation'
 
 const AboutMe: FC = () => {
+  const { t } = useTranslation('AboutMe')
   return (
     <div className="sobre-mi">
       <div className="info">
@@ -15,12 +17,12 @@ const AboutMe: FC = () => {
           </TrackVisibility>
           <TrackVisibility once>
           {
-            ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>Who am I?</h2>
+            ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>{t('whoAmI')}</h2>
           }
           </TrackVisibility>
           <TrackVisibility once>
           {
-              ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things. </p>
+            ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>{t('me')}</p>
           }
           </TrackVisibility>
         </div>
@@ -29,7 +31,7 @@ const AboutMe: FC = () => {
           <SkillBar skill="CSS" percent="80" />
           <SkillBar skill="JavaScript" percent="90" />
           <SkillBar skill="jQuery" percent="80" />
-          <SkillBar skill="React" percent="70" />
+          <SkillBar skill="React" percent="80" />
           <SkillBar skill="AngularJS" percent="60" />
           <SkillBar skill="C#" percent="80" />
           <SkillBar skill="SQL Server" percent="80" />
@@ -38,9 +40,10 @@ const AboutMe: FC = () => {
         </div>
       </div>
       <SectionFooter 
-        title="Do you want to know more about me?" 
+        title={t('footerTitle')}
         url="https://www.linkedin.com/in/mineitoshio/" 
-        button="Visit my LinkedIn" />
+        button={t('footerButton')}
+      />
 
       <style jsx>{`
         .sobre-mi {

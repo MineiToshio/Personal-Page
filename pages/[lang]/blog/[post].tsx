@@ -1,9 +1,10 @@
 import React from 'react';
 import { NextPage } from 'next';
-import Layout from '../../components/layout/Layout';
-import BlogMeta from '../../components/blog/BlogMeta';
-import NavArrows from '../../components/widgets/NavArrows';
-import BlogSocial from '../../components/blog/BlogSocial';
+import Layout from '../../../components/layout/Layout';
+import BlogMeta from '../../../components/blog/BlogMeta';
+import NavArrows from '../../../components/widgets/NavArrows';
+import BlogSocial from '../../../components/blog/BlogSocial';
+import withLocale from '../../../hocs/withLocale';
 
 const Post: NextPage = () => {
   return (
@@ -185,4 +186,4 @@ const Post: NextPage = () => {
   )
 }
 
-export default Post
+export default withLocale(Post)

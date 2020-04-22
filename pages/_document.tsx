@@ -1,15 +1,15 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class CustomDocument extends Document {
   render() {
     return (
-      <html lang="es">
+      <Html lang={this.props.__NEXT_DATA__.props.pageProps.locale}>
         <Head />
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

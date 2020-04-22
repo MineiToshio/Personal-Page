@@ -1,20 +1,18 @@
 import React, { FC } from 'react';
 import Portfolio from '../projects/Portfolio';
 import SectionFooter from '../widgets/SectionFooter';
-import { Project } from '../../types/types';
+import useTranslation from '../../hooks/useTranslation'
 
-type Props = {
-  projects: Array<Project>
-}
-
-const Proyects: FC<Props> = ({ projects }) => {
+const Proyects: FC = () => {
+  const { t } = useTranslation('Proyects')
   return (
     <div className="projects">
-      <Portfolio projects={projects} />
+      <Portfolio />
       <SectionFooter 
-        title="Do you want to see more projects?"
+        title={t('title')}
         url="https://github.com/MineiToshio"
-        button="Visit my Github" />
+        button={t('button')}
+      />
 
       <style jsx>{`
         .projects {

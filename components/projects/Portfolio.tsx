@@ -4,16 +4,21 @@ import ProjectModal from './ProjectModal';
 import Shuffle from 'shufflejs';
 import TrackVisibility from 'react-on-screen';
 import { Project as ProjectType } from '../../types/types';
+import useTranslation from '../../hooks/useTranslation'
 
-type Props = {
-  projects: Array<ProjectType>
-}
-
-const Portfolio: FC<Props> = ({ projects }) => {
+const Portfolio: FC = () => {
+  const { t, locale } = useTranslation('Portfolio')
+  const [projects, setProjects] = useState<Array<ProjectType>>([])
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [modalProject, setModalProject] = useState<ProjectType | null>(null)
   const [shuffle, setShuffle] = useState<Shuffle | null>(null)
   const refPortfolio = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const projectJson = require(`../../public/data/projects.${locale}.json`);
+    console.log(projectJson)
+    setProjects(projectJson)
+  }, [locale])
 
   const handleModalClick = (modalProject: ProjectType) => {
     setModalVisible(true)
@@ -58,7 +63,7 @@ const Portfolio: FC<Props> = ({ projects }) => {
         setShuffle(null);
       }
     })
-  }, [refPortfolio])
+  }, [refPortfolio, projects])
 
   return (
     <div className="container">
@@ -66,7 +71,7 @@ const Portfolio: FC<Props> = ({ projects }) => {
       {
         ({isVisible}) => (
           <div className={`filters ${isVisible ? "pop-in" : "invisible"}`}>
-            <a data-filter="" onClick={handleShuffle} className="active">All</a>
+            <a data-filter="" onClick={handleShuffle} className="active">{t('all')}</a>
             <a data-filter="HTML" onClick={handleShuffle}>HTML</a>
             <a data-filter="jQuery" onClick={handleShuffle}>jQuery</a>
             <a data-filter="AngularJS Angular" onClick={handleShuffle}>Angular</a>

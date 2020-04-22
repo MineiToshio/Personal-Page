@@ -1,8 +1,10 @@
 import React, { FC, useState } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
+import Link from './Link';
+import useTranslation from '../../hooks/useTranslation'
 
 const Header: FC = () => {
+  const { t } = useTranslation('Header')
   const [active, setActive] = useState<boolean>(false)
 
   return (
@@ -11,11 +13,11 @@ const Header: FC = () => {
       <a className="burger" onClick={() => setActive(!active)}><FA icon={['fas', "bars"]} /></a>
       <div className={`menu ${active && 'active'}`}>
         <ul>
-          <li><a href="#portada" className="scroll">home</a></li>
-          <li><a href="#sobre-mi" className="scroll">about me</a></li>
-          <li><a href="#portafolio" className="scroll">portfolio</a></li>
+          <li><a href="#portada" className="scroll">{t('home')}</a></li>
+          <li><a href="#sobre-mi" className="scroll">{t('aboutMe')}</a></li>
+          <li><a href="#portafolio" className="scroll">{t('portfolio')}</a></li>
           {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
-          <li><a href="#contacto" className="scroll">contact</a></li>
+          <li><a href="#contacto" className="scroll">{t('contact')}</a></li>
         </ul>
       </div>
 

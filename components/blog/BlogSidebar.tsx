@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import RecentPost from './RecentPost';
 import TagLink from '../widgets/TagLink';
 import { BlogPost } from '../../types/types';
+import useTranslation from '../../hooks/useTranslation'
 
 type Post = Pick<BlogPost, 'id' | 'title' | 'thumbnail' | 'createdAt' | 'url'>
 
@@ -10,10 +11,11 @@ type Props = {
 }
 
 const BlogSidebar: FC<Props> = ({ recentPosts }) => {
+  const { t } = useTranslation('BlogSidebar')
   return (
     <div className="sidebar">
       <div className="recent">
-        <h3>Pubicaciones Recientes</h3>
+        <h3>{t('recentPosts')}</h3>
         {
           recentPosts.map((post: Post) => (
             <RecentPost key={post.id} {...post}/>
@@ -21,7 +23,7 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
         }
       </div>
       <div className="categories">
-        <h3>Categorías</h3>
+        <h3>{t('categories')}</h3>
         <ul>
           <li><a href="#">C#</a></li>
           <li><a href="#">javascript</a></li>
@@ -29,7 +31,7 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
         </ul>
       </div>
       <div className="tags">
-        <h3>Etiquetas</h3>
+        <h3>{t('tags')}</h3>
         <TagLink tag="work" />
         <TagLink tag="vs code" />
         <TagLink tag="startup" />

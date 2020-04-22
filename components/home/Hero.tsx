@@ -2,22 +2,23 @@ import React, { FC } from 'react';
 import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
-import PropTypes from 'prop-types'
+import useTranslation from '../../hooks/useTranslation'
 
 type Props = {
   id: string,
 }
 
 const Hero: FC<Props> = ({ id }) => {
+  const { t } = useTranslation('Hero')
   return (
     <div className="portada" id={id}>
       <ParticleJs/>
       <IconMenu />
       <div className="content">
-        <div className="title">Hello! <div className="name">I'm <span className="highlight">Toshio Minei</span></div></div>
-        <div className="sub-title">tech geek, entrepreneur, lifelong learner</div>
+        <div className="title">{t('hello')} <div className="name">{t('im')} <span className="highlight">Toshio Minei</span></div></div>
+        <div className="sub-title">{t('tagline')}</div>
       </div>
-      <ViewMore title="view my work" />
+      <ViewMore title={t('viewMyWork')}/>
 
       <style jsx>{`
         .portada {

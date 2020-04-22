@@ -12,6 +12,7 @@ import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
 import PropTypes from 'prop-types'
+import useTranslation from '../../hooks/useTranslation'
 
 config.autoAddCss = false;
 library.add(
@@ -54,6 +55,8 @@ type Props = {
 }
 
 const Layout: FC<Props> = ({ children, title }) => {
+  const { t } = useTranslation('Layout')
+
   useEffect(() => {
     smoothScroll();
   }, [])
@@ -64,7 +67,7 @@ const Layout: FC<Props> = ({ children, title }) => {
         <title>{ title }</title>
         <meta name="viewport" content="width=device-width" />
         <meta name="author" content="Toshio Minei" />
-        <meta name="description" content="I'm Toshio Minei, frontend developer, entrepreneur and blogger. I love technology and I'm passionate about learning new things." />
+        <meta name="description" content={t('description')} />
         <meta name="theme-color" content="#1abc9c" />
         <link rel="manifest" href="/manifest.json"></link>
         <link rel="shortcut icon" href="/img/favicon/favicon52.png" type="image/x-icon"/>
