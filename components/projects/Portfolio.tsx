@@ -16,7 +16,6 @@ const Portfolio: FC = () => {
 
   useEffect(() => {
     const projectJson = require(`../../public/data/projects.${locale}.json`);
-    console.log(projectJson)
     setProjects(projectJson)
   }, [locale])
 
