@@ -1,0 +1,96 @@
+[
+  {
+    "id": "12",
+    "name": "Personal Website",
+    "tech": ["React"],
+    "description": "It's my personal website. Yes, this is where you are now.",
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Personal-Page"
+  },
+  {
+    "id": "10",
+    "name": "Wozzii",
+    "tech": ["React"],
+    "description": "Landing page of Wozzii. It shows Wozzii's features: the platform that turns YouTube into a collaborative virtual classroom.",
+    "images": ["1.png", "2.png"],
+    "live": "https://wozzii.com"
+  },
+  {
+    "id": "1",
+    "name": "Bildin",
+    "tech": ["AngularJS", "C#", "SQL Server"],
+    "description": "Real estate portal that seeks to help agents share their properties so they can make sales faster.",
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "https://bildin.pe/"
+  },
+  {
+    "id": "2",
+    "name": "Podcast Next",
+    "tech": ["React"],
+    "description": "Podcast player that uses the audioboom api to display content. I use NextJs framework to make server side rendering.",
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "https://podcast.mineitoshio.now.sh/",
+    "github": "https://github.com/MineiToshio/Podcast-Next"
+  },
+  {
+    "id": "3",
+    "name": "Southern Copper: Personnel Recruitment",
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": "Application that takes care of the entire recruitment process of the Southern Copper Peru. The application covers the publication of a job offer, the nomination of candidates, selection of candidates and display of reports.",
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "4",
+    "name": "Geoservice: Project Management",
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": "This web application is responsible for managing the different projects of the Geoservice company. It covers the income of the project, its approval, allocation of resources and monitoring of the respective tasks.",
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "5",
+    "name": "Linnso Website",
+    "tech": ["HTML"],
+    "description": "Linnso company website. It is a single page application that divides its sections using parallax.",
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/LinnsoWeb"
+  },
+  {
+    "id": "6",
+    "name": "Noobout",
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": "E-Commerse portal for selling electronic products. It allows you to upload products, create categories, view sales reports and make purchases through a payment platform.",
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Noobout"
+  },
+  {
+    "id": "7",
+    "name": "DSA: Commercial Platform",
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": "Commercial platform that generates quotes and purchase orders. It also has a CRM built in.",
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "8",
+    "name": "Dendro Website",
+    "tech": ["HTML"],
+    "description": "Dendro website. It shows the main information of the company, a catalog of products and services and a contact form.",
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "http://dendro.us",
+    "github": "https://github.com/MineiToshio/DendroWeb"
+  },
+  {
+    "id": "9",
+    "name": "Scoti Chatbot",
+    "tech": ["AngularJS", "C#"],
+    "description": "Chatbot for the internal processes of Scotiabank Peru: customer information, affiliation to recurring charges, etc.",
+    "images": ["1.png", "2.png"]
+  },
+  {
+    "id": "11",
+    "name": "Platzi Overflow",
+    "tech": ["Angular", "Mongo", "NodeJS"],
+    "description": "A platform to ask questions about different technologies and help others with the knowledge you have.",
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Platzi-Overflow"
+  }
+]

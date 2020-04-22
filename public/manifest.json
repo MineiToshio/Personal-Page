@@ -1,0 +1,24 @@
+{
+	"name": "Toshio Minei",
+	"short_name": "Toshi",
+	"icons": [
+		{
+			"src": "\\img\\icons\\icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "\\img\\icons\\icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"orientation": "natural",
+	"background_color": "#ffffff",
+	"theme_color": "#1abc9c",
+	"scope": "/",
+	"related_applications": [],
+	"prefer_related_applications": false
+}
