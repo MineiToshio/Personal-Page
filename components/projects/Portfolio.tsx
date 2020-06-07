@@ -30,7 +30,7 @@ const Portfolio: FC = () => {
 
   const deactivateFilters = () => {
     const filters: HTMLDivElement = document.querySelector('.filters') as HTMLDivElement;
-    Array.from(filters.children).map((element) => {
+    [...filters.children].map((element) => {
       return element.classList.remove('active');
     });
   };

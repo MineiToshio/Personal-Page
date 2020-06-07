@@ -28,6 +28,7 @@ module.exports = {
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
+    'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
   ],
@@ -35,13 +36,26 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
   rules: {
+    // React
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+    // Other
+    'unicorn/filename-case': ['off'],
+    'unicorn/prefer-negative-index': ['off'],
+    'unicorn/prevent-abbreviations': ['off'],
     'no-extra-parens': 'warn',
     'prefer-arrow-callback': 'error',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
-    'react/prop-types': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
