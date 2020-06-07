@@ -1,14 +1,15 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
 type Props = {
-  tag: string,
-}
+  tag: string;
+};
 
 const TagLink: FC<Props> = ({ tag }) => {
   return (
-    <a href="#" className="tag-link">{ tag }
+    <a href="#" className="tag-link">
+      {tag}
       <style jsx>{`
-        .tag-link { 
+        .tag-link {
           padding: 5px 10px;
           border-radius: 50px;
           border: 1px var(--green) solid;
@@ -21,7 +22,7 @@ const TagLink: FC<Props> = ({ tag }) => {
           text-decoration: none;
           color: #fff;
           background: var(--green);
-        }  
+        }
         a {
           text-decoration: none;
           color: var(--green);
@@ -29,7 +30,7 @@ const TagLink: FC<Props> = ({ tag }) => {
         }
       `}</style>
     </a>
-  )
-}
+  );
+};
 
-export default TagLink
+export default TagLink;

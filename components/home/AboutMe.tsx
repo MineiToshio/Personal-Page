@@ -1,29 +1,33 @@
 import React, { FC } from 'react';
+import TrackVisibility from 'react-on-screen';
 import SkillBar from '../skills/SkillBar';
 import SectionFooter from '../widgets/SectionFooter';
-import TrackVisibility from 'react-on-screen';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 const AboutMe: FC = () => {
-  const { t } = useTranslation('AboutMe')
+  const { t } = useTranslation('AboutMe');
   return (
     <div className="sobre-mi">
       <div className="info">
         <div className="datos">
           <TrackVisibility once>
-          {
-            ({ isVisible }) => <img src="/img/me.jpg" className={isVisible ? "flip-in-x" : "invisible"} width="250" id="photo-me" alt="Toshio Minei" />
-          }
+            {({ isVisible }) => (
+              <img
+                src="/img/me.jpg"
+                className={isVisible ? 'flip-in-x' : 'invisible'}
+                width="250"
+                id="photo-me"
+                alt="Toshio Minei"
+              />
+            )}
           </TrackVisibility>
           <TrackVisibility once>
-          {
-            ({ isVisible }) => <h2 className={isVisible ? "slide-in-left" : "invisible"}>{t('whoAmI')}</h2>
-          }
+            {({ isVisible }) => (
+              <h2 className={isVisible ? 'slide-in-left' : 'invisible'}>{t('whoAmI')}</h2>
+            )}
           </TrackVisibility>
           <TrackVisibility once>
-          {
-            ({ isVisible }) => <p className={isVisible ? "slide-up" : "invisible"}>{t('me')}</p>
-          }
+            {({ isVisible }) => <p className={isVisible ? 'slide-up' : 'invisible'}>{t('me')}</p>}
           </TrackVisibility>
         </div>
         <div className="skills">
@@ -39,15 +43,15 @@ const AboutMe: FC = () => {
           <SkillBar skill="Firebase" percent="60" />
         </div>
       </div>
-      <SectionFooter 
+      <SectionFooter
         title={t('footerTitle')}
-        url="https://www.linkedin.com/in/mineitoshio/" 
+        url="https://www.linkedin.com/in/mineitoshio/"
         button={t('footerButton')}
       />
 
       <style jsx>{`
         .sobre-mi {
-          width:100%;
+          width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -60,7 +64,7 @@ const AboutMe: FC = () => {
           text-align: center;
           max-width: 1200px;
           grid-gap: 5px;
-          grid-template-areas: "datos skills";
+          grid-template-areas: 'datos skills';
         }
 
         .datos {
@@ -84,13 +88,14 @@ const AboutMe: FC = () => {
         @media only screen and (max-width: 600px) {
           .info {
             grid-template-columns: 1fr;
-            grid-template-areas: "datos"
-                                "skills";
+            grid-template-areas:
+              'datos'
+              'skills';
           }
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;

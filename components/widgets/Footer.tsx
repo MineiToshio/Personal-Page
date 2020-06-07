@@ -7,7 +7,7 @@ const Footer: FC = () => {
   return (
     <footer>
       <IconMenu />
-      <div>Toshio Minei ©{ new Date().getFullYear() }</div>
+      <div>Toshio Minei ©{new Date().getFullYear()}</div>
 
       <style jsx>{`
         footer {
@@ -31,7 +31,7 @@ const Footer: FC = () => {
         }
       `}</style>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

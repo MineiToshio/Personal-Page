@@ -6,7 +6,7 @@ const ScrollUp = () => {
   const style = {
     bottom: 25,
     right: 25,
-  }
+  };
 
   return (
     <ScrollToTop showUnder={160} style={style}>
@@ -25,7 +25,7 @@ const ScrollUp = () => {
           align-items: center;
           color: #fff;
           font-size: 30px;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
         }
 
         .top:hover {
@@ -33,7 +33,7 @@ const ScrollUp = () => {
         }
       `}</style>
     </ScrollToTop>
-  )
-}
+  );
+};
 
-export default ScrollUp
+export default ScrollUp;

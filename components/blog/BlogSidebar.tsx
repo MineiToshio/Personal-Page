@@ -2,32 +2,36 @@ import React, { FC } from 'react';
 import RecentPost from './RecentPost';
 import TagLink from '../widgets/TagLink';
 import { BlogPost } from '../../types/types';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
-type Post = Pick<BlogPost, 'id' | 'title' | 'thumbnail' | 'createdAt' | 'url'>
+type Post = Pick<BlogPost, 'id' | 'title' | 'thumbnail' | 'createdAt' | 'url'>;
 
 type Props = {
-  recentPosts: Array<Post>
-}
+  recentPosts: Array<Post>;
+};
 
 const BlogSidebar: FC<Props> = ({ recentPosts }) => {
-  const { t } = useTranslation('BlogSidebar')
+  const { t } = useTranslation('BlogSidebar');
   return (
     <div className="sidebar">
       <div className="recent">
         <h3>{t('recentPosts')}</h3>
-        {
-          recentPosts.map((post: Post) => (
-            <RecentPost key={post.id} {...post}/>
-          ))
-        }
+        {recentPosts.map((post: Post) => (
+          <RecentPost key={post.id} {...post} />
+        ))}
       </div>
       <div className="categories">
         <h3>{t('categories')}</h3>
         <ul>
-          <li><a href="#">C#</a></li>
-          <li><a href="#">javascript</a></li>
-          <li><a href="#">CSS</a></li>
+          <li>
+            <a href="#">C#</a>
+          </li>
+          <li>
+            <a href="#">javascript</a>
+          </li>
+          <li>
+            <a href="#">CSS</a>
+          </li>
         </ul>
       </div>
       <div className="tags">
@@ -43,9 +47,10 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
           margin: 5px;
           display: grid;
           align-content: baseline;
-          grid-template-areas: "recent"
-                                "categories"
-                                "tags";
+          grid-template-areas:
+            'recent'
+            'categories'
+            'tags';
         }
         .recent {
           grid-area: recent;
@@ -80,26 +85,27 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
           color: var(--green);
           font-size: 15px;
         }
-        @media screen and (max-width:790px) {
+        @media screen and (max-width: 790px) {
           .sidebar {
             grid-template-columns: repeat(3, 1fr);
-            grid-template-areas: "recent categories tags";
+            grid-template-areas: 'recent categories tags';
             grid-gap: 10px;
           }
           .sidebar div {
             margin-bottom: 15px;
           }
         }
-        @media screen and (max-width:700px) {
+        @media screen and (max-width: 700px) {
           .sidebar {
             grid-template-columns: repeat(2, 1fr);
-            grid-template-areas: "recent recent"
-                                "categories tags";
+            grid-template-areas:
+              'recent recent'
+              'categories tags';
           }
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default BlogSidebar
+export default BlogSidebar;

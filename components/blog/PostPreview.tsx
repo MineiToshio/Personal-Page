@@ -3,26 +3,42 @@ import Link from '../widgets/Link';
 import Like from '../widgets/Like';
 import BlogMeta from './BlogMeta';
 import { BlogPost } from '../../types/types';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
-type Props = Pick<BlogPost, 'title' | 'photo' | 'summary' | 'createdAt' | 'commentQty' | 'readingTime' | 'likedQty' | 'url'>
+type Props = Pick<
+  BlogPost,
+  'title' | 'photo' | 'summary' | 'createdAt' | 'commentQty' | 'readingTime' | 'likedQty' | 'url'
+>;
 
-const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, readingTime, likedQty, url }) => { 
-  const { t } = useTranslation('PostPreview')
+const PostPreview: FC<Props> = ({
+  title,
+  photo,
+  summary,
+  createdAt,
+  commentQty,
+  readingTime,
+  likedQty,
+  url,
+}) => {
+  const { t } = useTranslation('PostPreview');
   return (
     <article>
       <Link href={`/blog/${url}`}>
-        <a><img src={ photo } className="post-img" alt={title}/></a>
+        <a>
+          <img src={photo} className="post-img" alt={title} />
+        </a>
       </Link>
       <div className="blog-data">
         <Like likedQty={likedQty} />
         <Link href={`/blog/${url}`}>
-          <a><h2>{ title }</h2></a>
+          <a>
+            <h2>{title}</h2>
+          </a>
         </Link>
-        <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime}/>
+        <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime} />
       </div>
       <p>
-        { summary }
+        {summary}
         <Link href={`/blog/${url}`}>
           <a className="more-dots">…</a>
         </Link>
@@ -65,8 +81,9 @@ const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, 
         }
         .blog-data {
           display: grid;
-          grid-template-areas: "like title"
-                              "like meta";
+          grid-template-areas:
+            'like title'
+            'like meta';
           grid-template-columns: minmax(auto, 50px) 1fr;
           margin-top: 20px;
           grid-column-gap: 10px;
@@ -85,7 +102,7 @@ const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, 
           color: var(--green);
           font-size: 15px;
         }
-        @media screen and (max-width:700px) {
+        @media screen and (max-width: 700px) {
           .blog-data h2 {
             font-size: 1.3em;
           }
@@ -100,7 +117,7 @@ const PostPreview: FC<Props> = ({ title, photo, summary, createdAt, commentQty, 
         }
       `}</style>
     </article>
-  )
-}
+  );
+};
 
-export default PostPreview
+export default PostPreview;

@@ -8,29 +8,85 @@ import withLocale from '../../../hocs/withLocale';
 
 const Post: NextPage = () => {
   return (
-    <Layout title='Toshio Minei - Blog'>
+    <Layout title="Toshio Minei - Blog">
       <article>
         <div className="header">
           <div className="title">
             <p className="category">Tecnología</p>
             <h1>Loft Office With Vintage Decor For Creative Working</h1>
-            <BlogMeta createdAt='10/10/2018' commentQty={50} readingTime={30} />
+            <BlogMeta createdAt="10/10/2018" commentQty={50} readingTime={30} />
           </div>
-          <div className="banner" style={{backgroundImage: "url(https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/loft-office-with-vintage-decor-PFD2JSL-1-880x400.jpg)"}}>
-          </div>
+          <div
+            className="banner"
+            style={{
+              backgroundImage:
+                'url(https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/loft-office-with-vintage-decor-PFD2JSL-1-880x400.jpg)',
+            }}
+          />
         </div>
         <div className="body">
-          <BlogSocial/>
+          <BlogSocial />
           <div className="article">
-            <p><span className="capital">B</span>ack in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
-            <p>“Almost without exception… the medical press agreed with the contention that the noises of our modern cities are not only a source of great discomfort, but are largely life-shortening and health-wrecking in their effects,” the author of an article on the phenomenon wrote the following year.</p>
-            <p>Fast-forward to 2011, and a report from the World Health Organization (WHO) came to similar conclusions. The authors concluded that in western Europe alone, roughly 1 million healthy life years are lost each year as a result of traffic-related noise. Noise is inherently arousing, and the long-term effects of “chronic noise stress” on the human hormone and nervous systems are a growing concern, the report states.</p>
-            <p>Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
-            <p>“Almost without exception… the medical press agreed with the contention that the noises of our modern cities are not only a source of great discomfort, but are largely life-shortening and health-wrecking in their effects,” the author of an article on the phenomenon wrote the following year.</p>
-            <p>Fast-forward to 2011, and a report from the World Health Organization (WHO) came to similar conclusions. The authors concluded that in western Europe alone, roughly 1 million healthy life years are lost each year as a result of traffic-related noise. Noise is inherently arousing, and the long-term effects of “chronic noise stress” on the human hormone and nervous systems are a growing concern, the report states.</p>
-            <p>Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th century’s version of a Twitter meltdown. The article highlighted “the injurious and exhausting effects of city noises on the auditory apparatus, and on the whole nervous system,” and generated “hundreds” of editorial comments and “scores” of private letters across the United States and Europe.</p>
-            <p>“Almost without exception… the medical press agreed with the contention that the noises of our modern cities are not only a source of great discomfort, but are largely life-shortening and health-wrecking in their effects,” the author of an article on the phenomenon wrote the following year.</p>
-            <p>Fast-forward to 2011, and a report from the World Health Organization (WHO) came to similar conclusions. The authors concluded that in western Europe alone, roughly 1 million healthy life years are lost each year as a result of traffic-related noise. Noise is inherently arousing, and the long-term effects of “chronic noise stress” on the human hormone and nervous systems are a growing concern, the report states.</p>
+            <p>
+              <span className="capital">B</span>ack in 1896, a journal article titled “The Plague of
+              City Noises” set off the 19th century’s version of a Twitter meltdown. The article
+              highlighted “the injurious and exhausting effects of city noises on the auditory
+              apparatus, and on the whole nervous system,” and generated “hundreds” of editorial
+              comments and “scores” of private letters across the United States and Europe.
+            </p>
+            <p>
+              “Almost without exception… the medical press agreed with the contention that the
+              noises of our modern cities are not only a source of great discomfort, but are largely
+              life-shortening and health-wrecking in their effects,” the author of an article on the
+              phenomenon wrote the following year.
+            </p>
+            <p>
+              Fast-forward to 2011, and a report from the World Health Organization (WHO) came to
+              similar conclusions. The authors concluded that in western Europe alone, roughly 1
+              million healthy life years are lost each year as a result of traffic-related noise.
+              Noise is inherently arousing, and the long-term effects of “chronic noise stress” on
+              the human hormone and nervous systems are a growing concern, the report states.
+            </p>
+            <p>
+              Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th
+              century’s version of a Twitter meltdown. The article highlighted “the injurious and
+              exhausting effects of city noises on the auditory apparatus, and on the whole nervous
+              system,” and generated “hundreds” of editorial comments and “scores” of private
+              letters across the United States and Europe.
+            </p>
+            <p>
+              “Almost without exception… the medical press agreed with the contention that the
+              noises of our modern cities are not only a source of great discomfort, but are largely
+              life-shortening and health-wrecking in their effects,” the author of an article on the
+              phenomenon wrote the following year.
+            </p>
+            <p>
+              Fast-forward to 2011, and a report from the World Health Organization (WHO) came to
+              similar conclusions. The authors concluded that in western Europe alone, roughly 1
+              million healthy life years are lost each year as a result of traffic-related noise.
+              Noise is inherently arousing, and the long-term effects of “chronic noise stress” on
+              the human hormone and nervous systems are a growing concern, the report states.
+            </p>
+            <p>
+              Back in 1896, a journal article titled “The Plague of City Noises” set off the 19th
+              century’s version of a Twitter meltdown. The article highlighted “the injurious and
+              exhausting effects of city noises on the auditory apparatus, and on the whole nervous
+              system,” and generated “hundreds” of editorial comments and “scores” of private
+              letters across the United States and Europe.
+            </p>
+            <p>
+              “Almost without exception… the medical press agreed with the contention that the
+              noises of our modern cities are not only a source of great discomfort, but are largely
+              life-shortening and health-wrecking in their effects,” the author of an article on the
+              phenomenon wrote the following year.
+            </p>
+            <p>
+              Fast-forward to 2011, and a report from the World Health Organization (WHO) came to
+              similar conclusions. The authors concluded that in western Europe alone, roughly 1
+              million healthy life years are lost each year as a result of traffic-related noise.
+              Noise is inherently arousing, and the long-term effects of “chronic noise stress” on
+              the human hormone and nervous systems are a growing concern, the report states.
+            </p>
           </div>
         </div>
       </article>
@@ -38,7 +94,7 @@ const Post: NextPage = () => {
       <style jsx>{`
         .header {
           display: grid;
-          grid-template-areas: "titulo banner";
+          grid-template-areas: 'titulo banner';
           grid-template-columns: repeat(2, 1fr);
         }
         .header img {
@@ -68,7 +124,7 @@ const Post: NextPage = () => {
           font-size: 40px;
           line-height: 50px;
           font-family: Heldane;
-          margin: 10px 0; 
+          margin: 10px 0;
         }
         .article {
           max-width: 700px;
@@ -97,7 +153,7 @@ const Post: NextPage = () => {
           margin-bottom: 15px;
           text-decoration: none;
         }
-        .social a:hover { 
+        .social a:hover {
           color: var(--muted);
         }
         .like-count {
@@ -122,8 +178,9 @@ const Post: NextPage = () => {
         }
         @media screen and (max-width: 1280px) {
           .header {
-            grid-template-areas: "banner"
-                                  "titulo";
+            grid-template-areas:
+              'banner'
+              'titulo';
             grid-template-columns: 1fr;
           }
           .title {
@@ -183,7 +240,7 @@ const Post: NextPage = () => {
         }
       `}</style>
     </Layout>
-  )
-}
+  );
+};
 
-export default withLocale(Post)
+export default withLocale(Post);

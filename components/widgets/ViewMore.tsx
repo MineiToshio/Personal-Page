@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
 
 type Props = {
-  title: string,
-}
+  title: string;
+};
 
 const ViewMore: FC<Props> = ({ title }) => {
   return (
     <div className="ver-mas">
-      <div className="text"><a href="#sobre-mi" className="scroll">{ title }</a></div>
+      <div className="text">
+        <a href="#sobre-mi" className="scroll">
+          {title}
+        </a>
+      </div>
       <div className="icon">↓</div>
 
       <style jsx>{`
@@ -42,23 +46,24 @@ const ViewMore: FC<Props> = ({ title }) => {
           font-size: 20px;
         }
 
-        @media only screen and (max-width:470px) {
+        @media only screen and (max-width: 470px) {
           .text {
             font-size: 14px;
           }
         }
 
         @keyframes ver-mas {
-          from, to {
-              transform: translatey(0);
+          from,
+          to {
+            transform: translatey(0);
           }
           50% {
-              transform: translatey(-10px);
+            transform: translatey(-10px);
           }
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default ViewMore
+export default ViewMore;

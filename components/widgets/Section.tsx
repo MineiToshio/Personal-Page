@@ -2,34 +2,33 @@ import React, { FC } from 'react';
 import TrackVisibility from 'react-on-screen';
 
 type Props = {
-  children: React.ReactNode | Array<React.ReactNode>,
-  title: string,
-  subtitle: string,
-  id: string,
-}
+  children: React.ReactNode | Array<React.ReactNode>;
+  title: string;
+  subtitle: string;
+  id: string;
+};
 
 const Section: FC<Props> = ({ children, title, subtitle, id }) => {
   return (
-    <section id={ id }>
+    <section id={id}>
       <TrackVisibility once>
-        {
-          ({ isVisible }) => <h1 className={isVisible ? "slide-down" : "invisible"}>{title}</h1>
-        } 
+        {({ isVisible }) => <h1 className={isVisible ? 'slide-down' : 'invisible'}>{title}</h1>}
       </TrackVisibility>
       <TrackVisibility once>
-        {
-          ({ isVisible }) => <div className={`description ${isVisible ? "slide-in-left" : "invisible"}`}>{ subtitle }</div>
-        }
+        {({ isVisible }) => (
+          <div className={`description ${isVisible ? 'slide-in-left' : 'invisible'}`}>
+            {subtitle}
+          </div>
+        )}
       </TrackVisibility>
       <TrackVisibility once>
-        {
-          ({ isVisible }) => <div className={`underline ${isVisible ? "slide-in-right" : "invisible"}`}></div>
-        }
+        {({ isVisible }) => (
+          <div className={`underline ${isVisible ? 'slide-in-right' : 'invisible'}`} />
+        )}
       </TrackVisibility>
-      { children }
+      {children}
 
       <style jsx>{`
-
         section {
           display: flex;
           flex-direction: column;
@@ -92,7 +91,7 @@ const Section: FC<Props> = ({ children, title, subtitle, id }) => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;

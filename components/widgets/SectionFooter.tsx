@@ -1,22 +1,24 @@
 import React, { FC } from 'react';
 
 type Props = {
-  title: string,
-  url: string,
-  button: string,
-}
+  title: string;
+  url: string;
+  button: string;
+};
 
 const SectionFooter: FC<Props> = ({ title, url, button }) => {
   return (
     <div className="ver-mas">
       <p>{title}</p>
-      <a href={url} target="_blank" rel="noopener" aria-label={title}>{button}</a>
+      <a href={url} target="_blank" rel="noopener" aria-label={title}>
+        {button}
+      </a>
 
       <style jsx>{`
         .ver-mas {
           width: 100%;
           text-align: center;
-          font-family: 'BebasNeue',sans-serif;
+          font-family: 'BebasNeue', sans-serif;
           font-size: 30px;
           color: var(--blue);
           background-color: #f5f5f5;
@@ -44,7 +46,7 @@ const SectionFooter: FC<Props> = ({ title, url, button }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default SectionFooter
+export default SectionFooter;

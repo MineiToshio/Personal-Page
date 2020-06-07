@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
+import Link from '../widgets/Link';
 import { BlogPost } from '../../types/types';
 
-type Props = Pick<BlogPost, 'title' | 'thumbnail' | 'createdAt' | 'url'>
+type Props = Pick<BlogPost, 'title' | 'thumbnail' | 'createdAt' | 'url'>;
 
 const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
   const postUrl = `/blog/${url}`;
@@ -10,18 +10,21 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
   return (
     <div className="recent-post">
       <Link href={postUrl}>
-        <a className="photo"><img src={ thumbnail } alt={title} /></a>
+        <a className="photo">
+          <img src={thumbnail} alt={title} />
+        </a>
       </Link>
       <Link href={postUrl}>
-        <a>{ title }</a>
+        <a>{title}</a>
       </Link>
-      <span>{ createdAt }</span>
+      <span>{createdAt}</span>
 
-        <style jsx>{`
+      <style jsx>{`
         .recent-post {
           display: grid;
-          grid-template-areas: "photo title"
-                                "photo date";
+          grid-template-areas:
+            'photo title'
+            'photo date';
           grid-template-columns: minmax(auto, 60px) 1fr;
           column-gap: 15px;
           margin-bottom: 15px;
@@ -46,7 +49,7 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
           color: var(--green);
           filter: brightness(85%);
         }
-        .recent-post span { 
+        .recent-post span {
           grid-area: date;
           color: #8f8f8f;
           font-size: 13px;
@@ -57,15 +60,14 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
           color: var(--green);
           font-size: 15px;
         }
-        @media screen and (max-width:790px) {
-
+        @media screen and (max-width: 790px) {
           .recent-post {
             grid-template-columns: minmax(auto, 50px) 1fr;
           }
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default RecentPost
+export default RecentPost;

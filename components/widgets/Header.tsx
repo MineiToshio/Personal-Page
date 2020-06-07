@@ -1,23 +1,43 @@
 import React, { FC, useState } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import Link from './Link';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 const Header: FC = () => {
-  const { t } = useTranslation('Header')
-  const [active, setActive] = useState<boolean>(false)
+  const { t } = useTranslation('Header');
+  const [active, setActive] = useState<boolean>(false);
 
   return (
     <header className="header">
-      <Link href="/"><a className="logo">Toshio Minei</a></Link>
-      <a className="burger" onClick={() => setActive(!active)}><FA icon={['fas', "bars"]} /></a>
+      <Link href="/">
+        <a className="logo">Toshio Minei</a>
+      </Link>
+      <a className="burger" onClick={() => setActive(!active)}>
+        <FA icon={['fas', 'bars']} />
+      </a>
       <div className={`menu ${active && 'active'}`}>
         <ul>
-          <li><a href="#portada" className="scroll">{t('home')}</a></li>
-          <li><a href="#sobre-mi" className="scroll">{t('aboutMe')}</a></li>
-          <li><a href="#portafolio" className="scroll">{t('portfolio')}</a></li>
+          <li>
+            <a href="#portada" className="scroll">
+              {t('home')}
+            </a>
+          </li>
+          <li>
+            <a href="#sobre-mi" className="scroll">
+              {t('aboutMe')}
+            </a>
+          </li>
+          <li>
+            <a href="#portafolio" className="scroll">
+              {t('portfolio')}
+            </a>
+          </li>
           {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
-          <li><a href="#contacto" className="scroll">{t('contact')}</a></li>
+          <li>
+            <a href="#contacto" className="scroll">
+              {t('contact')}
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -28,11 +48,11 @@ const Header: FC = () => {
           top: 0;
           left: 0;
           right: 0;
-          background: rgba(186, 193, 184, .8);
+          background: rgba(186, 193, 184, 0.8);
           font-family: 'BebasNeue', sans-serif;
           display: flex;
           background: #ffffff;
-          box-shadow: 0px 4px 15px rgba(0,0,0,0.07);
+          box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.07);
           border-bottom: 1px solid #f0f0f0;
           padding: 10px 30px;
           font-weight: bold;
@@ -43,7 +63,7 @@ const Header: FC = () => {
 
         .logo {
           font-size: 25pt;
-          font-family: "playlist script", sans-serif;
+          font-family: 'playlist script', sans-serif;
           text-transform: capitalize;
           color: var(--green);
           text-decoration: none;
@@ -134,7 +154,7 @@ const Header: FC = () => {
         }
       `}</style>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

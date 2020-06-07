@@ -2,29 +2,30 @@ import React, { FC, useEffect, useRef } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 type Props = {
-  children: React.ReactNode | Array<React.ReactNode>,
-  handleModalClose: () => void,
-  visible: boolean
-}
+  children: React.ReactNode | Array<React.ReactNode>;
+  handleModalClose: () => void;
+  visible: boolean;
+};
 
 const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
-  const refOverlay = useRef<HTMLDivElement>(null)
+  const refOverlay = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if(visible) {
-      refOverlay?.current?.classList.add("active");
-    }
-    else {
+    if (visible) {
+      refOverlay?.current?.classList.add('active');
+    } else {
       setTimeout(() => {
-        refOverlay?.current?.classList.remove("active");
+        refOverlay?.current?.classList.remove('active');
       }, 700);
     }
-  }, [visible])
+  }, [visible]);
 
   return (
     <div id="overlay" className="overlay" ref={refOverlay}>
       <div className={`modal ${visible ? 'in' : 'out'}`} id="modal">
-        <a onClick={handleModalClose}><FA icon={['fas', 'times']} /></a>
+        <a onClick={handleModalClose}>
+          <FA icon={['fas', 'times']} />
+        </a>
         {children}
       </div>
 
@@ -48,7 +49,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
         .overlay.active {
           opacity: 1;
           display: flex;
-          transition: .4s;
+          transition: 0.4s;
         }
 
         .modal {
@@ -60,11 +61,11 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
         }
 
         .modal.in {
-          animation: modalIn .8s forwards;
+          animation: modalIn 0.8s forwards;
         }
 
         .modal.out {
-          animation: modalOut .8s forwards;
+          animation: modalOut 0.8s forwards;
         }
 
         a {
@@ -72,7 +73,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
           right: -15px;
           top: -15px;
           color: #fff;
-          background-color: rgba(154, 154, 154, .8);
+          background-color: rgba(154, 154, 154, 0.8);
           border-radius: 50%;
           height: 34px;
           width: 34px;
@@ -87,13 +88,13 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
           filter: brightness(85%);
         }
 
-        @media only screen and (max-width:650px) {
+        @media only screen and (max-width: 650px) {
           .modal {
             width: 90%;
           }
         }
 
-        @media only screen and (max-width:600px) {
+        @media only screen and (max-width: 600px) {
           a {
             height: 25px;
             width: 25px;
@@ -110,7 +111,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
             transform: translateY(25px);
           }
           75% {
-            transform: translateY(-10px)
+            transform: translateY(-10px);
           }
           90% {
             transform: translateY(5px);
@@ -122,7 +123,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
             transform: translateY(5px);
           }
           60% {
-            transform: translateY(-10px)
+            transform: translateY(-10px);
           }
           75% {
             transform: translateY(25px);
@@ -133,7 +134,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

@@ -1,97 +1,115 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
-import Project from './Project';
-import ProjectModal from './ProjectModal';
 import Shuffle from 'shufflejs';
 import TrackVisibility from 'react-on-screen';
+import Project from './Project';
+import ProjectModal from './ProjectModal';
 import { Project as ProjectType } from '../../types/types';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 const Portfolio: FC = () => {
-  const { t, locale } = useTranslation('Portfolio')
-  const [projects, setProjects] = useState<Array<ProjectType>>([])
-  const [modalVisible, setModalVisible] = useState<boolean>(false)
-  const [modalProject, setModalProject] = useState<ProjectType | null>(null)
-  const [shuffle, setShuffle] = useState<Shuffle | null>(null)
+  const { t, locale } = useTranslation('Portfolio');
+  const [projects, setProjects] = useState<Array<ProjectType>>([]);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalProject, setModalProject] = useState<ProjectType | null>(null);
+  const [shuffle, setShuffle] = useState<Shuffle | null>(null);
   const refPortfolio = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const projectJson = require(`../../public/data/projects.${locale}.json`);
-    setProjects(projectJson)
-  }, [locale])
+    setProjects(projectJson);
+  }, [locale]);
 
   const handleModalClick = (modalProject: ProjectType) => {
-    setModalVisible(true)
-    setModalProject(modalProject)
-  }
+    setModalVisible(true);
+    setModalProject(modalProject);
+  };
 
   const handleModalClose = () => {
-    setModalVisible(false)
-  }
+    setModalVisible(false);
+  };
 
   const deactivateFilters = () => {
-    const filters: HTMLDivElement = document.querySelector('.filters') as HTMLDivElement
+    const filters: HTMLDivElement = document.querySelector('.filters') as HTMLDivElement;
     Array.from(filters.children).map((element) => {
-      return element.classList.remove("active")
-    })
-  }
+      return element.classList.remove('active');
+    });
+  };
 
   const handleShuffle = (e: React.MouseEvent<HTMLAnchorElement>) => {
     deactivateFilters();
-    e.currentTarget.classList.add("active");
+    e.currentTarget.classList.add('active');
 
     const filter = e?.currentTarget?.dataset?.filter?.split(' ');
-    (filter && filter[0] !== '') ? shuffle?.filter(filter) : shuffle?.filter('');
-  }
+    filter && filter[0] !== '' ? shuffle?.filter(filter) : shuffle?.filter('');
+  };
 
   useEffect(() => {
     if (refPortfolio.current) {
-      setShuffle(new Shuffle(refPortfolio.current, {
-        itemSelector: '.project',
-        sizer: '.my-sizer-element',
-        speed: 800
-      }));
+      setShuffle(
+        new Shuffle(refPortfolio.current, {
+          itemSelector: '.project',
+          sizer: '.my-sizer-element',
+          speed: 800,
+        }),
+      );
     }
 
-    if(shuffle) {
+    if (shuffle) {
       shuffle.resetItems();
     }
 
-    return (() => {
+    return () => {
       if (shuffle) {
         shuffle.destroy();
         setShuffle(null);
       }
-    })
-  }, [refPortfolio, projects])
+    };
+  }, [refPortfolio, projects]);
 
   return (
     <div className="container">
       <TrackVisibility once>
-      {
-        ({isVisible}) => (
-          <div className={`filters ${isVisible ? "pop-in" : "invisible"}`}>
-            <a data-filter="" onClick={handleShuffle} className="active">{t('all')}</a>
-            <a data-filter="HTML" onClick={handleShuffle}>HTML</a>
-            <a data-filter="jQuery" onClick={handleShuffle}>jQuery</a>
-            <a data-filter="AngularJS Angular" onClick={handleShuffle}>Angular</a>
-            <a data-filter="React" onClick={handleShuffle}>React</a>
-            <a data-filter="C#" onClick={handleShuffle}>C#</a>
+        {({ isVisible }) => (
+          <div className={`filters ${isVisible ? 'pop-in' : 'invisible'}`}>
+            <a data-filter="" onClick={handleShuffle} className="active">
+              {t('all')}
+            </a>
+            <a data-filter="HTML" onClick={handleShuffle}>
+              HTML
+            </a>
+            <a data-filter="jQuery" onClick={handleShuffle}>
+              jQuery
+            </a>
+            <a data-filter="AngularJS Angular" onClick={handleShuffle}>
+              Angular
+            </a>
+            <a data-filter="React" onClick={handleShuffle}>
+              React
+            </a>
+            <a data-filter="C#" onClick={handleShuffle}>
+              C#
+            </a>
           </div>
-        )
-      }
+        )}
       </TrackVisibility>
       <div className="portafolio" ref={refPortfolio}>
-        {
-          projects.map(project => (
-            <Project {...project} key={project.id} handleClick={() => handleModalClick(project)} tech={project.tech}/>
-          ))
-        }
-        <div className="column my-sizer-element"></div>
+        {projects.map((project) => (
+          <Project
+            {...project}
+            key={project.id}
+            handleClick={() => handleModalClick(project)}
+            tech={project.tech}
+          />
+        ))}
+        <div className="column my-sizer-element" />
       </div>
-      {
-        modalProject &&
-        <ProjectModal modalVisible={modalVisible} handleModalClose={handleModalClose} {...modalProject}/>
-      }
+      {modalProject && (
+        <ProjectModal
+          modalVisible={modalVisible}
+          handleModalClose={handleModalClose}
+          {...modalProject}
+        />
+      )}
       <style jsx>{`
         .container {
           width: 100%;
@@ -119,7 +137,8 @@ const Portfolio: FC = () => {
           cursor: pointer;
         }
 
-        .filters a.active, .filters a:hover {
+        .filters a.active,
+        .filters a:hover {
           background-color: var(--green);
           color: white;
         }
@@ -154,7 +173,7 @@ const Portfolio: FC = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

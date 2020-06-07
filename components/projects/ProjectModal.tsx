@@ -1,43 +1,52 @@
 import React, { FC, useMemo } from 'react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import Modal from '../widgets/Modal';
 import arrayToString from '../../helpers/arrayToString';
 import Slider from '../widgets/Slider';
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { Project } from '../../types/types';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 type Props = Project & {
-  modalVisible: boolean,
-  handleModalClose: () => void,
-}
+  modalVisible: boolean;
+  handleModalClose: () => void;
+};
 
-const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, name, tech, description, live, github}) => {
-  const { t } = useTranslation('ProjectModal')
+const ProjectModal: FC<Props> = ({
+  images,
+  id,
+  modalVisible,
+  handleModalClose,
+  name,
+  tech,
+  description,
+  live,
+  github,
+}) => {
+  const { t } = useTranslation('ProjectModal');
 
-  const fullUrlImages: Array<string> = useMemo(() => (
-    images.map(image => `/img/portafolio/${id}/${image}`)
-  ), [images, id])
+  const fullUrlImages: Array<string> = useMemo(
+    () => images.map((image) => `/img/portafolio/${id}/${image}`),
+    [images, id],
+  );
 
   return (
     <Modal visible={modalVisible} handleModalClose={handleModalClose}>
-      <Slider images={fullUrlImages}></Slider>
+      <Slider images={fullUrlImages} />
       <div className="modal-info">
         <h3>{name}</h3>
         <h4>{arrayToString(tech)}</h4>
         <p>{description}</p>
         <div className="buttons">
-          {
-            live &&
+          {live && (
             <a target="_blank" href={live}>
               <FA icon={['fas', 'globe-americas']} /> {t('goToWeb')}
             </a>
-          }
-          {
-            github &&
-            <a target="_blank" href={github}> 
+          )}
+          {github && (
+            <a target="_blank" href={github}>
               <FA icon={['fab', 'github']} /> Github
             </a>
-          }
+          )}
         </div>
       </div>
 
@@ -75,7 +84,7 @@ const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, n
           cursor: pointer;
           margin-right: 10px;
           color: var(--green);
-          text-decoration: none; 
+          text-decoration: none;
         }
 
         a:hover {
@@ -83,11 +92,11 @@ const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, n
           background: var(--green);
         }
 
-        @media only screen and (max-width:600px) {
+        @media only screen and (max-width: 600px) {
           h3 {
             font-size: 16pt;
           }
-          
+
           h4 {
             font-size: 11pt;
           }
@@ -104,7 +113,7 @@ const ProjectModal: FC<Props> = ({ images, id, modalVisible, handleModalClose, n
         }
       `}</style>
     </Modal>
-  )
-}
+  );
+};
 
-export default ProjectModal
+export default ProjectModal;

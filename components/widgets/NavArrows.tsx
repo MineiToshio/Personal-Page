@@ -3,18 +3,22 @@ import Link from 'next/link';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 type Props = {
-  urlPrev: string,
-  urlNext: string,
-}
+  urlPrev: string;
+  urlNext: string;
+};
 
 const NavArrows: FC<Props> = ({ urlPrev, urlNext }) => {
   return (
     <nav className="arrows">
       <Link href={urlPrev}>
-        <a className="left"><FA icon={['fas', "chevron-left"]} /></a>
+        <a className="left">
+          <FA icon={['fas', 'chevron-left']} />
+        </a>
       </Link>
       <Link href={urlNext}>
-        <a className="right"><FA icon={['fas', "chevron-right"]} /></a>
+        <a className="right">
+          <FA icon={['fas', 'chevron-right']} />
+        </a>
       </Link>
 
       <style jsx>{`
@@ -47,7 +51,7 @@ const NavArrows: FC<Props> = ({ urlPrev, urlNext }) => {
         }
       `}</style>
     </nav>
-  )
-}
+  );
+};
 
-export default NavArrows
+export default NavArrows;

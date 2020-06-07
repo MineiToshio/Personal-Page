@@ -1,8 +1,8 @@
-const withOffline = require('next-offline')
+const withOffline = require('next-offline');
 
 const nextConfig = {
   target: 'serverless',
-  transformManifest: manifest => ['/'].concat(manifest),
+  transformManifest: (manifest) => ['/'].concat(manifest),
   generateInDevMode: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
@@ -35,9 +35,9 @@ const nextConfig = {
             statuses: [0, 200],
           },
         },
-      }
-    ]
-  }
-}
+      },
+    ],
+  },
+};
 
-module.exports = withOffline(nextConfig)
+module.exports = withOffline(nextConfig);

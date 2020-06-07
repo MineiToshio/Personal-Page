@@ -2,23 +2,28 @@ import React, { FC } from 'react';
 import ViewMore from '../widgets/ViewMore';
 import IconMenu from '../social-icons/IconMenu';
 import ParticleJs from '../external/ParticleJs';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 type Props = {
-  id: string,
-}
+  id: string;
+};
 
 const Hero: FC<Props> = ({ id }) => {
-  const { t } = useTranslation('Hero')
+  const { t } = useTranslation('Hero');
   return (
     <div className="portada" id={id}>
-      <ParticleJs/>
+      <ParticleJs />
       <IconMenu />
       <div className="content">
-        <div className="title">{t('hello')} <div className="name">{t('im')} <span className="highlight">Toshio Minei</span></div></div>
+        <div className="title">
+          {t('hello')}{' '}
+          <div className="name">
+            {t('im')} <span className="highlight">Toshio Minei</span>
+          </div>
+        </div>
         <div className="sub-title">{t('tagline')}</div>
       </div>
-      <ViewMore title={t('viewMyWork')}/>
+      <ViewMore title={t('viewMyWork')} />
 
       <style jsx>{`
         .portada {
@@ -68,7 +73,7 @@ const Hero: FC<Props> = ({ id }) => {
           padding-top: 15px;
         }
 
-        @media only screen and (max-width:650px) {
+        @media only screen and (max-width: 650px) {
           .title {
             font-size: 25pt;
           }
@@ -78,7 +83,7 @@ const Hero: FC<Props> = ({ id }) => {
           }
         }
 
-        @media only screen and (max-width:470px) {
+        @media only screen and (max-width: 470px) {
           .title {
             flex-direction: column;
             font-size: 23pt;
@@ -100,7 +105,7 @@ const Hero: FC<Props> = ({ id }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

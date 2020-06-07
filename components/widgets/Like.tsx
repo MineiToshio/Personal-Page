@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 type Props = {
-  likedQty: number
-}
+  likedQty: number;
+};
 
 const Like: FC<Props> = ({ likedQty }) => {
   return (
     <a className="like" href="#">
-      <FA icon={['fas', "thumbs-up"]} />
-      <span>{ likedQty }</span>
+      <FA icon={['fas', 'thumbs-up']} />
+      <span>{likedQty}</span>
 
       <style jsx>{`
         .like {
@@ -37,14 +37,14 @@ const Like: FC<Props> = ({ likedQty }) => {
         .like.active {
           color: var(--green);
         }
-        @media screen and (max-width:700px) {
+        @media screen and (max-width: 700px) {
           .like {
             font-size: 18px;
           }
         }
       `}</style>
     </a>
-  )
-}
+  );
+};
 
-export default Like
+export default Like;

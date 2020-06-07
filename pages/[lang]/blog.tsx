@@ -6,20 +6,18 @@ import BlogPreview from '../../components/blog/PostPreview';
 import posts from '../../public/data/posts.json';
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import withLocale from '../../hocs/withLocale';
-import useTranslation from '../../hooks/useTranslation'
+import useTranslation from '../../hooks/useTranslation';
 
 const Blog: NextPage = () => {
-  const { t } = useTranslation('Blog')
+  const { t } = useTranslation('Blog');
   return (
-    <Layout title='Toshio Minei - Blog'>
+    <Layout title="Toshio Minei - Blog">
       <Section id="blog" title="Blog" subtitle={t('subtitle')}>
         <div className="blog">
           <div id="blog-list">
-            {
-              posts.map((post) => (
-                <BlogPreview key={post.id} {...post} />
-              ))
-            }
+            {posts.map((post) => (
+              <BlogPreview key={post.id} {...post} />
+            ))}
           </div>
           <BlogSidebar recentPosts={posts} />
         </div>
@@ -33,7 +31,7 @@ const Blog: NextPage = () => {
           column-gap: 30px;
           margin: 10px;
         }
-        @media screen and (max-width:790px) {
+        @media screen and (max-width: 790px) {
           .blog {
             column-gap: 0;
             grid-template-columns: 1fr;
@@ -41,7 +39,7 @@ const Blog: NextPage = () => {
         }
       `}</style>
     </Layout>
-  )
-}
+  );
+};
 
 export default withLocale(Blog);

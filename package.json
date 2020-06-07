@@ -9,7 +9,9 @@
     "start": "NODE_ENV=production next start",
     "build-win": "set NODE_ENV=production & next build",
     "start-win": "set NODE_ENV=production & next start",
-    "prod": "npm run build-win && npm run start-win"
+    "prod": "npm run build-win && npm run start-win",
+    "prettier": "prettier --config .prettierrc.json --write \"**/*.*\"",
+    "eslint": "eslint --fix \"**/*.*\""
   },
   "keywords": [],
   "author": "",
@@ -19,11 +21,11 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@fortawesome/react-fontawesome": "^0.1.10",
     "default-passive-events": "^1.0.10",
     "jssor-slider": "^28.0.0",
-    "next": "^9.3.5",
-    "next-offline": "^5.0.1",
+    "next": "^9.4.4",
+    "next-offline": "^5.0.2",
     "nprogress": "^0.2.0",
     "particles.js": "^2.0.0",
     "prop-types": "^15.7.2",
@@ -35,9 +37,20 @@
     "slugify": "^1.4.0"
   },
   "devDependencies": {
-    "@types/node": "^13.13.0",
+    "@types/node": "^13.13.10",
     "@types/nprogress": "^0.2.0",
-    "@types/react": "^16.9.34",
-    "typescript": "^3.8.3"
+    "@types/react": "^16.9.35",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
   }
 }

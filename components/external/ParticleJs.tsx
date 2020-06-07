@@ -5,8 +5,8 @@ declare const particlesJS: any;
 const ParticleJs: FC = () => {
   useEffect(() => {
     require('particles.js');
-    particlesJS.load('particles-js', "/data/particles.json");
-  }, [])
+    particlesJS.load('particles-js', '/data/particles.json');
+  }, []);
 
   return (
     <div id="particles-js">
@@ -23,7 +23,7 @@ const ParticleJs: FC = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default ParticleJs
+export default ParticleJs;

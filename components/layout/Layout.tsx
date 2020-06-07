@@ -2,17 +2,39 @@ import React, { FC, useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import Header from '../widgets/Header';
-import Footer from '../widgets/Footer';
 import { library, config } from '@fortawesome/fontawesome-svg-core';
-import { faGithub, faTwitter, faInstagram, faLinkedin, faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faTimes, faQuoteRight, faQuoteLeft, faBars, faThumbsUp, faChevronLeft, faChevronRight, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope, faClock, faCommentDots, faBookmark, faCalendar } from '@fortawesome/free-regular-svg-icons'
+import {
+  faGithub,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+  faFacebookSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faAngleUp,
+  faTimes,
+  faQuoteRight,
+  faQuoteLeft,
+  faBars,
+  faThumbsUp,
+  faChevronLeft,
+  faChevronRight,
+  faGlobeAmericas,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faClock,
+  faCommentDots,
+  faBookmark,
+  faCalendar,
+} from '@fortawesome/free-regular-svg-icons';
+import PropTypes from 'prop-types';
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
 import 'default-passive-events';
-import PropTypes from 'prop-types'
-import useTranslation from '../../hooks/useTranslation'
+import Footer from '../widgets/Footer';
+import Header from '../widgets/Header';
+import useTranslation from '../../hooks/useTranslation';
 
 config.autoAddCss = false;
 library.add(
@@ -34,50 +56,50 @@ library.add(
   faTwitter,
   faInstagram,
   faLinkedin,
-  faFacebookSquare
+  faFacebookSquare,
 );
 
-Router.events.on("routeChangeStart", () => {
+Router.events.on('routeChangeStart', () => {
   NProgress.start();
 });
 
-Router.events.on("routeChangeComplete", () => {
+Router.events.on('routeChangeComplete', () => {
   NProgress.done();
 });
 
-Router.events.on("routeChangeError", () => {
+Router.events.on('routeChangeError', () => {
   NProgress.done();
 });
 
 type Props = {
-  children: React.ReactNode | Array<React.ReactNode>,
-  title: string
-}
+  children: React.ReactNode | Array<React.ReactNode>;
+  title: string;
+};
 
 const Layout: FC<Props> = ({ children, title }) => {
-  const { t } = useTranslation('Layout')
+  const { t } = useTranslation('Layout');
 
   useEffect(() => {
     smoothScroll();
-  }, [])
+  }, []);
 
   return (
     <div id="app">
       <Head>
-        <title>{ title }</title>
+        <title>{title}</title>
         <meta name="viewport" content="width=device-width" />
         <meta name="author" content="Toshio Minei" />
         <meta name="description" content={t('description')} />
         <meta name="theme-color" content="#1abc9c" />
-        <link rel="manifest" href="/manifest.json"></link>
-        <link rel="shortcut icon" href="/img/favicon/favicon52.png" type="image/x-icon"/>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="shortcut icon" href="/img/favicon/favicon52.png" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
       </Head>
 
       <Header />
 
       <div id="content">
-        { children }
+        {children}
 
         <Footer />
         <ScrollUp />
@@ -86,10 +108,10 @@ const Layout: FC<Props> = ({ children, title }) => {
       <style jsx global>{`
         :root {
           --green: #1abc9c;
-          --green-alpha: rgba(26,188,156,.8);
+          --green-alpha: rgba(26, 188, 156, 0.8);
           --black: #272727;
-          --blue: #26408B;
-          --blue-alpha: rgba(38, 64, 139, .8);
+          --blue: #26408b;
+          --blue-alpha: rgba(38, 64, 139, 0.8);
           --muted: #828282;
         }
 
@@ -139,7 +161,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           font-family: 'Charter';
           src: url('../../fonts/Charter-Bold-Italic.eot');
           src: url('../../fonts/Charter-Bold-Italic.eot?#iefix') format('embedded-opentype'),
-              url('../../fonts/Charter-Bold-Italic.woff') format('woff');
+            url('../../fonts/Charter-Bold-Italic.woff') format('woff');
           font-weight: bold;
           font-style: italic;
         }
@@ -148,7 +170,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           font-family: 'Charter';
           src: url('../../fonts/Charter-Bold.eot');
           src: url('../../fonts/Charter-Bold.eot?#iefix') format('embedded-opentype'),
-              url('../../fonts/Charter-Bold.woff') format('woff');
+            url('../../fonts/Charter-Bold.woff') format('woff');
           font-weight: bold;
           font-style: normal;
         }
@@ -157,7 +179,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           font-family: 'Charter';
           src: url('../../fonts/Charter-Italic.eot');
           src: url('../../fonts/Charter-Italic.eot?#iefix') format('embedded-opentype'),
-              url('../../fonts/Charter-Italic.woff') format('woff');
+            url('../../fonts/Charter-Italic.woff') format('woff');
           font-weight: normal;
           font-style: italic;
         }
@@ -166,7 +188,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           font-family: 'Charter';
           src: url('../../fonts/Charter.eot');
           src: url('../../fonts/Charter.eot?#iefix') format('embedded-opentype'),
-              url('../../fonts/Charter.woff') format('woff');
+            url('../../fonts/Charter.woff') format('woff');
           font-weight: normal;
           font-style: normal;
         }
@@ -177,33 +199,30 @@ const Layout: FC<Props> = ({ children, title }) => {
           color: var(--black);
         }
 
-        body::-webkit-scrollbar-track
-        {
-          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        body::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           border-radius: 10px;
-          background-color: #BAC1B8;
+          background-color: #bac1b8;
         }
 
-        body::-webkit-scrollbar
-        {
+        body::-webkit-scrollbar {
           width: 8px;
-          background-color: #BAC1B8;
+          background-color: #bac1b8;
         }
 
-        body::-webkit-scrollbar-thumb
-        {
+        body::-webkit-scrollbar-thumb {
           border-radius: 10px;
-          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           background-color: #555;
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

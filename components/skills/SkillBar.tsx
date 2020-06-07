@@ -1,24 +1,24 @@
 import React, { FC } from 'react';
-import slug from '../../helpers/slug';
 import TrackVisibility from 'react-on-screen';
+import slug from '../../helpers/slug';
 
 type Props = {
-  percent: string,
-  skill: string,
-}
+  percent: string;
+  skill: string;
+};
 
 const SkillBar: FC<Props> = ({ percent, skill }) => {
   const height = '30px';
 
   return (
-    <div className="skillbar" id={ slug(skill) }>
-      <span className="skillbar-title">{ skill }</span>
+    <div className="skillbar" id={slug(skill)}>
+      <span className="skillbar-title">{skill}</span>
       <TrackVisibility once>
-        {
-          ({ isVisible }) => <p className="skillbar-bar" style={{ width: `${isVisible ? percent : 0}%`}}></p>
-        }
+        {({ isVisible }) => (
+          <p className="skillbar-bar" style={{ width: `${isVisible ? percent : 0}%` }} />
+        )}
       </TrackVisibility>
-      <span className="skill-bar-percent">{ percent }%</span>
+      <span className="skill-bar-percent">{percent}%</span>
 
       <style jsx>{`
         .skillbar {
@@ -48,7 +48,7 @@ const SkillBar: FC<Props> = ({ percent, skill }) => {
           padding: 0 15px;
           height: ${height};
           line-height: ${height};
-          text-align:center;
+          text-align: center;
         }
 
         .skillbar-bar {
@@ -73,7 +73,7 @@ const SkillBar: FC<Props> = ({ percent, skill }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default SkillBar
+export default SkillBar;

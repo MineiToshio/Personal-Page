@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 
 type Props = {
-  quote: string,
-  author: string,
-  image: string,
-}
+  quote: string;
+  author: string;
+  image: string;
+};
 
 const Parallax: FC<Props> = ({ quote, author, image }) => {
   return (
     <div className="parallax">
-      <div className="overlay"></div>
+      <div className="overlay" />
       <div className="caption">
         <FA icon={['fas', 'quote-left']} />
         <span className="quote">{quote}</span>
@@ -105,7 +105,7 @@ const Parallax: FC<Props> = ({ quote, author, image }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Parallax
+export default Parallax;

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import arrayToString from '../../helpers/arrayToString';
 import { Project as ProjectType } from '../../types/types';
 
-type Props = Pick<ProjectType, 'name' | 'tech' | 'id'> & { handleClick: () => void, }
+type Props = Pick<ProjectType, 'name' | 'tech' | 'id'> & { handleClick: () => void };
 
 const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
   return (
@@ -10,7 +10,7 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
       <figure>
         <div className="aspect">
           <div className="inner">
-            <img src={`/img/portafolio/thumbnails/${id}.png`} alt={name}/>
+            <img src={`/img/portafolio/thumbnails/${id}.png`} alt={name} />
           </div>
         </div>
       </figure>
@@ -71,8 +71,8 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
         }
 
         .project:hover .project-overlay::before {
-            transform: scale(1.001, 1.001);
-          }
+          transform: scale(1.001, 1.001);
+        }
 
         .project:hover .project-overlay::after {
           transform: scale(1.001, 1.001);
@@ -80,7 +80,6 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
 
         .project:hover h3 {
           margin-bottom: 15px;
-          
         }
 
         .project:hover h3:before {
@@ -101,10 +100,10 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
           opacity: 0;
           display: flex;
           align-items: center;
-          justify-content: center; 
+          justify-content: center;
           color: white;
           text-align: center;
-          transition: opacity .4s ease-in-out;
+          transition: opacity 0.4s ease-in-out;
           will-change: opacity;
           padding: 20px;
           border-radius: 5px;
@@ -122,8 +121,9 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
           transform: scale(1, 0);
         }
 
-        .project-overlay:before, .project-overlay:after {
-          content: "";
+        .project-overlay:before,
+        .project-overlay:after {
+          content: '';
           height: calc(100% - 40px);
           left: 20px;
           position: absolute;
@@ -153,7 +153,7 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
         h3:before {
           background-color: #fff;
           bottom: -8px;
-          content: "";
+          content: '';
           height: 1px;
           left: 50%;
           position: absolute;
@@ -187,7 +187,7 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
         }
       `}</style>
     </a>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
