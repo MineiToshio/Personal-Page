@@ -40,6 +40,7 @@ module.exports = {
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
+    'react/prop-types': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
