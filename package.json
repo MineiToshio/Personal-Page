@@ -11,7 +11,7 @@
     "start-win": "set NODE_ENV=production & next start",
     "prod": "npm run build-win && npm run start-win",
     "prettier": "prettier --config .prettierrc.json --write \"**/*.*\"",
-    "eslint": "eslint --fix \"**/*.*\""
+    "eslint": "eslint --fix \"**/*.{js,jsx,ts,tsx}\""
   },
   "keywords": [],
   "author": "",
@@ -62,7 +62,7 @@
     }
   },
   "lint-staged": {
-    "*.": [
+    "*": [
       "npm run prettier",
       "npm run eslint"
     ]
