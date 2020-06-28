@@ -24,27 +24,23 @@ const PostPreview: FC<Props> = ({
   return (
     <article>
       <Link href={`/blog/${url}`}>
-        <a>
-          <img src={photo} className="post-img" alt={title} />
-        </a>
+        <img src={photo} className="post-img" alt={title} />
       </Link>
       <div className="blog-data">
         <Like likedQty={likedQty} />
         <Link href={`/blog/${url}`}>
-          <a>
-            <h2>{title}</h2>
-          </a>
+          <h2>{title}</h2>
         </Link>
         <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime} />
       </div>
       <p>
         {summary}
         <Link href={`/blog/${url}`}>
-          <a className="more-dots">…</a>
+          <span className="more-dots">…</span>
         </Link>
       </p>
       <Link href={`/blog/${url}`}>
-        <a className="view-more">{t('keepReading')}</a>
+        <span className="view-more">{t('keepReading')}</span>
       </Link>
 
       <style jsx>{`
@@ -96,11 +92,6 @@ const PostPreview: FC<Props> = ({
         }
         .blog-data h2:hover {
           color: var(--green);
-        }
-        a {
-          text-decoration: none;
-          color: var(--green);
-          font-size: 15px;
         }
         @media screen and (max-width: 700px) {
           .blog-data h2 {

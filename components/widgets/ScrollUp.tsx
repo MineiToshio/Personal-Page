@@ -27,7 +27,6 @@ const ScrollUp = () => {
           font-size: 30px;
           transition: all 0.3s ease;
         }
-
         .top:hover {
           opacity: 0.8;
         }

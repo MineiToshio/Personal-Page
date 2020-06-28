@@ -21,11 +21,9 @@ const Footer: FC = () => {
           flex-direction: column;
           color: ${color};
         }
-
         div {
           margin-top: 15px;
         }
-
         footer :global(a) {
           color: ${color};
         }

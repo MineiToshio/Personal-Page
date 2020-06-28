@@ -18,6 +18,7 @@ export default function useTranslation(component: string) {
 
   function t(key: string) {
     if (!strings[component][key]) {
+      // eslint-disable-next-line no-console
       console.warn(
         `Translation '${key}' for locale '${locale}' in component '${component}' not found.`,
       );

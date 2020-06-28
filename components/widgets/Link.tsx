@@ -9,10 +9,21 @@ type Props = {
 
 const Link: FC<Props> = ({ href, children }) => {
   const { locale } = useTranslation('Link');
+  const redirectLink = href === '/' ? '' : href;
   return (
-    <NextLink href={`/[lang]${href}`} as={`/${locale}${href}`}>
-      {children}
-    </NextLink>
+    <>
+      <NextLink href={`/[lang]${redirectLink}`} as={`/${locale}${redirectLink}`}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a>{children}</a>
+      </NextLink>
+      <style jsx>{`
+        a {
+          text-decoration: none;
+          color: var(--green);
+          font-size: 15px;
+        }
+      `}</style>
+    </>
   );
 };
 

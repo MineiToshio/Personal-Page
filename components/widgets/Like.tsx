@@ -7,7 +7,7 @@ type Props = {
 
 const Like: FC<Props> = ({ likedQty }) => {
   return (
-    <a className="like" href="#">
+    <button type="button" className="like">
       <FA icon={['fas', 'thumbs-up']} />
       <span>{likedQty}</span>
 
@@ -26,6 +26,9 @@ const Like: FC<Props> = ({ likedQty }) => {
           display: flex;
           flex-direction: column;
           text-decoration: none;
+          cursor: pointer;
+          background: none;
+          outline: none;
         }
         .like span {
           font-size: 15px;
@@ -43,7 +46,7 @@ const Like: FC<Props> = ({ likedQty }) => {
           }
         }
       `}</style>
-    </a>
+    </button>
   );
 };
 

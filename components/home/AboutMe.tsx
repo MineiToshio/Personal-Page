@@ -57,7 +57,6 @@ const AboutMe: FC = () => {
           justify-content: center;
           align-items: center;
         }
-
         .info {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -66,25 +65,20 @@ const AboutMe: FC = () => {
           grid-gap: 5px;
           grid-template-areas: 'datos skills';
         }
-
         .datos {
           grid-area: datos;
         }
-
         .skills {
           grid-area: skills;
         }
-
         @media only screen and (max-width: 1024px) {
           .datos {
             padding: 20px;
           }
-
           .skills {
             padding: 20px;
           }
         }
-
         @media only screen and (max-width: 600px) {
           .info {
             grid-template-columns: 1fr;

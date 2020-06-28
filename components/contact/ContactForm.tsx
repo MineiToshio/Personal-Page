@@ -37,7 +37,6 @@ const ContactForm: FC = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
         }
-
         input,
         textarea,
         button {
@@ -45,7 +44,6 @@ const ContactForm: FC = () => {
           cursor: pointer;
           border-radius: 5px;
         }
-
         button {
           padding: 10px 8px;
           border: 0 none;
@@ -58,11 +56,9 @@ const ContactForm: FC = () => {
           margin: 2px 5px;
           width: calc(100% - 10px);
         }
-
         button:hover {
           filter: brightness(85%);
         }
-
         input,
         textarea {
           cursor: auto;
@@ -74,11 +70,9 @@ const ContactForm: FC = () => {
           font-size: 13px;
           color: var(--black);
         }
-
         textarea {
           height: 82px;
         }
-
         @media only screen and (max-width: 600px) {
           .contact {
             grid-template-columns: 1fr;

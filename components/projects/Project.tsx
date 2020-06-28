@@ -6,7 +6,12 @@ type Props = Pick<ProjectType, 'name' | 'tech' | 'id'> & { handleClick: () => vo
 
 const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
   return (
-    <a className="project" onClick={handleClick} data-groups={JSON.stringify(tech)}>
+    <button
+      type="button"
+      className="project"
+      onClick={handleClick}
+      data-groups={JSON.stringify(tech)}
+    >
       <figure>
         <div className="aspect">
           <div className="inner">
@@ -64,6 +69,9 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
           padding-right: 6px;
           margin-top: 12px;
           cursor: pointer;
+          border: none;
+          background: none;
+          outline: none;
         }
 
         .project:hover .project-overlay {
@@ -186,7 +194,7 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
           }
         }
       `}</style>
-    </a>
+    </button>
   );
 };
 

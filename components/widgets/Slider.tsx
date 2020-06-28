@@ -17,6 +17,7 @@ const Sliders: FC<Props> = ({ images }) => {
   const [jssor, setJssor] = useState<Jssor | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line global-require
     require('jssor-slider');
 
     const options = {
@@ -61,6 +62,7 @@ const Sliders: FC<Props> = ({ images }) => {
         setJssor(null);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -71,14 +73,14 @@ const Sliders: FC<Props> = ({ images }) => {
         slidesHtml += `<div><img data-u="image" src="${img}" /></div>`;
       });
 
-      jssor?.$ReloadSlides(slidesHtml);
+      if (jssor) jssor.$ReloadSlides(slidesHtml);
     }
   }, [images, jssor]);
 
   return (
     <div id="jssor" className="slider">
       <div data-u="loading" className="spinner">
-        <img src="../../svg/spin.svg" />
+        <img src="../../svg/spin.svg" alt="loading..." />
       </div>
       <div data-u="slides" className="slides" />
       <div

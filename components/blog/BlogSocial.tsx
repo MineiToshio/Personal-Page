@@ -4,15 +4,16 @@ import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 const BlogSocial: FC = () => {
   return (
     <div className="social">
-      <a href="#" title="Me Gusta">
-        <FA icon={['fas', 'thumbs-up']} /> <span className="like-count">5.2k</span>
-      </a>
-      <a href="#" title="Compartir en Twitter">
+      <button type="button" title="Me Gusta">
+        <FA icon={['fas', 'thumbs-up']} />
+        <span className="like-count">5.2k</span>
+      </button>
+      <button type="button" title="Compartir en Twitter">
         <FA icon={['fab', 'twitter']} />
-      </a>
-      <a href="#" title="Compartir en Facebook">
+      </button>
+      <button type="button" title="Compartir en Facebook">
         <FA icon={['fab', 'facebook-square']} />
-      </a>
+      </button>
 
       <style jsx>{`
         .social {
@@ -26,16 +27,25 @@ const BlogSocial: FC = () => {
           max-width: 100px;
           width: 100%;
         }
-        .social a {
+        .social button {
           color: #545454;
-          margin-bottom: 15px;
+          margin-bottom: 18px;
           text-decoration: none;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          font-size: 1.2em;
+          display: flex;
+          align-items: flex-end;
+          outline: none;
+          width: 85px;
         }
-        .social a:hover {
+        .social button:hover {
           color: var(--muted);
         }
         .like-count {
           font-size: 15px;
+          margin-left: 10px;
         }
         @media screen and (max-width: 1023px) {
           .social {

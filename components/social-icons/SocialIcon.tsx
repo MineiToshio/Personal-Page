@@ -6,7 +6,7 @@ type Props = SocialIconType;
 
 const SocialIcon: FC<Props> = ({ color, url, icon, name }) => {
   return (
-    <a href={url} target="_blank" rel="noopener" aria-label={icon} title={name}>
+    <a href={url} target="_blank" rel="noreferrer" aria-label={icon} title={name}>
       <FA icon={['fab', icon]} />
 
       <style jsx>{`
@@ -20,16 +20,13 @@ const SocialIcon: FC<Props> = ({ color, url, icon, name }) => {
           margin: 0 8px;
           padding: 0 8px;
         }
-
         a:hover {
           background-color: ${color};
           color: #fff !important;
         }
-
         a:hover :global(svg) {
           animation: topToBottom 0.3s forwards;
         }
-
         @keyframes topToBottom {
           49% {
             transform: translateY(100%);

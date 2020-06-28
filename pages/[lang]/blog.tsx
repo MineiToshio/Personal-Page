@@ -16,7 +16,17 @@ const Blog: NextPage = () => {
         <div className="blog">
           <div id="blog-list">
             {posts.map((post) => (
-              <BlogPreview key={post.id} {...post} />
+              <BlogPreview
+                key={post.id}
+                title={post.title}
+                photo={post.photo}
+                summary={post.summary}
+                createdAt={post.createdAt}
+                commentQty={post.commentQty}
+                readingTime={post.readingTime}
+                likedQty={post.likedQty}
+                url={post.url}
+              />
             ))}
           </div>
           <BlogSidebar recentPosts={posts} />

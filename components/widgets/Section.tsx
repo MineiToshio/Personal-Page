@@ -36,7 +36,6 @@ const Section: FC<Props> = ({ children, title, subtitle, id }) => {
           align-items: center;
           padding-top: 20px;
         }
-
         h1 {
           color: var(--green);
           text-transform: uppercase;
@@ -46,14 +45,12 @@ const Section: FC<Props> = ({ children, title, subtitle, id }) => {
           font-size: 40pt;
           margin: 60px 0 10px;
         }
-
         .underline {
           width: 70px;
           height: 4px;
           background: #444649;
           margin-bottom: 45px;
         }
-
         .description {
           font-size: 16pt;
           margin-bottom: 50px;
@@ -61,7 +58,6 @@ const Section: FC<Props> = ({ children, title, subtitle, id }) => {
           text-transform: uppercase;
           text-align: center;
         }
-
         @media only screen and (max-width: 768px) {
           h1 {
             font-size: 35pt;
@@ -75,7 +71,6 @@ const Section: FC<Props> = ({ children, title, subtitle, id }) => {
             margin-bottom: 35px;
           }
         }
-
         @media only screen and (max-width: 425px) {
           h1 {
             font-size: 30pt;

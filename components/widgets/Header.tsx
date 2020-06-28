@@ -10,11 +10,11 @@ const Header: FC = () => {
   return (
     <header className="header">
       <Link href="/">
-        <a className="logo">Toshio Minei</a>
+        <span className="logo">Toshio Minei</span>
       </Link>
-      <a className="burger" onClick={() => setActive(!active)}>
+      <button type="button" className="burger" onClick={() => setActive(!active)}>
         <FA icon={['fas', 'bars']} />
-      </a>
+      </button>
       <div className={`menu ${active && 'active'}`}>
         <ul>
           <li>
@@ -58,7 +58,7 @@ const Header: FC = () => {
           font-weight: bold;
           flex-wrap: wrap;
           justify-content: space-between;
-          height: 51px; //tamaño del haader sin padding
+          height: 51px; //tamaño del header sin padding
         }
 
         .logo {
@@ -75,6 +75,14 @@ const Header: FC = () => {
           position: absolute;
           right: 30px;
           cursor: pointer;
+          color: var(--blue);
+          font-size: 22px;
+          border: none;
+          background: none;
+        }
+
+        .burger:hover {
+          color: var(--green);
         }
 
         .menu {

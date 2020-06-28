@@ -9,14 +9,16 @@ type LangProps = {
   locale?: Locale;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (WrappedPage: NextPage<any>) => {
-  const WithLocale: NextPage<any, LangProps> = ({ locale, ...pageProps }) => {
+  const WithLocale: NextPage<LangProps> = ({ locale, ...pageProps }) => {
     if (!locale) {
       // no valid locale detected
       return <Error statusCode={404} />;
     }
     return (
       <LocaleProvider lang={locale}>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <WrappedPage {...pageProps} />
       </LocaleProvider>
     );

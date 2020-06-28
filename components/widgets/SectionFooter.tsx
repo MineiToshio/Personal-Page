@@ -10,7 +10,7 @@ const SectionFooter: FC<Props> = ({ title, url, button }) => {
   return (
     <div className="ver-mas">
       <p>{title}</p>
-      <a href={url} target="_blank" rel="noopener" aria-label={title}>
+      <a href={url} target="_blank" rel="noreferrer" aria-label={title}>
         {button}
       </a>
 

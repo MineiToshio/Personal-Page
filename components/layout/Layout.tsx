@@ -1,75 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import Head from 'next/head';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import { library, config } from '@fortawesome/fontawesome-svg-core';
-import {
-  faGithub,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-  faFacebookSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faAngleUp,
-  faTimes,
-  faQuoteRight,
-  faQuoteLeft,
-  faBars,
-  faThumbsUp,
-  faChevronLeft,
-  faChevronRight,
-  faGlobeAmericas,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  faEnvelope,
-  faClock,
-  faCommentDots,
-  faBookmark,
-  faCalendar,
-} from '@fortawesome/free-regular-svg-icons';
 import PropTypes from 'prop-types';
 import smoothScroll from '../../helpers/smoothScroll';
 import ScrollUp from '../widgets/ScrollUp';
-import 'default-passive-events';
 import Footer from '../widgets/Footer';
 import Header from '../widgets/Header';
 import useTranslation from '../../hooks/useTranslation';
-
-config.autoAddCss = false;
-library.add(
-  faAngleUp,
-  faTimes,
-  faQuoteRight,
-  faQuoteLeft,
-  faBars,
-  faThumbsUp,
-  faChevronLeft,
-  faChevronRight,
-  faGlobeAmericas,
-  faEnvelope,
-  faClock,
-  faCommentDots,
-  faBookmark,
-  faCalendar,
-  faGithub,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-  faFacebookSquare,
-);
-
-Router.events.on('routeChangeStart', () => {
-  NProgress.start();
-});
-
-Router.events.on('routeChangeComplete', () => {
-  NProgress.done();
-});
-
-Router.events.on('routeChangeError', () => {
-  NProgress.done();
-});
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
@@ -214,6 +150,10 @@ const Layout: FC<Props> = ({ children, title }) => {
           border-radius: 10px;
           -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           background-color: #555;
+        }
+
+        button {
+          font-family: 'Open Sans', sans-serif;
         }
       `}</style>
     </div>

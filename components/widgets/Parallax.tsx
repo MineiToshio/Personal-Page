@@ -31,7 +31,6 @@ const Parallax: FC<Props> = ({ quote, author, image }) => {
           align-items: center;
           justify-content: center;
         }
-
         .overlay {
           background: url("../../img/pattern.png");
           width: 100%;
@@ -39,21 +38,18 @@ const Parallax: FC<Props> = ({ quote, author, image }) => {
           position: absolute;
           overflow: hidden;
         }
-
         .caption {
           position: absolute;
           max-width: 1200px;
           text-align: center;
           color: #000;
         }
-
         .caption :global(svg) {
           font-size: 15pt;
           vertical-align: top;
           margin: 5px 10px;
           color: var(--green);
         }
-
         .quote {
           text-transform: uppercase;
           color: #fff;
@@ -61,7 +57,6 @@ const Parallax: FC<Props> = ({ quote, author, image }) => {
           font-family: 'BebasNeue',sans-serif;
           font-weight:bold;
         }
-
         .author {
           font-size: 17px;
           font-weight: 600;
@@ -71,34 +66,27 @@ const Parallax: FC<Props> = ({ quote, author, image }) => {
           text-align: center;
           display: block;
         }
-
         @media only screen and (max-width: 1024px) {
           .parallax {
             height: 350px;
           }
-
           .caption :global(svg) {
             font-size: 13pt;
           }
-
           .quote {
             font-size: 30pt;
           }
         }
-
         @media only screen and (max-width: 600px) {
           .parallax {
             height: 250px;
           }
-
           .caption :global(svg) {
             font-size: 10pt;
           }
-
           .quote {
             font-size: 18pt;
           }
-
           .author {
             font-size: 13px;
           }

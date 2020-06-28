@@ -32,7 +32,6 @@ const SkillBar: FC<Props> = ({ percent, skill }) => {
           width: 100%;
           text-align: left;
         }
-
         .skillbar-title {
           position: absolute;
           top: 0;
@@ -50,7 +49,6 @@ const SkillBar: FC<Props> = ({ percent, skill }) => {
           line-height: ${height};
           text-align: center;
         }
-
         .skillbar-bar {
           height: ${height};
           width: 0px;
@@ -61,7 +59,6 @@ const SkillBar: FC<Props> = ({ percent, skill }) => {
           transition: all 1.5s ease;
           will-change: width;
         }
-
         .skill-bar-percent {
           position: absolute;
           right: 10px;

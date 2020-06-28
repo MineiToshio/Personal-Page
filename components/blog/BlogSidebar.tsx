@@ -17,20 +17,27 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
       <div className="recent">
         <h3>{t('recentPosts')}</h3>
         {recentPosts.map((post: Post) => (
-          <RecentPost key={post.id} {...post} />
+          <RecentPost
+            key={post.id}
+            title={post.title}
+            thumbnail={post.thumbnail}
+            createdAt={post.createdAt}
+            url={post.url}
+          />
         ))}
       </div>
       <div className="categories">
         <h3>{t('categories')}</h3>
         <ul>
+          {/* TODO: Get the categories from a database */}
           <li>
-            <a href="#">C#</a>
+            <a href="/#">C#</a>
           </li>
           <li>
-            <a href="#">javascript</a>
+            <a href="/#">javascript</a>
           </li>
           <li>
-            <a href="#">CSS</a>
+            <a href="/#">CSS</a>
           </li>
         </ul>
       </div>

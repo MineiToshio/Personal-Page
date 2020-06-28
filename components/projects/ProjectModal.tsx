@@ -38,12 +38,12 @@ const ProjectModal: FC<Props> = ({
         <p>{description}</p>
         <div className="buttons">
           {live && (
-            <a target="_blank" href={live}>
+            <a target="_blank" href={live} rel="noreferrer">
               <FA icon={['fas', 'globe-americas']} /> {t('goToWeb')}
             </a>
           )}
           {github && (
-            <a target="_blank" href={github}>
+            <a target="_blank" href={github} rel="noreferrer">
               <FA icon={['fab', 'github']} /> Github
             </a>
           )}
@@ -55,27 +55,22 @@ const ProjectModal: FC<Props> = ({
           width: 100%;
           border-radius: 5px 5px 0 0;
         }
-
         .modal-info {
           padding: 10px;
         }
-
         h3 {
           margin: 0;
           font-size: 19pt;
         }
-
         h4 {
           margin: 0;
           color: #7d7d7d;
           text-transform: uppercase;
         }
-
         .buttons {
           display: flex;
           font-size: 15px;
         }
-
         a {
           border-radius: 5px;
           padding: 8px 10px;
@@ -86,25 +81,20 @@ const ProjectModal: FC<Props> = ({
           color: var(--green);
           text-decoration: none;
         }
-
         a:hover {
           color: #fff;
           background: var(--green);
         }
-
         @media only screen and (max-width: 600px) {
           h3 {
             font-size: 16pt;
           }
-
           h4 {
             font-size: 11pt;
           }
-
           p {
             font-size: 10pt;
           }
-
           .buttons a {
             border: var(--green) solid 1px;
             padding: 6px 8px;

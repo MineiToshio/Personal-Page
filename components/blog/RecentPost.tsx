@@ -9,16 +9,15 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
 
   return (
     <div className="recent-post">
-      <Link href={postUrl}>
-        <a className="photo">
+      <div className="photo">
+        <Link href={postUrl}>
           <img src={thumbnail} alt={title} />
-        </a>
-      </Link>
+        </Link>
+      </div>
       <Link href={postUrl}>
-        <a>{title}</a>
+        <span className="title">{title}</span>
       </Link>
-      <span>{createdAt}</span>
-
+      <span className="date">{createdAt}</span>
       <style jsx>{`
         .recent-post {
           display: grid;
@@ -29,36 +28,32 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
           column-gap: 15px;
           margin-bottom: 15px;
         }
-        .recent-post .photo {
+        .photo {
           grid-area: photo;
         }
-        .recent-post .photo img {
+        .photo img {
           display: block;
           max-width: 100%;
           width: 100%;
           border-radius: 50%;
         }
-        .recent-post a {
+        .title {
           grid-area: title;
           margin: 0;
-          font-size: 14px;
           font-weight: bold;
           line-height: 17px;
+          text-decoration: none;
+          color: var(--green);
+          font-size: 14px;
         }
-        .recent-post a:hover {
+        .title:hover {
           color: var(--green);
           filter: brightness(85%);
         }
-        .recent-post span {
+        .date {
           grid-area: date;
           color: #8f8f8f;
           font-size: 13px;
-          margin-top: 6px;
-        }
-        a {
-          text-decoration: none;
-          color: var(--green);
-          font-size: 15px;
         }
         @media screen and (max-width: 790px) {
           .recent-post {

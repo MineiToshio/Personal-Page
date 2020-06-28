@@ -48,10 +48,16 @@ module.exports = {
     // React
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
-    // Other
+    // TypeScript
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
+    // Unicorn
     'unicorn/filename-case': ['off'],
     'unicorn/prefer-negative-index': ['off'],
     'unicorn/prevent-abbreviations': ['off'],
+    'unicorn/no-null': ['off'],
+    'unicorn/no-useless-undefined': ['off'],
+    // Other
+    'consistent-return': ['error', { treatUndefinedAsUnspecified: true }],
     'no-extra-parens': 'warn',
     'prefer-arrow-callback': 'error',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],

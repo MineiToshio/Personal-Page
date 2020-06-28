@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start",
-    "build-win": "set NODE_ENV=production & next build",
-    "start-win": "set NODE_ENV=production & next start",
-    "prod": "npm run build-win && npm run start-win",
+    "build": "next build",
+    "start": "next start",
     "prettier": "prettier --config .prettierrc.json --write \"**/*.*\"",
     "eslint": "eslint --fix \"**/*.{js,jsx,ts,tsx}\""
   },
@@ -64,8 +61,10 @@
   },
   "lint-staged": {
     "*": [
-      "npm run prettier",
-      "npm run eslint"
+      "prettier --config .prettierrc.json"
+    ],
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix"
     ]
   }
 }

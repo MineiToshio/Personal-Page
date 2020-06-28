@@ -6,7 +6,7 @@ type Props = {
 
 const TagLink: FC<Props> = ({ tag }) => {
   return (
-    <a href="#" className="tag-link">
+    <a href="/" className="tag-link">
       {tag}
       <style jsx>{`
         .tag-link {

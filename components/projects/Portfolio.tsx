@@ -6,6 +6,13 @@ import ProjectModal from './ProjectModal';
 import { Project as ProjectType } from '../../types/types';
 import useTranslation from '../../hooks/useTranslation';
 
+const deactivateFilters = () => {
+  const filters: HTMLDivElement = document.querySelector('.filters') as HTMLDivElement;
+  [...filters.children].map((element) => {
+    return element.classList.remove('active');
+  });
+};
+
 const Portfolio: FC = () => {
   const { t, locale } = useTranslation('Portfolio');
   const [projects, setProjects] = useState<Array<ProjectType>>([]);
@@ -15,32 +22,33 @@ const Portfolio: FC = () => {
   const refPortfolio = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
     const projectJson = require(`../../public/data/projects.${locale}.json`);
     setProjects(projectJson);
   }, [locale]);
 
-  const handleModalClick = (modalProject: ProjectType) => {
+  const handleModalClick = (project: ProjectType) => {
     setModalVisible(true);
-    setModalProject(modalProject);
+    setModalProject(project);
   };
 
   const handleModalClose = () => {
     setModalVisible(false);
   };
 
-  const deactivateFilters = () => {
-    const filters: HTMLDivElement = document.querySelector('.filters') as HTMLDivElement;
-    [...filters.children].map((element) => {
-      return element.classList.remove('active');
-    });
-  };
-
-  const handleShuffle = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleShuffle = (e: React.MouseEvent<HTMLButtonElement>) => {
     deactivateFilters();
     e.currentTarget.classList.add('active');
 
     const filter = e?.currentTarget?.dataset?.filter?.split(' ');
-    filter && filter[0] !== '' ? shuffle?.filter(filter) : shuffle?.filter('');
+    if (shuffle) {
+      if (filter && filter[0] !== '') {
+        // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
+        shuffle.filter(filter);
+      } else {
+        shuffle.filter('');
+      }
+    }
   };
 
   useEffect(() => {
@@ -64,6 +72,7 @@ const Portfolio: FC = () => {
         setShuffle(null);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refPortfolio, projects]);
 
   return (
@@ -71,34 +80,35 @@ const Portfolio: FC = () => {
       <TrackVisibility once>
         {({ isVisible }) => (
           <div className={`filters ${isVisible ? 'pop-in' : 'invisible'}`}>
-            <a data-filter="" onClick={handleShuffle} className="active">
+            <button type="button" data-filter="" onClick={handleShuffle} className="active">
               {t('all')}
-            </a>
-            <a data-filter="HTML" onClick={handleShuffle}>
+            </button>
+            <button type="button" data-filter="HTML" onClick={handleShuffle}>
               HTML
-            </a>
-            <a data-filter="jQuery" onClick={handleShuffle}>
+            </button>
+            <button type="button" data-filter="jQuery" onClick={handleShuffle}>
               jQuery
-            </a>
-            <a data-filter="AngularJS Angular" onClick={handleShuffle}>
+            </button>
+            <button type="button" data-filter="AngularJS Angular" onClick={handleShuffle}>
               Angular
-            </a>
-            <a data-filter="React" onClick={handleShuffle}>
+            </button>
+            <button type="button" data-filter="React" onClick={handleShuffle}>
               React
-            </a>
-            <a data-filter="C#" onClick={handleShuffle}>
+            </button>
+            <button type="button" data-filter="C#" onClick={handleShuffle}>
               C#
-            </a>
+            </button>
           </div>
         )}
       </TrackVisibility>
       <div className="portafolio" ref={refPortfolio}>
         {projects.map((project) => (
           <Project
-            {...project}
             key={project.id}
             handleClick={() => handleModalClick(project)}
             tech={project.tech}
+            name={project.name}
+            id={project.id}
           />
         ))}
         <div className="column my-sizer-element" />
@@ -107,7 +117,13 @@ const Portfolio: FC = () => {
         <ProjectModal
           modalVisible={modalVisible}
           handleModalClose={handleModalClose}
-          {...modalProject}
+          id={modalProject.id}
+          name={modalProject.name}
+          tech={modalProject.tech}
+          description={modalProject.description}
+          images={modalProject.images}
+          live={modalProject.live}
+          github={modalProject.github}
         />
       )}
       <style jsx>{`
@@ -126,7 +142,7 @@ const Portfolio: FC = () => {
           grid-template-columns: repeat(6, 1fr);
         }
 
-        .filters a {
+        .filters button {
           text-decoration: none;
           padding: 5px 10px;
           color: var(--green);
@@ -135,10 +151,13 @@ const Portfolio: FC = () => {
           border: 2px solid var(--green);
           text-transform: uppercase;
           cursor: pointer;
+          background: none;
+          outline: none;
+          font-size: 16px;
         }
 
-        .filters a.active,
-        .filters a:hover {
+        .filters button.active,
+        .filters button:hover {
           background-color: var(--green);
           color: white;
         }

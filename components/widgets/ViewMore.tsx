@@ -29,29 +29,24 @@ const ViewMore: FC<Props> = ({ title }) => {
           text-align: center;
           font-weight: bold;
         }
-
         a {
           text-decoration: none;
           color: #fff;
         }
-
         .text {
           font-size: 16px;
           text-transform: uppercase;
           letter-spacing: 2px;
           font-weight: 700;
         }
-
         .icon {
           font-size: 20px;
         }
-
         @media only screen and (max-width: 470px) {
           .text {
             font-size: 14px;
           }
         }
-
         @keyframes ver-mas {
           from,
           to {

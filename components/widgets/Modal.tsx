@@ -11,11 +11,13 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
   const refOverlay = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (visible) {
-      refOverlay?.current?.classList.add('active');
+    if (visible && refOverlay.current) {
+      refOverlay.current.classList.add('active');
     } else {
       setTimeout(() => {
-        refOverlay?.current?.classList.remove('active');
+        if (refOverlay.current) {
+          refOverlay.current.classList.remove('active');
+        }
       }, 700);
     }
   }, [visible]);
@@ -23,9 +25,9 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
   return (
     <div id="overlay" className="overlay" ref={refOverlay}>
       <div className={`modal ${visible ? 'in' : 'out'}`} id="modal">
-        <a onClick={handleModalClose}>
+        <button type="button" onClick={handleModalClose} className="close">
           <FA icon={['fas', 'times']} />
-        </a>
+        </button>
         {children}
       </div>
 
@@ -68,7 +70,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
           animation: modalOut 0.8s forwards;
         }
 
-        a {
+        .close {
           position: absolute;
           right: -15px;
           top: -15px;
@@ -82,9 +84,11 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
           justify-content: center;
           z-index: 1;
           cursor: pointer;
+          border: none;
+          outline: none;
         }
 
-        a:hover {
+        .close:hover {
           filter: brightness(85%);
         }
 

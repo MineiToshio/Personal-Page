@@ -3,10 +3,14 @@ export default function smoothScroll() {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
 
-      document.querySelector(anchor.getAttribute('href') as string)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      const whereToGo = anchor.getAttribute('href');
+      const elementToGo = document.querySelector(whereToGo || '');
+      if (elementToGo) {
+        elementToGo.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     });
   });
 }

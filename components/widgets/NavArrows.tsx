@@ -11,14 +11,14 @@ const NavArrows: FC<Props> = ({ urlPrev, urlNext }) => {
   return (
     <nav className="arrows">
       <Link href={urlPrev}>
-        <a className="left">
+        <button type="button" className="arrow left">
           <FA icon={['fas', 'chevron-left']} />
-        </a>
+        </button>
       </Link>
       <Link href={urlNext}>
-        <a className="right">
+        <button type="button" className="arrow right">
           <FA icon={['fas', 'chevron-right']} />
-        </a>
+        </button>
       </Link>
 
       <style jsx>{`
@@ -27,7 +27,7 @@ const NavArrows: FC<Props> = ({ urlPrev, urlNext }) => {
           font-size: 40px;
           z-index: 5px;
         }
-        .arrows > a {
+        .arrow {
           position: fixed;
           top: 50%;
           padding: 20px 30px;
@@ -35,7 +35,7 @@ const NavArrows: FC<Props> = ({ urlPrev, urlNext }) => {
           cursor: pointer;
           border: 10px solid transparent;
         }
-        .arrows > a:hover {
+        .arrow:hover {
           border: 10px solid #98eabd;
         }
         .arrows .left {

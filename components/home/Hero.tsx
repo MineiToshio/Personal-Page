@@ -34,23 +34,19 @@ const Hero: FC<Props> = ({ id }) => {
           align-items: center;
           background: var(--green);
         }
-
         .portada :global(.social-icons) {
           position: absolute;
           top: 0;
           right: 0;
           margin: 20px;
         }
-
         .portada :global(.social-icons a) {
           color: var(--black);
         }
-
         .content {
           text-align: center;
           z-index: 1;
         }
-
         .title {
           font-size: 30pt;
           text-align: center;
@@ -58,46 +54,37 @@ const Hero: FC<Props> = ({ id }) => {
           flex-direction: row;
           justify-content: center;
         }
-
         .highlight {
           color: var(--black);
           font-weight: bold;
         }
-
         .name {
           margin-left: 10px;
         }
-
         .sub-title {
           font-size: 25pt;
           padding-top: 15px;
         }
-
         @media only screen and (max-width: 650px) {
           .title {
             font-size: 25pt;
           }
-
           .sub-title {
             font-size: 18pt;
           }
         }
-
         @media only screen and (max-width: 470px) {
           .title {
             flex-direction: column;
             font-size: 23pt;
           }
-
           .name {
             margin-left: 0;
           }
-
           .sub-title {
             font-size: 16pt;
             padding-top: 25px;
           }
-
           .portada :global(.social-icons) {
             right: auto;
             margin: 20px auto;
