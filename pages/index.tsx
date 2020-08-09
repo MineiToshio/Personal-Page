@@ -10,7 +10,8 @@ const Index: FC = () => {
   });
   return (
     <Head>
-      <meta name="robots" content="noindex, nofollow" />
+      <meta name="author" content="Toshio Minei" />
+      <meta name="title" content="Toshio Minei" />
     </Head>
   );
 };
