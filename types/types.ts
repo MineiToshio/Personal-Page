@@ -25,5 +25,10 @@ export type SocialIcon = {
   name: string;
   url: string;
   color: string;
-  icon: 'twitter' | 'facebook-square' | 'instagram' | 'github' | 'linkedin';
+  icon: 'twitter' | 'facebookSquare' | 'instagram' | 'github' | 'linkedin';
+};
+
+export type Technology = {
+  name: string;
+  icon: string;
 };

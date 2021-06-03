@@ -1,0 +1,58 @@
+[
+  {
+    "name": "HTML",
+    "icon": "html5.png"
+  },
+  {
+    "name": "CSS",
+    "icon": "css3.png"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "js.png"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "ts.png"
+  },
+  {
+    "name": "Github",
+    "icon": "github.png"
+  },
+  {
+    "name": "jQuery",
+    "icon": "jquery.png"
+  },
+  {
+    "name": "React",
+    "icon": "react.png"
+  },
+  {
+    "name": "AngularJS",
+    "icon": "angular.png"
+  },
+  {
+    "name": "C#",
+    "icon": "csharp.png"
+  },
+  {
+    "name": "Node.js",
+    "icon": "node.png"
+  },
+  {
+    "name": "SQL Server",
+    "icon": "sqlserver.png"
+  },
+  {
+    "name": "MySQL",
+    "icon": "mysql.png"
+  },
+  {
+    "name": "Firebase",
+    "icon": "firebase.png"
+  },
+  {
+    "name": "MS LUIS",
+    "icon": "luis.png"
+  }
+]

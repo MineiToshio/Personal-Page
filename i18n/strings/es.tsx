@@ -1,4 +1,4 @@
-import { Strings } from '../../types/i18n';
+import { Strings } from '@/types/i18n';
 
 const strings: Strings = {
   BlogMeta: {
@@ -20,8 +20,8 @@ const strings: Strings = {
   },
   AboutMe: {
     whoAmI: '¿Quién soy?',
-    me:
-      'Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas.',
+    me: 'Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas.',
+    technologiesIUsed: 'Tecnologías que he usado',
     footerTitle: '¿quieres conocer más de mi?',
     footerButton: 'Visita mi LinkedIn',
   },

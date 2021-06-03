@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Locale, isLocale } from '../types/i18n';
+import { Locale, isLocale } from '@/types/i18n';
 
 type ContextProps = {
   readonly locale: Locale;
