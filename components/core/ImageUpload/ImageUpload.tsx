@@ -5,11 +5,11 @@ import useBoolean from '@/hooks/useBoolean';
 import { Typography, Icon } from '..';
 
 type Props = {
-  onImageUpload: (uploadedImg: string) => void
+  onImageUpload: (uploadedImg: string) => void;
+  imgUrl?: string;
 };
 
-const ImageUpload = ({ onImageUpload }: Props) => {
-  const [imgUrl, setImgUrl] = useState<string | null>(null);
+const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean(false);
   const fileUploadRef = useRef<HTMLInputElement>(null);
   
@@ -25,7 +25,6 @@ const ImageUpload = ({ onImageUpload }: Props) => {
       if (imgUrl) {
         deleteFile(imgUrl);
       }
-      setImgUrl(imageUrl);
       onImageUpload(imageUrl);
       setIsLoadingFalse();
     }
@@ -33,7 +32,6 @@ const ImageUpload = ({ onImageUpload }: Props) => {
 
   const onClose = () => {
     if (imgUrl) {
-      setImgUrl(null);
       deleteFile(imgUrl);
     }
   }

@@ -6,7 +6,7 @@ import type { PostDoc } from '@/types/firebase';
 const header: TableHeader = [
   {
     title: 'TÍTULO',
-    dataAttribute: 'titleEs',
+    dataAttribute: 'title',
     align: 'left',
   },
   {
@@ -51,7 +51,8 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
   const datasource = useMemo(
     () =>
       posts.map(post => ({
-        ...post,
+        id: post.id,
+        title: post.es.title,
         published: post.published ? 'Si' : 'No',
       })),
     [posts],

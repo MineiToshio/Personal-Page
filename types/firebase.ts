@@ -3,15 +3,23 @@ import type Firebase from 'firebase';
 export type PostDoc = {
   // TODO: Make the id mandatory
   id?: string;
-  titleEs: string;
-  titleEn: string;
+  en: {
+    title: string;
+    content: string;
+    timeToRead: number;
+  },
+  es: {
+    title: string;
+    content: string;
+    timeToRead: number;
+  },
+  creator: {
+    id: string;
+    name: string;
+    photoUrl?: string;
+  },
   featureImage?: string;
-  contentEs: string;
-  contentEn: string;
   url: string;
-  timeToRead: number;
-  creatorId: string;
-  creator: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
