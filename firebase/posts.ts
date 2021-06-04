@@ -24,9 +24,10 @@ export const getPosts = async () => {
 };
 
 export const createPost = async (post: Omit<PostDoc, 'id'>) => {
-  const postWithUrl = await getPostByUrl(post.url);
-
-  if (postWithUrl) throw new Error('Invalid url');
+  if (post.url) {
+    const postWithUrl = await getPostByUrl(post.url);
+    if (postWithUrl) throw new Error('Invalid url');
+  }
 
   const ref = await db.posts.add(post);
   return {

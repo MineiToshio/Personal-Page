@@ -27,20 +27,20 @@ const Create: NextPage = () => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean();
   const { control, handleSubmit, getValues, setValue } = useForm();
 
-  const formatPost = (formPost: BlogPostForm) => {
+  const formatPost = (formPost: Partial<BlogPostForm>) => {
     if (currentUser) {
       const { contentEs, contentEn, titleEn, titleEs, url, featureImage } = formPost;
       const timeToReadEs = calculateReadingTime(contentEs);
       const timeToReadEn = calculateReadingTime(contentEn);
       const newPost: PostDoc = {
         en: {
-          title: titleEn,
-          content: contentEn,
+          ...titleEn && { title: titleEn },
+          ...contentEn && { content: contentEn },
           timeToRead: timeToReadEn,
         },
         es: {
-          title: titleEs,
-          content: contentEs,
+          ...titleEs && { title: titleEs },
+          ...contentEs && { content: contentEs },
           timeToRead: timeToReadEs,
         },
         creator: {
@@ -48,8 +48,8 @@ const Create: NextPage = () => {
           name: currentUser.displayName,
           photoUrl: currentUser.photoURL,
         },
-        featureImage,
-        url,
+        ...featureImage && { featureImage },
+        ...url && { url },
         createdAt: new Date(),
         updatedAt: new Date(),
         publishedAt: new Date(),

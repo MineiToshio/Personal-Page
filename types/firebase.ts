@@ -4,14 +4,14 @@ export type PostDoc = {
   // TODO: Make the id mandatory
   id?: string;
   en: {
-    title: string;
-    content: string;
-    timeToRead: number;
+    title?: string;
+    content?: string;
+    timeToRead?: number;
   },
   es: {
-    title: string;
-    content: string;
-    timeToRead: number;
+    title?: string;
+    content?: string;
+    timeToRead?: number;
   },
   creator: {
     id: string;
@@ -19,7 +19,7 @@ export type PostDoc = {
     photoUrl?: string;
   },
   featureImage?: string;
-  url: string;
+  url?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
