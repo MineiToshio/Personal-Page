@@ -1,8 +1,10 @@
 /* eslint-disable import/no-cycle */
 import type { AuthorizationType } from './Authorization/Authorization';
+import type { BlogPostFormType } from './BlogPostForm/BlogPostForm';
 
 import Authorization from './Authorization/Authorization';
 import BlogMeta from './BlogMeta/BlogMeta';
+import BlogPostForm from './BlogPostForm/BlogPostForm';
 import FloatingMenu from './FloatingMenu/FloatingMenu';
 import Login from './Login/Login';
 import Logo from './Logo/Logo';
@@ -23,6 +25,7 @@ export default null;
 export {
   Authorization,
   BlogMeta,
+  BlogPostForm,
   FloatingMenu,
   Login,
   Logo,
@@ -38,4 +41,4 @@ export {
   Spinner,
 };
 
-export type { AuthorizationType };
+export type { AuthorizationType, BlogPostFormType };
