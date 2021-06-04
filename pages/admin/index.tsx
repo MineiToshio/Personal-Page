@@ -17,6 +17,7 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
 
   const onEdit = (index: number) => {
     const selectedPost = posts[index];
+    Router.push(`/admin/blog/${selectedPost.id}`);
   };
 
   const onDelete= (index: number) => {
