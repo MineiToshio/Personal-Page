@@ -20,9 +20,9 @@ export type PostDoc = {
   },
   featureImage?: string;
   url?: string;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt?: Date;
+  createdAt: Firebase.firestore.Timestamp;
+  updatedAt: Firebase.firestore.Timestamp;
+  publishedAt?: Firebase.firestore.Timestamp;
   published: boolean;
   likeQty: number;
   tags?: string[];

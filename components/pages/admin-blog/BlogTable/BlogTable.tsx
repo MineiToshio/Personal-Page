@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { timestampToDateString } from '@/firebase/utils';
 import { Table } from '../../../core';
 import type { TableHeader, TableOptions } from '../../../core';
 import type { PostDoc } from '@/types/firebase';
@@ -8,6 +9,11 @@ const header: TableHeader = [
     title: 'TÍTULO',
     dataAttribute: 'title',
     align: 'left',
+  },
+  {
+    title: 'FECHA CREACIÓN',
+    dataAttribute: 'createdAt',
+    width: 200,
   },
   {
     title: 'PUBLICADO',
@@ -53,11 +59,12 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
       posts.map(post => ({
         id: post.id,
         title: post.es.title,
+        createdAt: timestampToDateString(post.createdAt, 'es'),
         published: post.published ? 'Si' : 'No',
       })),
     [posts],
   );
-
+      
   return (
     <Table
       datasource={datasource}

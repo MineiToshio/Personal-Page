@@ -8,6 +8,7 @@ import { createPost } from '@/firebase/posts';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useBoolean from '@/hooks/useBoolean';
 import calculateReadingTime from '@/helpers/calculateReadingTime';
+import { getDate } from '@/firebase/utils';
 import type { NextPage } from 'next';
 import type { Locale } from '@/types/i18n';
 import type { PostDoc } from '@/types/firebase';
@@ -50,9 +51,9 @@ const CreatePost: NextPage = () => {
         },
         ...featureImage && { featureImage },
         ...url && { url },
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        ... published && { publishedAt: new Date() },
+        createdAt: getDate(),
+        updatedAt: getDate(),
+        ...published && { publishedAt: getDate() },
         published,
         likeQty: 0,
         order: 1,
