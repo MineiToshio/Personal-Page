@@ -21,18 +21,18 @@ export type BlogPostForm = {
   featureImage?: string;
 };
 
-const Create: NextPage = () => {
+const CreatePost: NextPage = () => {
   const { currentUser } = useCurrentUser();
   const [language, setLanguage] = useState <Locale>('es');
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean();
-  const { control, handleSubmit, getValues, setValue } = useForm();
+  const { control, handleSubmit, getValues } = useForm();
 
-  const formatPost = (formPost: Partial<BlogPostForm>) => {
+  const formatPost = (formPost: Partial<BlogPostForm>, published = false) => {
     if (currentUser) {
       const { contentEs, contentEn, titleEn, titleEs, url, featureImage } = formPost;
       const timeToReadEs = calculateReadingTime(contentEs);
       const timeToReadEn = calculateReadingTime(contentEn);
-      const newPost: PostDoc = {
+      const post: PostDoc = {
         en: {
           ...titleEn && { title: titleEn },
           ...contentEn && { content: contentEn },
@@ -52,24 +52,21 @@ const Create: NextPage = () => {
         ...url && { url },
         createdAt: new Date(),
         updatedAt: new Date(),
-        publishedAt: new Date(),
-        published: false,
+        ... published && { publishedAt: new Date() },
+        published,
         likeQty: 0,
         order: 1,
       };
-      return newPost;
+      return post;
     }
     return null;
   }
 
-  const onPublish: SubmitHandler<BlogPostForm> = async (formPost) => {
-    const newPost = formatPost(formPost);
+  const addPostToFirebase = async (newPost: PostDoc | null) => {
     if (newPost) {
       try {
         setIsLoadingTrue();
         await createPost(newPost);
-        Router.push('/admin');
-        setIsLoadingFalse();
       } catch (e) {
         setIsLoadingFalse();
         alert(e)
@@ -77,6 +74,19 @@ const Create: NextPage = () => {
     } else {
       alert('Usuario no logueado');
     }
+  }
+
+  const onSave = async () => {
+    const blogPostForm = getValues() as BlogPostForm;
+    const newPost = formatPost(blogPostForm);
+    await addPostToFirebase(newPost);
+    setIsLoadingFalse();
+  };
+
+  const onPublish: SubmitHandler<BlogPostForm> = async (formPost) => {
+    const newPost = formatPost(formPost, true);
+    await addPostToFirebase(newPost);
+    Router.push('/admin');
   };
   return (
     <Layout authorizationType="only_auth">
@@ -126,7 +136,7 @@ const Create: NextPage = () => {
           
           <Spacer size={3} direction="vertical" />
           <div className="buttons">
-            <Button icon="save" text="Guardar" backgroundColor="secondary" type="submit" isLoading={isLoading} />
+            <Button icon="save" text="Guardar" backgroundColor="secondary" onClick={onSave} isLoading={isLoading} />
             <Spacer size={2} direction="horizontal" />
             <Button icon="upload" text="Publicar" type="submit" isLoading={isLoading} />
           </div>
@@ -150,4 +160,4 @@ const Create: NextPage = () => {
   );
 };
 
-export default Create;
+export default CreatePost;
