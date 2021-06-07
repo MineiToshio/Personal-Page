@@ -3,7 +3,7 @@ import Router from 'next/router';
 import { AdminLayout as Layout } from '@/components/layout';
 import { Button, Spacer } from '@/components/core';
 import { BlogTable } from '@/components/pages/admin-blog';
-import { getPosts, updatePost, deletePost } from '@/firebase/posts';
+import { getPosts, updatePost, deletePost, updatePostIsPublished } from '@/firebase/posts';
 import replaceElementInArray from '@/helpers/replaceElementInArray';
 import type { NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
@@ -29,15 +29,17 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
     }
   };
 
-  const onPublish = (index: number) => {
-    const selectedPost = posts[index];
-    const isPublished = !selectedPost.isPublished;
-    updatePost(selectedPost.id!, {
-      isPublished,
-    });
-    const editedPost = { ...selectedPost, isPublished };
-    const editedPosts = replaceElementInArray<PostDoc>(posts, selectedPost, editedPost);
-    setPosts(editedPosts);
+  const onPublish = async (index: number) => {
+    try {
+      const selectedPost = posts[index];
+      const isPublished = !selectedPost.isPublished;
+      await updatePostIsPublished(selectedPost.id!, isPublished);
+      const editedPost = { ...selectedPost, isPublished };
+      const editedPosts = replaceElementInArray<PostDoc>(posts, selectedPost, editedPost);
+      setPosts(editedPosts);
+    } catch (e) {
+      alert(e);
+    }
   };
 
   return (

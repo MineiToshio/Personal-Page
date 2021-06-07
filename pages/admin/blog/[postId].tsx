@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Router from 'next/router';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useBoolean from '@/hooks/useBoolean';
-import { getPost, updatePost, unpublishPost } from '@/firebase/posts';
+import { getPost, updatePost, updatePostIsPublished } from '@/firebase/posts';
 import { getDate } from '@/firebase/utils';
 import { Spinner, BlogPostForm } from '@/components/shared';
 import { AdminLayout as Layout } from '@/components/layout';
@@ -13,8 +13,8 @@ import type { PostDoc } from '@/types/firebase';
 import type { BlogPostFormType } from '@/components/shared';
 
 type Props = {
-  post: PostDoc | null
-}
+  post: PostDoc | null;
+};
 
 type Context = NextPageContext & {
   query: {
@@ -25,16 +25,21 @@ type Context = NextPageContext & {
 const AdminPost: NextPage<Props> = ({ post }) => {
   const { currentUser } = useCurrentUser();
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean();
-  const [isPostPublished, setIsPostPublishedTrue, setIsPostPublishedFalse] = useBoolean(post?.isPublished);
+  const [isPostPublished, setIsPostPublishedTrue, setIsPostPublishedFalse] = useBoolean(
+    post?.isPublished,
+  );
 
-  const blogFormPost: Partial<BlogPostFormType> = useMemo(() => ({
-    url: post?.url,
-    titleEs: post?.es.title,
-    titleEn: post?.en.title,
-    contentEn: post?.en.content,
-    contentEs: post?.es.content,
-    featureImage: post?.featureImage,
-  }), [post]);
+  const blogFormPost: Partial<BlogPostFormType> = useMemo(
+    () => ({
+      url: post?.url,
+      titleEs: post?.es.title,
+      titleEn: post?.en.title,
+      contentEn: post?.en.content,
+      contentEs: post?.es.content,
+      featureImage: post?.featureImage,
+    }),
+    [post],
+  );
 
   if (!post) {
     Router.push('/admin');
@@ -66,7 +71,7 @@ const AdminPost: NextPage<Props> = ({ post }) => {
       return editedPost;
     }
     return null;
-  }
+  };
 
   const addPostToFirebase = async (newPost: Partial<PostDoc> | null) => {
     if (newPost) {
@@ -76,22 +81,22 @@ const AdminPost: NextPage<Props> = ({ post }) => {
         return true;
       } catch (e) {
         setIsLoadingFalse();
-        alert(e)
+        alert(e);
         return false;
       }
     } else {
       alert('Usuario no logueado');
       return false;
     }
-  }
-  
+  };
+
   const onSave = async (blogPostForm: Partial<BlogPostFormType>) => {
     const newPost = formatPost(blogPostForm);
     const res = await addPostToFirebase(newPost);
     if (res) setIsLoadingFalse();
   };
 
-  const onPublish: SubmitHandler<BlogPostFormType> = async (formPost) => {
+  const onPublish: SubmitHandler<BlogPostFormType> = async formPost => {
     const newPost = formatPost(formPost, true);
     const res = await addPostToFirebase(newPost);
     if (res) Router.push('/admin');
@@ -99,16 +104,23 @@ const AdminPost: NextPage<Props> = ({ post }) => {
 
   const onUnpublish = async () => {
     setIsLoadingTrue();
-    await unpublishPost(post.id!);
+    await updatePostIsPublished(post.id!, false);
     setIsPostPublishedFalse();
     setIsLoadingFalse();
   };
 
   return (
     <Layout authorizationType="only_auth" title={`Edit Post - ${post.es.title}`}>
-      <BlogPostForm onSave={onSave} onPublish={onPublish} onUnpublish={onUnpublish} isLoading={isLoading} initialPost={blogFormPost} isPostPublished={isPostPublished} />
+      <BlogPostForm
+        onSave={onSave}
+        onPublish={onPublish}
+        onUnpublish={onUnpublish}
+        isLoading={isLoading}
+        initialPost={blogFormPost}
+        isPostPublished={isPostPublished}
+      />
     </Layout>
-  )
+  );
 };
 
 AdminPost.getInitialProps = async ({ query }: Context) => {

@@ -39,7 +39,7 @@ export const getPosts = async () => {
       ...post,
       id: doc.id,
     };
-  });                                
+  });
   return posts;
 };
 
@@ -56,16 +56,25 @@ export const createPost = async (post: PostDoc) => {
   };
 };
 
+export const updatePostIsPublished = async (id: string, isPublished: boolean) => {
+  if (isPublished) {
+    const post = await getPost(id);
+    if (post && post.en.title && post.en.content && post.es.title && post.es.content && post.url) {
+      db.posts.doc(id).set({ isPublished: true }, { merge: true });
+    } else {
+      throw new Error('Post cannot be published cause it has missing data.');
+    }
+  } else {
+    db.posts.doc(id).set({ isPublished: false }, { merge: true });
+  }
+};
+
 export const updatePost = async (id: string, post: Partial<PostDoc>, merge = true) => {
   if (post.url) {
     const postWithUrl = await getAnotherPostByUrl(id, post.url);
     if (postWithUrl) throw new Error('Invalid url');
   }
   db.posts.doc(id).set(post, { merge });
-}
-
-export const unpublishPost = async (id: string) => {
-  db.posts.doc(id).set({ isPublished: false }, { merge: true });
-}
+};
 
 export const deletePost = (id: string) => db.posts.doc(id).delete();
