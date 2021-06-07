@@ -7,6 +7,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 import useBoolean from '@/hooks/useBoolean';
 import calculateReadingTime from '@/helpers/calculateReadingTime';
 import { getDate } from '@/firebase/utils';
+import { deleteFile } from '@/firebase/storage';
 import type { SubmitHandler } from 'react-hook-form';
 import type { NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
@@ -44,6 +45,7 @@ const CreatePost: NextPage = () => {
         ...isPublished && { publishedAt: getDate() },
         isPublished,
         likeQty: 0,
+        viewsQty: 0,
         order: 1,
       };
       return post;
@@ -80,9 +82,14 @@ const CreatePost: NextPage = () => {
     if (res) Router.push('/admin');
   };
 
+  const onImageDelete = (imgUrl: string) => {
+    deleteFile(imgUrl);
+    return true;
+  };
+
   return (
     <Layout authorizationType="only_auth" title="Create Post">
-      <BlogPostForm onPublish={onPublish} onSave={onSave} isLoading={isLoading} />
+      <BlogPostForm onPublish={onPublish} onSave={onSave} onImageDelete={onImageDelete} isLoading={isLoading} />
     </Layout>
   );
 };

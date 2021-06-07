@@ -78,3 +78,9 @@ export const updatePost = async (id: string, post: Partial<PostDoc>, merge = tru
 };
 
 export const deletePost = (id: string) => db.posts.doc(id).delete();
+
+export const deleteField = (id: string, fieldToDelete: string) => {
+  db.posts.doc(id).update({
+    [fieldToDelete]: firebase.firestore.FieldValue.delete()
+  })
+}

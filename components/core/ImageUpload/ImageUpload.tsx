@@ -1,16 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import theme from '@/styles/theme';
-import { saveFile, deleteFile } from '@/firebase/storage';
+import { saveFile } from '@/firebase/storage';
 import useBoolean from '@/hooks/useBoolean';
 import { Typography, Icon } from '..';
 
 type Props = {
   onImageUpload: (uploadedImg: string) => void;
+  onImageDelete: (imgUrl: string) => void;
   imgUrl?: string;
   label: string;
 };
 
-const ImageUpload = ({ onImageUpload, imgUrl, label }: Props) => {
+const ImageUpload = ({ onImageUpload, onImageDelete, imgUrl, label }: Props) => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean(false);
   const fileUploadRef = useRef<HTMLInputElement>(null);
 
@@ -26,16 +27,16 @@ const ImageUpload = ({ onImageUpload, imgUrl, label }: Props) => {
       );
       const imageUrl = await saveFile(image, fileExtension);
       if (imgUrl) {
-        deleteFile(imgUrl);
+        onImageDelete(imgUrl);
       }
       onImageUpload(imageUrl);
       setIsLoadingFalse();
     }
   };
 
-  const onClose = () => {
+  const onDelete = () => {
     if (imgUrl) {
-      deleteFile(imgUrl);
+      onImageDelete(imgUrl);
     }
   };
 
@@ -51,7 +52,7 @@ const ImageUpload = ({ onImageUpload, imgUrl, label }: Props) => {
           ))}
       </div>
       {imgUrl && (
-        <button type="button" className="close" onClick={onClose}>
+        <button type="button" className="close" onClick={onDelete}>
           <Icon icon="times" color="white" />
         </button>
       )}

@@ -27,6 +27,7 @@ type PostIsNotPublished = {
 type Props = {
   onSave: (formPost: Partial<BlogPostFormType>) => void;
   onPublish: SubmitHandler<BlogPostFormType>;
+  onImageDelete: (imgUrl: string) => boolean;
   isLoading: boolean;
   initialPost?: Partial<BlogPostFormType>;
 } & (PostIsPublished | PostIsNotPublished);
@@ -34,10 +35,11 @@ type Props = {
 const BlogPostForm: NextPage<Props> = ({
   onSave,
   onPublish,
+  onUnpublish,
+  onImageDelete,
   isLoading,
   initialPost,
   isPostPublished = false,
-  onUnpublish,
 }) => {
   const [language, setLanguage] = useState<Locale>('es');
   const { control, handleSubmit, getValues, setValue, trigger } = useForm();
@@ -64,6 +66,13 @@ const BlogPostForm: NextPage<Props> = ({
       if (isValidated) {
         saveForm();
       }
+    }
+  };
+
+  const onImageDeleteClick = (imgUrl: string) => {
+    const shouldDeletePhoto = onImageDelete(imgUrl);
+    if (shouldDeletePhoto) {
+      setValue('featureImage', undefined);
     }
   };
 
@@ -98,7 +107,7 @@ const BlogPostForm: NextPage<Props> = ({
           control={control}
           name="featureImage"
           render={({ field: { onChange, value } }) => (
-            <ImageUpload onImageUpload={onChange} imgUrl={value} label="Cover Photo" />
+            <ImageUpload onImageUpload={onChange} onImageDelete={onImageDeleteClick} imgUrl={value} label="Feature Image" />
           )}
         />
         <Spacer size={3} direction="vertical" />

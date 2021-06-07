@@ -2,8 +2,9 @@ import React, { useMemo } from 'react';
 import Router from 'next/router';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useBoolean from '@/hooks/useBoolean';
-import { getPost, updatePost, updatePostIsPublished } from '@/firebase/posts';
+import { getPost, updatePost, updatePostIsPublished, deleteField } from '@/firebase/posts';
 import { getDate } from '@/firebase/utils';
+import { deleteFile } from '@/firebase/storage';
 import { Spinner, BlogPostForm } from '@/components/shared';
 import { AdminLayout as Layout } from '@/components/layout';
 import calculateReadingTime from '@/helpers/calculateReadingTime';
@@ -99,7 +100,10 @@ const AdminPost: NextPage<Props> = ({ post }) => {
   const onPublish: SubmitHandler<BlogPostFormType> = async formPost => {
     const newPost = formatPost(formPost, true);
     const res = await addPostToFirebase(newPost);
-    if (res) Router.push('/admin');
+    if (res) { 
+      setIsLoadingFalse();
+      setIsPostPublishedTrue();
+    };
   };
 
   const onUnpublish = async () => {
@@ -109,12 +113,23 @@ const AdminPost: NextPage<Props> = ({ post }) => {
     setIsLoadingFalse();
   };
 
+  const onImageDelete = (imgUrl: string) => {
+    const r = window.confirm('Are you sure you want to delete the photo? You can\t undo this later.');
+    if (r) {
+      deleteFile(imgUrl);
+      deleteField(post.id!, 'featureImage');
+      return true;
+    }
+    return false;
+  };
+
   return (
     <Layout authorizationType="only_auth" title={`Edit Post - ${post.es.title}`}>
       <BlogPostForm
         onSave={onSave}
         onPublish={onPublish}
         onUnpublish={onUnpublish}
+        onImageDelete={onImageDelete}
         isLoading={isLoading}
         initialPost={blogFormPost}
         isPostPublished={isPostPublished}

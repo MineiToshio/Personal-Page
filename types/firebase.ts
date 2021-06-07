@@ -28,6 +28,7 @@ export type PostDoc = {
   tags?: string[];
   category?: string;
   order: number;
+  viewsQty: number;
 };
 
 export type UserAuth = {
