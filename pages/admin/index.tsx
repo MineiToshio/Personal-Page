@@ -41,7 +41,7 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
   };
 
   return (
-    <Layout authorizationType="only_auth">
+    <Layout authorizationType="only_auth" title="Posts">
       <div className="container">
         <div className="button">
           <Button text="Nuevo Post" onClick={() => Router.push('/admin/blog/create')} />

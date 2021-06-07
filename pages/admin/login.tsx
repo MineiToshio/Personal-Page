@@ -5,7 +5,7 @@ import { BaseLayout as Layout } from '@/components/layout';
 import type { NextPage } from 'next';
 
 const LoginPage: NextPage = () => (
-  <Layout authorizationType="only_no_auth" title="Toshio Minei - Admin Login">
+  <Layout authorizationType="only_no_auth" title="Login">
     <div className="container">
       <Login title="Toshio Minei Admin" />
     </div>

@@ -105,7 +105,7 @@ const AdminPost: NextPage<Props> = ({ post }) => {
   };
 
   return (
-    <Layout authorizationType="only_auth">
+    <Layout authorizationType="only_auth" title={`Edit Post - ${post.es.title}`}>
       <BlogPostForm onSave={onSave} onPublish={onPublish} onUnpublish={onUnpublish} isLoading={isLoading} initialPost={blogFormPost} isPostPublished={isPostPublished} />
     </Layout>
   )

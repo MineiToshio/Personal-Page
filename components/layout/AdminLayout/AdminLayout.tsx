@@ -12,12 +12,12 @@ type Props = {
 
 const AdminLayout: FC<Props> = ({
   children,
-  title = 'Toshio Minei - Admin',
+  title,
   authorizationType,
 }) => {
   const { currentUser } = useCurrentUser();
   return (
-    <Layout authorizationType={authorizationType} title={title}>
+    <Layout authorizationType={authorizationType} title={`${title ? `${title} | ` : ''}Toshio Minei Admin`}>
       <Header user={currentUser} />
       <div className="content">{children}</div>
       <style jsx>{`

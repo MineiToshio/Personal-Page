@@ -81,7 +81,7 @@ const CreatePost: NextPage = () => {
   };
 
   return (
-    <Layout authorizationType="only_auth">
+    <Layout authorizationType="only_auth" title="Create Post">
       <BlogPostForm onPublish={onPublish} onSave={onSave} isLoading={isLoading} />
     </Layout>
   );
