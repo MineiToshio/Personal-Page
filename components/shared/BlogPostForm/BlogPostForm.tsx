@@ -17,12 +17,12 @@ export type BlogPostFormType = {
 type PostIsPublished = {
   isPostPublished: true;
   onUnpublish: () => void;
-}
+};
 
 type PostIsNotPublished = {
   isPostPublished?: false;
   onUnpublish?: () => void;
-}
+};
 
 type Props = {
   onSave: (formPost: Partial<BlogPostFormType>) => void;
@@ -31,7 +31,14 @@ type Props = {
   initialPost?: Partial<BlogPostFormType>;
 } & (PostIsPublished | PostIsNotPublished);
 
-const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPost, isPostPublished = false, onUnpublish }) => {
+const BlogPostForm: NextPage<Props> = ({
+  onSave,
+  onPublish,
+  isLoading,
+  initialPost,
+  isPostPublished = false,
+  onUnpublish,
+}) => {
   const [language, setLanguage] = useState<Locale>('es');
   const { control, handleSubmit, getValues, setValue, trigger } = useForm();
 
@@ -47,7 +54,7 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPo
   const saveForm = () => {
     const blogPostForm = getValues() as BlogPostFormType;
     onSave(blogPostForm);
-  }
+  };
 
   const onSaveClick = async () => {
     if (!isPostPublished) {
@@ -67,10 +74,23 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPo
         <Spacer size={3} direction="vertical" />
         {/* There is a bug with react-hook-forms which mixes the values in a ternary operator
             https://react-hook-form.com/faqs#Whyisdefaultvaluenotchangingcorrectlywithternaryoperator */}
-        {language === 'en'
-          ? <Input placeholder="Title" name="titleEn" control={control} rules={{ required: true }} key="titleEn" />
-          : <Input placeholder="Title" name="titleEs" control={control} rules={{ required: true }} key="titleEs" />
-        }
+        {language === 'en' ? (
+          <Input
+            placeholder="Title"
+            name="titleEn"
+            control={control}
+            rules={{ required: true }}
+            key="titleEn"
+          />
+        ) : (
+          <Input
+            placeholder="Title"
+            name="titleEs"
+            control={control}
+            rules={{ required: true }}
+            key="titleEs"
+          />
+        )}
         <Spacer size={3} direction="vertical" />
         <Input placeholder="Url" name="url" control={control} rules={{ required: true }} />
         <Spacer size={3} direction="vertical" />
@@ -82,38 +102,59 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPo
           )}
         />
         <Spacer size={3} direction="vertical" />
-        {language === 'en'
-          ? (
-            <Controller
-              key="contentEn"
-              control={control}
-              name="contentEn"
-              defaultValue={initialPost?.contentEn}
-              render={({ field: { onChange, value } }) => (
-                <TextEditor onChange={onChange} value={value} />
-              )}
-            />
-          ) : (
-            <Controller
-              key="contentEs"
-              control={control}
-              name="contentEs"
-              defaultValue={initialPost?.contentEs}
-              render={({ field: { onChange, value } }) => (
-                <TextEditor onChange={onChange} value={value} />
-              )}
-            />
-          )
-        }
+        {language === 'en' ? (
+          <Controller
+            key="contentEn"
+            control={control}
+            name="contentEn"
+            defaultValue={initialPost?.contentEn}
+            render={({ field: { onChange, value } }) => (
+              <TextEditor onChange={onChange} value={value} />
+            )}
+          />
+        ) : (
+          <Controller
+            key="contentEs"
+            control={control}
+            name="contentEs"
+            defaultValue={initialPost?.contentEs}
+            render={({ field: { onChange, value } }) => (
+              <TextEditor onChange={onChange} value={value} />
+            )}
+          />
+        )}
 
         <Spacer size={3} direction="vertical" />
         <div className="buttons">
-          <Button icon="save" text="Guardar" backgroundColor="secondary" onClick={onSaveClick} isLoading={isLoading} />
+          <Button
+            icon="save"
+            text="Guardar"
+            backgroundColor="secondary"
+            onClick={onSaveClick}
+            isLoading={isLoading}
+          />
           <Spacer size={2} direction="horizontal" />
-          {isPostPublished
-            ? onUnpublish && <Button icon="times" text="Despublicar" onClick={onUnpublish} isLoading={isLoading} backgroundColor="danger" type="button" key="unPublish" />
-            : <Button icon="upload" text="Publicar" type="submit" isLoading={isLoading} key="publish" />
-          }
+          {isPostPublished ? 
+            onUnpublish && (
+              <Button
+                icon="times"
+                text="Despublicar"
+                onClick={onUnpublish}
+                isLoading={isLoading}
+                backgroundColor="danger"
+                type="button"
+                key="unPublish"
+              />
+            )
+           : (
+            <Button
+              icon="upload"
+              text="Publicar"
+              type="submit"
+              isLoading={isLoading}
+              key="publish"
+            />
+          )}
         </div>
       </form>
       <style jsx>{`

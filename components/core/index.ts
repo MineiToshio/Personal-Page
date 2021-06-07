@@ -16,6 +16,18 @@ import Typography from './Typography/Typography';
 // TODO: This fixes an ESLint crash. Find a better way to fix it.
 export default null;
 
-export { BrandButton, Button, I18nLink, Icon, ImageUpload, Input, Link, Spacer, Table, TextEditor, Typography };
+export {
+  BrandButton,
+  Button,
+  I18nLink,
+  Icon,
+  ImageUpload,
+  Input,
+  Link,
+  Spacer,
+  Table,
+  TextEditor,
+  Typography,
+};
 
 export type { TableHeader, TableOptions };

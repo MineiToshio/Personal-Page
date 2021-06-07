@@ -49,7 +49,7 @@ const CreatePost: NextPage = () => {
       return post;
     }
     return null;
-  }
+  };
 
   const addPostToFirebase = async (newPost: PostDoc | null) => {
     if (newPost) {
@@ -59,14 +59,14 @@ const CreatePost: NextPage = () => {
         return createdPost;
       } catch (e) {
         setIsLoadingFalse();
-        alert(e)
+        alert(e);
         return false;
       }
     } else {
       alert('Usuario no logueado');
       return false;
     }
-  }
+  };
 
   const onSave = async (blogPostForm: Partial<BlogPostFormType>) => {
     const newPost = formatPost(blogPostForm);
@@ -74,7 +74,7 @@ const CreatePost: NextPage = () => {
     if (res) Router.push(`/admin/blog/${res.id}`);
   };
 
-  const onPublish: SubmitHandler<BlogPostFormType> = async (formPost) => {
+  const onPublish: SubmitHandler<BlogPostFormType> = async formPost => {
     const newPost = formatPost(formPost, true);
     const res = await addPostToFirebase(newPost);
     if (res) Router.push('/admin');

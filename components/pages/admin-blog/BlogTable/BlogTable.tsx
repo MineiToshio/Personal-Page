@@ -64,7 +64,7 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
       })),
     [posts],
   );
-      
+
   return (
     <Table
       datasource={datasource}

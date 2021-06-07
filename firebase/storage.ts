@@ -12,9 +12,9 @@ export const saveFile = async (file: File, ext: string) => {
 
   const url = await fileRef.getDownloadURL();
   return url;
-}
+};
 
 export const deleteFile = async (fileUrl: string) => {
   const fileRef = storage.refFromURL(fileUrl);
   await fileRef.delete();
-}
+};

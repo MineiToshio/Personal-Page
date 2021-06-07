@@ -4,6 +4,6 @@ const calculateReadingTime = (text?: string) => {
   const words = text.trim().split(/\s+/).length;
   const time = Math.ceil(words / wordsPerMinute);
   return time;
-}
+};
 
 export default calculateReadingTime;

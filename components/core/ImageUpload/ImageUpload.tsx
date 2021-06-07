@@ -12,7 +12,7 @@ type Props = {
 const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean(false);
   const fileUploadRef = useRef<HTMLInputElement>(null);
-  
+
   const onUploadClick = () => fileUploadRef?.current?.click();
 
   const onImageUploadChange = async () => {
@@ -20,7 +20,9 @@ const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
     if (image) {
       setIsLoadingTrue();
       const filename = image.name;
-      const fileExtension = filename.slice((Math.max(0, filename.lastIndexOf(".")) || Infinity) + 1);
+      const fileExtension = filename.slice(
+        (Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1,
+      );
       const imageUrl = await saveFile(image, fileExtension);
       if (imgUrl) {
         deleteFile(imgUrl);
@@ -28,34 +30,41 @@ const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
       onImageUpload(imageUrl);
       setIsLoadingFalse();
     }
-  }
+  };
 
   const onClose = () => {
     if (imgUrl) {
       deleteFile(imgUrl);
     }
-  }
+  };
 
   return (
     <div className="container">
       <div className="image-container">
         {isLoading && <Icon icon="spinner" pulse />}
-        {!isLoading && (imgUrl
-          ? <img src={imgUrl} alt="upload" className="uploaded-image" />
-          : <Typography variant="body2" text="Foto de portada" color="muted" />)
-        }
+        {!isLoading &&
+          (imgUrl ? (
+            <img src={imgUrl} alt="upload" className="uploaded-image" />
+          ) : (
+            <Typography variant="body2" text="Foto de portada" color="muted" />
+          ))}
       </div>
-      {imgUrl
-        && (
-          <button type="button" className="close" onClick={onClose}>
-            <Icon icon="times" color="white" />
-          </button>
+      {imgUrl && (
+        <button type="button" className="close" onClick={onClose}>
+          <Icon icon="times" color="white" />
+        </button>
       )}
-      
+
       <button type="button" className="upload-button" onClick={onUploadClick}>
         <Typography variant="body2" text="Subir foto" />
       </button>
-      <input type="file" className="fileUpload" ref={fileUploadRef} onChange={onImageUploadChange} accept="image/*" />
+      <input
+        type="file"
+        className="fileUpload"
+        ref={fileUploadRef}
+        onChange={onImageUploadChange}
+        accept="image/*"
+      />
       <style jsx>{`
         .container {
           border: 1px solid ${theme.color.border};
@@ -97,7 +106,7 @@ const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
           cursor: pointer;
         }
         .close:hover {
-          filter: brightness(.9);
+          filter: brightness(0.9);
         }
       `}</style>
     </div>

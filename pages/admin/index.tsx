@@ -20,12 +20,12 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
     Router.push(`/admin/blog/${selectedPost.id}`);
   };
 
-  const onDelete= (index: number) => {
+  const onDelete = (index: number) => {
     const selectedPost = posts[index];
     const r = window.confirm(`¿Estás seguro de eliminar el post [${selectedPost.es.title}]?`);
     if (r) {
       deletePost(selectedPost.id!);
-      setPosts(posts.filter((post) => post.id !== selectedPost.id));
+      setPosts(posts.filter(post => post.id !== selectedPost.id));
     }
   };
 

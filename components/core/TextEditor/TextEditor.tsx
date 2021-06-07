@@ -67,19 +67,21 @@ const TextEditor = ({ value, onChange }: Props) => {
     };
   }, [quill, onChange]);
 
-  return <div className="editor">
-    <div ref={ref} />
-    <style jsx>{`
-      .editor :global(.ql-container) {
-        font-family: ${theme.font.family.default};
-        font-size: ${theme.font.size.body};
-      }
-      .editor :global(.ql-editor p) {
-        margin: 1em 0;
-        line-height: 32px;
-      }
-    `}</style>
-  </div>;
+  return (
+    <div className="editor">
+      <div ref={ref} />
+      <style jsx>{`
+        .editor :global(.ql-container) {
+          font-family: ${theme.font.family.default};
+          font-size: ${theme.font.size.body};
+        }
+        .editor :global(.ql-editor p) {
+          margin: 1em 0;
+          line-height: 32px;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default TextEditor;

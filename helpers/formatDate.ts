@@ -1,4 +1,4 @@
-import { Locale } from '@/types/i18n'
+import { Locale } from '@/types/i18n';
 
 const formatDate = (date: Date, lang: Locale) => {
   const day = date.getDate().toString();
