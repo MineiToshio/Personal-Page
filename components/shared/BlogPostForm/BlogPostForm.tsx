@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Button, Spacer, Input, ImageUpload, TextEditor } from '@/components/core';
 import { LanguageSelector } from '@/components/pages/admin';
@@ -14,15 +14,35 @@ export type BlogPostFormType = {
   featureImage?: string;
 };
 
+type PostIsPublished = {
+  isPostPublished: true;
+  onUnpublish: () => void;
+}
+
+type PostIsNotPublished = {
+  isPostPublished?: false;
+  onUnpublish?: () => void;
+}
+
 type Props = {
   onSave: (formPost: Partial<BlogPostFormType>) => void;
   onPublish: SubmitHandler<BlogPostFormType>;
   isLoading: boolean;
-}
+  initialPost?: Partial<BlogPostFormType>;
+} & (PostIsPublished | PostIsNotPublished);
 
-const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, }) => {
+const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPost, isPostPublished = false, onUnpublish }) => {
   const [language, setLanguage] = useState<Locale>('es');
-  const { control, handleSubmit, getValues } = useForm();
+  const { control, handleSubmit, getValues, setValue } = useForm();
+
+  useEffect(() => {
+    setValue('url', initialPost?.url);
+    setValue('titleEs', initialPost?.titleEs);
+    setValue('titleEn', initialPost?.titleEn);
+    setValue('contentEn', initialPost?.contentEn);
+    setValue('contentEs', initialPost?.contentEs);
+    setValue('featureImage', initialPost?.featureImage);
+  }, [setValue, initialPost]);
 
   const onSaveClick = () => {
     const blogPostForm = getValues() as BlogPostFormType;
@@ -57,16 +77,17 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, }) => {
               key="contentEn"
               control={control}
               name="contentEn"
+              defaultValue={initialPost?.contentEn}
               render={({ field: { onChange, value } }) => (
                 <TextEditor onChange={onChange} value={value} />
               )}
             />
-          )
-          : (
+          ) : (
             <Controller
               key="contentEs"
               control={control}
               name="contentEs"
+              defaultValue={initialPost?.contentEs}
               render={({ field: { onChange, value } }) => (
                 <TextEditor onChange={onChange} value={value} />
               )}
@@ -78,7 +99,10 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, }) => {
         <div className="buttons">
           <Button icon="save" text="Guardar" backgroundColor="secondary" onClick={onSaveClick} isLoading={isLoading} />
           <Spacer size={2} direction="horizontal" />
-          <Button icon="upload" text="Publicar" type="submit" isLoading={isLoading} />
+          {isPostPublished
+            ? onUnpublish && <Button icon="times" text="Despublicar" onClick={onUnpublish} isLoading={isLoading} backgroundColor="danger" type="button" key="unPublish" />
+            : <Button icon="upload" text="Publicar" type="submit" isLoading={isLoading} key="publish" />
+          }
         </div>
       </form>
       <style jsx>{`

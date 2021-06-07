@@ -27,7 +27,7 @@ type Props = {
 
 const TextEditor = ({ value, onChange }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [quill, setQuill] = useState<Quill>();
+  const [quill, setQuill] = useState<Quill | null>();
 
   useEffect(() => {
     const loadQuill = async () => {

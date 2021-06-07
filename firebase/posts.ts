@@ -1,13 +1,33 @@
 /* eslint-disable import/prefer-default-export */
+import firebase from 'firebase';
 import db from './db';
+import { getFirstDocument } from './utils';
 import type { PostDoc } from '@/types/firebase';
+
+export const getPost = async (id: string) => {
+  const snap = await db.posts.doc(id).get();
+  const post = snap.data();
+  if (post) {
+    return {
+      ...post,
+      id: snap.id,
+    };
+  }
+  return null;
+};
 
 export const getPostByUrl = async (url: string) => {
   const snap = await db.posts.where('url', '==', url).get();
-  if (snap.docs.length === 0) return null;
-  const doc = snap.docs[0];
-  const data = doc.data();
-  const post = { id: doc.id, ...data };
+  const post = getFirstDocument<PostDoc>(snap);
+  return post;
+};
+
+export const getAnotherPostByUrl = async (id: string, url: string) => {
+  const snap = await db.posts
+    .where(firebase.firestore.FieldPath.documentId(), '!=', id)
+    .where('url', '==', url)
+    .get();
+  const post = getFirstDocument(snap);
   return post;
 };
 
@@ -23,7 +43,7 @@ export const getPosts = async () => {
   return posts;
 };
 
-export const createPost = async (post: Omit<PostDoc, 'id'>) => {
+export const createPost = async (post: PostDoc) => {
   if (post.url) {
     const postWithUrl = await getPostByUrl(post.url);
     if (postWithUrl) throw new Error('Invalid url');
@@ -36,7 +56,16 @@ export const createPost = async (post: Omit<PostDoc, 'id'>) => {
   };
 };
 
-export const updatePost = (id: string, post: Partial<PostDoc>, merge = true) =>
+export const updatePost = async (id: string, post: Partial<PostDoc>, merge = true) => {
+  if (post.url) {
+    const postWithUrl = await getAnotherPostByUrl(id, post.url);
+    if (postWithUrl) throw new Error('Invalid url');
+  }
   db.posts.doc(id).set(post, { merge });
+}
+
+export const unpublishPost = async (id: string) => {
+  db.posts.doc(id).set({ published: false }, { merge: true });
+}
 
 export const deletePost = (id: string) => db.posts.doc(id).delete();
