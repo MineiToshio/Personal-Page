@@ -63,7 +63,7 @@ const CreatePost: NextPage = () => {
         return false;
       }
     } else {
-      alert('Usuario no logueado');
+      alert('User is not logged in');
       return false;
     }
   };

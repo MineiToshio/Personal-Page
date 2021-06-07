@@ -32,7 +32,7 @@ const NavProfile: FC<Props> = ({ name, photoUrl }) => {
             options={[
               {
                 icon: 'signOut',
-                text: 'Cerrar Sesión',
+                text: 'Sign Out',
                 onClick: logout,
               },
             ]}

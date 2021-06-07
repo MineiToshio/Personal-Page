@@ -6,17 +6,17 @@ import type { PostDoc } from '@/types/firebase';
 
 const header: TableHeader = [
   {
-    title: 'TÍTULO',
+    title: 'TITLE',
     dataAttribute: 'title',
     align: 'left',
   },
   {
-    title: 'FECHA CREACIÓN',
+    title: 'CREATED AT',
     dataAttribute: 'createdAt',
     width: 200,
   },
   {
-    title: 'PUBLICADO',
+    title: 'PUBLISH',
     dataAttribute: 'isPublished',
     width: 150,
   },
@@ -33,19 +33,19 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
   const options: TableOptions = useMemo(
     () => [
       {
-        title: 'Editar',
+        title: 'Edit',
         onClick: onEdit,
         icon: 'pencil',
         color: 'secondary',
       },
       {
-        title: 'Eliminar',
+        title: 'Delete',
         onClick: onDelete,
         icon: 'trash',
         color: 'danger',
       },
       {
-        title: 'Publicar / Anular',
+        title: 'Publish / Unpublish',
         onClick: onPublish,
         icon: 'upload',
         color: 'main',
@@ -60,7 +60,7 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
         id: post.id,
         title: post.es.title,
         createdAt: timestampToDateString(post.createdAt, 'es'),
-        isPublished: post.isPublished ? 'Si' : 'No',
+        isPublished: post.isPublished ? 'Yes' : 'No',
       })),
     [posts],
   );

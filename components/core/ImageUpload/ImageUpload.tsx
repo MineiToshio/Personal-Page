@@ -7,9 +7,10 @@ import { Typography, Icon } from '..';
 type Props = {
   onImageUpload: (uploadedImg: string) => void;
   imgUrl?: string;
+  label: string;
 };
 
-const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
+const ImageUpload = ({ onImageUpload, imgUrl, label }: Props) => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean(false);
   const fileUploadRef = useRef<HTMLInputElement>(null);
 
@@ -46,7 +47,7 @@ const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
           (imgUrl ? (
             <img src={imgUrl} alt="upload" className="uploaded-image" />
           ) : (
-            <Typography variant="body2" text="Foto de portada" color="muted" />
+            <Typography variant="body2" text={label} color="muted" />
           ))}
       </div>
       {imgUrl && (
@@ -56,7 +57,7 @@ const ImageUpload = ({ onImageUpload, imgUrl }: Props) => {
       )}
 
       <button type="button" className="upload-button" onClick={onUploadClick}>
-        <Typography variant="body2" text="Subir foto" />
+        <Typography variant="body2" text="Upload photo" />
       </button>
       <input
         type="file"

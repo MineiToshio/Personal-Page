@@ -3,7 +3,7 @@ import Router from 'next/router';
 import { AdminLayout as Layout } from '@/components/layout';
 import { Button, Spacer } from '@/components/core';
 import { BlogTable } from '@/components/pages/admin-blog';
-import { getPosts, updatePost, deletePost, updatePostIsPublished } from '@/firebase/posts';
+import { getPosts, deletePost, updatePostIsPublished } from '@/firebase/posts';
 import replaceElementInArray from '@/helpers/replaceElementInArray';
 import type { NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
@@ -22,7 +22,9 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
 
   const onDelete = (index: number) => {
     const selectedPost = posts[index];
-    const r = window.confirm(`¿Estás seguro de eliminar el post [${selectedPost.es.title}]?`);
+    const r = window.confirm(
+      `¿Are you sure you want to delete this post [${selectedPost.es.title}]?`,
+    );
     if (r) {
       deletePost(selectedPost.id!);
       setPosts(posts.filter(post => post.id !== selectedPost.id));
@@ -46,7 +48,7 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
     <Layout authorizationType="only_auth" title="Posts">
       <div className="container">
         <div className="button">
-          <Button text="Nuevo Post" onClick={() => Router.push('/admin/blog/create')} />
+          <Button text="New Post" onClick={() => Router.push('/admin/blog/create')} />
         </div>
         <Spacer direction="vertical" size={2} />
         <BlogTable posts={posts} onPublish={onPublish} onDelete={onDelete} onEdit={onEdit} />

@@ -98,7 +98,7 @@ const BlogPostForm: NextPage<Props> = ({
           control={control}
           name="featureImage"
           render={({ field: { onChange, value } }) => (
-            <ImageUpload onImageUpload={onChange} imgUrl={value} />
+            <ImageUpload onImageUpload={onChange} imgUrl={value} label="Cover Photo" />
           )}
         />
         <Spacer size={3} direction="vertical" />
@@ -128,7 +128,7 @@ const BlogPostForm: NextPage<Props> = ({
         <div className="buttons">
           <Button
             icon="save"
-            text="Guardar"
+            text="Save Post"
             backgroundColor="secondary"
             onClick={onSaveClick}
             isLoading={isLoading}
@@ -138,18 +138,18 @@ const BlogPostForm: NextPage<Props> = ({
             onUnpublish && (
               <Button
                 icon="times"
-                text="Despublicar"
+                text="Unpublish"
                 onClick={onUnpublish}
                 isLoading={isLoading}
                 backgroundColor="danger"
                 type="button"
-                key="unPublish"
+                key="unpublish"
               />
             )
            : (
             <Button
               icon="upload"
-              text="Publicar"
+              text="Publish"
               type="submit"
               isLoading={isLoading}
               key="publish"

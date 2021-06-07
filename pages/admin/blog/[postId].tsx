@@ -85,7 +85,7 @@ const AdminPost: NextPage<Props> = ({ post }) => {
         return false;
       }
     } else {
-      alert('Usuario no logueado');
+      alert('User not logged in');
       return false;
     }
   };
