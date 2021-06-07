@@ -33,7 +33,7 @@ type Props = {
 
 const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPost, isPostPublished = false, onUnpublish }) => {
   const [language, setLanguage] = useState<Locale>('es');
-  const { control, handleSubmit, getValues, setValue } = useForm();
+  const { control, handleSubmit, getValues, setValue, trigger } = useForm();
 
   useEffect(() => {
     setValue('url', initialPost?.url);
@@ -44,9 +44,20 @@ const BlogPostForm: NextPage<Props> = ({ onSave, onPublish, isLoading, initialPo
     setValue('featureImage', initialPost?.featureImage);
   }, [setValue, initialPost]);
 
-  const onSaveClick = () => {
+  const saveForm = () => {
     const blogPostForm = getValues() as BlogPostFormType;
     onSave(blogPostForm);
+  }
+
+  const onSaveClick = async () => {
+    if (!isPostPublished) {
+      saveForm();
+    } else {
+      const isValidated = await trigger();
+      if (isValidated) {
+        saveForm();
+      }
+    }
   };
 
   return (
