@@ -31,11 +31,11 @@ const Admin: NextPage<Props> = ({ initialPosts }) => {
 
   const onPublish = (index: number) => {
     const selectedPost = posts[index];
-    const published = !selectedPost.published;
+    const isPublished = !selectedPost.isPublished;
     updatePost(selectedPost.id!, {
-      published,
+      isPublished,
     });
-    const editedPost = { ...selectedPost, published };
+    const editedPost = { ...selectedPost, isPublished };
     const editedPosts = replaceElementInArray<PostDoc>(posts, selectedPost, editedPost);
     setPosts(editedPosts);
   };

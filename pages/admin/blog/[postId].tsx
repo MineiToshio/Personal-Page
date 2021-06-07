@@ -25,7 +25,7 @@ type Context = NextPageContext & {
 const AdminPost: NextPage<Props> = ({ post }) => {
   const { currentUser } = useCurrentUser();
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean();
-  const [isPostPublished, setIsPostPublishedTrue, setIsPostPublishedFalse] = useBoolean(post?.published);
+  const [isPostPublished, setIsPostPublishedTrue, setIsPostPublishedFalse] = useBoolean(post?.isPublished);
 
   const blogFormPost: Partial<BlogPostFormType> = useMemo(() => ({
     url: post?.url,
@@ -41,7 +41,7 @@ const AdminPost: NextPage<Props> = ({ post }) => {
     return <Spinner />;
   }
 
-  const formatPost = (formPost: Partial<BlogPostFormType>, published = false) => {
+  const formatPost = (formPost: Partial<BlogPostFormType>, isPublished = false) => {
     if (currentUser) {
       const { contentEs, contentEn, titleEn, titleEs, url, featureImage } = formPost;
       const timeToReadEs = calculateReadingTime(contentEs);
@@ -60,8 +60,8 @@ const AdminPost: NextPage<Props> = ({ post }) => {
         ...featureImage && { featureImage },
         ...url && { url },
         updatedAt: getDate(),
-        ...published && { publishedAt: getDate() },
-        ...published && { published },
+        ...isPublished && { publishedAt: getDate() },
+        ...isPublished && { isPublished },
       };
       return editedPost;
     }

@@ -23,7 +23,7 @@ export type PostDoc = {
   createdAt: Firebase.firestore.Timestamp;
   updatedAt: Firebase.firestore.Timestamp;
   publishedAt?: Firebase.firestore.Timestamp;
-  published: boolean;
+  isPublished: boolean;
   likeQty: number;
   tags?: string[];
   category?: string;

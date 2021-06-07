@@ -65,7 +65,7 @@ export const updatePost = async (id: string, post: Partial<PostDoc>, merge = tru
 }
 
 export const unpublishPost = async (id: string) => {
-  db.posts.doc(id).set({ published: false }, { merge: true });
+  db.posts.doc(id).set({ isPublished: false }, { merge: true });
 }
 
 export const deletePost = (id: string) => db.posts.doc(id).delete();

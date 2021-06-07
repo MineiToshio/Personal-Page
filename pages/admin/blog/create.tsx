@@ -16,7 +16,7 @@ const CreatePost: NextPage = () => {
   const { currentUser } = useCurrentUser();
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean();
 
-  const formatPost = (formPost: Partial<BlogPostFormType>, published = false) => {
+  const formatPost = (formPost: Partial<BlogPostFormType>, isPublished = false) => {
     if (currentUser) {
       const { contentEs, contentEn, titleEn, titleEs, url, featureImage } = formPost;
       const timeToReadEs = calculateReadingTime(contentEs);
@@ -41,8 +41,8 @@ const CreatePost: NextPage = () => {
         ...url && { url },
         createdAt: getDate(),
         updatedAt: getDate(),
-        ...published && { publishedAt: getDate() },
-        published,
+        ...isPublished && { publishedAt: getDate() },
+        isPublished,
         likeQty: 0,
         order: 1,
       };

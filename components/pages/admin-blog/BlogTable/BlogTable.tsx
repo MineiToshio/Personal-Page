@@ -17,7 +17,7 @@ const header: TableHeader = [
   },
   {
     title: 'PUBLICADO',
-    dataAttribute: 'published',
+    dataAttribute: 'isPublished',
     width: 150,
   },
 ];
@@ -60,7 +60,7 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
         id: post.id,
         title: post.es.title,
         createdAt: timestampToDateString(post.createdAt, 'es'),
-        published: post.published ? 'Si' : 'No',
+        isPublished: post.isPublished ? 'Si' : 'No',
       })),
     [posts],
   );
