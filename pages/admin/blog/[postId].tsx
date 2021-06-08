@@ -50,18 +50,18 @@ const AdminPost: NextPage<Props> = ({ post }) => {
   const formatPost = (formPost: Partial<BlogPostFormType>, isPublished = false) => {
     if (currentUser) {
       const { contentEs, contentEn, titleEn, titleEs, url, featureImage } = formPost;
-      const timeToReadEs = calculateReadingTime(contentEs);
-      const timeToReadEn = calculateReadingTime(contentEn);
+      const readingTimeEs = calculateReadingTime(contentEs);
+      const readingTimeEn = calculateReadingTime(contentEn);
       const editedPost: Partial<PostDoc> = {
         en: {
           ...titleEn && { title: titleEn },
           ...contentEn && { content: contentEn },
-          timeToRead: timeToReadEn,
+          readingTime: readingTimeEn,
         },
         es: {
           ...titleEs && { title: titleEs },
           ...contentEs && { content: contentEs },
-          timeToRead: timeToReadEs,
+          readingTime: readingTimeEs,
         },
         ...featureImage && { featureImage },
         ...url && { url },

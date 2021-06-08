@@ -6,12 +6,12 @@ export type PostDoc = {
   en: {
     title?: string;
     content?: string;
-    timeToRead?: number;
+    readingTime?: number;
   };
   es: {
     title?: string;
     content?: string;
-    timeToRead?: number;
+    readingTime?: number;
   };
   creator: {
     id: string;
@@ -25,10 +25,11 @@ export type PostDoc = {
   publishedAt?: Firebase.firestore.Timestamp;
   isPublished: boolean;
   likeQty: number;
+  viewsQty: number;
+  commentsQty: number;
   tags?: string[];
   category?: string;
   order: number;
-  viewsQty: number;
 };
 
 export type UserAuth = {
