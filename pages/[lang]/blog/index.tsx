@@ -1,14 +1,21 @@
 import React from 'react';
 import { NextPage } from 'next';
-import posts from '@/public/data/posts.json';
+import { getPostsByIsPublished } from '@/firebase/posts';
 import withLocale from '@/hocs/withLocale';
 import useTranslation from '@/hooks/useTranslation';
 import { MainLayout as Layout } from '@/components/layout';
 import { Section } from '@/components/shared';
+import { timestampToDateString } from '@/firebase/utils';
 import { BlogSidebar, PostPreview } from '@/components/pages/blog';
+import removeHtml from '@/helpers/removeHtml';
+import type { PostDoc } from '@/types/firebase';
 
-const Blog: NextPage = () => {
-  const { t } = useTranslation('Blog');
+type Props = {
+  posts: PostDoc[];
+};
+
+const Blog: NextPage<Props> = ({ posts }) => {
+  const { t, locale } = useTranslation('Blog');
   return (
     <Layout title="Toshio Minei - Blog">
       <Section id="blog" title="Blog" subtitle={t('subtitle')}>
@@ -17,14 +24,14 @@ const Blog: NextPage = () => {
             {posts.map(post => (
               <PostPreview
                 key={post.id}
-                title={post.title}
-                photo={post.photo}
-                summary={post.summary}
-                createdAt={post.createdAt}
-                commentQty={post.commentQty}
-                readingTime={post.readingTime}
-                likedQty={post.likedQty}
-                url={post.url}
+                title={post[locale].title ?? ''}
+                featureImage={post.featureImage}
+                summary={removeHtml(post[locale].content ?? '')}
+                createdAt={timestampToDateString(post.createdAt, locale)}
+                commentsQty={post.commentsQty}
+                readingTime={post[locale].readingTime ?? 0}
+                likeQty={post.likeQty}
+                url={post.url ?? ''}
               />
             ))}
           </div>
@@ -49,6 +56,11 @@ const Blog: NextPage = () => {
       `}</style>
     </Layout>
   );
+};
+
+Blog.getInitialProps = async () => {
+  const posts = await getPostsByIsPublished();
+  return { posts };
 };
 
 export default withLocale(Blog);

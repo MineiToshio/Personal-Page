@@ -1,45 +1,51 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
-import { BlogPost } from '@/types/types';
 import useTranslation from '@/hooks/useTranslation';
-import { I18nLink } from '../../../core';
+import { I18nLink, Spacer, Typography } from '../../../core';
 import Like from './Like';
-import { BlogMeta } from '../../../shared';
+import { BlogMeta, LineClamp } from '../../../shared';
 
-type Props = Pick<
-  BlogPost,
-  'title' | 'photo' | 'summary' | 'createdAt' | 'commentQty' | 'readingTime' | 'likedQty' | 'url'
->;
+type Props = {
+  title: string,
+  featureImage?: string,
+  summary: string,
+  createdAt: string,
+  commentsQty: number,
+  readingTime: number,
+  likeQty: number,
+  url: string,
+};
 
 const PostPreview: FC<Props> = ({
   title,
-  photo,
+  featureImage,
   summary,
   createdAt,
-  commentQty,
+  commentsQty,
   readingTime,
-  likedQty,
+  likeQty,
   url,
 }) => {
   const { t } = useTranslation('PostPreview');
   return (
     <article>
-      <I18nLink href={`/blog/${url}`}>
-        <img src={photo} className="post-img" alt={title} />
-      </I18nLink>
+      {featureImage && (
+        <I18nLink href={`/blog/${url}`}>
+          <img src={featureImage} className="post-img" alt={title} />
+        </I18nLink>
+      )}
       <div className="blog-data">
-        <Like likedQty={likedQty} />
+        <Like likeQty={likeQty} />
         <I18nLink href={`/blog/${url}`}>
           <h2>{title}</h2>
         </I18nLink>
-        <BlogMeta createdAt={createdAt} commentQty={commentQty} readingTime={readingTime} />
+        <BlogMeta createdAt={createdAt} commentQty={commentsQty} readingTime={readingTime} />
       </div>
-      <p>
-        {summary}
-        <I18nLink href={`/blog/${url}`}>
-          <span className="more-dots">…</span>
-        </I18nLink>
-      </p>
+      <Spacer direction="vertical" size={2} />
+      <LineClamp lines={4}>
+        <Typography text={summary} />
+      </LineClamp>
+      <Spacer direction="vertical" size={2} />
       <I18nLink href={`/blog/${url}`}>
         <span className="view-more">{t('keepReading')}</span>
       </I18nLink>
@@ -49,9 +55,6 @@ const PostPreview: FC<Props> = ({
           padding-bottom: 35px;
           border-bottom: 1px dotted #ddd;
           margin-bottom: 40px;
-        }
-        .more-dots {
-          text-decoration: none;
         }
         .view-more {
           padding: 8px 20px;
@@ -71,10 +74,9 @@ const PostPreview: FC<Props> = ({
           width: 100%;
         }
         p {
-          font-family: ${theme.font.family.blog};
-          line-height: 24px;
-          font-size: 17px;
-          text-align: justify;
+          font-family: ${theme.font.family.default};
+          line-height: 32px;
+          font-size: ${theme.font.size.body};
         }
         .blog-data {
           display: grid;

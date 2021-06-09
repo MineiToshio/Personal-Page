@@ -3,13 +3,13 @@ import theme from '@/styles/theme';
 import { Icon } from '@/components/core';
 
 type Props = {
-  likedQty: number;
+  likeQty: number;
 };
 
-const Like = ({ likedQty }: Props) => (
+const Like = ({ likeQty }: Props) => (
   <button type="button" className="like">
     <Icon icon="thumbsUp" />
-    <span>{likedQty}</span>
+    <span>{likeQty}</span>
 
     <style jsx>{`
       .like {
@@ -29,9 +29,10 @@ const Like = ({ likedQty }: Props) => (
         cursor: pointer;
         background: none;
         outline: none;
+        align-items: center;
       }
       .like span {
-        font-size: 15px;
+        font-size: ${theme.font.size.body};
         font-weight: bold;
       }
       .like:hover {

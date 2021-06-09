@@ -28,10 +28,16 @@ const theme = Object.freeze({
       bolder: 700,
     },
   },
+  lineHeight: {
+    none: 0,
+    small: '24px',
+    normal: '32px',
+  }
 });
 
 export type Color = keyof typeof theme.color;
 export type FontSize = keyof typeof theme.font.size;
 export type FontWeight = keyof typeof theme.font.weight;
+export type LineHeight = keyof typeof theme.lineHeight;
 
 export default theme;

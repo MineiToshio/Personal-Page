@@ -43,6 +43,18 @@ export const getPosts = async () => {
   return posts;
 };
 
+export const getPostsByIsPublished = async () => {
+  const snap = await db.posts.where('isPublished', '==', true).orderBy('publishedAt', 'desc').get();
+  const posts = snap.docs.map(doc => {
+    const post = doc.data();
+    return {
+      ...post,
+      id: doc.id,
+    };
+  });
+  return posts;
+};
+
 export const createPost = async (post: PostDoc) => {
   if (post.url) {
     const postWithUrl = await getPostByUrl(post.url);

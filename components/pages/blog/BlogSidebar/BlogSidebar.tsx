@@ -1,29 +1,28 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
-import { BlogPost } from '@/types/types';
 import useTranslation from '@/hooks/useTranslation';
+import { timestampToDateString } from '@/firebase/utils';
 import RecentPost from './RecentPost';
 import TagLink from './TagLink';
-
-type Post = Pick<BlogPost, 'id' | 'title' | 'thumbnail' | 'createdAt' | 'url'>;
+import type { PostDoc } from '@/types/firebase';
 
 type Props = {
-  recentPosts: Array<Post>;
+  recentPosts: Array<PostDoc>;
 };
 
 const BlogSidebar: FC<Props> = ({ recentPosts }) => {
-  const { t } = useTranslation('BlogSidebar');
+  const { t, locale } = useTranslation('BlogSidebar');
   return (
     <div className="sidebar">
       <div className="recent">
         <h3>{t('recentPosts')}</h3>
-        {recentPosts.map((post: Post) => (
+        {recentPosts.map((post: PostDoc) => (
           <RecentPost
             key={post.id}
-            title={post.title}
-            thumbnail={post.thumbnail}
-            createdAt={post.createdAt}
-            url={post.url}
+            title={post[locale].title ?? ''}
+            thumbnail={post.featureImage}
+            createdAt={timestampToDateString(post.createdAt)}
+            url={post.url ?? ''}
           />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import theme, { Color, FontSize, FontWeight } from '@/styles/theme';
+import theme, { Color, FontSize, FontWeight, LineHeight } from '@/styles/theme';
 
 const Variant = Object.freeze({
   title: 'h1',
@@ -14,6 +14,7 @@ export type Props = {
   color?: Color;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
+  lineHeight?: LineHeight;
 };
 
 const Typography: FC<Props> = ({
@@ -22,6 +23,7 @@ const Typography: FC<Props> = ({
   color = 'dark',
   fontSize,
   fontWeight = 'normal',
+  lineHeight = 'normal',
 }) => {
   const Tag = Variant[variant] as keyof JSX.IntrinsicElements;
   const defaultFontSize = variant === 'body2' ? 'body' : variant;
@@ -35,6 +37,7 @@ const Typography: FC<Props> = ({
           margin: 0;
           font-weight: ${theme.font.weight[fontWeight]};
           font-size: ${theme.font.size[fontSize ?? defaultFontSize]};
+          line-height: ${theme.lineHeight[lineHeight]};
         }
       `}</style>
     </Tag>

@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
-import { BlogPost } from '@/types/types';
 import { I18nLink } from '../../../core';
 
-type Props = Pick<BlogPost, 'title' | 'thumbnail' | 'createdAt' | 'url'>;
+type Props = {
+  title: string;
+  thumbnail?: string;
+  createdAt: string;
+  url: string;
+};
 
 const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
   const postUrl = `/blog/${url}`;
@@ -34,14 +38,15 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
         }
         .photo img {
           display: block;
-          max-width: 100%;
-          width: 100%;
+          width: 60px;
+          border-radius: 50%;
+          height: 60px;
+          object-fit: cover;
           border-radius: 50%;
         }
         .title {
           grid-area: title;
           margin: 0;
-          font-weight: bold;
           line-height: 17px;
           text-decoration: none;
           color: ${theme.color.main};

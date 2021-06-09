@@ -6,6 +6,7 @@ import Authorization from './Authorization/Authorization';
 import BlogMeta from './BlogMeta/BlogMeta';
 import BlogPostForm from './BlogPostForm/BlogPostForm';
 import FloatingMenu from './FloatingMenu/FloatingMenu';
+import LineClamp from './LineClamp/LineClamp';
 import Login from './Login/Login';
 import Logo from './Logo/Logo';
 import Modal from './Modal/Modal';
@@ -27,6 +28,7 @@ export {
   BlogMeta,
   BlogPostForm,
   FloatingMenu,
+  LineClamp,
   Login,
   Logo,
   Modal,
