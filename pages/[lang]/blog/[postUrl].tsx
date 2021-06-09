@@ -6,6 +6,7 @@ import { MainLayout as Layout } from '@/components/layout';
 import { BlogMeta, Spinner } from '@/components/shared';
 import { NavArrows, BlogSocial, Article } from '@/components/pages/post';
 import { getPostByUrl } from '@/firebase/posts';
+import { timestampToDate } from '@/firebase/utils';
 import useTranslation from '@/hooks/useTranslation';
 import type { NextPageContext, NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
@@ -35,7 +36,7 @@ const Post: NextPage<Props> = ({ post }) => {
           <div className="info-container">
             <p className="category">Tecnología</p>
             <h1 className="title">{post[locale].title}</h1>
-            <BlogMeta createdAt="10/10/2018" commentQty={50} readingTime={post[locale].readingTime ?? 0} />
+            <BlogMeta publishedAt={timestampToDate(post.publishedAt!)} commentQty={50} readingTime={post[locale].readingTime ?? 0} />
           </div>
           <div
             className="banner"

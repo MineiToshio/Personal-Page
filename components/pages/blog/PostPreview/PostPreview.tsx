@@ -9,7 +9,7 @@ type Props = {
   title: string,
   featureImage?: string,
   summary: string,
-  createdAt: string,
+  publishedAt: Date,
   commentsQty: number,
   readingTime: number,
   likeQty: number,
@@ -20,7 +20,7 @@ const PostPreview: FC<Props> = ({
   title,
   featureImage,
   summary,
-  createdAt,
+  publishedAt,
   commentsQty,
   readingTime,
   likeQty,
@@ -39,7 +39,7 @@ const PostPreview: FC<Props> = ({
         <I18nLink href={`/blog/${url}`}>
           <h2>{title}</h2>
         </I18nLink>
-        <BlogMeta createdAt={createdAt} commentQty={commentsQty} readingTime={readingTime} />
+        <BlogMeta publishedAt={publishedAt} commentQty={commentsQty} readingTime={readingTime} />
       </div>
       <Spacer direction="vertical" size={2} />
       <LineClamp lines={4}>

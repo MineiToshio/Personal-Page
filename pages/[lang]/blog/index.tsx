@@ -4,7 +4,7 @@ import withLocale from '@/hocs/withLocale';
 import useTranslation from '@/hooks/useTranslation';
 import { MainLayout as Layout } from '@/components/layout';
 import { Section } from '@/components/shared';
-import { timestampToDateString } from '@/firebase/utils';
+import { timestampToDate } from '@/firebase/utils';
 import { BlogSidebar, PostPreview } from '@/components/pages/blog';
 import removeHtml from '@/helpers/removeHtml';
 import type { NextPage } from 'next';
@@ -27,7 +27,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
                 title={post[locale].title ?? ''}
                 featureImage={post.featureImage}
                 summary={removeHtml(post[locale].content ?? '')}
-                createdAt={timestampToDateString(post.createdAt, locale)}
+                publishedAt={timestampToDate(post.publishedAt!)}
                 commentsQty={post.commentsQty}
                 readingTime={post[locale].readingTime ?? 0}
                 likeQty={post.likeQty}

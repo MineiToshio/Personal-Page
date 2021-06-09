@@ -19,6 +19,7 @@ import SlideElement from './SlideElement/SlideElement';
 import Slider from './Slider/Slider';
 import SocialIcons from './SocialIcons/SocialIcons';
 import Spinner from './Spinner/Spinner';
+import TimeAgo from './TimeAgo/TimeAgo';
 
 // TODO: This fixes an ESLint crash. Find a better way to fix it.
 export default null;
@@ -41,6 +42,7 @@ export {
   Slider,
   SocialIcons,
   Spinner,
+  TimeAgo,
 };
 
 export type { AuthorizationType, BlogPostFormType };
