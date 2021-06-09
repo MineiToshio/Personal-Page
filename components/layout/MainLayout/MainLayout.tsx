@@ -9,7 +9,7 @@ import Header from './Header';
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
-  title: string;
+  title?: string;
 };
 
 const MainLayout: FC<Props> = ({ children, title }) => {
@@ -20,7 +20,7 @@ const MainLayout: FC<Props> = ({ children, title }) => {
   }, []);
 
   return (
-    <Layout title={title}>
+    <Layout title={`${title ? `${title} | ` : ''}Toshio Minei`}>
       <Head>
         <meta name="description" content={t('description')} />
         <link rel="manifest" href="/manifest.json" />

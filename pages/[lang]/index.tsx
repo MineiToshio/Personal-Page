@@ -11,7 +11,7 @@ const Index: NextPage = () => {
   return (
     <div>
       <Hero id="hero" />
-      <Layout title="Toshio Minei">
+      <Layout>
         <Section id="about-me" title={t('aboutMeTitle')} subtitle={t('aboutMeSubtitle')}>
           <AboutMe />
         </Section>

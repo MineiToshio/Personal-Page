@@ -1,5 +1,4 @@
 import React from 'react';
-import { NextPage } from 'next';
 import { getPostsByIsPublished } from '@/firebase/posts';
 import withLocale from '@/hocs/withLocale';
 import useTranslation from '@/hooks/useTranslation';
@@ -8,6 +7,7 @@ import { Section } from '@/components/shared';
 import { timestampToDateString } from '@/firebase/utils';
 import { BlogSidebar, PostPreview } from '@/components/pages/blog';
 import removeHtml from '@/helpers/removeHtml';
+import type { NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 const Blog: NextPage<Props> = ({ posts }) => {
   const { t, locale } = useTranslation('Blog');
   return (
-    <Layout title="Toshio Minei - Blog">
+    <Layout title="Blog">
       <Section id="blog" title="Blog" subtitle={t('subtitle')}>
         <div className="blog">
           <div id="blog-list">
