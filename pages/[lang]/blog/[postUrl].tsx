@@ -5,7 +5,7 @@ import theme from '@/styles/theme';
 import { MainLayout as Layout } from '@/components/layout';
 import { BlogMeta, Spinner } from '@/components/shared';
 import { NavArrows, BlogSocial, Article } from '@/components/pages/blog-post';
-import { getPostByUrl, increaseViewsQty } from '@/firebase/posts';
+import { getPublishedPostByUrl, increaseViewsQty } from '@/firebase/posts';
 import { timestampToDate } from '@/firebase/utils';
 import useTranslation from '@/hooks/useTranslation';
 import type { NextPageContext, NextPage } from 'next';
@@ -25,7 +25,7 @@ const Post: NextPage<Props> = ({ post }) => {
   const { locale } = useTranslation('');
 
   if (!post) {
-    Router.push(`${locale}/blog`);
+    Router.push('/[lang]/blog', `/${locale}/blog`);
     return <Spinner />;
   }
 
@@ -181,7 +181,7 @@ const Post: NextPage<Props> = ({ post }) => {
 
 Post.getInitialProps = async ({ query }: Context) => {
   const { postUrl } = query;
-  const post = await getPostByUrl(postUrl);
+  const post = await getPublishedPostByUrl(postUrl);
   if (post) {
     increaseViewsQty(post.id);
   }

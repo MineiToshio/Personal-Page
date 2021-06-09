@@ -1,4 +1,5 @@
-import firebase from 'firebase';
+/* eslint-disable import/no-named-as-default-member */
+import firebase from '@/firebase';
 import formatDate from '@/helpers/formatDate';
 import { Locale } from '@/types/i18n';
 

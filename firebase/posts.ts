@@ -1,5 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-import firebase from 'firebase';
+/* eslint-disable import/no-named-as-default-member */
+import firebase from '.';
 import db from './db';
 import { getFirstDocument } from './utils';
 import type { PostDoc } from '@/types/firebase';
@@ -18,6 +18,15 @@ export const getPost = async (id: string) => {
 
 export const getPostByUrl = async (url: string) => {
   const snap = await db.posts.where('url', '==', url).get();
+  const post = getFirstDocument<PostDoc>(snap);
+  return post;
+};
+
+export const getPublishedPostByUrl = async (url: string) => {
+  const snap = await db.posts
+    .where('isPublished', '==', true)
+    .where('url', '==', url)
+    .get();
   const post = getFirstDocument<PostDoc>(snap);
   return post;
 };
