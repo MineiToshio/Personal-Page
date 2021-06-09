@@ -96,3 +96,9 @@ export const deleteField = (id: string, fieldToDelete: string) => {
     [fieldToDelete]: firebase.firestore.FieldValue.delete(),
   });
 };
+
+export const increaseViewsQty = async (id: string) => {
+  await db.posts.doc(id).update({
+    viewsQty: firebase.firestore.FieldValue.increment(1),
+  });
+};

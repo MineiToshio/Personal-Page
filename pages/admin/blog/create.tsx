@@ -47,7 +47,6 @@ const CreatePost: NextPage = () => {
         likeQty: 0,
         viewsQty: 0,
         commentsQty: 0,
-        order: 1,
       };
       return post;
     }

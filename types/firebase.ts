@@ -29,7 +29,6 @@ export type PostDoc = {
   commentsQty: number;
   tags?: string[];
   category?: string;
-  order: number;
 };
 
 export type UserAuth = {

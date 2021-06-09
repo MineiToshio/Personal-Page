@@ -5,7 +5,7 @@ import theme from '@/styles/theme';
 import { MainLayout as Layout } from '@/components/layout';
 import { BlogMeta, Spinner } from '@/components/shared';
 import { NavArrows, BlogSocial, Article } from '@/components/pages/blog-post';
-import { getPostByUrl } from '@/firebase/posts';
+import { getPostByUrl, increaseViewsQty } from '@/firebase/posts';
 import { timestampToDate } from '@/firebase/utils';
 import useTranslation from '@/hooks/useTranslation';
 import type { NextPageContext, NextPage } from 'next';
@@ -182,6 +182,9 @@ const Post: NextPage<Props> = ({ post }) => {
 Post.getInitialProps = async ({ query }: Context) => {
   const { postUrl } = query;
   const post = await getPostByUrl(postUrl);
+  if (post) {
+    increaseViewsQty(post.id);
+  }
   return { post };
 };
 
