@@ -4,7 +4,7 @@ import withLocale from '@/hocs/withLocale';
 import theme from '@/styles/theme';
 import { MainLayout as Layout } from '@/components/layout';
 import { BlogMeta, Spinner } from '@/components/shared';
-import { NavArrows, BlogSocial, Article } from '@/components/pages/post';
+import { NavArrows, BlogSocial, Article } from '@/components/pages/blog-post';
 import { getPostByUrl } from '@/firebase/posts';
 import { timestampToDate } from '@/firebase/utils';
 import useTranslation from '@/hooks/useTranslation';
