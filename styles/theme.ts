@@ -32,7 +32,7 @@ const theme = Object.freeze({
     none: 0,
     small: '24px',
     normal: '32px',
-  }
+  },
 });
 
 export type Color = keyof typeof theme.color;

@@ -13,7 +13,7 @@ import type { PostDoc } from '@/types/firebase';
 
 type Props = {
   post: PostDoc | null;
-}
+};
 
 type Context = NextPageContext & {
   query: {
@@ -36,13 +36,16 @@ const Post: NextPage<Props> = ({ post }) => {
           <div className="info-container">
             <p className="category">Tecnología</p>
             <h1 className="title">{post[locale].title}</h1>
-            <BlogMeta publishedAt={timestampToDate(post.publishedAt!)} commentQty={50} readingTime={post[locale].readingTime ?? 0} />
+            <BlogMeta
+              publishedAt={timestampToDate(post.publishedAt!)}
+              commentQty={50}
+              readingTime={post[locale].readingTime ?? 0}
+            />
           </div>
           <div
             className="banner"
             style={{
-              backgroundImage:
-                `url(${post.featureImage})`,
+              backgroundImage: `url(${post.featureImage})`,
             }}
           />
         </div>

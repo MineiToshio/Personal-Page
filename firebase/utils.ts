@@ -12,7 +12,8 @@ export const getFirstDocument = <T>(snap: firebase.firestore.QuerySnapshot<T>) =
 
 export const getDate = () => firebase.firestore.Timestamp.fromDate(new Date());
 
-export const timestampToDate = (date: firebase.firestore.Timestamp) => new Date(date.seconds * 1000);
+export const timestampToDate = (date: firebase.firestore.Timestamp) =>
+  new Date(date.seconds * 1000);
 
 export const timestampToDateString = (date: firebase.firestore.Timestamp, lang: Locale = 'en') =>
   formatDate(timestampToDate(date), lang);

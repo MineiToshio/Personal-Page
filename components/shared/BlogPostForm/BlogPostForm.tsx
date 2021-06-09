@@ -107,7 +107,12 @@ const BlogPostForm: NextPage<Props> = ({
           control={control}
           name="featureImage"
           render={({ field: { onChange, value } }) => (
-            <ImageUpload onImageUpload={onChange} onImageDelete={onImageDeleteClick} imgUrl={value} label="Feature Image" />
+            <ImageUpload
+              onImageUpload={onChange}
+              onImageDelete={onImageDeleteClick}
+              imgUrl={value}
+              label="Feature Image"
+            />
           )}
         />
         <Spacer size={3} direction="vertical" />

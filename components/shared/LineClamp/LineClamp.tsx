@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
   lines: number;
   children: React.ReactNode | Array<React.ReactNode>;
-}
+};
 
 const LineClamp = ({ lines, children }: Props) => (
   <div className="line-clamp">

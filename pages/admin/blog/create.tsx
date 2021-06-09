@@ -90,7 +90,12 @@ const CreatePost: NextPage = () => {
 
   return (
     <Layout authorizationType="only_auth" title="Create Post">
-      <BlogPostForm onPublish={onPublish} onSave={onSave} onImageDelete={onImageDelete} isLoading={isLoading} />
+      <BlogPostForm
+        onPublish={onPublish}
+        onSave={onSave}
+        onImageDelete={onImageDelete}
+        isLoading={isLoading}
+      />
     </Layout>
   );
 };

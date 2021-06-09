@@ -6,14 +6,14 @@ import Like from './Like';
 import { BlogMeta, LineClamp } from '../../../shared';
 
 type Props = {
-  title: string,
-  featureImage?: string,
-  summary: string,
-  publishedAt: Date,
-  commentsQty: number,
-  readingTime: number,
-  likeQty: number,
-  url: string,
+  title: string;
+  featureImage?: string;
+  summary: string;
+  publishedAt: Date;
+  commentsQty: number;
+  readingTime: number;
+  likeQty: number;
+  url: string;
 };
 
 const PostPreview: FC<Props> = ({

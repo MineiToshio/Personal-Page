@@ -100,10 +100,10 @@ const AdminPost: NextPage<Props> = ({ post }) => {
   const onPublish: SubmitHandler<BlogPostFormType> = async formPost => {
     const newPost = formatPost(formPost, true);
     const res = await addPostToFirebase(newPost);
-    if (res) { 
+    if (res) {
       setIsLoadingFalse();
       setIsPostPublishedTrue();
-    };
+    }
   };
 
   const onUnpublish = async () => {
@@ -114,7 +114,9 @@ const AdminPost: NextPage<Props> = ({ post }) => {
   };
 
   const onImageDelete = (imgUrl: string) => {
-    const r = window.confirm('Are you sure you want to delete the photo? You can\t undo this later.');
+    const r = window.confirm(
+      'Are you sure you want to delete the photo? You can\t undo this later.',
+    );
     if (r) {
       deleteFile(imgUrl);
       deleteField(post.id!, 'featureImage');
