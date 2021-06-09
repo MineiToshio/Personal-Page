@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Button, Spacer, Input, ImageUpload, TextEditor } from '@/components/core';
-import { LanguageSelector } from '@/components/pages/admin';
+import LanguageSelector from './LanguageSelector';
 import type { NextPage } from 'next';
 import type { Locale } from '@/types/i18n';
 
