@@ -67,6 +67,9 @@ const strings: Strings = {
     contactTitle: 'Contacto',
     contactSubtitle: '¿Tienes una idea de proyecto? ¡Trabajemos juntos!',
   },
+  Spinner: {
+    loading: 'Cargando',
+  },
 };
 
 export default strings;

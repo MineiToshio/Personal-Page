@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import theme from '@/styles/theme';
+import useTranslation from '@/hooks/useTranslation';
 import { Spacer, Typography } from '../../core';
 
 export type Props = {
@@ -8,19 +9,22 @@ export type Props = {
 };
 
 const Spinner: FC<Props> = ({ parentRef, borderRadius = 0 }) => {
+  const { t } = useTranslation('Spinner');
+
   useEffect(() => {
     if (parentRef) {
       const parentNode = parentRef.current;
       if (parentNode) parentNode.style.setProperty('position', 'relative');
     }
   }, [parentRef]);
+
   return (
     <div className="spinner-container">
       <div className="icon-container">
         <img src="/img/icons/icon-192x192.png" alt="Loading" />
       </div>
       <Spacer size={1} direction="vertical" />
-      <Typography text="Loading" variant="title" fontSize="subtitle" />
+      <Typography text={t('loading')} variant="title" fontSize="subtitle" />
       <style jsx>{`
         @keyframes movement {
           0% {
