@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "toshi-persona-page",
   "builds": [
     {
       "use": "@now/next",
