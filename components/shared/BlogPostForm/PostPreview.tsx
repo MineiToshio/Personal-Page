@@ -13,9 +13,18 @@ type Props = {
   category?: string;
   content: string;
   onClose: () => void;
-}
+};
 
-const PostPreview = ({ title, publishedAt, readingTime, featureImage, commentsQty, category, content, onClose }: Props) => (
+const PostPreview = ({
+  title,
+  publishedAt,
+  readingTime,
+  featureImage,
+  commentsQty,
+  category,
+  content,
+  onClose,
+}: Props) => (
   <Portal>
     <div className="modal">
       <button className="close" onClick={onClose} type="button">
@@ -56,7 +65,7 @@ const PostPreview = ({ title, publishedAt, readingTime, featureImage, commentsQt
         border: 0;
         padding: 0;
         cursor: pointer;
-        color: ${theme.color.white}
+        color: ${theme.color.white};
       }
       .body {
         display: flex;

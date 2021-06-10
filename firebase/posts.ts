@@ -23,10 +23,7 @@ export const getPostByUrl = async (url: string) => {
 };
 
 export const getPublishedPostByUrl = async (url: string) => {
-  const snap = await db.posts
-    .where('isPublished', '==', true)
-    .where('url', '==', url)
-    .get();
+  const snap = await db.posts.where('isPublished', '==', true).where('url', '==', url).get();
   const post = getFirstDocument<PostDoc>(snap);
   return post;
 };

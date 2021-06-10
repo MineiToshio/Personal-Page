@@ -81,14 +81,13 @@ const BlogPostForm: NextPage<Props> = ({
   const onPreview = () => {
     const blogPostForm = getValues() as BlogPostFormType;
     setPreviewData(blogPostForm);
-  }
+  };
 
   const onPreviewClose = () => setPreviewData(null);
 
   return (
     <>
-      {previewData 
-      ? (
+      {previewData ? (
         <PostPreview
           title={language === 'en' ? previewData.titleEn : previewData.titleEs}
           content={language === 'en' ? previewData.contentEn : previewData.contentEs}
@@ -170,7 +169,7 @@ const BlogPostForm: NextPage<Props> = ({
                 isLoading={isLoading}
               />
               <Spacer size={2} direction="horizontal" />
-              {isPostPublished ?
+              {isPostPublished ? 
                 onUnpublish && (
                   <Button
                     icon="times"
@@ -182,15 +181,15 @@ const BlogPostForm: NextPage<Props> = ({
                     key="unpublish"
                   />
                 )
-                : (
-                  <Button
-                    icon="upload"
-                    text="Publish"
-                    type="submit"
-                    isLoading={isLoading}
-                    key="publish"
-                  />
-                )}
+               : (
+                <Button
+                  icon="upload"
+                  text="Publish"
+                  type="submit"
+                  isLoading={isLoading}
+                  key="publish"
+                />
+              )}
               <Spacer size={2} direction="horizontal" />
               <Button
                 icon="eye"

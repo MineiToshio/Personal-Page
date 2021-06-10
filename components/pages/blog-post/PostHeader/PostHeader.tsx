@@ -11,16 +11,19 @@ type Props = {
   category?: string;
 };
 
-const PostHeader = ({ title, publishedAt, readingTime, featureImage, commentsQty, category }: Props) => (
+const PostHeader = ({
+  title,
+  publishedAt,
+  readingTime,
+  featureImage,
+  commentsQty,
+  category,
+}: Props) => (
   <div className="header">
     <div className="info-container">
       {category && <p className="category">{category}</p>}
       <h1 className="title">{title}</h1>
-      <BlogMeta
-        publishedAt={publishedAt}
-        commentsQty={commentsQty}
-        readingTime={readingTime}
-      />
+      <BlogMeta publishedAt={publishedAt} commentsQty={commentsQty} readingTime={readingTime} />
     </div>
     <div
       className="banner"
@@ -89,7 +92,7 @@ const PostHeader = ({ title, publishedAt, readingTime, featureImage, commentsQty
         }
       }
       @media screen and (max-width: 425px) {
-        .header { 
+        .header {
           margin-bottom: 20px;
         }
         .title {

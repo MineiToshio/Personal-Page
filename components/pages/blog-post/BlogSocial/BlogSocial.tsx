@@ -4,7 +4,7 @@ import { Icon } from '@/components/core';
 
 type Props = {
   likeQty: number;
-}
+};
 
 const BlogSocial = ({ likeQty }: Props) => (
   <div className="social">
