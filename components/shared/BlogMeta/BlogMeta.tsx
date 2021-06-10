@@ -6,11 +6,11 @@ import { TimeAgo } from '@/components/shared';
 
 type Props = {
   publishedAt: Date;
-  commentQty: number;
+  commentsQty: number;
   readingTime: number;
 };
 
-const BlogMeta: FC<Props> = ({ publishedAt, commentQty, readingTime }) => {
+const BlogMeta: FC<Props> = ({ publishedAt, commentsQty, readingTime }) => {
   const { t, locale } = useTranslation('BlogMeta');
   return (
     <div className="blog-meta">
@@ -20,9 +20,11 @@ const BlogMeta: FC<Props> = ({ publishedAt, commentQty, readingTime }) => {
       <span>
         <Icon icon="clock" /> {readingTime} {t('minRead')}
       </span>
-      <span>
-        <Icon icon="commentDots" /> {commentQty} {t('comments')}
-      </span>
+      {commentsQty > 0 && (
+        <span>
+          <Icon icon="commentDots" /> {commentsQty} {t('comments')}
+        </span>
+      )}
 
       <style jsx>{`
         .blog-meta {

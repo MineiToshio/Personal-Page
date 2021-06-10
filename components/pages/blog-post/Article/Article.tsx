@@ -11,7 +11,6 @@ const Article = ({ content }: Props) => (
     <style jsx>{`
       .article {
         max-width: 700px;
-        margin: 0 auto 0 0;
         font-family: ${theme.font.family.default};
         font-size: ${theme.font.size.body};
         line-height: 32px;

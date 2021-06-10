@@ -31,6 +31,7 @@ import {
   faSave,
   faPencilAlt,
   faTrashAlt,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faEnvelope,
@@ -72,6 +73,7 @@ library.add(
   faSave,
   faPencilAlt,
   faTrashAlt,
+  faEye,
 );
 
 Router.events.on('routeChangeStart', () => {

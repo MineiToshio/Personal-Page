@@ -1,6 +1,7 @@
 import type { IconPrefix, IconName } from '@fortawesome/fontawesome-svg-core';
 
 export type Icon =
+  | 'eye'
   | 'calendar'
   | 'clock'
   | 'commentDots'
@@ -34,6 +35,7 @@ const icons: Record<Icon, [IconPrefix, IconName]> = Object.freeze({
   commentDots: ['far', 'comment-dots'],
   envelope: ['far', 'envelope'],
   thumbsUp: ['fas', 'thumbs-up'],
+  eye: ['fas', 'eye'],
   bars: ['fas', 'bars'],
   times: ['fas', 'times'],
   caretDown: ['fas', 'caret-down'],

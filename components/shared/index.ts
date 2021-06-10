@@ -12,6 +12,7 @@ import Logo from './Logo/Logo';
 import Modal from './Modal/Modal';
 import Parallax from './Parallax/Parallax';
 import Particles from './Particles/Particles';
+import Portal from './Portal/Portal';
 import ScrollUp from './ScrollUp/ScrollUp';
 import Section from './Section/Section';
 import SectionFooter from './SectionFooter/SectionFooter';
@@ -35,6 +36,7 @@ export {
   Modal,
   Parallax,
   Particles,
+  Portal,
   ScrollUp,
   Section,
   SectionFooter,

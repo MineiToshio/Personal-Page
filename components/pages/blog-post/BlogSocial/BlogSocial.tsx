@@ -1,12 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
 import theme from '@/styles/theme';
 import { Icon } from '@/components/core';
 
-const BlogSocial: FC = () => (
+type Props = {
+  likeQty: number;
+}
+
+const BlogSocial = ({ likeQty }: Props) => (
   <div className="social">
     <button type="button" title="Me Gusta">
       <Icon icon="thumbsUp" />
-      <span className="like-count">5.2k</span>
+      <span className="like-count">{likeQty}</span>
     </button>
     <button type="button" title="Compartir en Twitter">
       <Icon icon="twitter" />
@@ -23,7 +27,6 @@ const BlogSocial: FC = () => (
         display: flex;
         flex-direction: column;
         margin-top: 10px;
-        margin-left: auto;
         max-width: 100px;
         width: 100%;
       }
@@ -36,7 +39,7 @@ const BlogSocial: FC = () => (
         cursor: pointer;
         font-size: 1.2em;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         outline: none;
         width: 85px;
       }
@@ -46,6 +49,7 @@ const BlogSocial: FC = () => (
       .like-count {
         font-size: 15px;
         margin-left: 10px;
+        margin-top: 8px;
       }
       @media screen and (max-width: 1023px) {
         .social {
