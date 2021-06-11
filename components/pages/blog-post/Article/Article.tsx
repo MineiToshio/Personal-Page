@@ -1,5 +1,6 @@
 import React from 'react';
 import theme from '@/styles/theme';
+import 'quill/dist/quill.snow.css';
 
 type Props = {
   content: string;
@@ -7,7 +8,7 @@ type Props = {
 
 const Article = ({ content }: Props) => (
   <div className="article">
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div dangerouslySetInnerHTML={{ __html: content }} className="ql-editor" />
     <style jsx>{`
       .article {
         max-width: 700px;
@@ -15,6 +16,13 @@ const Article = ({ content }: Props) => (
         font-size: ${theme.font.size.body};
         line-height: 32px;
         padding: 0 20px;
+      }
+      .article :global(.ql-editor p) {
+        margin: 1em 0;
+        line-height: 32px;
+      }
+      .article :global(img) {
+        width: 100%;
       }
       p {
         margin-top: 0;

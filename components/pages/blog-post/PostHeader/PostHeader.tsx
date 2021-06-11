@@ -42,15 +42,15 @@ const PostHeader = ({
         width: 100%;
       }
       .info-container {
-        margin-left: auto;
-        padding-right: 10px;
-        max-width: 615px;
+        margin-left: 20%;
+        padding-right: 40px;
         grid-area: titulo;
         align-self: center;
       }
       .banner {
         grid-area: banner;
-        background-position: 48% 49%;
+        background-position: center;
+        background-size: cover;
         height: 40vh;
         min-height: 315px;
       }

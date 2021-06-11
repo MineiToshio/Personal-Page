@@ -5,7 +5,7 @@ import { Portal } from '@/components/shared';
 import theme from '@/styles/theme';
 
 type Props = {
-  title: string;
+  title?: string;
   publishedAt: Date;
   readingTime: number;
   featureImage?: string;
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const PostPreview = ({
-  title,
+  title = "Untitled Post",
   publishedAt,
   readingTime,
   featureImage,
