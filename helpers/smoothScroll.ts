@@ -1,4 +1,4 @@
-export default function smoothScroll() {
+const smoothScroll = () => {
   document.querySelectorAll('.scroll').forEach(anchor => {
     anchor.addEventListener('click', e => {
       e.preventDefault();
@@ -14,3 +14,5 @@ export default function smoothScroll() {
     });
   });
 }
+
+export default smoothScroll;

@@ -8,4 +8,7 @@ if (!admin.apps.length) {
   });
 }
 
-export default admin.auth();
+const adminAuth = admin.auth();
+
+export default adminAuth;
+

@@ -10,7 +10,7 @@ type LangProps = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (WrappedPage: NextPage<any>) => {
+const withLocale = (WrappedPage: NextPage<any>) => {
   const WithLocale: NextPage<LangProps> = ({ locale, ...pageProps }) => {
     if (!locale) {
       // no valid locale detected
@@ -45,3 +45,5 @@ export default (WrappedPage: NextPage<any>) => {
 
   return WithLocale;
 };
+
+export default withLocale;

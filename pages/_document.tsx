@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-export default class extends Document {
+class CustomDocument extends Document {
   render() {
     return (
       // eslint-disable-next-line no-underscore-dangle
@@ -15,3 +15,5 @@ export default class extends Document {
     );
   }
 }
+
+export default CustomDocument;
