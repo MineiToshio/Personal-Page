@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Button, Spacer, Input, ImageUpload, TextEditor } from '@/components/core';
-import LanguageSelector from './LanguageSelector';
-import PostPreview from './PostPreview';
 import type { NextPage } from 'next';
 import type { Locale } from '@/types/i18n';
+import LanguageSelector from './LanguageSelector';
+import PostPreview from './PostPreview';
 
 export type BlogPostFormType = {
   url: string;
@@ -111,6 +111,7 @@ const BlogPostForm: NextPage<Props> = ({
                 control={control}
                 rules={{ required: true }}
                 key="titleEn"
+                multiline
               />
             ) : (
               <Input

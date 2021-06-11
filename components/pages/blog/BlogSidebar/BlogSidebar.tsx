@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
 import { timestampToDateString } from '@/firebase/utils';
+import type { PostDoc } from '@/types/firebase';
 import RecentPost from './RecentPost';
 import TagLink from './TagLink';
-import type { PostDoc } from '@/types/firebase';
 
 type Props = {
   recentPosts: Array<PostDoc>;

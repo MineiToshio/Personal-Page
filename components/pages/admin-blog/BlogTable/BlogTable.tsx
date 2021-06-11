@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { timestampToDateString } from '@/firebase/utils';
+import type { PostDoc } from '@/types/firebase';
 import { Table } from '../../../core';
 import type { TableHeader, TableOptions } from '../../../core';
-import type { PostDoc } from '@/types/firebase';
 
 const header: TableHeader = [
   {

@@ -1,5 +1,5 @@
-import firebase from '.';
 import type { PostDoc } from '@/types/firebase';
+import firebase from '.';
 
 const converter = <T>() => ({
   toFirestore: (data: Partial<T>) => data,

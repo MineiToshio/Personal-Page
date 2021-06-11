@@ -2,8 +2,8 @@ import React from 'react';
 import theme from '@/styles/theme';
 import { Logo } from '@/components/shared';
 import { Link } from '@/components/core';
-import NavProfile from './NavProfile';
 import type { User } from '@/types/firebase';
+import NavProfile from './NavProfile';
 
 type Props = {
   user: User;

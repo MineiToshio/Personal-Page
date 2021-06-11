@@ -1,8 +1,8 @@
 /* eslint-disable import/no-named-as-default-member */
+import type { PostDoc } from '@/types/firebase';
 import firebase from '.';
 import db from './db';
 import { getFirstDocument } from './utils';
-import type { PostDoc } from '@/types/firebase';
 
 export const getPost = async (id: string) => {
   const snap = await db.posts.doc(id).get();

@@ -200,21 +200,22 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
           color: ${theme.color.dark};
         }
 
+        {/* TODO: Find a way to get this value from styles/common/getScrollStyles */}
         body::-webkit-scrollbar-track {
           -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           border-radius: 10px;
-          background-color: #bac1b8;
+          background-color: ${theme.color.border};
         }
 
         body::-webkit-scrollbar {
           width: 8px;
-          background-color: #bac1b8;
+          background-color: ${theme.color.border};
         }
 
         body::-webkit-scrollbar-thumb {
           border-radius: 10px;
           -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          background-color: #555;
+          background-color: ${theme.color.muted};
         }
 
         button {
