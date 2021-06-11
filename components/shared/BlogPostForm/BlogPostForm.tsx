@@ -111,7 +111,6 @@ const BlogPostForm: NextPage<Props> = ({
                 control={control}
                 rules={{ required: true }}
                 key="titleEn"
-                multiline
               />
             ) : (
               <Input
