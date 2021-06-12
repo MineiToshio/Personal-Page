@@ -21,11 +21,7 @@ const ImageUpload = ({ onImageUpload, onImageDelete, imgUrl, label }: Props) => 
     const image = fileUploadRef.current?.files && fileUploadRef.current.files[0];
     if (image) {
       setIsLoadingTrue();
-      const filename = image.name;
-      const fileExtension = filename.slice(
-        (Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1,
-      );
-      const imageUrl = await saveFile(image, fileExtension);
+      const imageUrl = await saveFile(image);
       if (imgUrl) {
         onImageDelete(imgUrl);
       }

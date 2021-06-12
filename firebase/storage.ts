@@ -3,7 +3,12 @@ import { storage } from '.';
 
 const storageRef = storage.ref();
 
-export const saveFile = async (file: File, ext: string) => {
+export const saveFile = async (file: File) => {
+  const filename = file.name;
+  const ext = filename.slice(
+    (Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1,
+  );
+
   const hash = uniqid();
   const path = `${hash}.${ext}`;
 
