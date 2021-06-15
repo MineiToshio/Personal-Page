@@ -11,7 +11,7 @@ type Props = {
   featureImage?: string;
   commentsQty: number;
   category?: string;
-  content: string;
+  content?: string;
   onClose: () => void;
 };
 
@@ -22,7 +22,7 @@ const PostPreview = ({
   featureImage,
   commentsQty,
   category,
-  content,
+  content = '',
   onClose,
 }: Props) => (
   <Portal>

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import type { AuthorizationType } from './Authorization/Authorization';
-import type { BlogPostFormType } from './BlogPostForm/BlogPostForm';
+import type { FormType as BlogPostFormType } from './BlogPostForm/Form';
 
 import Authorization from './Authorization/Authorization';
 import BlogMeta from './BlogMeta/BlogMeta';
