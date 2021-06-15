@@ -38,9 +38,9 @@ const PostPreview = ({
         commentsQty={commentsQty}
         category={category}
       />
-      <body className="body">
+      <div className="body">
         <Article content={content} />
-      </body>
+      </div>
     </div>
     <style jsx>{`
       .modal {
