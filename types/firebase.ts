@@ -31,6 +31,14 @@ export type PostDoc = {
   category?: string;
 };
 
+export type FileDoc = {
+  id?: string;
+  createdAt: Firebase.firestore.Timestamp;
+  url: string;
+  name: string;
+  type: 'file' | 'image';
+};
+
 export type UserAuth = {
   uid: string;
   displayName: string;

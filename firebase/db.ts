@@ -1,4 +1,4 @@
-import type { PostDoc } from '@/types/firebase';
+import type { PostDoc, FileDoc } from '@/types/firebase';
 import firebase from '.';
 
 const converter = <T>() => ({
@@ -12,6 +12,7 @@ const dataPoint = <T>(collectionPath: string) =>
 
 const db = {
   posts: dataPoint<PostDoc>('posts'),
+  files: dataPoint<FileDoc>('files'),
 };
 
 export default db;
