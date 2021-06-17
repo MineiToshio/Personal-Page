@@ -2,7 +2,7 @@
 import type { PostDoc } from '@/types/firebase';
 import firebase from '.';
 import db from './db';
-import { getFirstDocument } from './utils';
+import { getFirstDocument, getDocumentsWithId } from './utils';
 
 export const getPost = async (id: string) => {
   const snap = await db.posts.doc(id).get();
@@ -39,25 +39,13 @@ export const getAnotherPostByUrl = async (id: string, url: string) => {
 
 export const getPosts = async () => {
   const snap = await db.posts.get();
-  const posts = snap.docs.map(doc => {
-    const post = doc.data();
-    return {
-      ...post,
-      id: doc.id,
-    };
-  });
+  const posts = getDocumentsWithId(snap);
   return posts;
 };
 
 export const getPostsByIsPublished = async () => {
   const snap = await db.posts.where('isPublished', '==', true).orderBy('publishedAt', 'desc').get();
-  const posts = snap.docs.map(doc => {
-    const post = doc.data();
-    return {
-      ...post,
-      id: doc.id,
-    };
-  });
+  const posts = getDocumentsWithId(snap);
   return posts;
 };
 

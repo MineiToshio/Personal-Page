@@ -11,6 +11,17 @@ export const getFirstDocument = <T>(snap: firebase.firestore.QuerySnapshot<T>) =
   return obj;
 };
 
+export const getDocumentsWithId = <T>(snap: firebase.firestore.QuerySnapshot<T>) => {
+  const docs = snap.docs.map(doc => {
+    const post = doc.data();
+    return {
+      ...post,
+      id: doc.id,
+    };
+  });
+  return docs;
+}
+
 export const getDate = () => firebase.firestore.Timestamp.fromDate(new Date());
 
 export const timestampToDate = (date: firebase.firestore.Timestamp) =>
