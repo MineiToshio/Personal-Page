@@ -16,7 +16,7 @@ type Props = {
 };
 
 const PostPreview = ({
-  title = "Untitled Post",
+  title = 'Untitled Post',
   publishedAt,
   readingTime,
   featureImage,

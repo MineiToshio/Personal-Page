@@ -149,7 +149,7 @@ const BlogPostForm = ({
             isLoading={isLoading}
           />
           <Spacer size={2} direction="horizontal" />
-          {isPostPublished ?
+          {isPostPublished ? 
             onUnpublish && (
               <Button
                 icon="times"
@@ -161,15 +161,15 @@ const BlogPostForm = ({
                 key="unpublish"
               />
             )
-            : (
-              <Button
-                icon="upload"
-                text="Publish"
-                type="submit"
-                isLoading={isLoading}
-                key="publish"
-              />
-            )}
+           : (
+            <Button
+              icon="upload"
+              text="Publish"
+              type="submit"
+              isLoading={isLoading}
+              key="publish"
+            />
+          )}
           <Spacer size={2} direction="horizontal" />
           <Button
             icon="eye"

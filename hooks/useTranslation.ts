@@ -30,6 +30,6 @@ const useTranslation = (component: string) => {
     t,
     locale,
   };
-}
+};
 
 export default useTranslation;

@@ -11,4 +11,3 @@ if (!admin.apps.length) {
 const adminAuth = admin.auth();
 
 export default adminAuth;
-

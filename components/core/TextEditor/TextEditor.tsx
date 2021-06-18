@@ -43,7 +43,7 @@ const TextEditor = ({ value, onChange }: Props) => {
               container: TOOLBAR_CONTAINER,
               handlers: {
                 image: onImageOpen,
-              }
+              },
             },
           },
         });
@@ -87,7 +87,7 @@ const TextEditor = ({ value, onChange }: Props) => {
       }
       onImageClose();
     }
-  }
+  };
 
   return (
     <>

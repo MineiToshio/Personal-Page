@@ -10,9 +10,7 @@ const storageRef = storage.ref();
 
 export const saveFile = async (file: File) => {
   const filename = file.name;
-  const ext = filename.slice(
-    (Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1,
-  );
+  const ext = filename.slice((Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1);
 
   const hash = uniqid();
   const storageName = `${hash}.${ext}`;
@@ -33,8 +31,8 @@ export const saveFile = async (file: File) => {
     url,
     createdAt: getDate(),
     size: file.size,
-    ...imageDimensions
-  }
+    ...imageDimensions,
+  };
   createFile(fileDoc);
   return fileDoc;
 };

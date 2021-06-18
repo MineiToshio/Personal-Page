@@ -42,8 +42,8 @@ import {
   faBookmark,
   faCalendar,
 } from '@fortawesome/free-regular-svg-icons';
-import Analytics from 'analytics'
-import googleAnalytics from '@analytics/google-analytics'
+import Analytics from 'analytics';
+import googleAnalytics from '@analytics/google-analytics';
 import theme from '@/styles/theme';
 import UserConfigProvider, { UserContext } from '@/context/UserContext';
 import { Spinner } from '@/components/shared';
@@ -86,17 +86,17 @@ const analytics = Analytics({
   app: 'toshi-site',
   plugins: [
     googleAnalytics({
-      trackingId: process.env.GOOGLE_ANALYTICS_TRAKING_ID
-    })
-  ]
-})
+      trackingId: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+    }),
+  ],
+});
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     const onRouteChangeComplete = () => {
       analytics.page();
       NProgress.done();
-    }
+    };
     const onRouteChangeStart = () => NProgress.start();
     const onRouteChangeError = () => NProgress.done();
 
@@ -109,8 +109,8 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       Router.events.off('routeChangeStart', onRouteChangeStart);
       Router.events.off('routeChangeComplete', onRouteChangeComplete);
       Router.events.off('routeChangeError', onRouteChangeError);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
@@ -204,7 +204,9 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
           color: ${theme.color.dark};
         }
 
-        {/* TODO: Find a way to get this value from styles/common/getScrollStyles */}
+         {
+          /* TODO: Find a way to get this value from styles/common/getScrollStyles */
+        }
         body::-webkit-scrollbar-track {
           -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
           border-radius: 10px;
@@ -228,6 +230,6 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       `}</style>
     </UserConfigProvider>
   );
-}
+};
 
 export default CustomApp;

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Typography, Spacer, Icon, Button } from '@/components/core'
+import { Typography, Spacer, Icon, Button } from '@/components/core';
 import { Portal } from '@/components/shared';
 import theme from '@/styles/theme';
 import type { FileDoc } from '@/types/firebase';
@@ -16,11 +16,19 @@ type Props = {
   onClose: () => void;
   images: FileDoc[] | null;
   selectedImage: FileDoc | null;
-}
+};
 
 const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
 
-const ImageGallery = ({ onImageSelected, onImageSelect, onImageDelete, onImageUpload, onClose, images, selectedImage }: Props) => (
+const ImageGallery = ({
+  onImageSelected,
+  onImageSelect,
+  onImageDelete,
+  onImageUpload,
+  onClose,
+  images,
+  selectedImage,
+}: Props) => (
   <Portal>
     <div className="modal">
       <div className="container">
@@ -32,7 +40,12 @@ const ImageGallery = ({ onImageSelected, onImageSelect, onImageDelete, onImageUp
         </div>
         <Spacer direction="vertical" size={2} />
         <div className="body">
-          <Images images={images} onImageSelect={onImageSelect} onImageUpload={onImageUpload} selectedImage={selectedImage} />
+          <Images
+            images={images}
+            onImageSelect={onImageSelect}
+            onImageUpload={onImageUpload}
+            selectedImage={selectedImage}
+          />
           {selectedImage && (
             <>
               <Spacer direction="horizontal" size={2} />
@@ -77,6 +90,6 @@ const ImageGallery = ({ onImageSelected, onImageSelect, onImageDelete, onImageUp
       }
     `}</style>
   </Portal>
-)
+);
 
 export default ImageGallery;

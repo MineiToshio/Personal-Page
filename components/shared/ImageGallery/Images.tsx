@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import classnames from 'classnames';
-import { Icon } from '@/components/core'
+import { Icon } from '@/components/core';
 import theme from '@/styles/theme';
 import type { FileDoc } from '@/types/firebase';
 import { getResetButtonStyles, getScrollStyles } from '@/styles/common';
@@ -11,41 +11,45 @@ type Props = {
   onImageUpload: () => void;
   images: FileDoc[] | null;
   selectedImage: FileDoc | null;
-}
+};
 
 const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
 const { className: scrollClass, styles: scrollStyles } = getScrollStyles('div');
 
 const Images = ({ onImageSelect, onImageUpload, images, selectedImage }: Props) => (
-  <div className={classnames(scrollClass, "container")}>
+  <div className={classnames(scrollClass, 'container')}>
     <>
-      {images
-        ? (
-          <div className="images">
-            <button type="button" onClick={onImageUpload} className="upload">
-              <Icon icon="plus" />
+      {images ? (
+        <div className="images">
+          <button type="button" onClick={onImageUpload} className="upload">
+            <Icon icon="plus" />
+          </button>
+          {images.map(image => (
+            <button
+              onClick={() => onImageSelect(image)}
+              type="button"
+              className={classnames({
+                [resetButtonClass]: true,
+                image: true,
+                selectedImage: image === selectedImage,
+              })}
+              key={image.url}
+            >
+              <Image
+                src={image.url}
+                alt={image.name}
+                layout="fill"
+                objectFit="cover"
+                title={image.name}
+              />
             </button>
-            {images.map(image => (
-              <button
-                onClick={() => onImageSelect(image)}
-                type="button"
-                className={classnames({
-                  [resetButtonClass]: true,
-                  image: true,
-                  selectedImage: image === selectedImage
-                })}
-                key={image.url}
-              >
-                <Image src={image.url} alt={image.name} layout="fill" objectFit="cover" title={image.name} />
-              </button>
-            ))}
-          </div>
-        ) : (
-          <div className="spinner">
-            <Icon icon="spinner" pulse />
-          </div>
-        )
-      }
+          ))}
+        </div>
+      ) : (
+        <div className="spinner">
+          <Icon icon="spinner" pulse />
+        </div>
+      )}
     </>
     {resetButtonStyles}
     {scrollStyles}
@@ -62,7 +66,7 @@ const Images = ({ onImageSelect, onImageUpload, images, selectedImage }: Props) 
         grid-gap: 16px;
       }
       .image::before {
-        content: "";
+        content: '';
         padding-bottom: 100%;
         display: block;
       }
@@ -88,10 +92,10 @@ const Images = ({ onImageSelect, onImageUpload, images, selectedImage }: Props) 
         display: flex;
         justify-content: center;
         align-items: center;
-        color: ${theme.color.muted}
+        color: ${theme.color.muted};
       }
     `}</style>
   </div>
-)
+);
 
 export default Images;

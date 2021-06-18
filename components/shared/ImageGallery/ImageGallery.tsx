@@ -7,7 +7,7 @@ import ImageGalleryView from './ImageGalleryView';
 type Props = {
   onImageSelected: (url: string) => void;
   onClose: () => void;
-}
+};
 
 const ImageGallery = ({ onImageSelected, onClose }: Props) => {
   const [images, setImages] = useState<FileDoc[] | null>(null);
@@ -17,7 +17,7 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
     const getImages = async () => {
       const storedImages = await getFilesByType('image');
       setImages(storedImages);
-    }
+    };
     getImages();
   }, []);
 
@@ -25,9 +25,9 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
     if (selectedImage) {
       onImageSelected(selectedImage.url);
     } else {
-      alert('please select an image')
+      alert('please select an image');
     }
-  }
+  };
 
   const onImageDelete = () => {
     if (images && selectedImage) {
@@ -35,11 +35,11 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
       if (r) {
         deleteFile(selectedImage.url);
         setSelectedImage(null);
-        const newImages = images.filter(image => image !== selectedImage)
+        const newImages = images.filter(image => image !== selectedImage);
         setImages(newImages);
       }
     }
-  }
+  };
 
   const onImageUpload = () => {
     const fu = document.createElement('input');
@@ -50,7 +50,7 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
     fu.onchange = async () => {
       if (fu.files) {
         const [file] = fu.files;
-  
+
         if (/^image\//.test(file.type)) {
           const uploadedImage = await saveFile(file);
           if (images) {
@@ -62,11 +62,11 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
           alert('You can only upload images.');
         }
       }
-    }
-  }
+    };
+  };
 
   return (
-    <ImageGalleryView 
+    <ImageGalleryView
       onImageSelected={onImageSelectedClick}
       onImageSelect={setSelectedImage}
       selectedImage={selectedImage}
@@ -75,7 +75,7 @@ const ImageGallery = ({ onImageSelected, onClose }: Props) => {
       onClose={onClose}
       images={images}
     />
-  )
+  );
 };
 
 export default ImageGallery;

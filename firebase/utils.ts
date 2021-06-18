@@ -20,7 +20,7 @@ export const getDocumentsWithId = <T>(snap: firebase.firestore.QuerySnapshot<T>)
     };
   });
   return docs;
-}
+};
 
 export const getDate = () => firebase.firestore.Timestamp.fromDate(new Date());
 

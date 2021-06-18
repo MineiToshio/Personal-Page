@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from 'next/image'
-import { Spacer, Button } from '@/components/core'
+import Image from 'next/image';
+import { Spacer, Button } from '@/components/core';
 import theme from '@/styles/theme';
 import type { FileDoc } from '@/types/firebase';
 import formatBytes from '@/helpers/formatBytes';
@@ -9,7 +9,7 @@ import InfoText from './InfoText';
 type Props = {
   onImageDelete: () => void;
   image: FileDoc;
-}
+};
 
 const InfoPanel = ({ onImageDelete, image }: Props) => (
   <div className="info-container">
@@ -37,6 +37,6 @@ const InfoPanel = ({ onImageDelete, image }: Props) => (
       }
     `}</style>
   </div>
-)
+);
 
 export default InfoPanel;

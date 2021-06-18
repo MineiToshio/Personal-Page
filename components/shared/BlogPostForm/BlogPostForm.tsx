@@ -4,7 +4,7 @@ import PostPreview from './PostPreview';
 import Form from './Form';
 import type { Props as FormProps, FormType } from './Form';
 
-type Props = Omit<FormProps, 'language' | 'onLanguageChange' | 'onPreview'>
+type Props = Omit<FormProps, 'language' | 'onLanguageChange' | 'onPreview'>;
 
 const BlogPostForm = ({
   onSave,

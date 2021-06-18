@@ -7,7 +7,7 @@ const formatBytes = (bytes: number, decimals = 2) => {
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  return `${parseFloat((bytes / (k ** i)).toFixed(dm))  } ${  sizes[i]}`;
-}
+  return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
+};
 
 export default formatBytes;
