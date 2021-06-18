@@ -6,6 +6,7 @@ import Authorization from './Authorization/Authorization';
 import BlogMeta from './BlogMeta/BlogMeta';
 import BlogPostForm from './BlogPostForm/BlogPostForm';
 import FloatingMenu from './FloatingMenu/FloatingMenu';
+import ImageGallery from './ImageGallery/ImageGallery';
 import LineClamp from './LineClamp/LineClamp';
 import Login from './Login/Login';
 import Logo from './Logo/Logo';
@@ -30,6 +31,7 @@ export {
   BlogMeta,
   BlogPostForm,
   FloatingMenu,
+  ImageGallery,
   LineClamp,
   Login,
   Logo,

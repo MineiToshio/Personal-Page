@@ -26,6 +26,9 @@ const nextConfig = {
     config.resolve.alias['@'] = path.resolve(__dirname, '.');
     return config;
   },
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+  },
   workboxOpts: {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
