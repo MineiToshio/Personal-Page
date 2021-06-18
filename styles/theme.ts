@@ -7,6 +7,7 @@ const theme = Object.freeze({
     muted: '#828282',
     border: '#cccccc',
     white: '#ffffff',
+    black: '#000000',
   },
   font: {
     family: {
@@ -17,6 +18,7 @@ const theme = Object.freeze({
       blog: 'Charter',
     },
     size: {
+      small: '12px',
       title: '56px',
       subtitle: '24px',
       body: '16px',
@@ -30,8 +32,8 @@ const theme = Object.freeze({
   },
   lineHeight: {
     none: 0,
-    small: '24px',
-    normal: '32px',
+    small: 1.4,
+    normal: 2,
   },
 });
 

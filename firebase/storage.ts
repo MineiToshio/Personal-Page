@@ -1,6 +1,7 @@
 import uniqid from 'uniqid';
 import getFileType from '@/helpers/getFileType';
 import getImageFileDimensions from '@/helpers/getImageFileDimensions';
+import type { FileDoc } from '@/types/firebase';
 import { createFile, deleteFileByUrl } from './files';
 import { storage } from '.';
 import { getDate } from './utils';
@@ -23,7 +24,8 @@ export const saveFile = async (file: File) => {
   const filenameWithoutExt = filename.slice(0, -ext.length - 1);
 
   const url: string = await fileRef.getDownloadURL();
-  createFile({
+
+  const fileDoc: FileDoc = {
     name: filenameWithoutExt,
     storageName,
     ext,
@@ -32,8 +34,9 @@ export const saveFile = async (file: File) => {
     createdAt: getDate(),
     size: file.size,
     ...imageDimensions
-  });
-  return url;
+  }
+  createFile(fileDoc);
+  return fileDoc;
 };
 
 export const deleteFile = async (fileUrl: string) => {

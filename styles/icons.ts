@@ -24,6 +24,7 @@ export type Icon =
   | 'upload'
   | 'check'
   | 'save'
+  | 'plus'
   | 'twitter'
   | 'facebookSquare'
   | 'github'
@@ -54,6 +55,7 @@ const icons: Record<Icon, [IconPrefix, IconName]> = Object.freeze({
   upload: ['fas', 'upload'],
   check: ['fas', 'check'],
   save: ['fas', 'save'],
+  plus: ['fas', 'plus'],
   twitter: ['fab', 'twitter'],
   facebookSquare: ['fab', 'facebook-square'],
   github: ['fab', 'github'],
