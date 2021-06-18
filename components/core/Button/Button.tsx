@@ -57,7 +57,7 @@ const StandardButton: FC<Props> = ({
       .button {
         display: flex;
         background: ${theme.color[backgroundColor]};
-        padding: 0.85em;
+        padding: 5px 15px;
         border: none;
         color: ${theme.color.white};
         border-radius: 5px;
