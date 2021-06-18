@@ -32,6 +32,7 @@ import {
   faPencilAlt,
   faTrashAlt,
   faEye,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faEnvelope,
@@ -76,6 +77,7 @@ library.add(
   faPencilAlt,
   faTrashAlt,
   faEye,
+  faCheck,
 );
 
 const analytics = Analytics({

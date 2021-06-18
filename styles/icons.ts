@@ -22,6 +22,7 @@ export type Icon =
   | 'trash'
   | 'spinner'
   | 'upload'
+  | 'check'
   | 'save'
   | 'twitter'
   | 'facebookSquare'
@@ -51,6 +52,7 @@ const icons: Record<Icon, [IconPrefix, IconName]> = Object.freeze({
   trash: ['fas', 'trash-alt'],
   spinner: ['fas', 'spinner'],
   upload: ['fas', 'upload'],
+  check: ['fas', 'check'],
   save: ['fas', 'save'],
   twitter: ['fab', 'twitter'],
   facebookSquare: ['fab', 'facebook-square'],

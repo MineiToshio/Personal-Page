@@ -6,19 +6,21 @@ import { Portal } from '@/components/shared';
 import theme from '@/styles/theme';
 import type { FileDoc } from '@/types/firebase';
 import { getResetButtonStyles, getScrollStyles } from '@/styles/common';
+import formatBytes from '@/helpers/formatBytes';
 
 type Props = {
   onImageSelected: () => void;
-  onImageSelect: (url: string) => void;
+  onImageSelect: (image: FileDoc) => void;
+  onImageDelete: () => void;
   onClose: () => void;
   images: FileDoc[] | null;
-  selectedImage: string;
+  selectedImage: FileDoc | null;
 }
 
 const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
 const { className: scrollClass, styles: scrollStyles } = getScrollStyles('div');
 
-const ImageGallery = ({ onImageSelected, onImageSelect, onClose, images, selectedImage }: Props) => (
+const ImageGallery = ({ onImageSelected, onImageSelect, onImageDelete, onClose, images, selectedImage }: Props) => (
   <Portal>
     <div className="modal">
       <div className="container">
@@ -29,34 +31,53 @@ const ImageGallery = ({ onImageSelected, onImageSelect, onClose, images, selecte
           </button>
         </div>
         <Spacer direction="vertical" size={2} />
-        <div className={classnames(scrollClass, "images-container")}>
-          <div className="images">
-            {images
-              ? (
-                <>
-                  {images.map(image => (
-                    <button
-                      onClick={() => onImageSelect(image.url)}
-                      type="button"
-                      className={classnames({
-                        [resetButtonClass]: true,
-                        image: true,
-                        selectedImage: image.url === selectedImage
-                      })}
-                      key={image.url}
-                    >
-                      <Image src={image.url} alt={image.name} layout="fill" objectFit="cover" title={image.name} />
-                    </button>
-                  ))}
-                </>
-              )
-              : <Icon icon="spinner" pulse />
-            }
+        <div className="body">
+          <div className={classnames(scrollClass, "images-container")}>
+            <div className="images">
+              {images
+                ? (
+                  <>
+                    {images.map(image => (
+                      <button
+                        onClick={() => onImageSelect(image)}
+                        type="button"
+                        className={classnames({
+                          [resetButtonClass]: true,
+                          image: true,
+                          selectedImage: image === selectedImage
+                        })}
+                        key={image.url}
+                      >
+                        <Image src={image.url} alt={image.name} layout="fill" objectFit="cover" title={image.name} />
+                      </button>
+                    ))}
+                  </>
+                )
+                : <Icon icon="spinner" pulse />
+              }
+            </div>
           </div>
+          {selectedImage && (
+            <>
+            <Spacer direction="horizontal" size={2} />
+            <div className="info-container">
+              <div className="thumbnail">
+                <Image src={selectedImage.url} layout="fill" objectFit="contain" />
+              </div>
+              <div className="info">
+                <Typography text={`${selectedImage.name}.${selectedImage.ext}`} />
+                <Typography text={selectedImage.createdAt.toDate().toString()} />
+                <Typography text={`${selectedImage.width}x${selectedImage.height}`} />
+                <Typography text={formatBytes(selectedImage.size)} />
+                <Button onClick={onImageDelete} text="Delete" icon="trash" backgroundColor="danger" />
+              </div>
+            </div>
+            </>
+          )}
         </div>
         <Spacer direction="vertical" size={2} />
         <div className="footer">
-          <Button onClick={onImageSelected} text="Choose" icon="times" />
+          <Button onClick={onImageSelected} text="Select" icon="check" />
           <Spacer direction="horizontal" size={2} />
           <Button onClick={onClose} text="Close" backgroundColor="danger" icon="times" />
         </div>
@@ -84,10 +105,14 @@ const ImageGallery = ({ onImageSelected, onImageSelect, onClose, images, selecte
       .container {
         padding: 30px;
       }
+      .body {
+        display: flex;
+      }
       .images-container {
         height: calc(100vh - 181px);
         overflow-y: auto;
         padding-right: 16px;
+        width: 100%;
       }
       .images {
         display: grid;
@@ -103,10 +128,21 @@ const ImageGallery = ({ onImageSelected, onImageSelect, onClose, images, selecte
         width: 100%;
         height: 100%;
         position: relative;
-        border: 1px solid ${theme.color.border};
+        border: 4px solid ${theme.color.border};
       }
       .selectedImage {
         border: 4px solid ${theme.color.main};
+      }
+      .info-container {
+        width: 250px;
+        border: 1px solid ${theme.color.border};
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .thumbnail {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
       }
       .footer {
         display: flex;
