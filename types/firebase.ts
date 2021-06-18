@@ -38,7 +38,12 @@ export type FileDoc = {
   createdAt: Firebase.firestore.Timestamp;
   url: string;
   name: string;
+  ext: string;
+  storageName: string;
   type: FileType;
+  size: number; // in bytes
+  width?: number;
+  height?: number;
 };
 
 export type UserAuth = {

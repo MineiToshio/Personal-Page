@@ -1,14 +1,11 @@
 import uniqid from 'uniqid';
+import getFileType from '@/helpers/getFileType';
+import getImageFileDimensions from '@/helpers/getImageFileDimensions';
 import { createFile, deleteFileByUrl } from './files';
 import { storage } from '.';
 import { getDate } from './utils';
 
 const storageRef = storage.ref();
-
-const getFileType = (fileType: string) => {
-  if(/^image\//.test(fileType)) return 'image';
-  return 'file';
-}
 
 export const saveFile = async (file: File) => {
   const filename = file.name;
@@ -17,17 +14,24 @@ export const saveFile = async (file: File) => {
   );
 
   const hash = uniqid();
-  const path = `${hash}.${ext}`;
+  const storageName = `${hash}.${ext}`;
 
-  const fileRef = storageRef.child(path);
+  const fileRef = storageRef.child(storageName);
   await fileRef.put(file);
+
+  const imageDimensions = await getImageFileDimensions(file);
+  const filenameWithoutExt = filename.slice(0, -ext.length - 1);
 
   const url: string = await fileRef.getDownloadURL();
   createFile({
-    name: filename,
+    name: filenameWithoutExt,
+    storageName,
+    ext,
     type: getFileType(file.type),
     url,
     createdAt: getDate(),
+    size: file.size,
+    ...imageDimensions
   });
   return url;
 };
