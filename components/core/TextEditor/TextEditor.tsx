@@ -1,9 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import theme from '@/styles/theme';
 import type Quill from 'quill';
+import useBoolean from '@/hooks/useBoolean';
+import { ImageGallery } from '../../shared';
 import 'quill/dist/quill.snow.css';
 
-const TOOLBAR_OPTIONS = [
+const TOOLBAR_CONTAINER = [
   [{ header: 1 }, { header: 2 }], // custom button values
   ['bold', 'italic', 'underline', 'strike'], // toggled buttons
   [{ align: [] }],
@@ -28,6 +30,7 @@ type Props = {
 const TextEditor = ({ value, onChange }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [quill, setQuill] = useState<Quill | null>();
+  const [showGallery, onImageOpen, onImageClose] = useBoolean();
 
   useEffect(() => {
     const loadQuill = async () => {
@@ -36,7 +39,12 @@ const TextEditor = ({ value, onChange }: Props) => {
         const editor = new QuillModule(ref.current, {
           theme: 'snow',
           modules: {
-            toolbar: TOOLBAR_OPTIONS,
+            toolbar: {
+              container: TOOLBAR_CONTAINER,
+              handlers: {
+                image: onImageOpen,
+              }
+            },
           },
         });
         if (value) {
@@ -49,7 +57,7 @@ const TextEditor = ({ value, onChange }: Props) => {
     if (typeof window !== 'undefined' && !quill) {
       loadQuill();
     }
-  }, [quill, value]);
+  }, [onImageOpen, quill, value]);
 
   useEffect(() => {
     const onTextChange = () => {
@@ -67,20 +75,43 @@ const TextEditor = ({ value, onChange }: Props) => {
     };
   }, [quill, onChange]);
 
+  const onImageSelected = (imageUrl: string) => {
+    if (quill) {
+      const range = quill.getSelection();
+      if (range) {
+        quill.insertEmbed(range.index, 'image', imageUrl);
+        // TODO: Apparently there is a type error with setSelection. Remove the following comments when that is fixed
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        quill.setSelection(range.index + 1);
+      }
+      onImageClose();
+    }
+  }
+
   return (
-    <div className="editor">
-      <div ref={ref} />
-      <style jsx>{`
-        .editor :global(.ql-container) {
-          font-family: ${theme.font.family.default};
-          font-size: ${theme.font.size.body};
-        }
-        .editor :global(.ql-editor p) {
-          margin: 1em 0;
-          line-height: 32px;
-        }
-      `}</style>
-    </div>
+    <>
+      {showGallery && <ImageGallery onImageSelected={onImageSelected} onClose={onImageClose} />}
+      <div className="editor">
+        <div ref={ref} />
+        <style jsx>{`
+          .editor :global(.ql-container) {
+            font-family: ${theme.font.family.default};
+            font-size: ${theme.font.size.body};
+          }
+          .editor :global(.ql-toolbar) {
+            position: sticky;
+            top: 72px;
+            background: ${theme.color.white};
+            z-index: 1;
+          }
+          .editor :global(.ql-editor p) {
+            margin: 1em 0;
+            line-height: 32px;
+          }
+        `}</style>
+      </div>
+    </>
   );
 };
 
