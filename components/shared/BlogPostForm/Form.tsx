@@ -109,8 +109,7 @@ const BlogPostForm = ({
           name="featureImage"
           render={({ field: { onChange, value } }) => (
             <ImageUpload
-              onImageUpload={onChange}
-              onImageDelete={onImageDeleteClick}
+              onImageChange={onChange}
               imgUrl={value}
               label="Feature Image"
             />

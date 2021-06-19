@@ -1,68 +1,51 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import theme from '@/styles/theme';
-import { saveFile } from '@/firebase/storage';
 import useBoolean from '@/hooks/useBoolean';
 import { Typography, Icon } from '..';
+import { ImageGallery } from '../../shared';
 
 type Props = {
-  onImageUpload: (uploadedImg: string) => void;
-  onImageDelete: (imgUrl: string) => void;
+  onImageChange: (uploadedImg?: string) => void;
   imgUrl?: string;
   label: string;
 };
 
-const ImageUpload = ({ onImageUpload, onImageDelete, imgUrl, label }: Props) => {
+const ImageUpload = ({ onImageChange, imgUrl, label }: Props) => {
   const [isLoading, setIsLoadingTrue, setIsLoadingFalse] = useBoolean(false);
-  const fileUploadRef = useRef<HTMLInputElement>(null);
-
-  const onUploadClick = () => fileUploadRef?.current?.click();
-
-  const onImageUploadChange = async () => {
-    const image = fileUploadRef.current?.files && fileUploadRef.current.files[0];
-    if (image) {
-      setIsLoadingTrue();
-      const uploadedImage = await saveFile(image);
-      if (imgUrl) {
-        onImageDelete(imgUrl);
-      }
-      onImageUpload(uploadedImage.url);
-      setIsLoadingFalse();
-    }
-  };
+  const [showGallery, onImageOpen, onImageClose] = useBoolean();
 
   const onDelete = () => {
-    if (imgUrl) {
-      onImageDelete(imgUrl);
-    }
+    onImageChange(undefined);
   };
 
-  return (
-    <div className="container">
-      <div className="image-container">
-        {isLoading && <Icon icon="spinner" pulse />}
-        {!isLoading &&
-          (imgUrl ? (
-            <img src={imgUrl} alt="upload" className="uploaded-image" />
-          ) : (
-            <Typography variant="body2" text={label} color="muted" />
-          ))}
-      </div>
-      {imgUrl && (
-        <button type="button" className="close" onClick={onDelete}>
-          <Icon icon="times" color="white" />
-        </button>
-      )}
+  const onImageSelected = (imageUrl: string) => {
+    onImageChange(imageUrl);
+    onImageClose();
+  }
 
-      <button type="button" className="upload-button" onClick={onUploadClick}>
-        <Typography variant="body2" text="Upload photo" />
-      </button>
-      <input
-        type="file"
-        className="fileUpload"
-        ref={fileUploadRef}
-        onChange={onImageUploadChange}
-        accept="image/*"
-      />
+  return (
+    <>
+      {showGallery && <ImageGallery onClose={onImageClose} onImageSelected={onImageSelected} />}
+      <div className="container">
+        <div className="image-container">
+          {isLoading && <Icon icon="spinner" pulse />}
+          {!isLoading &&
+            (imgUrl ? (
+              <img src={imgUrl} alt="upload" className="uploaded-image" />
+            ) : (
+              <Typography variant="body2" text={label} color="muted" />
+            ))}
+        </div>
+        {imgUrl && (
+          <button type="button" className="close" onClick={onDelete}>
+            <Icon icon="times" color="white" />
+          </button>
+        )}
+
+        <button type="button" className="upload-button" onClick={onImageOpen}>
+          <Typography variant="body2" text="Upload photo" />
+        </button>
+      </div>
       <style jsx>{`
         .container {
           border: 1px solid ${theme.color.border};
@@ -107,7 +90,7 @@ const ImageUpload = ({ onImageUpload, onImageDelete, imgUrl, label }: Props) => 
           filter: brightness(0.9);
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
