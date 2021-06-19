@@ -1,8 +1,10 @@
 import React from 'react';
+import classnames from 'classnames';
 import { Article, PostHeader } from '@/components/pages/blog-post';
 import { Icon } from '@/components/core';
 import { Portal } from '@/components/shared';
 import theme from '@/styles/theme';
+import { getScrollStyles } from '@/styles/common';
 
 type Props = {
   title?: string;
@@ -14,6 +16,8 @@ type Props = {
   content?: string;
   onClose: () => void;
 };
+
+const { className: scrollClass, styles } = getScrollStyles('div');
 
 const PostPreview = ({
   title = 'Untitled Post',
@@ -27,29 +31,37 @@ const PostPreview = ({
 }: Props) => (
   <Portal>
     <div className="modal">
-      <button className="close" onClick={onClose} type="button">
-        <Icon icon="times" />
-      </button>
-      <PostHeader
-        publishedAt={publishedAt}
-        readingTime={readingTime}
-        title={title}
-        featureImage={featureImage}
-        commentsQty={commentsQty}
-        category={category}
-      />
-      <div className="body">
-        <Article content={content} />
+      <div className={classnames(scrollClass, "container")}>
+        <button className="close" onClick={onClose} type="button">
+          <Icon icon="times" />
+        </button>
+        <PostHeader
+          publishedAt={publishedAt}
+          readingTime={readingTime}
+          title={title}
+          featureImage={featureImage}
+          commentsQty={commentsQty}
+          category={category}
+        />
+        <div className="body">
+          <Article content={content} />
+        </div>
       </div>
     </div>
+    {styles}
     <style jsx>{`
       .modal {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
         background: ${theme.color.white};
         z-index: 99;
+      }
+      .container {
+        overflow-y: auto;
+        height: 100%;
       }
       .close {
         position: fixed;

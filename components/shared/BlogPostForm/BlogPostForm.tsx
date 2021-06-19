@@ -17,11 +17,26 @@ const BlogPostForm = ({
 }: Props) => {
   const [language, setLanguage] = useState<Locale>('es');
   const [previewData, setPreviewData] = useState<Partial<FormType> | null>(null);
-  const onPreviewClose = () => setPreviewData(null);
+
+  const onPreviewClose = () => {
+    const body = document.querySelector('body');
+    if (body) {
+      body.style.overflowY = 'auto';
+    }
+    setPreviewData(null)
+  };
+
+  const onPreview = (formData: Partial<FormType>) => {
+    const body = document.querySelector('body');
+    if (body) {
+      body.style.overflowY = 'hidden';
+    }
+    setPreviewData(formData);
+  }
 
   return (
     <>
-      {previewData ? (
+      {previewData && (
         <PostPreview
           title={language === 'en' ? previewData.titleEn : previewData.titleEs}
           content={language === 'en' ? previewData.contentEn : previewData.contentEs}
@@ -31,20 +46,19 @@ const BlogPostForm = ({
           commentsQty={0}
           onClose={onPreviewClose}
         />
-      ) : (
-        <Form
-          onSave={onSave}
-          onPublish={onPublish}
-          onUnpublish={onUnpublish}
-          onImageDelete={onImageDelete}
-          isLoading={isLoading}
-          initialPost={initialPost}
-          isPostPublished={isPostPublished}
-          language={language}
-          onLanguageChange={setLanguage}
-          onPreview={setPreviewData}
-        />
       )}
+      <Form
+        onSave={onSave}
+        onPublish={onPublish}
+        onUnpublish={onUnpublish}
+        onImageDelete={onImageDelete}
+        isLoading={isLoading}
+        initialPost={initialPost}
+        isPostPublished={isPostPublished}
+        language={language}
+        onLanguageChange={setLanguage}
+        onPreview={onPreview}
+      />
     </>
   );
 };
