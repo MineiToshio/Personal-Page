@@ -16,7 +16,7 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => (
     <figure>
       <div className="aspect">
         <div className="inner">
-          <img src={`/img/portafolio/thumbnails/${id}.png`} alt={name} />
+          <img src={`/img/portfolio/thumbnails/${id}.png`} alt={name} />
         </div>
       </div>
     </figure>

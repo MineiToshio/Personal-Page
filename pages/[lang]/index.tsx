@@ -22,7 +22,7 @@ const Index: NextPage = () => {
           image="/img/parallax/parallax1.jpg"
         />
 
-        <Section id="portafolio" title={t('portfolioTitle')} subtitle={t('portfolioSubtitle')}>
+        <Section id="portfolio" title={t('portfolioTitle')} subtitle={t('portfolioSubtitle')}>
           <Projects />
         </Section>
 

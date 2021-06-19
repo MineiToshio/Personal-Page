@@ -97,7 +97,7 @@ const Portfolio: FC = () => {
           </button>
         </div>
       </SlideElement>
-      <div className="portafolio" ref={refPortfolio}>
+      <div className="portfolio" ref={refPortfolio}>
         {projects.map(project => (
           <Project
             key={project.id}
@@ -158,7 +158,7 @@ const Portfolio: FC = () => {
           color: white;
         }
 
-        .portafolio {
+        .portfolio {
           position: relative;
           overflow: hidden;
           width: 85%;
@@ -170,7 +170,7 @@ const Portfolio: FC = () => {
         }
 
         @media only screen and (max-width: 1200px) {
-          .portafolio {
+          .portfolio {
             width: 90%;
           }
         }

@@ -28,7 +28,7 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#portafolio" className="scroll">
+            <a href="#portfolio" className="scroll">
               {t('portfolio')}
             </a>
           </li>

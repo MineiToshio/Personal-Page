@@ -25,7 +25,7 @@ const ProjectModal: FC<Props> = ({
   const { t } = useTranslation('ProjectModal');
 
   const fullUrlImages: Array<string> = useMemo(
-    () => images.map(image => `/img/portafolio/${id}/${image}`),
+    () => images.map(image => `/img/portfolio/${id}/${image}`),
     [images, id],
   );
 
