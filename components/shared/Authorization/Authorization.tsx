@@ -11,15 +11,20 @@ type Props = {
 };
 
 const Authorization: FC<Props> = ({ children, type }) => {
-  const { currentUser } = useCurrentUser();
+  const { currentUser, initializing } = useCurrentUser();
 
-  if (type === 'only_no_auth' && currentUser && currentUser.isAdmin) {
-    Router.push('/admin');
-    return <Spinner />;
-  }
-  if (type === 'only_auth' && (!currentUser || !currentUser.isAdmin)) {
-    Router.push('/admin/login');
-    return <Spinner />;
+  if (type) {
+    if (typeof window === 'undefined' || initializing) {
+      return <Spinner />;
+    }
+    if (type === 'only_no_auth' && currentUser && currentUser.isAdmin) {
+      Router.push('/admin');
+      return <Spinner />;
+    }
+    if (type === 'only_auth' && (!currentUser || !currentUser.isAdmin)) {
+      Router.push('/admin/login');
+      return <Spinner />;
+    }
   }
   return <>{children}</>;
 };

@@ -1,28 +1,38 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 import useTranslation from '@/hooks/useTranslation';
 import { BaseLayout as Layout } from '..';
 import smoothScroll from '../../../helpers/smoothScroll';
-import { ScrollUp } from '../../shared';
+import { ScrollUp, Seo } from '../../shared';
 import Footer from './Footer';
 import Header from './Header';
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
   title?: string;
+  description?: string;
+  featureImage?: string;
+  url?: string;
 };
 
-const MainLayout: FC<Props> = ({ children, title }) => {
+const MainLayout: FC<Props> = ({ children, title, description, featureImage = "https://toshiominei.com/img/portfolio/12/1.png", url }) => {
   const { t } = useTranslation('Layout');
+
+  const realTitle = useMemo(() => `${title ? `${title} | ` : ''}Toshio Minei`, [title])
 
   useEffect(() => {
     smoothScroll();
   }, []);
 
   return (
-    <Layout title={`${title ? `${title} | ` : ''}Toshio Minei`}>
+    <Layout title={realTitle}>
+      <Seo
+        title={realTitle}
+        description={description ?? t('description')}
+        image={featureImage}
+        url={url}
+      />
       <Head>
-        <meta name="description" content={t('description')} />
         <link rel="manifest" href="/manifest.json" />
       </Head>
 

@@ -17,6 +17,7 @@ import Portal from './Portal/Portal';
 import ScrollUp from './ScrollUp/ScrollUp';
 import Section from './Section/Section';
 import SectionFooter from './SectionFooter/SectionFooter';
+import Seo from './Seo/Seo';
 import SlideElement from './SlideElement/SlideElement';
 import Slider from './Slider/Slider';
 import SocialIcons from './SocialIcons/SocialIcons';
@@ -42,6 +43,7 @@ export {
   ScrollUp,
   Section,
   SectionFooter,
+  Seo,
   SlideElement,
   Slider,
   SocialIcons,

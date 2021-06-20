@@ -29,7 +29,7 @@ const Post: NextPage<Props> = ({ post }) => {
   }
 
   return (
-    <Layout title={post[locale].title ?? ''}>
+    <Layout title={post[locale].title} featureImage={post.featureImage} url={`https://toshiominei.com/${locale}/blog/${post.url}`}>
       <article>
         <PostHeader
           publishedAt={timestampToDate(post.publishedAt!)}

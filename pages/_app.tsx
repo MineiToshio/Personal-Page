@@ -116,9 +116,9 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     // eslint-disable-next-line react/jsx-props-no-spreading
     <UserConfigProvider>
       <UserContext.Consumer>
-        {({ initializing }) => (
+        {({ initializing, currentUser }) => (
           <>
-            {initializing ? (
+            {currentUser != null && initializing ? (
               <Spinner />
             ) : (
               // eslint-disable-next-line react/jsx-props-no-spreading
