@@ -1,5 +1,3 @@
-// TODO: Remove when there are more exports
-/* eslint-disable import/prefer-default-export */
 import { css } from 'styled-jsx/css';
 import theme from '@/styles/theme';
 
