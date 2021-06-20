@@ -15,10 +15,16 @@ type Props = {
   url?: string;
 };
 
-const MainLayout: FC<Props> = ({ children, title, description, featureImage = "https://toshiominei.com/img/portfolio/12/1.png", url }) => {
+const MainLayout: FC<Props> = ({
+  children,
+  title,
+  description,
+  featureImage = 'https://toshiominei.com/img/portfolio/12/1.png',
+  url,
+}) => {
   const { t } = useTranslation('Layout');
 
-  const realTitle = useMemo(() => `${title ? `${title} | ` : ''}Toshio Minei`, [title])
+  const realTitle = useMemo(() => `${title ? `${title} | ` : ''}Toshio Minei`, [title]);
 
   useEffect(() => {
     smoothScroll();

@@ -21,7 +21,7 @@ const ImageUpload = ({ onImageChange, imgUrl, label }: Props) => {
   const onImageSelected = (imageUrl: string) => {
     onImageChange(imageUrl);
     onImageClose();
-  }
+  };
 
   return (
     <>

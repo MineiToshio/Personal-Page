@@ -31,7 +31,7 @@ const PostPreview = ({
 }: Props) => (
   <Portal>
     <div className="modal">
-      <div className={classnames(scrollClass, "container")}>
+      <div className={classnames(scrollClass, 'container')}>
         <button className="close" onClick={onClose} type="button">
           <Icon icon="times" />
         </button>

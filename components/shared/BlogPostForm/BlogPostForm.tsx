@@ -23,7 +23,7 @@ const BlogPostForm = ({
     if (body) {
       body.style.overflowY = 'auto';
     }
-    setPreviewData(null)
+    setPreviewData(null);
   };
 
   const onPreview = (formData: Partial<FormType>) => {
@@ -32,7 +32,7 @@ const BlogPostForm = ({
       body.style.overflowY = 'hidden';
     }
     setPreviewData(formData);
-  }
+  };
 
   return (
     <>

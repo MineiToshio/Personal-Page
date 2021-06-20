@@ -108,11 +108,7 @@ const BlogPostForm = ({
           control={control}
           name="featureImage"
           render={({ field: { onChange, value } }) => (
-            <ImageUpload
-              onImageChange={onChange}
-              imgUrl={value}
-              label="Feature Image"
-            />
+            <ImageUpload onImageChange={onChange} imgUrl={value} label="Feature Image" />
           )}
         />
         <Spacer size={3} direction="vertical" />
