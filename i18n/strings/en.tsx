@@ -70,6 +70,11 @@ const strings: Strings = {
   Spinner: {
     loading: 'Loading',
   },
+  BlogSocial: {
+    like: 'Like',
+    shareTwitter: 'Share on Twitter',
+    shareFacebook: 'Share on Facebook',
+  },
 };
 
 export default strings;

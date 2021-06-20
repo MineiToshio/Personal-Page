@@ -11,6 +11,7 @@ const env = {
   FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
   FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
   GOOGLE_ANALYTICS_TRAKING_ID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+  FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
 };
 
 const nextConfig = {

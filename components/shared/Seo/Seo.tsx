@@ -37,6 +37,7 @@ const Seo = ({ title, description, image, url }: Props) => (
       </>
     )}
     <meta property="og:type" content="website" />
+    <meta property="fb:app_id" content={process.env.FACEBOOK_APP_ID} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:site" content="@MineiToshio" />
   </Head>
