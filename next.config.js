@@ -15,9 +15,6 @@ const env = {
 };
 
 const nextConfig = {
-  future: {
-    webpack5: true,
-  },
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest),
   generateInDevMode: true,
