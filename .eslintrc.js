@@ -73,5 +73,6 @@ module.exports = {
   },
   globals: {
     JSX: 'readonly',
+    FB: 'readonly',
   },
 };

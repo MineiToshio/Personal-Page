@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import theme from '@/styles/theme';
 import { Icon } from '@/components/core';
 import useTranslation from '@/hooks/useTranslation';
@@ -13,17 +14,34 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
   const { t, locale } = useTranslation('BlogSocial');
 
   const onFacebookClick = () => {
-    // TODO: Implement facebook share
-  }
+    FB.ui({
+      method: 'share',
+      href: `https://toshiominei.com/${locale}/blog/${postUrl}`,
+    });
+  };
 
   const onTwitterClick = () => {
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURI(postTitle)}&url=${encodeURI(
-      `https://toshiominei.com/${locale}/blog/${postUrl}`,
-    )}&via=MineiToshio`, '_blank')
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURI(postTitle)}&url=${encodeURI(
+        `https://toshiominei.com/${locale}/blog/${postUrl}`,
+      )}&via=MineiToshio`,
+      '_blank',
+    );
   };
 
   return (
     <div className="social">
+      <Script strategy="lazyOnload" src="https://connect.facebook.net/en_US/sdk.js" />
+      <Script>{`
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : ${process.env.FACEBOOK_APP_ID},
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v11.0'
+          });
+        };
+      `}</Script>
       <button type="button" title={t('like')}>
         <Icon icon="thumbsUp" />
         <span className="like-count">{likeQty}</span>
@@ -74,7 +92,7 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
         }
       `}</style>
     </div>
-  )
+  );
 };
 
 export default BlogSocial;
