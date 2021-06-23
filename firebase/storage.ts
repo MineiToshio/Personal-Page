@@ -1,3 +1,4 @@
+import Compressor from 'compressorjs';
 import uniqid from 'uniqid';
 import getFileType from '@/helpers/getFileType';
 import getImageFileDimensions from '@/helpers/getImageFileDimensions';
@@ -8,17 +9,33 @@ import { getDate } from './utils';
 
 const storageRef = storage.ref();
 
+const compressImage = (image: File) =>
+  new Promise<File>(
+    (resolve, reject) =>
+      new Compressor(image, {
+        maxWidth: 700,
+        maxHeight: 700,
+        quality: 0.8,
+        convertSize: 200000,
+        success: result => resolve(result as File),
+        error: reject,
+      }),
+  );
+
 export const saveFile = async (file: File) => {
-  const filename = file.name;
+  const fileType = getFileType(file.type);
+  const realFile = fileType === 'image' ? await compressImage(file) : file;
+
+  const filename = realFile.name;
   const ext = filename.slice((Math.max(0, filename.lastIndexOf('.')) || Infinity) + 1);
 
   const hash = uniqid();
   const storageName = `${hash}.${ext}`;
 
   const fileRef = storageRef.child(storageName);
-  await fileRef.put(file);
+  await fileRef.put(realFile);
 
-  const imageDimensions = await getImageFileDimensions(file);
+  const imageDimensions = await getImageFileDimensions(realFile);
   const filenameWithoutExt = filename.slice(0, -ext.length - 1);
 
   const url: string = await fileRef.getDownloadURL();
@@ -27,10 +44,10 @@ export const saveFile = async (file: File) => {
     name: filenameWithoutExt,
     storageName,
     ext,
-    type: getFileType(file.type),
+    type: fileType,
     url,
     createdAt: getDate(),
-    size: file.size,
+    size: realFile.size,
     ...imageDimensions,
   };
   createFile(fileDoc);

@@ -27,6 +27,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "analytics": "^0.7.5",
     "classnames": "^2.3.1",
+    "compressorjs": "^1.0.7",
     "default-passive-events": "^2.0.0",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.8",
