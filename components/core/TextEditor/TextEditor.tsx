@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import theme from '@/styles/theme';
 import type Quill from 'quill';
 import useBoolean from '@/hooks/useBoolean';
+import hljs from '@/helpers/highlightjs';
 import { ImageGallery } from '../../shared';
 import 'quill/dist/quill.snow.css';
 
@@ -39,6 +40,9 @@ const TextEditor = ({ value, onChange }: Props) => {
         const editor = new QuillModule(ref.current, {
           theme: 'snow',
           modules: {
+            syntax: {
+              highlight: (text: string) => hljs.highlightAuto(text).value,
+            },
             toolbar: {
               container: TOOLBAR_CONTAINER,
               handlers: {

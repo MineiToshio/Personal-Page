@@ -32,6 +32,8 @@
     "dotenv": "^10.0.0",
     "firebase": "^8.6.8",
     "firebase-admin": "^9.9.0",
+    "highlight.js": "^11.0.1",
+    "highlightjs": "^9.16.2",
     "html-to-text": "^8.0.0",
     "javascript-time-ago": "^2.3.7",
     "jssor-slider": "^28.0.0",
