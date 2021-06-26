@@ -1,9 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import theme from '@/styles/theme';
-import type Quill from 'quill';
+import Quill from 'quill';
 import useBoolean from '@/hooks/useBoolean';
 import hljs from '@/helpers/highlightjs';
+import useBodyScroll from '@/hooks/useBodyScroll';
 import { ImageGallery } from '../../shared';
+import HtmlView from './HtmlView';
 import 'quill/dist/quill.snow.css';
 
 const TOOLBAR_CONTAINER = [
@@ -21,6 +23,7 @@ const TOOLBAR_CONTAINER = [
   [{ size: [] }], // custom dropdown
   ['image', 'video'],
   ['clean'], // remove formatting button
+  ['html'],
 ];
 
 type Props = {
@@ -32,12 +35,14 @@ const TextEditor = ({ value, onChange }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [quill, setQuill] = useState<Quill | null>();
   const [showGallery, onImageOpen, onImageClose] = useBoolean();
+  const [showHtml, onHtmlOpen, onHtmlClose] = useBoolean();
+
+  useBodyScroll(!showHtml);
 
   useEffect(() => {
     const loadQuill = async () => {
       if (ref && ref.current) {
-        const QuillModule = (await import('quill')).default;
-        const editor = new QuillModule(ref.current, {
+        const editor = new Quill(ref.current, {
           theme: 'snow',
           modules: {
             syntax: {
@@ -47,6 +52,7 @@ const TextEditor = ({ value, onChange }: Props) => {
               container: TOOLBAR_CONTAINER,
               handlers: {
                 image: onImageOpen,
+                html: onHtmlOpen,
               },
             },
           },
@@ -61,7 +67,7 @@ const TextEditor = ({ value, onChange }: Props) => {
     if (typeof window !== 'undefined' && !quill) {
       loadQuill();
     }
-  }, [onImageOpen, quill, value]);
+  }, [onHtmlOpen, onImageOpen, quill, value]);
 
   useEffect(() => {
     const onTextChange = () => {
@@ -93,9 +99,24 @@ const TextEditor = ({ value, onChange }: Props) => {
     }
   };
 
+  const onHtmlConfirm = (newVal: string) => {
+    if (quill) {
+      onHtmlClose();
+      quill.setText('');
+      quill.clipboard.dangerouslyPasteHTML(newVal);
+    }
+  };
+
   return (
     <>
       {showGallery && <ImageGallery onImageSelected={onImageSelected} onClose={onImageClose} />}
+      {showHtml && (
+        <HtmlView
+          initialValue={quill?.root.innerHTML.trimEnd() ?? ''}
+          onConfirm={onHtmlConfirm}
+          onClose={onHtmlClose}
+        />
+      )}
       <div className="editor">
         <div ref={ref} />
         <style jsx>{`
@@ -112,6 +133,9 @@ const TextEditor = ({ value, onChange }: Props) => {
           .editor :global(.ql-editor p) {
             margin: 1em 0;
             line-height: 32px;
+          }
+          .editor :global(.ql-html:after) {
+            content: 'html';
           }
         `}</style>
       </div>

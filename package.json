@@ -27,6 +27,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "analytics": "^0.7.5",
     "classnames": "^2.3.1",
+    "codemirror": "^5.62.0",
     "compressorjs": "^1.0.7",
     "default-passive-events": "^2.0.0",
     "dotenv": "^10.0.0",
@@ -51,9 +52,11 @@
     "shufflejs": "^5.4.1",
     "slugify": "^1.5.3",
     "styled-jsx": "^3.4.4",
-    "uniqid": "^5.3.0"
+    "uniqid": "^5.3.0",
+    "xml-formatter": "^2.4.0"
   },
   "devDependencies": {
+    "@types/codemirror": "^5.60.1",
     "@types/facebook-js-sdk": "^3.3.2",
     "@types/html-to-text": "^8.0.0",
     "@types/javascript-time-ago": "^2.0.2",
