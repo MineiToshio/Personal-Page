@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Locale } from '@/types/i18n';
+import useBodyScroll from '@/hooks/useBodyScroll';
 import PostPreview from './PostPreview';
 import Form from './Form';
 import type { Props as FormProps, FormType } from './Form';
@@ -18,21 +19,9 @@ const BlogPostForm = ({
   const [language, setLanguage] = useState<Locale>('es');
   const [previewData, setPreviewData] = useState<Partial<FormType> | null>(null);
 
-  const onPreviewClose = () => {
-    const body = document.querySelector('body');
-    if (body) {
-      body.style.overflowY = 'auto';
-    }
-    setPreviewData(null);
-  };
+  useBodyScroll(previewData === null);
 
-  const onPreview = (formData: Partial<FormType>) => {
-    const body = document.querySelector('body');
-    if (body) {
-      body.style.overflowY = 'hidden';
-    }
-    setPreviewData(formData);
-  };
+  const onPreviewClose = () => setPreviewData(null);
 
   return (
     <>
@@ -57,7 +46,7 @@ const BlogPostForm = ({
         isPostPublished={isPostPublished}
         language={language}
         onLanguageChange={setLanguage}
-        onPreview={onPreview}
+        onPreview={setPreviewData}
       />
     </>
   );
