@@ -1,0 +1,11 @@
+{
+  "*": [
+    "prettier --write"
+  ],
+  "**/*.{js,jsx,ts,tsx}": [
+    "eslint . --fix"
+  ],
+  "**/*.{ts,tsx}": [
+    "bash -c tsc --pretty --noEmit"
+  ]
+}

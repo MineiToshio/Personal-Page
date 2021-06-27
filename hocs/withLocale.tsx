@@ -2,15 +2,15 @@ import React from 'react';
 import { NextPage } from 'next';
 import Error from 'next/error';
 import { getDisplayName } from 'next/dist/next-server/lib/utils';
-import { isLocale, Locale } from '../types/i18n';
-import { LocaleProvider } from '../context/LocaleContext';
+import { isLocale, Locale } from '@/types/i18n';
+import { LocaleProvider } from '@/context/LocaleContext';
 
 type LangProps = {
   locale?: Locale;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (WrappedPage: NextPage<any>) => {
+const withLocale = (WrappedPage: NextPage<any>) => {
   const WithLocale: NextPage<LangProps> = ({ locale, ...pageProps }) => {
     if (!locale) {
       // no valid locale detected
@@ -24,7 +24,7 @@ export default (WrappedPage: NextPage<any>) => {
     );
   };
 
-  WithLocale.getInitialProps = async (ctx) => {
+  WithLocale.getInitialProps = async ctx => {
     // retrieve initial props of the wrapped component
     let pageProps = {};
     if (WrappedPage.getInitialProps) {
@@ -45,3 +45,5 @@ export default (WrappedPage: NextPage<any>) => {
 
   return WithLocale;
 };
+
+export default withLocale;

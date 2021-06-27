@@ -1,5 +1,5 @@
 import slugify from 'slugify';
 
-export default function slug(name: string) {
-  return slugify(name, { lower: true }).replace(/[^\w-]+/g, '');
-}
+const slug = (name: string) => slugify(name, { lower: true }).replace(/[^\w-]+/g, '');
+
+export default slug;

@@ -3,7 +3,7 @@ import { LocaleContext } from '../context/LocaleContext';
 import en from '../i18n/strings/en';
 import es from '../i18n/strings/es';
 
-export default function useTranslation(component: string) {
+const useTranslation = (component: string) => {
   const { locale } = useContext(LocaleContext);
   const strings = useMemo(() => {
     switch (locale) {
@@ -30,4 +30,6 @@ export default function useTranslation(component: string) {
     t,
     locale,
   };
-}
+};
+
+export default useTranslation;

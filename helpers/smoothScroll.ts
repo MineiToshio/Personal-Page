@@ -1,6 +1,6 @@
-export default function smoothScroll() {
-  document.querySelectorAll('.scroll').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
+const smoothScroll = () => {
+  document.querySelectorAll('.scroll').forEach(anchor => {
+    anchor.addEventListener('click', e => {
       e.preventDefault();
 
       const whereToGo = anchor.getAttribute('href');
@@ -13,4 +13,6 @@ export default function smoothScroll() {
       }
     });
   });
-}
+};
+
+export default smoothScroll;

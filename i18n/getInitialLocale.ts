@@ -1,5 +1,5 @@
+import { Locale, isLocale } from '@/types/i18n';
 import { defaultLocale } from './config';
-import { Locale, isLocale } from '../types/i18n';
 
 export const getInitialLocale = (): Locale => {
   // preference from the previous session
