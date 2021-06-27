@@ -11,4 +11,3 @@ jobs:
     - run: npm ci
     - run: npm run eslint
     - run: npm run type-check
-    - run: npm run build
