@@ -1,6 +1,6 @@
 <p align="center">
   <img alt="Logo" src="public/img/favicon/favicon512.png" width="100" />
-  <a href="http://toshiominei/com">
+  <a href="https://toshiominei.com">
 	<h1 align="center">Sergio Toshio Minei</h1>
   </a>
 <p>
@@ -12,22 +12,24 @@
 
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
-  <a href="http://toshiominei.com" target="_blank">
+  <a href="https://toshiominei.com" target="_blank">
     <img alt="Website" src="https://img.shields.io/website?down_message=offline&label=site&up_message=online&url=http%3A%2F%2Fadarshaacharya.com.np" />
   </a>
   <a href="https://github.com/MineiToshio/Personal-Page/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/MineiToshio/
-Personal-Page" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/MineiToshio/Personal-Page" />
   </a>
 </p>
 
 ## 🛠 Installation & Set Up
 
 1. Install dependencies:
+
 ```sh
 npm install
 ```
+
 2. Set up env variables.
+
 ```
 # .env
 FIREBASE_PUBLIC_API_KEY=**********************
@@ -43,7 +45,9 @@ FIREBASE_PRIVATE_KEY=**********************
 GOOGLE_ANALYTICS_TRAKING_ID=**********************
 FACEBOOK_APP_ID=**********************
 ```
+
 3. Start dev server:
+
 ```sh
 npm run dev
 ```
