@@ -1,5 +1,6 @@
 import React from 'react';
-import TrackVisibility from 'react-on-screen';
+import classnames from 'classnames';
+import useNearScreen from '@/hooks/useNearScreen';
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
@@ -12,128 +13,129 @@ type Props = {
     | 'pop-in';
 };
 
-const SlideElement = ({ children, animation }: Props) => (
-  <>
-    <TrackVisibility once>
-      {({ isVisible }) => <div className={isVisible ? animation : 'invisible'}>{children}</div>}
-    </TrackVisibility>
-    <style jsx>{`
-      .invisible {
-        visibility: hidden;
-      }
-      .slide-up {
-        animation: slideUp 0.75s ease both;
-      }
-      .slide-down {
-        animation: slideDown 0.75s ease both;
-      }
-      .slide-in-left {
-        animation: slideInLeft 0.75s ease both;
-      }
-      .slide-in-right {
-        animation: slideInRight 0.75s ease both;
-      }
-      .flip-in-x {
-        animation: flipInX 0.75s ease both;
-      }
-      .pop-in {
-        animation: popIn 1s both;
-      }
-      @keyframes flipInX {
-        from {
-          transform: perspective(400px) rotateY(90deg);
-          animation-timing-function: ease-in;
-          opacity: 0;
+const SlideElement = ({ children, animation }: Props) => {
+  const [show, element] = useNearScreen<HTMLDivElement>();
+  return (
+    <div ref={element} className={classnames({ [animation]: show, invisible: !show })}>
+      {children}
+      <style jsx>{`
+        .invisible {
+          visibility: hidden;
         }
-        40% {
-          transform: perspective(400px) rotateY(-20deg);
-          animation-timing-function: ease-in;
+        .slide-up {
+          animation: slideUp 0.75s ease both;
         }
-        60% {
-          transform: perspective(400px) rotateY(10deg);
-          opacity: 1;
+        .slide-down {
+          animation: slideDown 0.75s ease both;
         }
-        80% {
-          transform: perspective(400px) rotateY(5deg);
+        .slide-in-left {
+          animation: slideInLeft 0.75s ease both;
         }
-        to {
-          transform: perspective(400px);
-          opacity: 1;
+        .slide-in-right {
+          animation: slideInRight 0.75s ease both;
         }
-      }
-      @keyframes popDown {
-        0% {
-          transform: translateY(-100px);
+        .flip-in-x {
+          animation: flipInX 0.75s ease both;
         }
-      }
-      @keyframes slideUp {
-        0% {
-          transform: translateY(300px);
+        .pop-in {
+          animation: popIn 1s both;
         }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
+        @keyframes flipInX {
+          from {
+            transform: perspective(400px) rotateY(90deg);
+            animation-timing-function: ease-in;
+            opacity: 0;
+          }
+          40% {
+            transform: perspective(400px) rotateY(-20deg);
+            animation-timing-function: ease-in;
+          }
+          60% {
+            transform: perspective(400px) rotateY(10deg);
+            opacity: 1;
+          }
+          80% {
+            transform: perspective(400px) rotateY(5deg);
+          }
+          to {
+            transform: perspective(400px);
+            opacity: 1;
+          }
         }
-      }
-      @keyframes slideDown {
-        0% {
-          transform: translateY(-300px);
+        @keyframes popDown {
+          0% {
+            transform: translateY(-100px);
+          }
         }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
+        @keyframes slideUp {
+          0% {
+            transform: translateY(300px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-      }
-      @keyframes slideInLeft {
-        0% {
-          opacity: 0;
-          transform: translateX(-100%);
+        @keyframes slideDown {
+          0% {
+            transform: translateY(-300px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        100% {
-          opacity: 1;
-          transform: translateX(0);
+        @keyframes slideInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-100%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-      }
-      @keyframes slideInRight {
-        0% {
-          opacity: 0;
-          transform: translateX(100%);
+        @keyframes slideInRight {
+          0% {
+            opacity: 0;
+            transform: translateX(100%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-        100% {
-          opacity: 1;
-          transform: translateX(0);
+        @keyframes toBottomFromTop {
+          49% {
+            transform: translateY(100%);
+          }
+          50% {
+            opacity: 0;
+            transform: translateY(-100%);
+          }
+          51% {
+            opacity: 1;
+          }
         }
-      }
-      @keyframes toBottomFromTop {
-        49% {
-          transform: translateY(100%);
+        @keyframes popIn {
+          0% {
+            transform: scale(0);
+          }
+          60% {
+            opacity: 1;
+            transform: scale(1.05);
+          }
+          80% {
+            transform: scale(0.95);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
         }
-        50% {
-          opacity: 0;
-          transform: translateY(-100%);
-        }
-        51% {
-          opacity: 1;
-        }
-      }
-      @keyframes popIn {
-        0% {
-          transform: scale(0);
-        }
-        60% {
-          opacity: 1;
-          transform: scale(1.05);
-        }
-        80% {
-          transform: scale(0.95);
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-    `}</style>
-  </>
-);
+      `}</style>
+    </div>
+  );
+};
 
 export default SlideElement;

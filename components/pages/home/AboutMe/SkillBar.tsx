@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import TrackVisibility from 'react-on-screen';
 import theme from '@/styles/theme';
-import slug from '../../../../helpers/slug';
+import slug from '@/helpers/slug';
+import useNearScreen from '@/hooks/useNearScreen';
 
 type Props = {
   percent: string;
@@ -10,15 +10,11 @@ type Props = {
 
 const SkillBar: FC<Props> = ({ percent, skill }) => {
   const height = '30px';
-
+  const [show, element] = useNearScreen<HTMLDivElement>();
   return (
-    <div className="skillbar" id={slug(skill)}>
+    <div ref={element} className="skillbar" id={slug(skill)}>
       <span className="skillbar-title">{skill}</span>
-      <TrackVisibility once>
-        {({ isVisible }) => (
-          <p className="skillbar-bar" style={{ width: `${isVisible ? percent : 0}%` }} />
-        )}
-      </TrackVisibility>
+      <p className="skillbar-bar" style={{ width: `${show ? percent : 0}%` }} />
       <span className="skill-bar-percent">{percent}%</span>
 
       <style jsx>{`
