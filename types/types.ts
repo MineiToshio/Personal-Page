@@ -1,16 +1,3 @@
-export type BlogPost = {
-  id: number;
-  title: string;
-  photo: string;
-  summary: string;
-  createdAt: string;
-  commentQty: number;
-  readingTime: number;
-  likedQty: number;
-  thumbnail: string;
-  url: string;
-};
-
 export type Project = {
   id: string;
   name: string;
@@ -32,3 +19,5 @@ export type Technology = {
   name: string;
   icon: string;
 };
+
+export type IntentionalAny = any;
