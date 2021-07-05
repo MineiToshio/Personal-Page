@@ -4,6 +4,7 @@ import type { TableHeader, TableOptions } from './Table/Table';
 
 import BrandButton from './BrandButton/BrandButton';
 import Button from './Button/Button';
+import FlexContainer from './FlexContainer/FlexContainer';
 import I18nLink from './I18nLink/I18nLink';
 import Icon from './Icon/Icon';
 import ImageUpload from './ImageUpload/ImageUpload';
@@ -21,6 +22,7 @@ export default null;
 export {
   BrandButton,
   Button,
+  FlexContainer,
   I18nLink,
   Icon,
   ImageUpload,
