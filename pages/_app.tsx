@@ -46,6 +46,7 @@ import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
 import theme from '@/styles/theme';
 import UserConfigProvider, { UserContext } from '@/context/UserContext';
+import ViewportProvider from '@/context/ViewportContext';
 import { Spinner } from '@/components/shared';
 
 config.autoAddCss = false;
@@ -121,8 +122,10 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
             {currentUser != null && initializing ? (
               <Spinner />
             ) : (
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              <Component {...pageProps} />
+              <ViewportProvider>
+                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                <Component {...pageProps} />
+              </ViewportProvider>
             )}
           </>
         )}
