@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
-import { I18nLink, Icon } from '../../core';
+import { I18nLink, Icon } from '@/components/core';
+import { Logo } from '@/components/shared';
 
 const Header = () => {
   const { t } = useTranslation('Header');
@@ -10,7 +11,7 @@ const Header = () => {
   return (
     <header className="header">
       <I18nLink href="/">
-        <span className="logo">Toshio Minei</span>
+        <Logo />
       </I18nLink>
       <button type="button" className="burger" onClick={() => setActive(!active)}>
         <Icon icon="bars" />
@@ -59,15 +60,6 @@ const Header = () => {
           flex-wrap: wrap;
           justify-content: space-between;
           height: 51px; //height of header without padding
-        }
-
-        .logo {
-          font-size: 25pt;
-          font-family: ${theme.font.family.logo};
-          text-transform: capitalize;
-          color: ${theme.color.main};
-          text-decoration: none;
-          margin-right: auto;
         }
 
         .burger {
