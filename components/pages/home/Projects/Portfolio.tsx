@@ -135,7 +135,7 @@ const Portfolio: FC = () => {
           margin-bottom: 20px;
           text-align: center;
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .filters button {
@@ -161,7 +161,7 @@ const Portfolio: FC = () => {
         .portfolio {
           position: relative;
           overflow: hidden;
-          width: 85%;
+          width: 100%;
           margin: auto;
         }
 
@@ -169,21 +169,21 @@ const Portfolio: FC = () => {
           width: 8.33333%;
         }
 
-        @media only screen and (max-width: 1200px) {
-          .portfolio {
-            width: 90%;
-          }
-        }
-
-        @media only screen and (max-width: 750px) {
+        @media only screen and ${theme.breakpoint.smUp} {
           .filters {
             grid-template-columns: repeat(3, 1fr);
           }
         }
 
-        @media only screen and (max-width: 400px) {
+        @media only screen and ${theme.breakpoint.mdUp} {
           .filters {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(6, 1fr);
+          }
+        }
+
+        @media only screen and ${theme.breakpoint.xlUp} {
+          .portfolio {
+            width: 90%;
           }
         }
       `}</style>

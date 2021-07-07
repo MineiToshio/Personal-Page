@@ -54,20 +54,20 @@ const AdminPost: NextPage<Props> = ({ post }) => {
       const readingTimeEn = calculateReadingTime(contentEn);
       const editedPost: Partial<PostDoc> = {
         en: {
-          ...titleEn && { title: titleEn },
-          ...contentEn && { content: contentEn },
+          ...(titleEn && { title: titleEn }),
+          ...(contentEn && { content: contentEn }),
           readingTime: readingTimeEn,
         },
         es: {
-          ...titleEs && { title: titleEs },
-          ...contentEs && { content: contentEs },
+          ...(titleEs && { title: titleEs }),
+          ...(contentEs && { content: contentEs }),
           readingTime: readingTimeEs,
         },
-        ...featureImage && { featureImage },
-        ...url && { url },
+        ...(featureImage && { featureImage }),
+        ...(url && { url }),
         updatedAt: getDate(),
-        ...isPublished && { publishedAt: getDate() },
-        ...isPublished && { isPublished },
+        ...(isPublished && { publishedAt: getDate() }),
+        ...(isPublished && { isPublished }),
       };
       return editedPost;
     }

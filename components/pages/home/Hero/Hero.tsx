@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
+import constants from '@/helpers/constants';
+import { FlexContainer, Button, Typography, Spacer } from '@/components/core';
+import { SocialIcons, Particles } from '@/components/shared';
+import smoothScroll from '@/helpers/smoothScroll';
 import ViewMore from './ViewMore';
-import { SocialIcons, Particles } from '../../../shared';
 
 type Props = {
   id: string;
@@ -15,13 +18,34 @@ const Hero: FC<Props> = ({ id }) => {
       <Particles />
       <SocialIcons />
       <div className="content">
-        <div className="title">
-          {t('hello')}{' '}
-          <div className="name">
-            {t('im')} <span className="highlight">Toshio Minei</span>
-          </div>
+        <Typography color="white">{t('hello')}</Typography>
+        <Spacer direction="vertical" size={1} />
+        <Typography
+          variant="title"
+          fontSize="hero"
+          lineHeight="none"
+          fontWeight="bold"
+          color="black"
+        >
+          {constants.name}
+        </Typography>
+        <Spacer direction="vertical" size={2} />
+        <Typography fontSize="heroSubtitle" lineHeight="small" fontWeight="bold" color="dark">
+          {t('tagline')}
+        </Typography>
+        <Spacer direction="vertical" size={4} />
+        <div className="description">
+          <Typography lineHeight="small" color="dark">
+            {t('description')}
+          </Typography>
         </div>
-        <div className="sub-title">{t('tagline')}</div>
+        <Spacer direction="vertical" size={6} />
+        <Button
+          text="Contáctame"
+          onClick={() => smoothScroll(constants.sectionIds.contact)}
+          backgroundColor="white"
+          bordered
+        />
       </div>
       <ViewMore title={t('viewMyWork')} />
 
@@ -44,50 +68,37 @@ const Hero: FC<Props> = ({ id }) => {
           color: ${theme.color.dark};
         }
         .content {
-          text-align: center;
           z-index: 1;
-        }
-        .title {
-          font-size: 30pt;
-          text-align: center;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
+          margin: 0 16px;
+          text-align: left;
+          width: 100%;
         }
         .highlight {
           color: ${theme.color.dark};
           font-weight: bold;
         }
-        .name {
-          margin-left: 10px;
-        }
-        .sub-title {
-          font-size: 25pt;
-          padding-top: 15px;
-        }
-        @media only screen and (max-width: 650px) {
-          .title {
-            font-size: 25pt;
-          }
-          .sub-title {
-            font-size: 18pt;
-          }
+        .description {
+          max-width: 600px;
         }
         @media only screen and (max-width: 470px) {
-          .title {
-            flex-direction: column;
-            font-size: 23pt;
-          }
-          .name {
-            margin-left: 0;
-          }
-          .sub-title {
-            font-size: 16pt;
-            padding-top: 25px;
-          }
           .hero :global(.social-icons) {
             right: auto;
             margin: 20px auto;
+          }
+        }
+        @media only screen and ${theme.breakpoint.mdUp} {
+          .content {
+            margin: 0 10%;
+          }
+        }
+        @media only screen and ${theme.breakpoint.lgUp} {
+          .content {
+            margin: 0 15%;
+          }
+        }
+        @media only screen and ${theme.breakpoint.xlUp} {
+          .content {
+            margin: 0 20%;
           }
         }
       `}</style>

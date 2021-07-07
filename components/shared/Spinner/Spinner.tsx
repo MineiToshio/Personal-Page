@@ -24,7 +24,9 @@ const Spinner: FC<Props> = ({ parentRef, borderRadius = 0 }) => {
         <img src="/img/icons/icon-192x192.png" alt="Loading" />
       </div>
       <Spacer size={1} direction="vertical" />
-      <Typography text={t('loading')} variant="title" fontSize="subtitle" />
+      <Typography variant="title" fontSize="subtitle">
+        {t('loading')}
+      </Typography>
       <style jsx>{`
         @keyframes movement {
           0% {

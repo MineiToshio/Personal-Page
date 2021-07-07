@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
+import constants from '@/helpers/constants';
 import { SocialIcons } from '../../shared';
 
 const Footer: FC = () => (
   <footer>
     <SocialIcons />
-    <div>Toshio Minei ©{new Date().getFullYear()}</div>
+    <div>
+      {constants.name} ©{new Date().getFullYear()}
+    </div>
 
     <style jsx>{`
       footer {

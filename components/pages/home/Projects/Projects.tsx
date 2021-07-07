@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
 import useTranslation from '@/hooks/useTranslation';
 import Portfolio from './Portfolio';
-import { SectionFooter } from '../../../shared';
+import { SectionFooter, MainContainer } from '../../../shared';
 
 const Proyects: FC = () => {
   const { t } = useTranslation('Proyects');
   return (
     <div className="projects">
-      <Portfolio />
+      <MainContainer>
+        <Portfolio />
+      </MainContainer>
       <SectionFooter title={t('title')} url="https://github.com/MineiToshio" button={t('button')} />
 
       <style jsx>{`

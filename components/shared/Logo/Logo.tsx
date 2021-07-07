@@ -1,9 +1,10 @@
 import React from 'react';
 import theme from '@/styles/theme';
+import constants from '@/helpers/constants';
 
 const Logo = () => (
   <span className="logo">
-    Toshio Minei
+    {constants.shortName}
     <style jsx>{`
       .logo {
         font-size: 33px;

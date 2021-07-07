@@ -22,7 +22,7 @@ const LanguageSelector = ({ onLanguageChange, language }: Props) => (
             selected: language === lang[0],
           })}
         >
-          <Typography text={lang[1]} color={language === lang[0] ? 'white' : 'dark'} />
+          <Typography color={language === lang[0] ? 'white' : 'dark'}>{lang[1]}</Typography>
         </button>
         <Spacer direction="horizontal" size={2} />
       </Fragment>

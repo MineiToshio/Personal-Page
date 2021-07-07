@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import useCurrentUser from '@/hooks/useCurrentUser';
+import constants from '@/helpers/constants';
 import type { AuthorizationType } from '../../shared';
 import { BaseLayout as Layout } from '..';
 import Header from './Header';
@@ -15,7 +16,7 @@ const AdminLayout: FC<Props> = ({ children, title, authorizationType }) => {
   return (
     <Layout
       authorizationType={authorizationType}
-      title={`${title ? `${title} | ` : ''}Toshio Minei Admin`}
+      title={`${title ? `${title} | ` : ''}${constants.name} Admin`}
     >
       <Header user={currentUser} />
       <div className="content">{children}</div>

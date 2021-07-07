@@ -36,14 +36,22 @@ const PostPreview: FC<Props> = ({
       )}
       <div className="blog-data">
         <Like likeQty={likeQty} />
-        <I18nLink href={`/blog/${url}`}>
-          <h2>{title}</h2>
+        <I18nLink href={`/blog/${url}`} className="title">
+          <Typography
+            variant="subtitle"
+            color="black"
+            hoverColor="main"
+            fontWeight="bold"
+            lineHeight="small"
+          >
+            {title}
+          </Typography>
         </I18nLink>
         <BlogMeta publishedAt={publishedAt} commentsQty={commentsQty} readingTime={readingTime} />
       </div>
       <Spacer direction="vertical" size={2} />
       <LineClamp lines={4}>
-        <Typography text={summary} />
+        <Typography>{summary}</Typography>
       </LineClamp>
       <Spacer direction="vertical" size={2} />
       <I18nLink href={`/blog/${url}`}>
@@ -53,7 +61,6 @@ const PostPreview: FC<Props> = ({
       <style jsx>{`
         article {
           padding-bottom: 35px;
-          border-bottom: 1px dotted #ddd;
           margin-bottom: 40px;
         }
         .view-more {
@@ -73,11 +80,6 @@ const PostPreview: FC<Props> = ({
           border-radius: 20px;
           width: 100%;
         }
-        p {
-          font-family: ${theme.font.family.default};
-          line-height: 32px;
-          font-size: ${theme.font.size.body};
-        }
         .blog-data {
           display: grid;
           grid-template-areas:
@@ -86,24 +88,12 @@ const PostPreview: FC<Props> = ({
           grid-template-columns: minmax(auto, 50px) 1fr;
           margin-top: 20px;
           grid-column-gap: 10px;
+          grid-row-gap: 8px;
         }
-        .blog-data h2 {
+        .blog-data :global(.title) {
           grid-area: title;
-          margin-bottom: 5px;
-          margin-top: 0;
-          color: #000;
-        }
-        .blog-data h2:hover {
-          color: ${theme.color.main};
         }
         @media screen and (max-width: 700px) {
-          .blog-data h2 {
-            font-size: 1.3em;
-          }
-          p {
-            line-height: 21px;
-            font-size: 15px;
-          }
           .view-more {
             padding: 6px 15px;
             font-size: 14px;

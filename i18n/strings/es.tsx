@@ -1,4 +1,5 @@
 import { Strings } from '@/types/i18n';
+import constants from '@/helpers/constants';
 
 const strings: Strings = {
   BlogMeta: {
@@ -20,24 +21,25 @@ const strings: Strings = {
   },
   AboutMe: {
     whoAmI: '¿Quién soy?',
-    me: 'Soy Toshio Minei, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas.',
+    me: `Soy ${constants.name}, frontend developer, emprendedor y blogger. Me encuentro en Perú (GMT -5), me apasiona la tecnología y me encanta aprender nuevas cosas.`,
     technologiesIUsed: 'Tecnologías que he usado',
     footerTitle: '¿quieres conocer más de mi?',
     footerButton: 'Visita mi LinkedIn',
   },
   Hero: {
-    hello: '¡Bienvenido!',
+    hello: '¡Hola! Mi nombre es',
     im: 'Soy',
-    tagline: 'tech geek, emprendedor, lifelong learner',
+    tagline: 'Soluciono problemas diarios usando código.',
     viewMyWork: 'conoce mi trabajo',
+    description:
+      'Soy un ingeniero de software especializado en crear experiencias digitales para la web. Me apasiona usar la tecnología para mejorar la vida de las personas.',
   },
   Proyects: {
     title: '¿Quieres ver más proyectos?',
     button: 'Visita mi Github',
   },
   Layout: {
-    description:
-      'Soy Toshio Minei, fullstack web developer, emprendedor y blogger.Me apasiona la tecnología y me encanta aprender nuevas cosas.',
+    description: `Soy ${constants.name}, fullstack web developer, emprendedor y blogger. Me apasiona la tecnología y me encanta aprender nuevas cosas.`,
   },
   Portfolio: {
     all: 'Todos',
@@ -52,20 +54,20 @@ const strings: Strings = {
     contact: 'contacto',
   },
   Blog: {
-    subtitle: 'aprendamos un poco juntos',
+    subtitle: 'APRENDAMOS UN POCO JUNTOS',
   },
   Index: {
     aboutMeTitle: 'Sobre Mi',
-    aboutMeSubtitle: 'Soy un fullstack web developer',
+    aboutMeSubtitle: 'SOY UN FRONTEND DEVELOPER',
     parallax1Quote: 'La mejor forma de predecir el futuro es implementarlo',
     parallax1Author: 'David Heinemeier - Creador de Ruby on Rails',
     portfolioTitle: 'Portafolio',
-    portfolioSubtitle: 'Conoce alguno de los proyectos en los que he trabajado',
+    portfolioSubtitle: 'CONOCE ALGUNO DE LOS PROYECTOS EN LOS QUE HE TRABAJADO',
     parallax2Quote:
       'Una máquina puede hacer el trabajo de cincuenta hombres ordinarios. Ninguna máquina puede hacer el trabajo de un hombre extraordinario.',
     parallax2Author: 'Elbert Hubbard - Escritor',
     contactTitle: 'Contacto',
-    contactSubtitle: '¿Tienes una idea de proyecto? ¡Trabajemos juntos!',
+    contactSubtitle: '¿TIENES UNA IDEA DE PROYECTO? ¡TRABAJEMOS JUNTOS!',
   },
   Spinner: {
     loading: 'Cargando',

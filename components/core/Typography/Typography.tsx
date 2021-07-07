@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
-import theme, { Color, FontSize, FontWeight, LineHeight } from '@/styles/theme';
+import React, { ReactNode } from 'react';
+import theme, { Color, FontSize, FontWeight, LineHeight, FontFamily, Align } from '@/styles/theme';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
 
 const Variant = Object.freeze({
   title: 'h1',
@@ -10,34 +11,46 @@ const Variant = Object.freeze({
 
 export type Props = {
   variant?: 'title' | 'subtitle' | 'body' | 'body2';
-  text: string | number;
+  children: ReactNode;
   color?: Color;
+  hoverColor?: Color;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
   lineHeight?: LineHeight;
+  fontFamily?: FontFamily;
+  align?: Align;
 };
 
-const Typography: FC<Props> = ({
+const Typography = ({
   variant = 'body',
-  text,
+  children,
   color = 'dark',
+  hoverColor,
   fontSize,
   fontWeight = 'normal',
   lineHeight = 'normal',
-}) => {
+  fontFamily,
+  align,
+}: Props) => {
   const Tag = Variant[variant] as keyof JSX.IntrinsicElements;
+  const defaultFontFamily = variant === 'title' ? 'title' : 'default';
   const defaultFontSize = variant === 'body2' ? 'body' : variant;
+  const fontSizeValue = useBreakpointValues(theme.font.size[fontSize ?? defaultFontSize]);
   return (
     <Tag className="text">
-      {text}
+      {children}
       <style jsx>{`
         .text {
           color: ${theme.color[color]};
-          font-family: ${theme.font.family.default};
+          font-family: ${theme.font.family[fontFamily ?? defaultFontFamily]};
           margin: 0;
           font-weight: ${theme.font.weight[fontWeight]};
-          font-size: ${theme.font.size[fontSize ?? defaultFontSize]};
+          font-size: ${fontSizeValue};
           line-height: ${theme.lineHeight[lineHeight]};
+          text-align: ${align ?? 'inherit'};
+        }
+        .text:hover {
+          color: ${theme.color[hoverColor ?? color]};
         }
       `}</style>
     </Tag>

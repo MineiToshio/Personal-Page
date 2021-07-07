@@ -33,7 +33,9 @@ const ImageUpload = ({ onImageChange, imgUrl, label }: Props) => {
             (imgUrl ? (
               <img src={imgUrl} alt="upload" className="uploaded-image" />
             ) : (
-              <Typography variant="body2" text={label} color="muted" />
+              <Typography variant="body2" color="muted">
+                {label}
+              </Typography>
             ))}
         </div>
         {imgUrl && (
@@ -43,7 +45,7 @@ const ImageUpload = ({ onImageChange, imgUrl, label }: Props) => {
         )}
 
         <button type="button" className="upload-button" onClick={onImageOpen}>
-          <Typography variant="body2" text="Upload photo" />
+          <Typography variant="body2">Upload photo</Typography>
         </button>
       </div>
       <style jsx>{`

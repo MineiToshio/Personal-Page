@@ -7,7 +7,9 @@ type Props = {
 
 const InfoText = ({ text }: Props) => (
   <>
-    <Typography text={text} fontSize="small" lineHeight="small" />
+    <Typography fontSize="tiny" lineHeight="small">
+      {text}
+    </Typography>
     <Spacer direction="vertical" size={1} />
   </>
 );

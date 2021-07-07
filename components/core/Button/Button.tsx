@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 import theme, { Color, FontSize } from '@/styles/theme';
 import { Icon as IconType } from '@/styles/icons';
+import { hexToRgba } from '@/styles/utils';
 import { Typography, Icon, Spacer } from '..';
 
 type Button = {
@@ -22,6 +23,7 @@ export type Props = {
   fontSize?: FontSize;
   isLoading?: boolean;
   title?: string;
+  bordered?: boolean;
 } & (Button | Submit);
 
 const StandardButton: FC<Props> = ({
@@ -34,6 +36,7 @@ const StandardButton: FC<Props> = ({
   type = 'button',
   isLoading,
   title,
+  bordered = false,
 }) => (
   <button
     onClick={onClick}
@@ -44,22 +47,31 @@ const StandardButton: FC<Props> = ({
     title={title}
   >
     {isLoading ? (
-      <Icon icon="spinner" color="white" fontSize={fontSize} pulse />
+      <Icon icon="spinner" color={bordered ? backgroundColor : 'white'} fontSize={fontSize} pulse />
     ) : (
       <>
-        {icon && <Icon icon={icon} color="white" fontSize={fontSize} />}
+        {icon && (
+          <Icon icon={icon} color={bordered ? backgroundColor : 'white'} fontSize={fontSize} />
+        )}
         {icon && text && <Spacer direction="horizontal" size={1.5} />}
-        {text && <Typography text={text} color="white" variant="body2" fontSize={fontSize} />}
+        {text && (
+          <Typography
+            color={bordered ? backgroundColor : 'white'}
+            variant="body2"
+            fontSize={fontSize}
+          >
+            {text}
+          </Typography>
+        )}
       </>
     )}
 
     <style jsx>{`
       .button {
         display: flex;
-        background: ${theme.color[backgroundColor]};
+        background: ${bordered ? 'transparent' : theme.color[backgroundColor]};
         padding: ${text ? '5px 15px' : '8px 10px'};
-        border: none;
-        color: ${theme.color.white};
+        border: ${bordered ? `2px solid ${theme.color[backgroundColor]}` : 'none'};
         border-radius: 5px;
         cursor: pointer;
         align-items: center;
@@ -67,6 +79,9 @@ const StandardButton: FC<Props> = ({
       }
       .button:hover {
         filter: brightness(1.1);
+        background: ${bordered
+          ? hexToRgba(theme.color[backgroundColor], 0.1)
+          : theme.color[backgroundColor]};
       }
       .full-width {
         width: 100%;

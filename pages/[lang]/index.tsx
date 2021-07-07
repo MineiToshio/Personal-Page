@@ -5,14 +5,19 @@ import useTranslation from '@/hooks/useTranslation';
 import { MainLayout as Layout } from '@/components/layout';
 import { Hero, ContactForm, AboutMe, Projects } from '@/components/pages/home';
 import { Parallax, Section } from '@/components/shared';
+import constants from '@/helpers/constants';
 
 const Index: NextPage = () => {
   const { t } = useTranslation('Index');
   return (
     <div>
-      <Hero id="hero" />
+      <Hero id={constants.sectionIds.hero} />
       <Layout>
-        <Section id="about-me" title={t('aboutMeTitle')} subtitle={t('aboutMeSubtitle')}>
+        <Section
+          id={constants.sectionIds.aboutMe}
+          title={t('aboutMeTitle')}
+          subtitle={t('aboutMeSubtitle')}
+        >
           <AboutMe />
         </Section>
 
@@ -22,7 +27,11 @@ const Index: NextPage = () => {
           image="/img/parallax/parallax1.jpg"
         />
 
-        <Section id="portfolio" title={t('portfolioTitle')} subtitle={t('portfolioSubtitle')}>
+        <Section
+          id={constants.sectionIds.portfolio}
+          title={t('portfolioTitle')}
+          subtitle={t('portfolioSubtitle')}
+        >
           <Projects />
         </Section>
 
@@ -32,7 +41,11 @@ const Index: NextPage = () => {
           image="/img/parallax/parallax2.jpg"
         />
 
-        <Section id="contacto" title={t('contactTitle')} subtitle={t('contactSubtitle')}>
+        <Section
+          id={constants.sectionIds.contact}
+          title={t('contactTitle')}
+          subtitle={t('contactSubtitle')}
+        >
           <ContactForm />
         </Section>
       </Layout>

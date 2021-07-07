@@ -3,6 +3,11 @@ import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
 import { I18nLink, Icon } from '@/components/core';
 import { Logo } from '@/components/shared';
+import constants from '@/helpers/constants';
+import smoothScroll from '@/helpers/smoothScroll';
+import { getResetButtonStyles } from '@/styles/common';
+
+const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
 
 const Header = () => {
   const { t } = useTranslation('Header');
@@ -19,29 +24,45 @@ const Header = () => {
       <div className={`menu ${active && 'active'}`}>
         <ul>
           <li>
-            <a href="#hero" className="scroll">
+            <button
+              className={resetButtonClass}
+              onClick={() => smoothScroll(constants.sectionIds.hero)}
+              type="button"
+            >
               {t('home')}
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#about-me" className="scroll">
+            <button
+              className={resetButtonClass}
+              onClick={() => smoothScroll(constants.sectionIds.aboutMe)}
+              type="button"
+            >
               {t('aboutMe')}
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#portfolio" className="scroll">
+            <button
+              className={resetButtonClass}
+              onClick={() => smoothScroll(constants.sectionIds.portfolio)}
+              type="button"
+            >
               {t('portfolio')}
-            </a>
+            </button>
           </li>
           {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
           <li>
-            <a href="#contacto" className="scroll">
+            <button
+              className={resetButtonClass}
+              onClick={() => smoothScroll(constants.sectionIds.contact)}
+              type="button"
+            >
               {t('contact')}
-            </a>
+            </button>
           </li>
         </ul>
       </div>
-
+      {resetButtonStyles}
       <style jsx>{`
         .header {
           z-index: 10;
@@ -50,13 +71,11 @@ const Header = () => {
           left: 0;
           right: 0;
           background: rgba(186, 193, 184, 0.8);
-          font-family: ${theme.font.family.title};
           display: flex;
           background: ${theme.color.white};
           box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.07);
           border-bottom: 1px solid #f0f0f0;
           padding: 10px 30px;
-          font-weight: bold;
           flex-wrap: wrap;
           justify-content: space-between;
           height: 51px; //height of header without padding
@@ -97,13 +116,14 @@ const Header = () => {
           text-align: center;
         }
 
-        a {
-          text-decoration: none;
+        button {
           color: ${theme.color.secondary};
           font-size: 22px;
+          font-family: ${theme.font.family.title};
+          font-weight: bold;
         }
 
-        a:hover {
+        button:hover {
           color: ${theme.color.main};
         }
 

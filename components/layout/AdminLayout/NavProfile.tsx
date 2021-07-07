@@ -23,7 +23,9 @@ const NavProfile: FC<Props> = ({ name, photoUrl }) => {
     >
       <UserPhoto name={name} photoUrl={photoUrl} />
       <Spacer direction="horizontal" size={1} />
-      <Typography text={name} fontWeight="bold" color="main" />
+      <Typography fontWeight="bold" color="main">
+        {name}
+      </Typography>
       <Spacer direction="horizontal" size={1} />
       <Icon icon="caretDown" />
       {isMenuVisible && (

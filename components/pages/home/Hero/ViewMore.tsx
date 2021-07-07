@@ -1,19 +1,28 @@
 import React, { FC } from 'react';
 import theme from '@/styles/theme';
+import smoothScroll from '@/helpers/smoothScroll';
+import constans from '@/helpers/constants';
+import { getResetButtonStyles } from '@/styles/common';
 
 type Props = {
   title: string;
 };
 
+const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
+
 const ViewMore: FC<Props> = ({ title }) => (
   <div className="view-more">
     <div className="text">
-      <a href="#about-me" className="scroll">
+      <button
+        type="button"
+        onClick={() => smoothScroll(constans.sectionIds.aboutMe)}
+        className={resetButtonClass}
+      >
         {title}
-      </a>
+      </button>
     </div>
     <div className="icon">↓</div>
-
+    {resetButtonStyles}
     <style jsx>{`
       .view-more {
         animation-name: view-more;
@@ -29,11 +38,9 @@ const ViewMore: FC<Props> = ({ title }) => (
         text-align: center;
         font-weight: bold;
       }
-      a {
+      button {
         text-decoration: none;
         color: ${theme.color.white};
-      }
-      .text {
         font-size: 16px;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -43,7 +50,7 @@ const ViewMore: FC<Props> = ({ title }) => (
         font-size: 20px;
       }
       @media only screen and (max-width: 470px) {
-        .text {
+        button {
           font-size: 14px;
         }
       }

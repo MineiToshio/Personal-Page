@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
+import { Typography, Spacer, FlexContainer } from '@/components/core';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
+import { SlideElement, MainContainer } from '@/components/shared';
 import theme from '@/styles/theme';
-import { SlideElement } from '..';
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
@@ -11,71 +13,34 @@ type Props = {
 
 const Section: FC<Props> = ({ children, title, subtitle, id }) => (
   <section id={id}>
-    <SlideElement animation="slide-down">
-      <h1>{title}</h1>
-    </SlideElement>
-    <SlideElement animation="slide-in-left">
-      <div className="description">{subtitle}</div>
-    </SlideElement>
-    <SlideElement animation="slide-in-right">
-      <div className="underline" />
-    </SlideElement>
-    {children}
+    <FlexContainer fullWidth vertical centered>
+      <MainContainer>
+        <FlexContainer vertical centered fullWidth>
+          <Spacer direction="vertical" size={useBreakpointValues({ xs: 8, sm: 10 })} />
+          <SlideElement animation="slide-down">
+            <Typography variant="title" color="main" lineHeight="none">
+              {title}
+            </Typography>
+          </SlideElement>
+          <Spacer direction="vertical" size={2} />
+          <SlideElement animation="slide-in-left">
+            <Typography variant="subtitle" color="muted" lineHeight="small" align="center">
+              {subtitle}
+            </Typography>
+          </SlideElement>
+          <Spacer direction="vertical" size={useBreakpointValues({ xs: 4, md: 5, lg: 6 })} />
+        </FlexContainer>
+      </MainContainer>
+      {children}
+    </FlexContainer>
 
     <style jsx>{`
       section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 20px;
-      }
-      h1 {
-        color: ${theme.color.main};
-        text-transform: uppercase;
-        text-align: center;
-        font-family: ${theme.font.family.title};
-        font-weight: normal;
-        font-size: 40pt;
-        margin: 60px 0 10px;
-      }
-      .underline {
-        width: 70px;
-        height: 4px;
-        background: #444649;
-        margin-bottom: 45px;
-      }
-      .description {
-        font-size: 16pt;
-        margin-bottom: 50px;
-        color: ${theme.color.muted};
-        text-transform: uppercase;
-        text-align: center;
+        overflow-x: hidden;
       }
       @media only screen and (max-width: 768px) {
-        h1 {
-          font-size: 35pt;
-        }
         .description {
-          font-size: 14pt;
-          margin-bottom: 30px;
           padding: 0 5px;
-        }
-        .underline {
-          margin-bottom: 35px;
-        }
-      }
-      @media only screen and (max-width: 425px) {
-        h1 {
-          font-size: 30pt;
-          margin: 50px 0 10px;
-        }
-        .description {
-          font-size: 13pt;
-          margin-bottom: 25px;
-        }
-        .underline {
-          margin-bottom: 20px;
         }
       }
     `}</style>

@@ -44,7 +44,11 @@ const Post: NextPage<Props> = ({ post }) => {
           category={post.category}
         />
         <div className="body">
-          <BlogSocial likeQty={post.likeQty} postTitle={post[locale].title ?? ''} postUrl={post.url ?? ''} />
+          <BlogSocial
+            likeQty={post.likeQty}
+            postTitle={post[locale].title ?? ''}
+            postUrl={post.url ?? ''}
+          />
           <Article content={post[locale].content ?? ''} />
         </div>
       </article>

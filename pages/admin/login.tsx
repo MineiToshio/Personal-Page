@@ -2,12 +2,13 @@ import React from 'react';
 import theme from '@/styles/theme';
 import { Login } from '@/components/shared';
 import { BaseLayout as Layout } from '@/components/layout';
+import constants from '@/helpers/constants';
 import type { NextPage } from 'next';
 
 const LoginPage: NextPage = () => (
   <Layout authorizationType="only_no_auth" title="Login">
     <div className="container">
-      <Login title="Toshio Minei Admin" />
+      <Login title={`${constants.shortName} Admin`} />
     </div>
     <style jsx>{`
       .container {

@@ -42,12 +42,16 @@ const Table: FC<Props> = ({
           {showRowNumber && <th className="rowNumber"> </th>}
           {header.map(item => (
             <th align={item.align ?? 'center'} style={{ width: item.width }} key={item.title}>
-              <Typography variant="subtitle" text={item.title.toUpperCase()} color="secondary" />
+              <Typography variant="subtitle" color="secondary">
+                {item.title.toUpperCase()}
+              </Typography>
             </th>
           ))}
           {options && (
             <th className="options">
-              <Typography variant="subtitle" text="OPCIONES" color="secondary" />
+              <Typography variant="subtitle" color="secondary">
+                OPCIONES
+              </Typography>
             </th>
           )}
         </tr>
@@ -57,7 +61,7 @@ const Table: FC<Props> = ({
           <tr key={itemBody[datasourceKeyAttribute]}>
             {showRowNumber && (
               <td className="rowNumber">
-                <Typography text={i + 1} color="secondary" />
+                <Typography color="secondary">{i + 1}</Typography>
               </td>
             )}
             {header.map(itemHeader => (
@@ -65,7 +69,7 @@ const Table: FC<Props> = ({
                 align={itemHeader.align ?? 'center'}
                 key={itemBody[datasourceKeyAttribute] + itemBody[itemHeader.dataAttribute]}
               >
-                <Typography text={itemBody[itemHeader.dataAttribute]} color="secondary" />
+                <Typography color="secondary">{itemBody[itemHeader.dataAttribute]}</Typography>
               </td>
             ))}
             {options && (

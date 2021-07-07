@@ -33,7 +33,7 @@ const ImageGallery = ({
     <div className="modal">
       <div className="container">
         <div className="header">
-          <Typography text="Image Gallery" variant="subtitle" />
+          <Typography variant="subtitle">Image Gallery</Typography>
           <button onClick={onClose} type="button" className={classnames(resetButtonClass, 'close')}>
             <Icon icon="times" />
           </button>

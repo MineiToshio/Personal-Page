@@ -10,6 +10,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import LineClamp from './LineClamp/LineClamp';
 import Login from './Login/Login';
 import Logo from './Logo/Logo';
+import MainContainer from './MainContainer/MainContainer';
 import Modal from './Modal/Modal';
 import Parallax from './Parallax/Parallax';
 import Particles from './Particles/Particles';
@@ -36,6 +37,7 @@ export {
   LineClamp,
   Login,
   Logo,
+  MainContainer,
   Modal,
   Parallax,
   Particles,

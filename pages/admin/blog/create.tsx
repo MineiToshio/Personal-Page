@@ -24,13 +24,13 @@ const CreatePost: NextPage = () => {
       const readingTimeEn = calculateReadingTime(contentEn);
       const post: PostDoc = {
         en: {
-          ...titleEn && { title: titleEn },
-          ...contentEn && { content: contentEn },
+          ...(titleEn && { title: titleEn }),
+          ...(contentEn && { content: contentEn }),
           readingTime: readingTimeEn,
         },
         es: {
-          ...titleEs && { title: titleEs },
-          ...contentEs && { content: contentEs },
+          ...(titleEs && { title: titleEs }),
+          ...(contentEs && { content: contentEs }),
           readingTime: readingTimeEs,
         },
         creator: {
@@ -38,11 +38,11 @@ const CreatePost: NextPage = () => {
           name: currentUser.displayName,
           photoUrl: currentUser.photoURL,
         },
-        ...featureImage && { featureImage },
-        ...url && { url },
+        ...(featureImage && { featureImage }),
+        ...(url && { url }),
         createdAt: getDate(),
         updatedAt: getDate(),
-        ...isPublished && { publishedAt: getDate() },
+        ...(isPublished && { publishedAt: getDate() }),
         isPublished,
         likeQty: 0,
         viewsQty: 0,
