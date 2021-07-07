@@ -13,16 +13,14 @@ const SkillTag = ({ icon, skill }: Props) => (
       <img className="icon" src={icon} alt={skill} title={skill} />
     </div>
     <Spacer direction="horizontal" size={1} />
-    <Typography color="white">{skill}</Typography>
+    <Typography>{skill}</Typography>
     <style jsx>{`
       .container {
-        background: ${theme.color.main};
-        border: 1px solid ${theme.color.main};
         height: 30px;
         display: flex;
         align-items: center;
-        border-radius: 3px;
         width: 100%;
+        white-space: nowrap;
       }
       .icon-container {
         background: ${theme.color.white};

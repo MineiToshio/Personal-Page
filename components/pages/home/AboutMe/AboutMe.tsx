@@ -78,9 +78,10 @@ const AboutMe = () => {
         }
         .skill-list {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 20px;
+          row-gap: 18px;
           width: 100%;
+          justify-content: space-around;
+          grid-template-columns: repeat(2, min-content);
         }
         @media only screen and (max-width: 1024px) {
           .info {
