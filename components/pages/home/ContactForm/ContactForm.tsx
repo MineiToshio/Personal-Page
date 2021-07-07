@@ -14,9 +14,9 @@ const ContactForm: FC = () => {
         method="POST"
       >
         <SlideElement animation="slide-in-left">
+          <input type="text" placeholder={t('name')} name="name" />
           <input type="email" placeholder={t('email')} name="email" />
           <input type="text" placeholder={t('subject')} name="subject" />
-          <input type="text" placeholder={t('name')} name="name" />
         </SlideElement>
         <SlideElement animation="slide-in-right">
           <textarea name="message" id="" cols={30} placeholder="Message" />
@@ -56,7 +56,7 @@ const ContactForm: FC = () => {
           cursor: auto;
           width: calc(100% - 16px);
           padding: 20px 8px;
-          border: 1px solid #e8e8e8;
+          border: 1px solid ${theme.color.border};
           font-family: ${theme.font.family.default};
           font-size: 18px;
           margin-bottom: 16px;
