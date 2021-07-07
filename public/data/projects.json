@@ -1,0 +1,167 @@
+[
+  {
+    "id": "12",
+    "name": {
+      "es": "Página Personal",
+      "en": "Personal Website"
+    },
+    "tech": ["React", "Firebase"],
+    "description": {
+      "es": "Mi pagina personal. Si, esta en la que te encuentras.",
+      "en": "It's my personal website. Yes, this is where you are now."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Personal-Page"
+  },
+  {
+    "id": "10",
+    "name": {
+      "es": "Wozzii",
+      "en": "Wozzii"
+    },
+    "tech": ["React", "Firebase"],
+    "description": {
+      "es": "Wozzii convierte Youtube en un aula colaborativa. Puedes organizar tutoriales, tomar notas o compartir información con otros estudiantes.",
+      "en": "Wozzii converts Youtube into a collaborative classroom. You can organize tutorials, take notes and share insights with other students."
+    },
+    "images": ["1.png", "2.png"],
+    "live": "https://wozzii.com"
+  },
+  {
+    "id": "1",
+    "name": {
+      "es": "Bildin",
+      "en": "Bildin"
+    },
+    "tech": ["AngularJS", "C#", "SQL Server"],
+    "description": {
+      "es": "Portal inmobiliario que busca ayudar a los agentes a compartir sus inmuebles y así puedan concretar ventas de una manera más rápida.",
+      "en": "Real estate portal that seeks to help agents share their properties so they can make sales faster."
+    },
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "2",
+    "name": {
+      "es": "Podcast Next",
+      "en": "Podcast Next"
+    },
+    "tech": ["React"],
+    "description": {
+      "es": "Reproductor de podcasts que usa la api de audioboom para mostrar el contenido. Usa el NextJs como framework para hacer server side rendering.",
+      "en": "Podcast player that uses the audioboom api to display content. I use NextJs framework to make server side rendering."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "https://podcast.mineitoshio.now.sh/",
+    "github": "https://github.com/MineiToshio/Podcast-Next"
+  },
+  {
+    "id": "3",
+    "name": {
+      "es": "Southern Copper: Captación de Personal",
+      "en": "Southern Copper: Personnel Recruitment"
+    },
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": {
+      "es": "Aplicación que se hace cargo de todo el proceso de captación de personal de la empresa Southern Copper Perú. La aplicación abarca la publicación de una oferta laboral, la postulación de los candidatos, selección de candidatos y visualización de reportes.",
+      "en": "Application that takes care of the entire recruitment process of the Southern Copper Peru. The application covers the publication of a job offer, the nomination of candidates, selection of candidates and display of reports."
+    },
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "4",
+    "name": {
+      "es": "Geoservice: Gestión de Proyectos",
+      "en": "Geoservice: Project Management"
+    },
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": {
+      "es": "Esta aplicación web se encarga de gestionar los diferentes proyectos de la empresa Geoservice. Abarca el ingreso del proyecto, su aprobación, asignación de recursos y seguimiento de las respectivas tareas.",
+      "en": "This web application is responsible for managing the different projects of the Geoservice company. It covers the income of the project, its approval, allocation of resources and monitoring of the respective tasks."
+    },
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "5",
+    "name": {
+      "es": "Linnso Website",
+      "en": "Sitio Web de Linnso "
+    },
+    "tech": ["jQuery"],
+    "description": {
+      "es": "Página web de la empresa Linnso. Es una single page application que divide sus secciones usando parallax.",
+      "en": "Linnso company website. It is a single page application that divides its sections using parallax."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/LinnsoWeb"
+  },
+  {
+    "id": "6",
+    "name": {
+      "es": "Noobout",
+      "en": "Noobout"
+    },
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": {
+      "es": "Portal E-Commerse de venta de productos electrónicos. Permite subir productos, crear categorías, ver reportes de ventas y hacer compras por medio de una pararela de pagos.",
+      "en": "E-Commerse portal for selling electronic products. It allows you to upload products, create categories, view sales reports and make purchases through a payment platform."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Noobout"
+  },
+  {
+    "id": "7",
+    "name": {
+      "es": "DSA: Plataforma Comercial",
+      "en": "DSA: Commercial Platform"
+    },
+    "tech": ["jQuery", "C#", "SQL Server"],
+    "description": {
+      "es": "Plataforma comercial que genera cotizaciones y órdenes de compra. Además, hace seguimiento de los diferentes clientes.",
+      "en": "Commercial platform that generates quotes and purchase orders. It also has a CRM built in."
+    },
+    "images": ["1.png", "2.png", "3.png"]
+  },
+  {
+    "id": "8",
+    "name": {
+      "es": "Dendro Website",
+      "en": "Sitio Web de Dendro"
+    },
+    "tech": ["jQuery"],
+    "description": {
+      "es": "Página web de Dendro. Muestra la información principal de la empresa, un catálogo de productos y servicios y un formulario de contacto.",
+      "en": "Dendro website. It shows the main information of the company, a catalog of products and services and a contact form."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "live": "http://dendro.us",
+    "github": "https://github.com/MineiToshio/DendroWeb"
+  },
+  {
+    "id": "9",
+    "name": {
+      "es": "Scoti Chatbot",
+      "en": "Scoti Chatbot"
+    },
+    "tech": ["AngularJS", "C#"],
+    "description": {
+      "es": "Chatbot para los procesos internos del banco Scotiabank Perú: información de los clientes, afiliación a cargos recurrentes, etc.",
+      "en": "Chatbot for the internal processes of Scotiabank Peru: customer information, affiliation to recurring charges, etc."
+    },
+    "images": ["1.png", "2.png"]
+  },
+  {
+    "id": "11",
+    "name": {
+      "es": "Platzi Overflow",
+      "en": "Platzi Overflow"
+    },
+    "tech": ["Angular", "Mongo", "NodeJS"],
+    "description": {
+      "es": "Una plataforma para hacer preguntas de diferentes tecnologías y ayudar a otros con tu conocimiento.",
+      "en": "A platform to ask questions about different technologies and help others with the knowledge you have."
+    },
+    "images": ["1.png", "2.png", "3.png"],
+    "github": "https://github.com/MineiToshio/Platzi-Overflow"
+  }
+]

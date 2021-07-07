@@ -22,7 +22,7 @@ const ProjectModal: FC<Props> = ({
   live,
   github,
 }) => {
-  const { t } = useTranslation('ProjectModal');
+  const { t, locale } = useTranslation('ProjectModal');
 
   const fullUrlImages: Array<string> = useMemo(
     () => images.map(image => `/img/portfolio/${id}/${image}`),
@@ -33,9 +33,9 @@ const ProjectModal: FC<Props> = ({
     <Modal visible={modalVisible} handleModalClose={handleModalClose}>
       <Slider images={fullUrlImages} />
       <div className="modal-info">
-        <h3>{name}</h3>
+        <h3>{name[locale]}</h3>
         <h4>{arrayToString(tech)}</h4>
-        <p>{description}</p>
+        <p>{description[locale]}</p>
         <div className="buttons">
           {live && (
             <a target="_blank" href={live} rel="noreferrer">
@@ -75,7 +75,7 @@ const ProjectModal: FC<Props> = ({
           border-radius: 5px;
           padding: 8px 10px;
           background: ${theme.color.white};
-          border: ${theme.color.main} solid 2px;
+          border: ${theme.color.main} solid 1px;
           cursor: pointer;
           margin-right: 10px;
           color: ${theme.color.main};

@@ -3,6 +3,7 @@ import Shuffle from 'shufflejs';
 import { Project as ProjectType } from '@/types/types';
 import useTranslation from '@/hooks/useTranslation';
 import theme from '@/styles/theme';
+import projects from '@/public/data/projects.json';
 import Project from './Project';
 import ProjectModal from './ProjectModal';
 import { SlideElement } from '../../../shared';
@@ -13,18 +14,11 @@ const deactivateFilters = () => {
 };
 
 const Portfolio: FC = () => {
-  const { t, locale } = useTranslation('Portfolio');
-  const [projects, setProjects] = useState<Array<ProjectType>>([]);
+  const { t } = useTranslation('Portfolio');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [modalProject, setModalProject] = useState<ProjectType | null>(null);
   const [shuffle, setShuffle] = useState<Shuffle | null>(null);
   const refPortfolio = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-    const projectJson = require(`@/public/data/projects.${locale}.json`);
-    setProjects(projectJson);
-  }, [locale]);
 
   const onModalClick = (project: ProjectType) => {
     setModalVisible(true);
@@ -80,17 +74,17 @@ const Portfolio: FC = () => {
           <button type="button" data-filter="" onClick={handleShuffle} className="active">
             {t('all')}
           </button>
-          <button type="button" data-filter="HTML" onClick={handleShuffle}>
-            HTML
+          <button type="button" data-filter="React" onClick={handleShuffle}>
+            React
           </button>
-          <button type="button" data-filter="jQuery" onClick={handleShuffle}>
-            jQuery
+          <button type="button" data-filter="Firebase" onClick={handleShuffle}>
+            Firebase
           </button>
           <button type="button" data-filter="AngularJS Angular" onClick={handleShuffle}>
             Angular
           </button>
-          <button type="button" data-filter="React" onClick={handleShuffle}>
-            React
+          <button type="button" data-filter="jQuery" onClick={handleShuffle}>
+            jQuery
           </button>
           <button type="button" data-filter="C#" onClick={handleShuffle}>
             C#
@@ -144,12 +138,13 @@ const Portfolio: FC = () => {
           color: ${theme.color.main};
           font-weight: bold;
           margin: 5px;
-          border: 2px solid ${theme.color.main};
+          border: 1px solid ${theme.color.main};
           text-transform: uppercase;
           cursor: pointer;
           background: none;
           outline: none;
           font-size: 16px;
+          border-radius: 4px;
         }
 
         .filters button.active,

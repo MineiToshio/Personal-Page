@@ -1,8 +1,14 @@
 export type Project = {
   id: string;
-  name: string;
+  name: {
+    es: string;
+    en: string;
+  };
   tech: Array<string>;
-  description: string;
+  description: {
+    es: string;
+    en: string;
+  };
   images: Array<string>;
   live?: string;
   github?: string;
