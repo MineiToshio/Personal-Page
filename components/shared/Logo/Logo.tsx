@@ -13,6 +13,7 @@ const Logo = () => (
         color: ${theme.color.main};
         text-decoration: none;
         margin-right: auto;
+        font-weight: bold;
       }
 
       @media only screen and (max-width: 425px) {
