@@ -65,7 +65,7 @@ const Hero: FC<Props> = ({ id }) => {
           margin: 20px;
         }
         .hero :global(.social-icons a) {
-          color: ${theme.color.dark};
+          color: ${theme.color.white};
         }
         .content {
           z-index: 1;
