@@ -109,8 +109,8 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
         .project-overlay {
           background: ${hexToRgba(theme.color.main, 0.8)};
           position: absolute;
-          left: ${PROJECT_PADDING};
-          right: ${PROJECT_PADDING};
+          left: 0;
+          right: 0;
           bottom: 0;
           top: 0;
           opacity: 0;
@@ -182,6 +182,10 @@ const Project: FC<Props> = ({ name, tech, id, handleClick }) => {
           .project {
             width: 50%;
             padding: 0 ${PROJECT_PADDING};
+          }
+          .project-overlay {
+            left: ${PROJECT_PADDING};
+            right: ${PROJECT_PADDING};
           }
         }
 
