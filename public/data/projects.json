@@ -1,5 +1,18 @@
 [
   {
+    "id": "13",
+    "name": {
+      "es": "Webveloper",
+      "en": "Webveloper"
+    },
+    "tech": ["React", "Node.js"],
+    "description": {
+      "es": "Una plataforma en la que puedes crear tu página web sin conocimientos de programación a base de plantillas.",
+      "en": "A platform where you can create your website without coding based on templates."
+    },
+    "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+  },
+  {
     "id": "12",
     "name": {
       "es": "Página Personal",
@@ -24,7 +37,7 @@
       "es": "Wozzii convierte Youtube en un aula colaborativa. Puedes organizar tutoriales, tomar notas o compartir información con otros estudiantes.",
       "en": "Wozzii converts Youtube into a collaborative classroom. You can organize tutorials, take notes and share insights with other students."
     },
-    "images": ["1.png", "2.png"],
+    "images": ["1.png", "2.png", "3.png", "4.png"],
     "live": "https://wozzii.com"
   },
   {
@@ -149,19 +162,5 @@
       "en": "Chatbot for the internal processes of Scotiabank Peru: customer information, affiliation to recurring charges, etc."
     },
     "images": ["1.png", "2.png"]
-  },
-  {
-    "id": "11",
-    "name": {
-      "es": "Platzi Overflow",
-      "en": "Platzi Overflow"
-    },
-    "tech": ["Angular", "Mongo", "NodeJS"],
-    "description": {
-      "es": "Una plataforma para hacer preguntas de diferentes tecnologías y ayudar a otros con tu conocimiento.",
-      "en": "A platform to ask questions about different technologies and help others with the knowledge you have."
-    },
-    "images": ["1.png", "2.png", "3.png"],
-    "github": "https://github.com/MineiToshio/Platzi-Overflow"
   }
 ]
