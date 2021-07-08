@@ -13,6 +13,11 @@ const Header = () => {
   const { t } = useTranslation('Header');
   const [active, setActive] = useState<boolean>(false);
 
+  const onLinkClick = (sectionId: string) => {
+    smoothScroll(sectionId);
+    setActive(false);
+  };
+
   return (
     <header className="header">
       <I18nLink href="/">
@@ -26,7 +31,7 @@ const Header = () => {
           <li>
             <button
               className={resetButtonClass}
-              onClick={() => smoothScroll(constants.sectionIds.hero)}
+              onClick={() => onLinkClick(constants.sectionIds.hero)}
               type="button"
             >
               {t('home')}
@@ -35,7 +40,7 @@ const Header = () => {
           <li>
             <button
               className={resetButtonClass}
-              onClick={() => smoothScroll(constants.sectionIds.aboutMe)}
+              onClick={() => onLinkClick(constants.sectionIds.aboutMe)}
               type="button"
             >
               {t('aboutMe')}
@@ -44,7 +49,7 @@ const Header = () => {
           <li>
             <button
               className={resetButtonClass}
-              onClick={() => smoothScroll(constants.sectionIds.portfolio)}
+              onClick={() => onLinkClick(constants.sectionIds.portfolio)}
               type="button"
             >
               {t('portfolio')}
@@ -54,7 +59,7 @@ const Header = () => {
           <li>
             <button
               className={resetButtonClass}
-              onClick={() => smoothScroll(constants.sectionIds.contact)}
+              onClick={() => onLinkClick(constants.sectionIds.contact)}
               type="button"
             >
               {t('contact')}
@@ -78,13 +83,12 @@ const Header = () => {
           padding: 10px 30px;
           flex-wrap: wrap;
           justify-content: space-between;
+          align-items: center;
           height: 51px; //height of header without padding
         }
 
         .burger {
           display: none;
-          position: absolute;
-          right: 30px;
           cursor: pointer;
           color: ${theme.color.secondary};
           font-size: 22px;
@@ -111,7 +115,7 @@ const Header = () => {
         }
 
         li {
-          margin: 0 30px;
+          margin-left: 60px;
           text-transform: uppercase;
           text-align: center;
         }
@@ -128,12 +132,17 @@ const Header = () => {
         }
 
         @media only screen and (max-width: 800px) {
+          .header {
+            padding: 10px 16px;
+          }
+
           ul {
             flex-direction: column;
           }
 
           li {
             padding: 4px;
+            margin-left: 0;
           }
 
           .burger {
