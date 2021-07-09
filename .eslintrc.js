@@ -23,7 +23,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint'],
   extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended', 'prettier'],
   env: {
     browser: true,
@@ -61,7 +61,6 @@ module.exports = {
     'consistent-return': ['error', { treatUndefinedAsUnspecified: true }],
     'no-use-before-define': 'off',
     'no-shadow': 'off',
-    'no-extra-parens': 'warn',
     'prefer-arrow-callback': 'error',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
