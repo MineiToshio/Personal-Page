@@ -1,5 +1,6 @@
 import React from 'react';
 import theme from '@/styles/theme';
+import { FlexContainer } from '@/components/core';
 
 type Props = {
   title: string;
@@ -8,26 +9,30 @@ type Props = {
 };
 
 const SectionFooter = ({ title, url, button }: Props) => (
-  <div className="view-more">
+  <div className="section-footer">
     <p>{title}</p>
     <a href={url} target="_blank" rel="noreferrer" aria-label={title}>
       {button}
     </a>
 
     <style jsx>{`
-      .view-more {
+      .section-footer {
         width: 100%;
         text-align: center;
         font-family: ${theme.font.family.title};
         font-size: 30px;
         color: ${theme.color.secondary};
         background-color: #f5f5f5;
-        padding: 40px 0;
+        padding: 32px 0;
         margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       p {
-        margin: 0 0 10px 0;
+        margin-bottom: 10px;
+        margin-top: 0;
       }
 
       a {
@@ -37,7 +42,10 @@ const SectionFooter = ({ title, url, button }: Props) => (
         text-decoration: none;
         padding: 10px;
         border-radius: 5px;
-        font-size: 15pt;
+        font-size: 20px;
+        letter-spacing: 1px;
+        width: fit-content;
+        margin: 0;
       }
 
       a:hover {
