@@ -80,20 +80,22 @@ const Header = () => {
           background: ${theme.color.white};
           box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.07);
           border-bottom: 1px solid #f0f0f0;
-          padding: 10px 30px;
+          padding: 10px 16px;
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
-          height: 51px; //height of header without padding
+          height: 41px;
         }
 
         .burger {
-          display: none;
+          display: initial;
+          top: 10px;
           cursor: pointer;
           color: ${theme.color.secondary};
           font-size: 22px;
           border: none;
           background: none;
+          font-size: 20pt;
         }
 
         .burger:hover {
@@ -101,11 +103,19 @@ const Header = () => {
         }
 
         .menu {
-          display: flex;
           transition: all 0.5s;
+          position: absolute;
+          top: 62px;
+          height: 0;
+          background: #e6e6e6;
+          overflow: hidden;
+          width: 100%;
+          left: 0;
+          display: block;
         }
 
         ul {
+          flex-direction: column;
           list-style: none;
           display: flex;
           justify-content: flex-end;
@@ -115,7 +125,7 @@ const Header = () => {
         }
 
         li {
-          margin-left: 60px;
+          padding: 4px;
           text-transform: uppercase;
           text-align: center;
         }
@@ -131,54 +141,45 @@ const Header = () => {
           color: ${theme.color.main};
         }
 
-        @media only screen and (max-width: 800px) {
+        .active {
+          height: 145px; //height of ul
+          border-top: 2px solid ${theme.color.main};
+        }
+
+        @media only screen and ${theme.breakpoint.smUp} {
           .header {
-            padding: 10px 16px;
+            height: 51px; //height of header without padding
           }
-
-          ul {
-            flex-direction: column;
-          }
-
-          li {
-            padding: 4px;
-            margin-left: 0;
-          }
-
           .burger {
-            display: initial;
-            top: 10px;
             font-size: 25pt;
           }
-
-          .menu {
-            position: absolute;
-            top: 72px; //height of header
-            height: 0;
-            background: #e6e6e6;
-            overflow: hidden;
-            width: 100%;
-            left: 0;
-            display: block;
-          }
-
-          .active {
-            height: 145px; //height of ul
-            border-top: 2px solid ${theme.color.main};
-          }
         }
-        @media only screen and (max-width: 425px) {
+
+        @media only screen and ${theme.breakpoint.mdUp} {
           .header {
-            height: 41px;
+            padding: 10px 30px;
           }
-          .logo {
-            font-size: 20pt;
+          .menu {
+            display: flex;
+            position: static;
+            height: inherit;
+            width: inherit;
+            background: transparent;
           }
           .burger {
-            font-size: 20pt;
+            display: none;
           }
-          .menu {
-            top: 62px;
+          ul {
+            flex-direction: row;
+          }
+          li {
+            padding: 0;
+            margin-left: 60px;
+          }
+        }
+        @media only screen and ${theme.breakpoint.xlUp} {
+          .header {
+            padding: 10px 5%;
           }
         }
       `}</style>
