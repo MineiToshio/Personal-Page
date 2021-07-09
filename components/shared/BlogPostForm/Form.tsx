@@ -65,13 +65,6 @@ const BlogPostForm = ({
     }
   };
 
-  const onImageDeleteClick = (imgUrl: string) => {
-    const shouldDeletePhoto = onImageDelete(imgUrl);
-    if (shouldDeletePhoto) {
-      setValue('featureImage', undefined);
-    }
-  };
-
   const onPreviewClick = () => {
     const blogPostForm = getValues() as Partial<FormType>;
     onPreview(blogPostForm);
@@ -144,7 +137,7 @@ const BlogPostForm = ({
             isLoading={isLoading}
           />
           <Spacer size={2} direction="horizontal" />
-          {isPostPublished ? (
+          {isPostPublished ? 
             onUnpublish && (
               <Button
                 icon="times"
@@ -156,7 +149,7 @@ const BlogPostForm = ({
                 key="unpublish"
               />
             )
-          ) : (
+           : (
             <Button
               icon="upload"
               text="Publish"
