@@ -43,6 +43,7 @@ const RecentPost: FC<Props> = ({ title, thumbnail, createdAt, url }) => {
           height: 60px;
           object-fit: cover;
           border-radius: 50%;
+          border: 1px solid ${theme.color.border};
         }
         .title {
           grid-area: title;
