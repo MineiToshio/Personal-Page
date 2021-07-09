@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Image from 'next/image';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
 import { I18nLink, Spacer, Typography } from '../../../core';
@@ -28,10 +29,16 @@ const PostPreview: FC<Props> = ({
 }) => {
   const { t } = useTranslation('PostPreview');
   return (
-    <article>
+    <article className="article">
       {featureImage && (
-        <I18nLink href={`/blog/${url}`}>
-          <img src={featureImage} className="post-img" alt={title} />
+        <I18nLink href={`/blog/${url}`} className="post-img">
+          <Image
+            src={featureImage}
+            width={670}
+            height={305}
+            layout="responsive"
+            objectFit="cover"
+          />
         </I18nLink>
       )}
       <div className="blog-data">
@@ -59,7 +66,7 @@ const PostPreview: FC<Props> = ({
       </I18nLink>
 
       <style jsx>{`
-        article {
+        .article {
           padding-bottom: 35px;
           margin-bottom: 40px;
         }
@@ -76,9 +83,8 @@ const PostPreview: FC<Props> = ({
           background: ${theme.color.main};
           color: ${theme.color.white};
         }
-        .post-img {
+        .article :global(.post-img div) {
           border-radius: 20px;
-          width: 100%;
         }
         .blog-data {
           display: grid;
