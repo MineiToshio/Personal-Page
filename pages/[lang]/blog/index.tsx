@@ -3,7 +3,7 @@ import { getPostsByIsPublished } from '@/firebase/posts';
 import withLocale from '@/hocs/withLocale';
 import useTranslation from '@/hooks/useTranslation';
 import { MainLayout as Layout } from '@/components/layout';
-import { Section } from '@/components/shared';
+import { Section, MainContainer } from '@/components/shared';
 import { timestampToDate } from '@/firebase/utils';
 import { BlogSidebar, PostPreview } from '@/components/pages/blog';
 import removeHtml from '@/helpers/removeHtml';
@@ -19,24 +19,26 @@ const Blog: NextPage<Props> = ({ posts }) => {
   return (
     <Layout title="Blog">
       <Section id="blog" title="Blog" subtitle={t('subtitle')}>
-        <div className="blog">
-          <div id="blog-list">
-            {posts.map(post => (
-              <PostPreview
-                key={post.id}
-                title={post[locale].title ?? ''}
-                featureImage={post.featureImage}
-                summary={removeHtml(post[locale].content ?? '')}
-                publishedAt={timestampToDate(post.publishedAt!)}
-                commentsQty={post.commentsQty}
-                readingTime={post[locale].readingTime ?? 0}
-                likeQty={post.likeQty}
-                url={post.url ?? ''}
-              />
-            ))}
+        <MainContainer centered>
+          <div className="blog">
+            <div id="blog-list">
+              {posts.map(post => (
+                <PostPreview
+                  key={post.id}
+                  title={post[locale].title ?? ''}
+                  featureImage={post.featureImage}
+                  summary={removeHtml(post[locale].content ?? '')}
+                  publishedAt={timestampToDate(post.publishedAt!)}
+                  commentsQty={post.commentsQty}
+                  readingTime={post[locale].readingTime ?? 0}
+                  likeQty={post.likeQty}
+                  url={post.url ?? ''}
+                />
+              ))}
+            </div>
+            <BlogSidebar recentPosts={posts} />
           </div>
-          <BlogSidebar recentPosts={posts} />
-        </div>
+        </MainContainer>
       </Section>
 
       <style jsx>{`
@@ -45,7 +47,6 @@ const Blog: NextPage<Props> = ({ posts }) => {
           grid-template-columns: 1fr minmax(auto, 300px);
           max-width: 1000px;
           column-gap: 30px;
-          margin: 10px;
         }
         @media screen and (max-width: 790px) {
           .blog {
