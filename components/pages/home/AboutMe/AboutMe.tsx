@@ -28,7 +28,10 @@ const AboutMe = () => {
             <div className="skills">
               <SlideElement animation="slide-in-right">
                 <FlexContainer centered vertical>
-                  <h2 className="skills-title">{t('technologiesIUsed')}</h2>
+                  <Typography variant="subtitle" fontWeight="bold">
+                    {t('technologiesIUsed')}
+                  </Typography>
+                  <Spacer direction="vertical" size={2} />
                   <div className="skill-list">
                     {technologies.map(technology => (
                       <SkillTag
@@ -73,12 +76,9 @@ const AboutMe = () => {
         .skills {
           grid-area: skills;
         }
-        .skills-title {
-          margin-top: 0;
-        }
         .skill-list {
           display: grid;
-          row-gap: 18px;
+          row-gap: 17px;
           width: 100%;
           justify-content: space-around;
           grid-template-columns: repeat(2, min-content);
