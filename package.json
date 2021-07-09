@@ -30,6 +30,7 @@
     "codemirror": "^5.62.0",
     "compressorjs": "^1.0.7",
     "default-passive-events": "^2.0.0",
+    "disqus-react": "^1.1.1",
     "dotenv": "^10.0.0",
     "firebase": "^8.6.8",
     "firebase-admin": "^9.9.0",

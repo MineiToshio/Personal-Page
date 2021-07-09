@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import dynamic from 'next/dynamic';
+import type { Size } from './Spacer/Spacer';
 import type { TableHeader, TableOptions } from './Table/Table';
 
 import BrandButton from './BrandButton/BrandButton';
@@ -34,4 +35,4 @@ export {
   Typography,
 };
 
-export type { TableHeader, TableOptions };
+export type { Size, TableHeader, TableOptions };

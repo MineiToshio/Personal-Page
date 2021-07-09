@@ -21,7 +21,7 @@ const strings: Strings = {
   },
   AboutMe: {
     whoAmI: '¿Quién soy?',
-    me: `Soy ${constants.name}, frontend developer, emprendedor y blogger. Me encuentro en Perú (GMT -5), me apasiona la tecnología y me encanta aprender nuevas cosas.`,
+    me: `Soy ${constants.name}, frontend developer, emprendedor y blogger. Me encuentro en Perú (GMT -5). Me apasiona la tecnología y me encanta aprender nuevas cosas.`,
     technologiesIUsed: 'Tecnologías que he usado',
     footerTitle: '¿quieres conocer más de mi?',
     footerButton: 'Visita mi LinkedIn',
@@ -54,20 +54,20 @@ const strings: Strings = {
     contact: 'contacto',
   },
   Blog: {
-    subtitle: 'APRENDAMOS UN POCO JUNTOS',
+    subtitle: 'Aprendamos un poco juntos',
   },
   Index: {
     aboutMeTitle: 'Sobre Mi',
-    aboutMeSubtitle: 'SOY UN FRONTEND DEVELOPER',
+    aboutMeSubtitle: 'Peruano, tech geek, emprendedor, lifelong learner',
     parallax1Quote: 'La mejor forma de predecir el futuro es implementarlo',
     parallax1Author: 'David Heinemeier - Creador de Ruby on Rails',
     portfolioTitle: 'Portafolio',
-    portfolioSubtitle: 'CONOCE ALGUNO DE LOS PROYECTOS EN LOS QUE HE TRABAJADO',
+    portfolioSubtitle: 'Conoce alguno de los proyectos en los que he trabajado',
     parallax2Quote:
       'Una máquina puede hacer el trabajo de cincuenta hombres ordinarios. Ninguna máquina puede hacer el trabajo de un hombre extraordinario.',
     parallax2Author: 'Elbert Hubbard - Escritor',
     contactTitle: 'Contacto',
-    contactSubtitle: '¿TIENES UNA IDEA DE PROYECTO? ¡TRABAJEMOS JUNTOS!',
+    contactSubtitle: '¿Tienes una idea de proyecto? ¡Trabajemos juntos!',
   },
   Spinner: {
     loading: 'Cargando',

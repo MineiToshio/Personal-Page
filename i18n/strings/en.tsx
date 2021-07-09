@@ -21,7 +21,9 @@ const strings: Strings = {
   },
   AboutMe: {
     whoAmI: 'Who am I?',
-    me: `I'm ${constants.name}, frontend developer, entrepreneur and blogger. I'm from Peru (GMT -5) and I love technology and I'm passionate about learning new things.`,
+    me: `Hey! I'm ${constants.name}, frontend developer with +${
+      new Date().getFullYear() - 2012
+    } years of experience. I'm from Peru (GMT -5). I love technology and I'm passionate about learning new things.`,
     technologiesIUsed: "Technologies I've used",
     footerTitle: 'Do you want to know more about me?',
     footerButton: 'Visit my LinkedIn',
@@ -54,20 +56,20 @@ const strings: Strings = {
     contact: 'contact',
   },
   Blog: {
-    subtitle: "LET'S LEARN TOGETHER",
+    subtitle: "Let's learn together",
   },
   Index: {
     aboutMeTitle: 'About Me',
-    aboutMeSubtitle: "I'M A FRONTEND DEVELOPER",
+    aboutMeSubtitle: 'Peruvian, tech geek, entrepreneur, lifelong learner',
     parallax1Quote: 'The best way to predict the future is to implement it',
     parallax1Author: 'David Heinemeier - Creator of Ruby on Rails',
     portfolioTitle: 'Portfolio',
-    portfolioSubtitle: "VIEW SOME OF THE PROJECTS I'VE WORKED ON",
+    portfolioSubtitle: "View some of the projects I've worked on",
     parallax2Quote:
       'One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man.',
     parallax2Author: 'Elbert Hubbard - Writer',
     contactTitle: 'Contact',
-    contactSubtitle: "DO YOU HAVE A PROJECT IDEA? LET'S WORK TOGETHER!",
+    contactSubtitle: "Do you have a project idea? Let's work together!",
   },
   Spinner: {
     loading: 'Loading',

@@ -20,6 +20,25 @@
   </a>
 </p>
 
+## 🔥 Features
+
+- Landing page to show your main info, portfolio and contact details.
+- Blog section with admin to maintain posts.
+- Social media friendly.
+- I18n.
+- Offline access with PWA.
+- Integration with Disqus to comment blog posts.
+- Integration with Google Analytics.
+
+Dev features:
+
+- Typescript enabled.
+- Maintained code format with Prettier & Eslint.
+- Precommit hooks with Lint Staged and Husky.
+- Commitlint enabled to standardize commit comments.
+- CI with Github actions.
+- Ready to deploy in Vercel.
+
 ## 🛠 Installation & Set Up
 
 1. Install dependencies:
@@ -44,6 +63,7 @@ FIREBASE_CLIENT_EMAIL=**********************
 FIREBASE_PRIVATE_KEY=**********************
 GOOGLE_ANALYTICS_TRAKING_ID=**********************
 FACEBOOK_APP_ID=**********************
+DISQUS_SHORTNAME=**********************
 ```
 
 3. Start dev server:
