@@ -3,7 +3,7 @@ import Router from 'next/router';
 import withLocale from '@/hocs/withLocale';
 import { MainLayout as Layout } from '@/components/layout';
 import { Spacer } from '@/components/core';
-import { Spinner } from '@/components/shared';
+import { Spinner, MainContainer } from '@/components/shared';
 import { NavArrows, BlogSocial, Article, PostHeader, Comments } from '@/components/pages/blog-post';
 import { getPublishedPostByUrl, increaseViewsQty } from '@/firebase/posts';
 import { timestampToDate } from '@/firebase/utils';
@@ -12,6 +12,7 @@ import type { NextPageContext, NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
 import useBreakpointValues from '@/hooks/useBreakpointValues';
 import type { Size } from '@/components/core';
+import theme from '@/styles/theme';
 
 type Props = {
   post: PostDoc | null;
@@ -45,29 +46,27 @@ const Post: NextPage<Props> = ({ post }) => {
           commentsQty={post.commentsQty}
           category={post.category}
         />
-        <div className="body">
+        <MainContainer centered className="body">
           <BlogSocial
             likeQty={post.likeQty}
             postTitle={post[locale].title ?? ''}
             postUrl={post.url ?? ''}
           />
           <Article content={post[locale].content ?? ''} />
-        </div>
+        </MainContainer>
       </article>
       <Spacer size={commentsTopSpace} direction="vertical" />
       <Comments url={url} id={post.id!} title={post[locale].title!} />
       <NavArrows urlPrev="#" urlNext="#" />
       <style jsx>{`
-        .body {
-          display: flex;
-          align-items: flex-start;
+        article :global(.body) {
           position: relative;
-          left: -50px;
-          justify-content: center;
+          left: auto;
+          align-items: flex-start;
         }
-        @media screen and (max-width: 1023px) {
-          .body {
-            left: auto;
+        @media screen and ${theme.breakpoint.lgUp} {
+          article :global(.body) {
+            left: -50px;
           }
         }
       `}</style>

@@ -42,6 +42,7 @@ const getInlineStyles = (styleProps: InlineStyleProps) => {
 };
 
 const FlexContainer = ({
+  className = '',
   vertical = false,
   fullWidth = false,
   fullHeight = false,
@@ -53,6 +54,7 @@ const FlexContainer = ({
 }: Props) => (
   <div
     className={classnames({
+      [className]: className !== '',
       'flex-container': true,
       vertical,
       'full-width': fullWidth,

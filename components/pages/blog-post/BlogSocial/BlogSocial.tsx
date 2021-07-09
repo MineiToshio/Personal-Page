@@ -42,10 +42,10 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
           });
         };
       `}</Script>
-      <button type="button" title={t('like')}>
+      {/* <button type="button" title={t('like')}>
         <Icon icon="thumbsUp" />
         <span className="like-count">{likeQty}</span>
-      </button>
+      </button> */}
       <button type="button" title={t('shareTwitter')} onClick={onTwitterClick}>
         <Icon icon="twitter" />
       </button>
@@ -57,10 +57,8 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
         .social {
           position: sticky;
           top: 150px;
-          font-size: 22px;
-          display: flex;
+          display: none;
           flex-direction: column;
-          margin-top: 10px;
           max-width: 100px;
           width: 100%;
         }
@@ -71,7 +69,7 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
           border: none;
           background-color: transparent;
           cursor: pointer;
-          font-size: 1.2em;
+          font-size: 32px;
           display: flex;
           align-items: center;
           outline: none;
@@ -85,9 +83,9 @@ const BlogSocial = ({ likeQty, postTitle, postUrl }: Props) => {
           margin-left: 10px;
           margin-top: 8px;
         }
-        @media screen and (max-width: 1023px) {
+        @media screen and ${theme.breakpoint.lgUp} {
           .social {
-            display: none;
+            display: flex;
           }
         }
       `}</style>

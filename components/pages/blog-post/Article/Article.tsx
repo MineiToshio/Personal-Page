@@ -17,18 +17,17 @@ const Article = ({ content }: Props) => (
         width: 100%;
         font-family: ${theme.font.family.default};
         font-size: ${useBreakpointValues(theme.font.size.body)};
-        line-height: 32px;
-        padding: 0 20px;
+        margin: 0 auto;
+      }
+      .article :global(.ql-editor) {
+        padding: 0;
       }
       .article :global(.ql-editor p) {
-        margin: 1em 0;
-        line-height: 32px;
+        margin-bottom: 1em;
+        line-height: ${theme.lineHeight.normal};
       }
       .article :global(img) {
         width: 100%;
-      }
-      p {
-        margin-top: 0;
       }
       .capital {
         font-size: 69px;
@@ -40,15 +39,9 @@ const Article = ({ content }: Props) => (
         padding: 5px;
         font-family: ${theme.font.family.elegant};
       }
-      @media screen and (max-width: 1023px) {
+      @media screen and ${theme.breakpoint.lgUp} {
         .article {
-          margin: 0 auto;
-        }
-      }
-      @media screen and (max-width: 768px) {
-        .article {
-          font-size: 18px;
-          line-height: 28px;
+          margin: inherit;
         }
       }
     `}</style>
