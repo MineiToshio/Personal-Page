@@ -1,5 +1,6 @@
 import React from 'react';
 import theme from '@/styles/theme';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
 import 'quill/dist/quill.snow.css';
 import 'highlight.js/styles/atom-one-dark.css';
 
@@ -15,7 +16,7 @@ const Article = ({ content }: Props) => (
         max-width: 700px;
         width: 100%;
         font-family: ${theme.font.family.default};
-        font-size: ${theme.font.size.body};
+        font-size: ${useBreakpointValues(theme.font.size.body)};
         line-height: 32px;
         padding: 0 20px;
       }

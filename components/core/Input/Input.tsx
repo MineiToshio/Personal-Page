@@ -3,6 +3,7 @@ import { useController, Control, RegisterOptions } from 'react-hook-form';
 import classnames from 'classnames';
 import theme from '@/styles/theme';
 import { getScrollStyles } from '@/styles/common';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
 
 export type Props = {
   placeholder: string;
@@ -42,7 +43,7 @@ const StandardInput = ({ placeholder, name, multiline, width, control, rules }: 
       <style jsx>{`
         .input {
           padding: 6px 16px;
-          font-size: ${theme.font.size.body};
+          font-size: ${useBreakpointValues(theme.font.size.body)};
           border: 1px solid ${theme.color.border};
           color: ${theme.color.dark};
           font-family: ${theme.font.family.default};

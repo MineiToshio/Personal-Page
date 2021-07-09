@@ -4,6 +4,7 @@ import Quill from 'quill';
 import useBoolean from '@/hooks/useBoolean';
 import hljs from '@/helpers/highlightjs';
 import useBodyScroll from '@/hooks/useBodyScroll';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
 import { ImageGallery } from '../../shared';
 import HtmlView from './HtmlView';
 import 'quill/dist/quill.snow.css';
@@ -122,7 +123,7 @@ const TextEditor = ({ value, onChange }: Props) => {
         <style jsx>{`
           .editor :global(.ql-container) {
             font-family: ${theme.font.family.default};
-            font-size: ${theme.font.size.body};
+            font-size: ${useBreakpointValues(theme.font.size.body)};
           }
           .editor :global(.ql-toolbar) {
             position: sticky;

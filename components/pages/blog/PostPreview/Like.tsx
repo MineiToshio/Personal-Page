@@ -1,6 +1,7 @@
 import React from 'react';
 import theme from '@/styles/theme';
 import { Icon } from '@/components/core';
+import useBreakpointValues from '@/hooks/useBreakpointValues';
 
 type Props = {
   likeQty: number;
@@ -32,7 +33,7 @@ const Like = ({ likeQty }: Props) => (
         align-items: center;
       }
       .like span {
-        font-size: ${theme.font.size.body};
+        font-size: ${useBreakpointValues(theme.font.size.body)};
         font-weight: bold;
       }
       .like:hover {
