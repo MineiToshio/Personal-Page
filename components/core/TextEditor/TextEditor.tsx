@@ -131,9 +131,12 @@ const TextEditor = ({ value, onChange }: Props) => {
             background: ${theme.color.white};
             z-index: 1;
           }
+          .article :global(.ql-editor) {
+            padding: 0;
+          }
           .editor :global(.ql-editor p) {
-            margin: 1em 0;
-            line-height: 32px;
+            margin-bottom: 1em;
+            line-height: ${theme.lineHeight.normal};
           }
           .editor :global(.ql-html:after) {
             content: 'html';

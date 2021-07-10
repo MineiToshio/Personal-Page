@@ -122,6 +122,7 @@ const HtmlView = ({ initialValue, onConfirm, onClose }: Props) => {
         .article {
           overflow-y: auto;
           height: 100vh;
+          padding: 20px;
         }
       `}</style>
     </div>
