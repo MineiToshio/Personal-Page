@@ -28,7 +28,7 @@
 - I18n.
 - Offline access with PWA.
 - Integration with Disqus to comment blog posts.
-- Integration with Google Analytics.
+- Integration with Google Analytics & Fullstory.
 
 Dev features:
 
@@ -73,6 +73,20 @@ DISQUS_SHORTNAME=**********************
 npm run dev
 ```
 
+4. Customization
+
+You can modify the following files to customize the website info:
+
+- Texts: `i18n/strings`
+- Favicon: `public/img/favicon`
+- Projects: `public/projects.json`
+- Social Profiles: `public/social.json`
+- Technologies you know: `public/technologies.json`
+
+5. Admin
+
+To use the admin just go to `/admin`. You'll need to enable `Firebase` authentication and give your user admin claims for the login to work.
+
 ## 🖨️ Using This Project
 
 If you want to use this project as your own portfolio, you can go ahead. Please give me credit by adding me in your footer or referencing this repo in your README.
@@ -83,6 +97,7 @@ This project was developed by Sergio Toshio Minei. You can find me here:
 
 - Website: https://toshiominei.com
 - Facebook: [@MineiToshio](https://facebook.com/MineiToshio)
+- Instagram: [@MineiToshio](https://instagram.com/MineiToshio)
 - Twitter: [@MineiToshio](https://twitter.com/MineiToshio)
 - Github: [@MineiToshio](https://github.com/MineiToshio)
 - LinkedIn: [@MineiToshio](https://linkedin.com/in/MineiToshio)
