@@ -7,16 +7,16 @@ import RecentPost from './RecentPost';
 import TagLink from './TagLink';
 
 type Props = {
-  recentPosts: Array<PostDoc>;
+  mostViewedPosts: Array<PostDoc>;
 };
 
-const BlogSidebar: FC<Props> = ({ recentPosts }) => {
+const BlogSidebar: FC<Props> = ({ mostViewedPosts }) => {
   const { t, locale } = useTranslation('BlogSidebar');
   return (
     <div className="sidebar">
       <div className="recent">
-        <h3>{t('recentPosts')}</h3>
-        {recentPosts.map((post: PostDoc) => (
+        <h3>{t('mostViewedPosts')}</h3>
+        {mostViewedPosts.map((post: PostDoc) => (
           <RecentPost
             key={post.id}
             title={post[locale].title ?? ''}
@@ -26,10 +26,10 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
           />
         ))}
       </div>
-      <div className="categories">
+      {/* TODO: Enable when categories are available */}
+      {/* <div className="categories">
         <h3>{t('categories')}</h3>
         <ul>
-          {/* TODO: Get the categories from a database */}
           <li>
             <a href="/#">C#</a>
           </li>
@@ -40,14 +40,15 @@ const BlogSidebar: FC<Props> = ({ recentPosts }) => {
             <a href="/#">CSS</a>
           </li>
         </ul>
-      </div>
-      <div className="tags">
+      </div> */}
+      {/* TODO: Enable when tags are available */}
+      {/* <div className="tags">
         <h3>{t('tags')}</h3>
         <TagLink tag="work" />
         <TagLink tag="vs code" />
         <TagLink tag="startup" />
         <TagLink tag="programming" />
-      </div>
+      </div> */}
 
       <style jsx>{`
         .sidebar {

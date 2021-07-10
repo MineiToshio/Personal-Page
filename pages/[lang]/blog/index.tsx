@@ -36,7 +36,12 @@ const Blog: NextPage<Props> = ({ posts }) => {
                 />
               ))}
             </div>
-            <BlogSidebar recentPosts={posts} />
+            {/* TODO: Bring this from Firestore when pagination is implemented */}
+            <BlogSidebar
+              mostViewedPosts={[...posts]
+                .sort((postA, postB) => postB.viewsQty - postA.viewsQty)
+                .slice(0, 5)}
+            />
           </div>
         </MainContainer>
       </Section>

@@ -7,7 +7,7 @@ const strings: Strings = {
     comments: 'comments',
   },
   BlogSidebar: {
-    recentPosts: 'Recent Posts',
+    mostViewedPosts: 'Most Viewed Posts',
     categories: 'Categories',
     tags: 'Tags',
   },
