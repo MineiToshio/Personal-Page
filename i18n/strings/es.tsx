@@ -21,7 +21,9 @@ const strings: Strings = {
   },
   AboutMe: {
     whoAmI: '¿Quién soy?',
-    me: `Soy ${constants.name}, frontend developer, emprendedor y blogger. Me encuentro en Perú (GMT -5). Me apasiona la tecnología y me encanta aprender nuevas cosas.`,
+    me: `Soy ${constants.name}, desarrollador frontend localizado en Lima, Perú. Ya voy ${
+      new Date().getFullYear() - 2012
+    } años creando cosas para la web. Mi objetivo es construir experiencias digitales atractivas, accesibles y satisfactorias.`,
     technologiesIUsed: 'Tecnologías que he usado',
     footerTitle: '¿quieres conocer más de mi?',
     footerButton: 'Visita mi LinkedIn',
