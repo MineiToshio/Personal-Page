@@ -11,6 +11,11 @@ const header: TableHeader = [
     align: 'left',
   },
   {
+    title: 'VIEWS',
+    dataAttribute: 'viewsQty',
+    width: 100,
+  },
+  {
     title: 'CREATED AT',
     dataAttribute: 'createdAt',
     width: 200,
@@ -59,6 +64,7 @@ const BlogTable = ({ posts, onEdit, onDelete, onPublish }: Props) => {
       posts.map(post => ({
         id: post.id,
         title: post.es.title,
+        viewsQty: post.viewsQty,
         createdAt: timestampToDateString(post.createdAt, 'es'),
         isPublished: post.isPublished ? 'Yes' : 'No',
       })),
