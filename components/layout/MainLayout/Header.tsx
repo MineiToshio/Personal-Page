@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classnames from 'classnames';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
 import { I18nLink, Icon } from '@/components/core';
@@ -30,7 +31,7 @@ const Header = () => {
         <ul>
           <li>
             <button
-              className={resetButtonClass}
+              className={classnames(resetButtonClass, 'link')}
               onClick={() => onLinkClick(constants.sectionIds.hero)}
               type="button"
             >
@@ -39,7 +40,7 @@ const Header = () => {
           </li>
           <li>
             <button
-              className={resetButtonClass}
+              className={classnames(resetButtonClass, 'link')}
               onClick={() => onLinkClick(constants.sectionIds.aboutMe)}
               type="button"
             >
@@ -48,17 +49,27 @@ const Header = () => {
           </li>
           <li>
             <button
-              className={resetButtonClass}
+              className={classnames(resetButtonClass, 'link')}
               onClick={() => onLinkClick(constants.sectionIds.portfolio)}
               type="button"
             >
               {t('portfolio')}
             </button>
           </li>
+          <li>
+            <a
+              href="https://caminoindependiente.com"
+              className="link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Podcast
+            </a>
+          </li>
           {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
           <li>
             <button
-              className={resetButtonClass}
+              className={classnames(resetButtonClass, 'link')}
               onClick={() => onLinkClick(constants.sectionIds.contact)}
               type="button"
             >
@@ -130,14 +141,15 @@ const Header = () => {
           text-align: center;
         }
 
-        button {
+        .link {
           color: ${theme.color.secondary};
           font-size: 22px;
           font-family: ${theme.font.family.title};
           font-weight: bold;
+          text-decoration: none;
         }
 
-        button:hover {
+        .link:hover {
           color: ${theme.color.main};
         }
 
@@ -174,12 +186,15 @@ const Header = () => {
           }
           li {
             padding: 0;
-            margin-left: 60px;
+            margin-left: 40px;
           }
         }
         @media only screen and ${theme.breakpoint.xlUp} {
           .header {
             padding: 10px 5%;
+          }
+          li {
+            margin-left: 60px;
           }
         }
       `}</style>
