@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import theme from '@/styles/theme';
 import { hexToRgba } from '@/styles/utils';
-import { Icon } from '../../core';
+import { Icon } from '@/components/core';
 
 type Props = {
   children: React.ReactNode | Array<React.ReactNode>;
@@ -57,8 +57,8 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
         }
 
         .modal {
-          max-width: 600px;
-          width: 100%;
+          max-width: 800px;
+          width: min-content;
           background: white;
           border-radius: 5px;
           position: relative;
@@ -94,7 +94,7 @@ const Modal: FC<Props> = ({ children, handleModalClose, visible }) => {
           filter: brightness(85%);
         }
 
-        @media only screen and (max-width: 650px) {
+        @media only screen and (max-width: 850px) {
           .modal {
             width: 90%;
           }

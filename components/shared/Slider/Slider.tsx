@@ -5,6 +5,9 @@ type Props = {
   images: Array<string>;
 };
 
+const MAX_WIDTH = 800;
+const MAX_HEIGHT = 600;
+
 declare const $JssorArrowNavigator$: any;
 declare const $JssorSlider$: any;
 declare const $Jssor$: any;
@@ -32,15 +35,28 @@ const Sliders: FC<Props> = ({ images }) => {
     setJssor(slider);
 
     const ScaleSlider = () => {
-      const MAX_WIDTH = 600;
       if (slider) {
         const containerElement = slider.$Elmt.parentNode;
         const containerWidth = containerElement.clientWidth;
+        const viewportHeight = window.innerHeight;
+        const viewportWidth = window.innerWidth;
 
         if (containerWidth) {
-          const expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-          slider.$ScaleWidth(expectedWidth);
+          const expectedWidth = Math.min(MAX_WIDTH, containerWidth);
+          const maxModalHeight = 774;
+          const mobileBreakpoint = 850;
+          if (viewportHeight < maxModalHeight && viewportWidth > viewportHeight) {
+            const aspectRatio = 4 / 3;
+            const nonSliderHeight = maxModalHeight - MAX_HEIGHT;
+            const paddingHeight = 40;
+            const sliderHeight = viewportHeight - nonSliderHeight - paddingHeight;
+            const sliderWidth = sliderHeight * aspectRatio;
+            slider.$ScaleWidth(sliderWidth);
+          } else if (viewportWidth > mobileBreakpoint) {
+            slider.$ScaleWidth(MAX_WIDTH);
+          } else {
+            slider.$ScaleWidth(expectedWidth);
+          }
         } else {
           window.setTimeout(ScaleSlider, 30);
         }
@@ -113,8 +129,8 @@ const Sliders: FC<Props> = ({ images }) => {
           margin: 0 auto;
           top: 0px;
           left: 0px;
-          width: 600px;
-          height: 400px;
+          width: ${MAX_WIDTH}px;
+          height: 600px;
           overflow: hidden;
           visibility: hidden;
           border-radius: 5px 5px 0 0;
@@ -125,8 +141,8 @@ const Sliders: FC<Props> = ({ images }) => {
           position: relative;
           top: 0px;
           left: 0px;
-          width: 600px;
-          height: 400px;
+          width: ${MAX_WIDTH}px;
+          height: 600px;
           overflow: hidden;
         }
 
