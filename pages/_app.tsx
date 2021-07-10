@@ -44,6 +44,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
+import fullstory from '@analytics/fullstory';
 import theme from '@/styles/theme';
 import UserConfigProvider, { UserContext } from '@/context/UserContext';
 import ViewportProvider from '@/context/ViewportContext';
@@ -88,6 +89,9 @@ const analytics = Analytics({
   plugins: [
     googleAnalytics({
       trackingId: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+    }),
+    fullstory({
+      org: process.env.FULLSTORY_ORG,
     }),
   ],
 });

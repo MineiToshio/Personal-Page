@@ -62,6 +62,7 @@ MEASUREMENT_ID=**********************
 FIREBASE_CLIENT_EMAIL=**********************
 FIREBASE_PRIVATE_KEY=**********************
 GOOGLE_ANALYTICS_TRAKING_ID=**********************
+FULLSTORY_ORG=**********************
 FACEBOOK_APP_ID=**********************
 DISQUS_SHORTNAME=**********************
 ```
