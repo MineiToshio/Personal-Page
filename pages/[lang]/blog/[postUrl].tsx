@@ -13,6 +13,7 @@ import type { PostDoc } from '@/types/firebase';
 import useBreakpointValues from '@/hooks/useBreakpointValues';
 import type { Size } from '@/components/core';
 import theme from '@/styles/theme';
+import constants from '@/helpers/constants';
 
 type Props = {
   post: PostDoc | null;
@@ -33,7 +34,7 @@ const Post: NextPage<Props> = ({ post }) => {
     return <Spinner />;
   }
 
-  const url = `https://toshiominei.com/${locale}/blog/${post.url}`;
+  const url = `${constants.url}/${locale}/blog/${post.url}`;
 
   return (
     <Layout title={post[locale].title} featureImage={post.featureImage} url={url}>
@@ -43,8 +44,9 @@ const Post: NextPage<Props> = ({ post }) => {
           readingTime={post[locale].readingTime ?? 0}
           title={post[locale].title!}
           featureImage={post.featureImage}
-          commentsQty={post.commentsQty}
           category={post.category}
+          postId={post.id ?? ''}
+          url={post.url ?? ''}
         />
         <MainContainer centered className="body">
           <BlogSocial

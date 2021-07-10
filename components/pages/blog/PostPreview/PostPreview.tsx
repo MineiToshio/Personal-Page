@@ -2,32 +2,31 @@ import React, { FC } from 'react';
 import Image from 'next/image';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
-import { I18nLink, Spacer, Typography } from '../../../core';
-import Like from './Like';
-import { BlogMeta, LineClamp } from '../../../shared';
+import { I18nLink, Spacer, Typography } from '@/components/core';
+import { BlogMeta, LineClamp } from '@/components/shared';
+import constants from '@/helpers/constants';
 
 type Props = {
+  postId: string;
   title: string;
   featureImage?: string;
   summary: string;
   publishedAt: Date;
-  commentsQty: number;
   readingTime: number;
   likeQty: number;
   url: string;
 };
 
 const PostPreview: FC<Props> = ({
+  postId,
   title,
   featureImage,
   summary,
   publishedAt,
-  commentsQty,
   readingTime,
-  likeQty,
   url,
 }) => {
-  const { t } = useTranslation('PostPreview');
+  const { t, locale } = useTranslation('PostPreview');
   return (
     <article className="article">
       {featureImage && (
@@ -42,7 +41,6 @@ const PostPreview: FC<Props> = ({
         </I18nLink>
       )}
       <div className="blog-data">
-        <Like likeQty={likeQty} />
         <I18nLink href={`/blog/${url}`} className="title">
           <Typography
             variant="subtitle"
@@ -54,7 +52,14 @@ const PostPreview: FC<Props> = ({
             {title}
           </Typography>
         </I18nLink>
-        <BlogMeta publishedAt={publishedAt} commentsQty={commentsQty} readingTime={readingTime} />
+        <Spacer direction="vertical" size={1} />
+        <BlogMeta
+          publishedAt={publishedAt}
+          readingTime={readingTime}
+          url={`${constants.url}/${locale}/blog/${url}`}
+          postId={postId}
+          title={title}
+        />
       </div>
       <Spacer direction="vertical" size={2} />
       <LineClamp lines={4}>
@@ -87,14 +92,7 @@ const PostPreview: FC<Props> = ({
           border-radius: 20px;
         }
         .blog-data {
-          display: grid;
-          grid-template-areas:
-            'like title'
-            'like meta';
-          grid-template-columns: minmax(auto, 50px) 1fr;
           margin-top: 20px;
-          grid-column-gap: 10px;
-          grid-row-gap: 8px;
         }
         .blog-data :global(.title) {
           grid-area: title;

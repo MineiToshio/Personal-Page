@@ -11,7 +11,6 @@ type Props = {
   publishedAt: Date;
   readingTime: number;
   featureImage?: string;
-  commentsQty: number;
   category?: string;
   content?: string;
   onClose: () => void;
@@ -24,7 +23,6 @@ const PostPreview = ({
   publishedAt,
   readingTime,
   featureImage,
-  commentsQty,
   category,
   content = '',
   onClose,
@@ -40,7 +38,6 @@ const PostPreview = ({
           readingTime={readingTime}
           title={title}
           featureImage={featureImage}
-          commentsQty={commentsQty}
           category={category}
         />
         <div className="body">

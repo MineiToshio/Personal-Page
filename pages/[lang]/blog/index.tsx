@@ -25,11 +25,11 @@ const Blog: NextPage<Props> = ({ posts }) => {
               {posts.map(post => (
                 <PostPreview
                   key={post.id}
+                  postId={post.id ?? ''}
                   title={post[locale].title ?? ''}
                   featureImage={post.featureImage}
                   summary={removeHtml(post[locale].content ?? '')}
                   publishedAt={timestampToDate(post.publishedAt!)}
-                  commentsQty={post.commentsQty}
                   readingTime={post[locale].readingTime ?? 0}
                   likeQty={post.likeQty}
                   url={post.url ?? ''}

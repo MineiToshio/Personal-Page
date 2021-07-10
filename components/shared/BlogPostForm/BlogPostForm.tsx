@@ -32,7 +32,6 @@ const BlogPostForm = ({
           publishedAt={new Date()}
           readingTime={0}
           featureImage={previewData.featureImage}
-          commentsQty={0}
           onClose={onPreviewClose}
         />
       )}

@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import classnames from 'classnames';
 import theme, { Color, FontSize, FontWeight, LineHeight, FontFamily, Align } from '@/styles/theme';
 import useBreakpointValues from '@/hooks/useBreakpointValues';
 
@@ -19,6 +20,7 @@ export type Props = {
   lineHeight?: LineHeight;
   fontFamily?: FontFamily;
   align?: Align;
+  noWrap?: boolean;
 };
 
 const Typography = ({
@@ -31,13 +33,14 @@ const Typography = ({
   lineHeight = 'normal',
   fontFamily,
   align,
+  noWrap = false,
 }: Props) => {
   const Tag = Variant[variant] as keyof JSX.IntrinsicElements;
   const defaultFontFamily = variant === 'title' ? 'title' : 'default';
   const defaultFontSize = variant === 'body2' ? 'body' : variant;
   const fontSizeValue = useBreakpointValues(theme.font.size[fontSize ?? defaultFontSize]);
   return (
-    <Tag className="text">
+    <Tag className={classnames({ text: true, 'no-wrap': noWrap })}>
       {children}
       <style jsx>{`
         .text {
@@ -51,6 +54,9 @@ const Typography = ({
         }
         .text:hover {
           color: ${theme.color[hoverColor ?? color]};
+        }
+        .no-wrap {
+          white-space: nowrap;
         }
       `}</style>
     </Tag>
