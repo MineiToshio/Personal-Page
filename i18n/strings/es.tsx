@@ -35,6 +35,7 @@ const strings: Strings = {
     viewMyWork: 'conoce mi trabajo',
     description:
       'Soy un ingeniero de software especializado en crear experiencias digitales para la web. Me apasiona usar la tecnología para mejorar la vida de las personas.',
+    contact: 'Contáctame',
   },
   Proyects: {
     title: '¿Quieres ver más proyectos?',

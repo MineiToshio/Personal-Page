@@ -37,6 +37,7 @@ const strings: Strings = {
     viewMyWork: 'view my work',
     description:
       "I'm a software engineer specialized in creating digital experiences for the web who is passionate about using technology to improve people's lives",
+    contact: 'Get In Touch',
   },
   Proyects: {
     title: 'Do you want to see more projects?',

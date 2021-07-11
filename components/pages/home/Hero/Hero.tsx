@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
 import constants from '@/helpers/constants';
-import { FlexContainer, Button, Typography, Spacer } from '@/components/core';
+import { Button, Typography, Spacer } from '@/components/core';
 import { SocialIcons, Particles } from '@/components/shared';
 import smoothScroll from '@/helpers/smoothScroll';
 import ViewMore from './ViewMore';
@@ -41,7 +41,7 @@ const Hero: FC<Props> = ({ id }) => {
         </div>
         <Spacer direction="vertical" size={6} />
         <Button
-          text="Contáctame"
+          text={t('contact')}
           onClick={() => smoothScroll(constants.sectionIds.contact)}
           backgroundColor="white"
           bordered
