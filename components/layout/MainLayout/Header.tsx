@@ -154,7 +154,7 @@ const Header = () => {
         }
 
         .active {
-          height: 145px; //height of ul
+          height: ${35 * 5}px; //height of ul
           border-top: 2px solid ${theme.color.main};
         }
 
