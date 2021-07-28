@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import classnames from 'classnames';
 import theme from '@/styles/theme';
 import useTranslation from '@/hooks/useTranslation';
@@ -11,12 +12,17 @@ import { getResetButtonStyles } from '@/styles/common';
 const { className: resetButtonClass, styles: resetButtonStyles } = getResetButtonStyles();
 
 const Header = () => {
-  const { t } = useTranslation('Header');
+  const router = useRouter();
+  const { t, locale } = useTranslation('Header');
   const [active, setActive] = useState<boolean>(false);
 
   const onLinkClick = (sectionId: string) => {
-    smoothScroll(sectionId);
-    setActive(false);
+    if (router.pathname === '/[lang]') {
+      smoothScroll(sectionId);
+      setActive(false);
+    } else {
+      router.push(`/[lang]#${sectionId}`, `/${locale}#${sectionId}`);
+    }
   };
 
   return (
@@ -57,6 +63,11 @@ const Header = () => {
             </button>
           </li>
           <li>
+            <I18nLink href="/blog">
+              <span className="link">Blog</span>
+            </I18nLink>
+          </li>
+          <li>
             <a
               href="https://caminoindependiente.com"
               className="link"
@@ -66,7 +77,6 @@ const Header = () => {
               Podcast
             </a>
           </li>
-          {/* <li><Link href="/blog"><a>blog</a></Link></li> */}
           <li>
             <button
               className={classnames(resetButtonClass, 'link')}
@@ -154,7 +164,7 @@ const Header = () => {
         }
 
         .active {
-          height: ${35 * 5}px; //height of ul
+          height: ${35 * 6}px; // (height of ul) x (# menu items)
           border-top: 2px solid ${theme.color.main};
         }
 
@@ -167,7 +177,7 @@ const Header = () => {
           }
         }
 
-        @media only screen and ${theme.breakpoint.mdUp} {
+        @media only screen and ${theme.breakpoint.lgUp} {
           .header {
             padding: 10px 30px;
           }
