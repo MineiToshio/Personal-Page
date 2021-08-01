@@ -6,7 +6,7 @@ import { MainLayout as Layout } from '@/components/layout';
 import { Section, MainContainer } from '@/components/shared';
 import { timestampToDate } from '@/firebase/utils';
 import { BlogSidebar, PostPreview } from '@/components/pages/blog';
-import removeHtml from '@/helpers/removeHtml';
+import formatHtml from '@/helpers/formatHtml';
 import type { NextPage } from 'next';
 import type { PostDoc } from '@/types/firebase';
 
@@ -28,7 +28,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
                   postId={post.id ?? ''}
                   title={post[locale].title ?? ''}
                   featureImage={post.featureImage}
-                  summary={removeHtml(post[locale].content ?? '')}
+                  summary={formatHtml(post[locale].content ?? '', 380)}
                   publishedAt={timestampToDate(post.publishedAt!)}
                   readingTime={post[locale].readingTime ?? 0}
                   likeQty={post.likeQty}

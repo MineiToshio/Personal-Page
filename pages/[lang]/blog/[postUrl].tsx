@@ -14,6 +14,7 @@ import useBreakpointValues from '@/hooks/useBreakpointValues';
 import type { Size } from '@/components/core';
 import theme from '@/styles/theme';
 import constants from '@/helpers/constants';
+import formatHtml from '@/helpers/formatHtml';
 
 type Props = {
   post: PostDoc | null;
@@ -37,7 +38,12 @@ const Post: NextPage<Props> = ({ post }) => {
   const url = `${constants.url}/${locale}/blog/${post.url}`;
 
   return (
-    <Layout title={post[locale].title} featureImage={post.featureImage} url={url}>
+    <Layout
+      title={post[locale].title}
+      featureImage={post.featureImage}
+      url={url}
+      description={formatHtml(post[locale].content ?? '', 200)}
+    >
       <article>
         <PostHeader
           publishedAt={timestampToDate(post.publishedAt!)}

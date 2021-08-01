@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import Head from 'next/head';
 import useTranslation from '@/hooks/useTranslation';
 import constants from '@/helpers/constants';
