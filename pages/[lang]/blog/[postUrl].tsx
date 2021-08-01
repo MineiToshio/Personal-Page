@@ -59,7 +59,8 @@ const Post: NextPage<Props> = ({ post }) => {
       </article>
       <Spacer size={commentsTopSpace} direction="vertical" />
       <Comments url={url} id={post.id!} title={post[locale].title!} />
-      <NavArrows urlPrev="#" urlNext="#" />
+      {/* TODO: Add post arrows */}
+      {/* <NavArrows urlPrev="#" urlNext="#" /> */}
       <style jsx>{`
         article :global(.body) {
           position: relative;
