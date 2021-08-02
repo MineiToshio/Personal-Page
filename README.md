@@ -32,12 +32,12 @@
 
 Dev features:
 
-- Typescript enabled.
-- Maintained code format with Prettier & Eslint.
-- Precommit hooks with Lint Staged and Husky.
-- Commitlint enabled to standardize commit comments.
-- CI with Github actions.
-- Ready to deploy in Vercel.
+- `Typescript` enabled.
+- Maintained code format with `Prettier` & `Eslint`.
+- Precommit hooks with `Lint Staged` and `Husky`.
+- `Commitlint` enabled to standardize commit comments.
+- CI with `Github actions`.
+- Ready to deploy in `Vercel`.
 
 ## 🛠 Installation & Set Up
 
@@ -112,5 +112,5 @@ Give a ⭐️ if you like the project!
 
 ## 📝 License
 
-Copyright © 2021 [Sergio Toshio Minei](https://github.com/MineiToshio).<br />
+Copyright © 2021 [Sergio Toshio Minei](https://toshiominei.com).<br />
 This project is [MIT](https://github.com/MineiToshio/Personal-Page/blob/master/LICENSE) licensed.
