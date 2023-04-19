@@ -1,5 +1,18 @@
 [
   {
+    "id": "14",
+    "name": {
+      "es": "Alo Home",
+      "en": "Alo Home"
+    },
+    "tech": ["React"],
+    "description": {
+      "es": "Alohome ayuda a los desarrolladores inmobiliarios a crear canales de conversión con el fin de conseguir más ventas en el menor tiempo posible.",
+      "en": "Alohome helps real estate developers create conversion pipelines in order to get more sales in the shortest possible time."
+    },
+    "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+  },
+  {
     "id": "13",
     "name": {
       "es": "Webveloper",
@@ -137,6 +150,7 @@
   },
   {
     "id": "8",
+    "disabled": true,
     "name": {
       "es": "Dendro Website",
       "en": "Sitio Web de Dendro"

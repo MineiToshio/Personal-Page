@@ -93,13 +93,17 @@ const Portfolio: FC = () => {
       </SlideElement>
       <div className="portfolio" ref={refPortfolio}>
         {projects.map(project => (
-          <Project
-            key={project.id}
-            handleClick={() => onModalClick(project)}
-            tech={project.tech}
-            name={project.name}
-            id={project.id}
-          />
+          <>
+            {!project.disabled && (
+              <Project
+                key={project.id}
+                handleClick={() => onModalClick(project)}
+                tech={project.tech}
+                name={project.name}
+                id={project.id}
+              />
+            )}
+          </>
         ))}
         <div className="column my-sizer-element" />
       </div>
