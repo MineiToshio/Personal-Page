@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef, Fragment } from 'react';
 import Shuffle from 'shufflejs';
 import { Project as ProjectType } from '@/types/types';
 import useTranslation from '@/hooks/useTranslation';
@@ -93,17 +93,16 @@ const Portfolio: FC = () => {
       </SlideElement>
       <div className="portfolio" ref={refPortfolio}>
         {projects.map(project => (
-          <>
+          <Fragment key={project.id}>
             {!project.disabled && (
               <Project
-                key={project.id}
                 handleClick={() => onModalClick(project)}
                 tech={project.tech}
                 name={project.name}
                 id={project.id}
               />
             )}
-          </>
+          </Fragment>
         ))}
         <div className="column my-sizer-element" />
       </div>
