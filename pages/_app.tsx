@@ -5,43 +5,7 @@ import 'nprogress/nprogress.css';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'default-passive-events';
-import { library, config } from '@fortawesome/fontawesome-svg-core';
-import {
-  faGithub,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-  faFacebookSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faAngleUp,
-  faTimes,
-  faQuoteRight,
-  faQuoteLeft,
-  faBars,
-  faThumbsUp,
-  faChevronLeft,
-  faChevronRight,
-  faGlobeAmericas,
-  faCaretDown,
-  faSignOutAlt,
-  faUser,
-  faSpinner,
-  faUpload,
-  faSave,
-  faPencilAlt,
-  faTrashAlt,
-  faEye,
-  faCheck,
-  faPlus,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  faEnvelope,
-  faClock,
-  faCommentDots,
-  faBookmark,
-  faCalendar,
-} from '@fortawesome/free-regular-svg-icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
 import fullstory from '@analytics/fullstory';
@@ -51,38 +15,6 @@ import ViewportProvider from '@/context/ViewportContext';
 import { Spinner } from '@/components/shared';
 
 config.autoAddCss = false;
-library.add(
-  faAngleUp,
-  faTimes,
-  faQuoteRight,
-  faQuoteLeft,
-  faBars,
-  faThumbsUp,
-  faChevronLeft,
-  faChevronRight,
-  faGlobeAmericas,
-  faEnvelope,
-  faClock,
-  faCommentDots,
-  faBookmark,
-  faCalendar,
-  faGithub,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-  faFacebookSquare,
-  faCaretDown,
-  faSignOutAlt,
-  faUser,
-  faSpinner,
-  faUpload,
-  faSave,
-  faPencilAlt,
-  faTrashAlt,
-  faEye,
-  faCheck,
-  faPlus,
-);
 
 const analytics = Analytics({
   app: 'toshi-site',
