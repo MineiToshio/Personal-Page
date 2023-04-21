@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextPage } from 'next';
 import Error from 'next/error';
-import { getDisplayName } from 'next/dist/next-server/lib/utils';
+// import { getDisplayName } from 'next/dist/next-server/lib/utils';
 import { isLocale, Locale } from '@/types/i18n';
 import { LocaleProvider } from '@/context/LocaleContext';
 
@@ -41,7 +41,7 @@ const withLocale = (WrappedPage: NextPage<any>) => {
   };
 
   // pretty display name for the debugger
-  WithLocale.displayName = `withLang(${getDisplayName(WrappedPage)})`;
+  // WithLocale.displayName = `withLang(${getDisplayName(WrappedPage)})`;
 
   return WithLocale;
 };

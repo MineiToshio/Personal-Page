@@ -8,12 +8,12 @@ export type Props = {
 
 const InternalLink = ({ href, children }: Props) => (
   <>
-    <Link href={href}>
+    <Link href={href} className="link">
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a>{children}</a>
+      {children}
     </Link>
     <style jsx>{`
-      a {
+      :global(.link) {
         text-decoration: none;
       }
     `}</style>

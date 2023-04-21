@@ -39,7 +39,7 @@ export const loginGoogle = async () => {
     const userData = await auth.signInWithPopup(provider);
     return await verifyAdmin(userData);
   } catch (e) {
-    return catchError(e);
+    return catchError(e as Firebase.auth.Error);
   }
 };
 

@@ -1,4 +1,4 @@
-import { css } from 'styled-jsx/css';
+import css from 'styled-jsx/css';
 import theme from '@/styles/theme';
 
 export const getScrollStyles = (element: string) => css.resolve`

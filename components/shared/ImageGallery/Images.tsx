@@ -35,13 +35,7 @@ const Images = ({ onImageSelect, onImageUpload, images, selectedImage }: Props) 
               })}
               key={image.url}
             >
-              <Image
-                src={image.url}
-                alt={image.name}
-                layout="fill"
-                objectFit="cover"
-                title={image.name}
-              />
+              <Image src={image.url} alt={image.name} fill title={image.name} />
             </button>
           ))}
         </div>
@@ -75,6 +69,9 @@ const Images = ({ onImageSelect, onImageUpload, images, selectedImage }: Props) 
         height: 100%;
         position: relative;
         border: 4px solid ${theme.color.border};
+      }
+      :global(.image img) {
+        object-fit: cover;
       }
       .selectedImage {
         border: 4px solid ${theme.color.main};

@@ -17,9 +17,6 @@ const env = {
 };
 
 const nextConfig = {
-  target: 'serverless',
-  transformManifest: manifest => ['/'].concat(manifest),
-  generateInDevMode: true,
   env,
   webpack: config => {
     // eslint-disable-next-line no-param-reassign

@@ -31,13 +31,7 @@ const PostPreview: FC<Props> = ({
     <article className="article">
       {featureImage && (
         <I18nLink href={`/blog/${url}`} className="post-img">
-          <Image
-            src={featureImage}
-            width={670}
-            height={305}
-            layout="responsive"
-            objectFit="cover"
-          />
+          <Image src={featureImage} width={670} height={305} alt={title} />
         </I18nLink>
       )}
       <div className="blog-data">
@@ -88,8 +82,9 @@ const PostPreview: FC<Props> = ({
           background: ${theme.color.main};
           color: ${theme.color.white};
         }
-        .article :global(.post-img div) {
+        .article :global(.post-img img) {
           border-radius: 20px;
+          object-fit: cover;
         }
         .blog-data {
           margin-top: 20px;

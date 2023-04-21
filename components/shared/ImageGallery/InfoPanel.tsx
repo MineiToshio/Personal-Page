@@ -14,7 +14,7 @@ type Props = {
 const InfoPanel = ({ onImageDelete, image }: Props) => (
   <div className="info-container">
     <div className="thumbnail">
-      <Image src={image.url} layout="fill" objectFit="contain" />
+      <Image src={image.url} alt={`${image.name}.${image.ext}`} width={205} height={205} />
     </div>
     <Spacer direction="vertical" size={2} />
     <InfoText text={`${image.name}.${image.ext}`} />
@@ -30,10 +30,13 @@ const InfoPanel = ({ onImageDelete, image }: Props) => (
         padding: 10px;
       }
       .thumbnail {
-        width: 100%;
-        padding-bottom: 100%;
+        width: 205px;
+        height: 205px;
         position: relative;
         background: ${theme.color.black};
+      }
+      :global(.thumbnail img) {
+        object-fit: contain;
       }
     `}</style>
   </div>
