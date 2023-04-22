@@ -31,7 +31,6 @@ const Blog: NextPage<Props> = ({ posts }) => {
                   summary={formatHtml(post[locale].content ?? '', 380)}
                   publishedAt={timestampToDate(post.publishedAt!)}
                   readingTime={post[locale].readingTime ?? 0}
-                  likeQty={post.likeQty}
                   url={post.url ?? ''}
                 />
               ))}

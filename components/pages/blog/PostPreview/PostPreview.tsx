@@ -13,7 +13,6 @@ type Props = {
   summary: string;
   publishedAt: Date;
   readingTime: number;
-  likeQty: number;
   url: string;
 };
 

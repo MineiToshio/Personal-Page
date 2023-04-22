@@ -38,14 +38,14 @@ const BlogPostForm = ({
   onLanguageChange,
   onPreview,
 }: Props) => {
-  const { control, handleSubmit, getValues, setValue, trigger } = useForm();
+  const { control, handleSubmit, getValues, setValue, trigger } = useForm<FormType>();
 
   useEffect(() => {
-    setValue('url', initialPost?.url);
-    setValue('titleEs', initialPost?.titleEs);
-    setValue('titleEn', initialPost?.titleEn);
-    setValue('contentEn', initialPost?.contentEn);
-    setValue('contentEs', initialPost?.contentEs);
+    setValue('url', initialPost?.url ?? '');
+    setValue('titleEs', initialPost?.titleEs ?? '');
+    setValue('titleEn', initialPost?.titleEn ?? '');
+    setValue('contentEn', initialPost?.contentEn ?? '');
+    setValue('contentEs', initialPost?.contentEs ?? '');
     setValue('featureImage', initialPost?.featureImage);
   }, [setValue, initialPost]);
 

@@ -1,23 +1,30 @@
 import React from 'react';
-import { useController, Control, RegisterOptions } from 'react-hook-form';
+import { useController, Control, RegisterOptions, FieldValues, Path } from 'react-hook-form';
 import classnames from 'classnames';
 import theme from '@/styles/theme';
 import { getScrollStyles } from '@/styles/common';
 import useBreakpointValues from '@/hooks/useBreakpointValues';
 
-export type Props = {
+export type Props<T extends FieldValues> = {
   placeholder: string;
-  name: string;
+  name: Path<T>;
   type?: 'text' | 'email' | 'password';
   multiline?: boolean;
   width?: number;
-  control: Control;
+  control: Control<T>;
   rules?: RegisterOptions;
 };
 
 const { className: scrollClass, styles } = getScrollStyles('textarea');
 
-const StandardInput = ({ placeholder, name, multiline, width, control, rules }: Props) => {
+const Input = <T extends FieldValues>({
+  placeholder,
+  name,
+  multiline,
+  width,
+  control,
+  rules,
+}: Props<T>) => {
   const {
     field,
     fieldState: { invalid },
@@ -68,4 +75,4 @@ const StandardInput = ({ placeholder, name, multiline, width, control, rules }: 
   );
 };
 
-export default StandardInput;
+export default Input;

@@ -52,6 +52,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+    'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
     // TypeScript
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-use-before-define': ['error'],
