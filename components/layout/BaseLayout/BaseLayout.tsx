@@ -21,7 +21,6 @@ const AdminLayout: FC<Props> = ({ children, title = constants.name, authorizatio
       <meta name="author" content={constants.name} />
       <meta name="theme-color" content={theme.color.main} />
       <link rel="shortcut icon" href="/img/favicon/favicon52.png" type="image/x-icon" />
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     </Head>
     {children}
   </Authorization>
