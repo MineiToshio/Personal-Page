@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import JsTimeAgo from 'javascript-time-ago';
+import JsTimeAgo, { LocaleData } from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en';
+import es from 'javascript-time-ago/locale/es';
 import type { Locale } from '@/types/i18n';
 
 type Props = {
@@ -7,13 +9,18 @@ type Props = {
   date: Date;
 };
 
+const Languages: Record<string, LocaleData> = {
+  en,
+  es,
+};
+
 const TimeAgo = ({ locale, date }: Props) => {
   const [timeAgo, setTimeAgo] = useState<JsTimeAgo>();
 
   useEffect(() => {
     const loadLocale = async () => {
-      const localeModule = (await import(`javascript-time-ago/locale/${locale}`)).default;
-      JsTimeAgo.addLocale(localeModule);
+      // const localeModule = (await import(`javascript-time-ago/locale/${locale}`)).default;
+      JsTimeAgo.addLocale(Languages[locale]);
       const timeAgoInstance = new JsTimeAgo(locale);
       setTimeAgo(timeAgoInstance);
     };
