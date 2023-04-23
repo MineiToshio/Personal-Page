@@ -19,6 +19,7 @@ const env = {
 
 const nextConfig = {
   env,
+  output: 'standalone',
   webpack: config => {
     // eslint-disable-next-line no-param-reassign
     config.resolve.alias['@'] = path.resolve(__dirname, '.');
