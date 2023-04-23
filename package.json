@@ -18,7 +18,9 @@
   "license": "ISC",
   "dependencies": {
     "@analytics/fullstory": "^0.2.6",
-    "@analytics/google-analytics": "^0.5.3",
+    "@analytics/google-analytics": "^1.0.5",
+    "@codemirror/lang-html": "^6.4.3",
+    "@codemirror/theme-one-dark": "^6.1.2",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -29,7 +31,7 @@
     "analytics": "^0.8.1",
     "babel-plugin-macros": "^3.1.0",
     "classnames": "^2.3.2",
-    "codemirror": "^5.65.12",
+    "codemirror": "^6.0.1",
     "compressorjs": "^1.2.1",
     "default-passive-events": "^2.0.0",
     "disqus-react": "^1.1.5",
@@ -53,15 +55,15 @@
     "react-hook-form": "^7.43.9",
     "shufflejs": "^5.4.1",
     "slugify": "^1.6.6",
-    "styled-jsx": "^3.4.7",
+    "styled-jsx": "^5.1.2",
     "uniqid": "^5.4.0",
-    "xml-formatter": "^2.6.1"
+    "xml-formatter": "^3.3.2"
   },
   "devDependencies": {
     "@types/codemirror": "^5.60.7",
     "@types/facebook-js-sdk": "^3.3.6",
     "@types/html-to-text": "^9.0.0",
-    "@types/node": "^15.14.9",
+    "@types/node": "^18.15.13",
     "@types/nprogress": "^0.2.0",
     "@types/quill": "^2.0.10",
     "@types/react": "^18.0.38",

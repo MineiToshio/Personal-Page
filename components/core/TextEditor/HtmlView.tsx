@@ -1,12 +1,22 @@
+/* eslint-disable import/no-extraneous-dependencies */
+// TODO: Eslint throws a weird error, the line above is to fix that.
 import React, { useRef, useState, useEffect } from 'react';
-import codemirror from 'codemirror';
+import { EditorView, keymap, lineNumbers } from '@codemirror/view';
+import { html as htmlLanguage } from '@codemirror/lang-html';
+import { syntaxHighlighting, defaultHighlightStyle } from '@codemirror/language';
+import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
+import {
+  closeBrackets,
+  autocompletion,
+  closeBracketsKeymap,
+  completionKeymap,
+} from '@codemirror/autocomplete';
+import { oneDark } from '@codemirror/theme-one-dark';
 import format from 'xml-formatter';
 import { Article } from '@/components/pages/blog-post';
 import theme from '@/styles/theme';
 import { Icon } from '@/components/core';
 import { getScrollStyles } from '@/styles/common';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/xml/xml';
 import classNames from 'classnames';
 
 type Props = {
@@ -19,43 +29,46 @@ const { className: scrollClass, styles } = getScrollStyles('div');
 
 const HtmlView = ({ initialValue, onConfirm, onClose }: Props) => {
   const [html, setHtml] = useState(initialValue);
-  const [editor, setEditor] = useState<codemirror.Editor | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loadCodemirror = async () => {
       if (ref.current) {
-        const htmlEditor = codemirror(ref.current, {
-          lineNumbers: true,
-          tabSize: 2,
-          mode: 'xml',
-        });
         // TODO: xml-formatter breaks if there are multiple parent nodes. Find a way to emit parent div
         const formattedValue = format(`<div>${initialValue}</div>`, {
           indentation: '  ',
           lineSeparator: '\n',
         });
-        htmlEditor.setValue(formattedValue);
-        setEditor(htmlEditor);
+        const updateListenerExtension = EditorView.updateListener.of(e => {
+          if (e.docChanged) {
+            const editorText = e.state.doc.toString();
+            setHtml(editorText.replace(/\n[ ]*/g, ''));
+          }
+        });
+        const htmlEditor = new EditorView({
+          parent: ref.current,
+          doc: formattedValue,
+          extensions: [
+            oneDark,
+            updateListenerExtension,
+            lineNumbers(),
+            history(),
+            htmlLanguage(),
+            syntaxHighlighting(defaultHighlightStyle),
+            closeBrackets(),
+            autocompletion(),
+            keymap.of([
+              ...defaultKeymap,
+              ...historyKeymap,
+              ...completionKeymap,
+              ...closeBracketsKeymap,
+            ]),
+          ],
+        });
       }
     };
     loadCodemirror();
   }, [initialValue]);
-
-  useEffect(() => {
-    const onChange = (instance: codemirror.Editor) => {
-      setHtml(instance.getValue().replace(/\n[ ]*/g, ''));
-    };
-
-    if (editor) {
-      editor.on('change', onChange);
-    }
-    return () => {
-      if (editor) {
-        editor.off('change', onChange);
-      }
-    };
-  }, [editor]);
 
   const onConfirmClick = () => onConfirm(html);
 
@@ -116,7 +129,7 @@ const HtmlView = ({ initialValue, onConfirm, onClose }: Props) => {
         .editor {
           width: calc(100% - 700px);
         }
-        .editor :global(.CodeMirror) {
+        .editor :global(.cm-editor) {
           height: 100vh;
         }
         .article {

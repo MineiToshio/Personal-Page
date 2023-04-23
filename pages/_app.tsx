@@ -20,7 +20,7 @@ const analytics = Analytics({
   app: 'toshi-site',
   plugins: [
     googleAnalytics({
-      trackingId: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+      measurementIds: [process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID],
     }),
     fullstory({
       org: process.env.FULLSTORY_ORG,
