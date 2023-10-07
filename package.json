@@ -44,7 +44,7 @@
     "intersection-observer": "^0.12.2",
     "javascript-time-ago": "^2.5.9",
     "jssor-slider": "^28.0.0",
-    "next": "^13.3.1",
+    "next": "^13.5.4",
     "next-offline": "^5.0.5",
     "nprogress": "^0.2.0",
     "particles.js": "^2.0.0",
